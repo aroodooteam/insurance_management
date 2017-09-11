@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <function model="product.template" name="update_property_income"/>
+        <record id="view_product_product_form" model="ir.ui.view">
+            <field name="name">product.product.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <!--<xpath expr="//div[@class='oe_left']/div[@name='options']" position="inside">-->
+                <xpath expr="//div[@class='oe_left']/div[@name='options']/div" position="after">
+                    <div name="Warranty">
+                        <field name="is_warranty"/>
+                        <label for="is_warranty"/>
+                    </div>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="Insurance" attrs="{'invisible': [('is_warranty', '!=', True)]}">
+                        <!--
+                        <separator string="Type of risk" colspan="4"/>
+                        <div name="Type of risk">
+                            <group colspan="4">
+                                <field name="type_risque_id" attrs="{'required': [('is_warranty', '=', True)]}"/>
+                                <field name="product_insurance_id" attrs="{'required': [('is_warranty', '=', True)]}"/>
+                                <field name="branch_insurance_id" attrs="{'required': [('is_warranty', '=', True)]}"/>
+                                <field name="branch_categ" attrs="{'required': [('is_warranty', '=', True)]}"/>
+                            </group>
+                        </div>
+                        -->
+                        <separator string="Commission Information" colspan="4"/>
+                        <div name="Commission information">
+                            <field name="commissionable"/>
+                            <label for="commissionable"/>
+                        </div>
+                        <!--
+                        <separator string="Warranty Tax" colspan="4"/>
+                        <div name="Warranty Tax">
+                            <field name="aro_taxe_ids">
+                                <tree string="Tax" editable="top">
+                                    <field name="tax_date"/>
+                                    <field name="tax_terfisc_id"/>
+                                    <field name="tax_te_id"/>
+                                    <field name="tax_tva_id"/>
+                                </tree>
+                            </field>
+                        </div>
+                        -->
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_insurance_warranty_search" model="ir.ui.view">
+            <field name="name">product.template.search</field>
+            <field name="model">product.template</field>
+            <field name="type">search</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Warranty">
+                    <field name="name" select="True"/>
+                    <!--
+                    <group expand="1" string="Group by">
+                        <filter name="group_by_type_risque" context="{'group_by': 'type_risque_id'}" string="Risk Type"/>
+                        <filter name="group_by_branch" context="{'group_by': 'branch_insurance_id'}" string="Branch"/>
+                        <filter name="group_by_branch_categ" context="{'group_by': 'branch_categ'}" string="Classification"/>
+                    </group>
+                    -->
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_aro_type_rique_warranty_view">
+            <field name="name">Warranty</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="search_view_id" ref="insurance_management.view_insurance_warranty_search"/>
+            <field name="domain">[('is_warranty', '=', True)]</field>
+            <field name="context">{'default_is_warranty': True}</field>
+        </record>
+
+        <!--parent="aro_v9.menu_root_type_risque_assurance"-->
+        <menuitem id="menu_aro_type_rique_warranty"
+            sequence="60"
+            action="act_open_aro_type_rique_warranty_view"/>
+    </data>
+</openerp>

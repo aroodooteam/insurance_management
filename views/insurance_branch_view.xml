@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="view_insurance_branch_tree" model="ir.ui.view">
+            <field name="name">insurance.branch.tree</field>
+            <field name="model">insurance.branch</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+            <tree string="Insurance branch">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="type"/>
+                <field name="category"/>
+            </tree>
+            </field>
+        </record>
+
+        <record id="view_insurance_branch_form" model="ir.ui.view">
+            <field name="name">insurance.branch.form</field>
+            <field name="model">insurance.branch</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+            <form string="Insurance branch">
+                <sheet>
+                    <group colspan="4">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="type"/>
+                        <field name="category"/>
+                    </group>
+                </sheet>
+            </form>
+            </field>
+        </record>
+
+        <record id="view_insurance_branch_search" model="ir.ui.view">
+            <field name="name">insurance.branch.search</field>
+            <field name="model">insurance.branch</field>
+            <field name="type">search</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+            <search string="Insurance branch">
+                <field name="name" select="True"/>
+                <field name="code"/>
+            </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_insurance_branch_view">
+            <field name="name">Insurance branch</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">insurance.branch</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_insurance_branch_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_insurance_branch_view_form">
+            <field name="act_window_id" ref="act_open_insurance_branch_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_insurance_branch_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_insurance_branch_view_tree">
+            <field name="act_window_id" ref="act_open_insurance_branch_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_insurance_branch_tree"/>
+        </record>
+
+        <menuitem id="menu_insurance_branch"
+            parent="insurance_management.menu_root_configuration_insurance"
+            sequence="20"
+            action="act_open_insurance_branch_view"/>
+
+    </data>
+</openerp>

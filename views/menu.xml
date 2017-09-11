@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <menuitem id="menu_root_insurance"
+            name="Insurances"
+            sequence="10"/>
+
+        <menuitem id="menu_root_customer_insurance"
+            parent="insurance_management.menu_root_insurance"
+            name="Customers"
+            sequence="10"/>
+
+        <menuitem id="menu_customer_insurance"
+            parent="insurance_management.menu_root_customer_insurance"
+            action="base.action_partner_form"
+            name="Customers"
+            sequence="10"/>
+
+        <menuitem id="menu_root_operation_insurance"
+            parent="insurance_management.menu_root_insurance"
+            name="Insurance operations"
+            sequence="20"/>
+
+        <menuitem id="menu_quotation_operation_insurance"
+            parent="insurance_management.menu_root_operation_insurance"
+            action="sale.action_quotations"
+            name="Quotations"
+            sequence="10"/>
+
+        <menuitem id="menu_insurance_policy"
+            parent="insurance_management.menu_root_operation_insurance"
+            action="account_analytic_analysis.action_account_analytic_overdue_all"
+            name="Policy"
+            sequence="10"/>
+
+        <menuitem id="menu_root_configuration_insurance"
+            parent="insurance_management.menu_root_insurance"
+            name="Configurations"
+            sequence="100"/>
+
+        <menuitem id="menu_root_product_insurance"
+            parent="insurance_management.menu_root_configuration_insurance"
+            name="Insurance Product"
+            sequence="40"/>
+
+        <menuitem id="menu_root_type_risque_insurance"
+            parent="insurance_management.menu_root_configuration_insurance"
+            name="Type risk"
+            sequence="60"/>
+
+        <menuitem id="menu_root_type_broker_insurance"
+            parent="insurance_management.menu_root_configuration_insurance"
+            name="Brokers"
+            sequence="70"/>
+
+    </data>
+</openerp>
