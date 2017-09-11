@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_insurance_product_tree" model="ir.ui.view">
+            <field name="name">insurance.product.tree</field>
+            <field name="model">insurance.product</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+            <tree string="Insurance product">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="branch_id"/>
+                <field name="fraction_ids" widget="many2many_tags"/>
+            </tree>
+            </field>
+        </record>
+
+        <record id="view_insurance_product_form" model="ir.ui.view">
+            <field name="name">insurance.product.form</field>
+            <field name="model">insurance.product</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Insurance product">
+                    <header>
+                    </header>
+                    <sheet>
+                        <field name="image_medium" widget="image" class="oe_left oe_avatar"/>
+                        <div class="oe_left">
+                            <div class="oe_title">
+                                <label for="name" class="oe_edit_only"/>
+                                <h1>
+                                    <field name="name" placeholder="Product Insurance Name"/>
+                                </h1>
+                            </div>
+                            <div class="oe_left" name="options" groups="base.group_user">
+                                <div>
+                                    <field name="code" placeholder="Code"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="oe_right oe_button_box">
+                        </div>
+                        <notebook colspan="4">
+                            <page name="Insurance branch" string="Insurance branch">
+                                <group colspan="4">
+                                    <field name="branch_id"/>
+                                    <field name="fraction_ids" widget="many2many_tags"/>
+                                </group>
+                            </page>
+                            <page name="Insurance complement" string="Insurance complement">
+                                <group colspan="12">
+                                    <group cols="6">
+                                        <separator string="Accessories Information" colspan="4"/>
+                                        <group colspan="12">
+                                            <field name="amount_accessories"/>
+                                            <field name="amount_accessories_nb"/>
+                                        </group>
+                                    </group>
+                                    <group cols="6">
+                                        <separator string="Warranty Limit" colspan="4"/>
+                                        <group colspan="12">
+                                            <field name="amount_threshold"/>
+                                        </group>
+                                    </group>
+                                </group>
+                                <group colspan="12">
+                                    <group cols="6">
+                                        <separator string="Notes" colspan="4"/>
+                                        <group colspan="12">
+                                            <field name="pas_num_module"/>
+                                            <field name="pas_ident"/>
+                                        </group>
+                                        <field name="comments" placeholder="comments" nolabel="1"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_insurance_product_search" model="ir.ui.view">
+            <field name="name">insurance.product.search</field>
+            <field name="model">insurance.product</field>
+            <field name="type">search</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Insurance product">
+                    <field name="name" select="True"/>
+                    <field name="branch_id"/>
+                    <group expand="1" string="Group by">
+                        <filter name="group_by_branche_insurance" context="{'group_by': 'branch_id'}" string="branch"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_insurance_product_view">
+            <field name="name">Insurance product</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">insurance.product</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_insurance_product_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{'search_default_group_by_branche_insurance': 1}</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_insurance_product_view_form">
+            <field name="act_window_id" ref="act_open_insurance_product_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_insurance_product_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_insurance_product_view_tree">
+            <field name="act_window_id" ref="act_open_insurance_product_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_insurance_product_tree"/>
+        </record>
+
+        <menuitem id="menu_insurance_product"
+            parent="insurance_management.menu_root_product_insurance"
+            sequence="40"
+            action="act_open_insurance_product_view"/>
+
+    </data>
+</openerp>

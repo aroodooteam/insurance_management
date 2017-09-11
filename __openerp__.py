@@ -18,11 +18,13 @@
         "views/account_analytic_account_view.xml",
         # "actions/act_window.xml",
         "views/menu.xml",
+        "views/insurance_product_view.xml",
         # "data/data.xml",
     ],
     "depends": [
         "base",
-        "account_analytic_analysis"
+        "account",
+        "account_analytic_analysis",
     ],
     "qweb": [
         # "static/src/xml/*.xml",
