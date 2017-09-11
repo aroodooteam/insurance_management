@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="fraction_annual" model="insurance.fraction">
+            <field name="name">Annual</field>
+            <field name="code">A</field>
+        </record>
+        <record id="fraction_half_yearly" model="insurance.fraction">
+            <field name="name">Half yearly</field>
+            <field name="code">S</field>
+        </record>
+        <record id="fraction_quarterly" model="insurance.fraction">
+            <field name="name">Quarterly</field>
+            <field name="code">T</field>
+        </record>
+        <record id="fraction_monthly" model="insurance.fraction">
+            <field name="name">Monthly</field>
+            <field name="code">M</field>
+        </record>
+        <record id="fraction_unique" model="insurance.fraction">
+            <field name="name">Unique</field>
+            <field name="code">U</field>
+        </record>
+    </data>
+</openerp>
