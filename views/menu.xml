@@ -28,11 +28,13 @@
             name="Quotations"
             sequence="10"/>
 
+        <!--
         <menuitem id="menu_insurance_policy"
             parent="insurance_management.menu_root_operation_insurance"
             action="account_analytic_analysis.action_account_analytic_overdue_all"
             name="Policy"
             sequence="10"/>
+        -->
 
         <menuitem id="menu_root_configuration_insurance"
             parent="insurance_management.menu_root_insurance"
