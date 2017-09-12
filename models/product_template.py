@@ -16,11 +16,11 @@ class ProductTemplate(models.Model):
         string='Is warranty',
         help='Check if this product is an warranty')
 
-    # type_risque_id = fields.Many2one(comodel_name='aro.type.risque',
-    #                                  string='Type of risk', required=False)
-    # product_insurance_id = fields.Many2one(comodel_name='aro.produit.assurance', string='Insurance Product', related='type_risque_id.produit_assurance_id', store=True)
-    # branch_insurance_id = fields.Many2one(comodel_name='aro.branche.assurance', string='Insurance Product', related='type_risque_id.produit_assurance_id.branche_assurance_id', store=True)
-    # branch_categ = fields.Selection(related='branch_insurance_id.category', string='Branch Category', store=True)
+    type_risk_id = fields.Many2one(
+        comodel_name='insurance.type.risk', string='Type of risk', required=False)
+    ins_product_id = fields.Many2one(comodel_name='insurance.product', string='Insurance Product', related='type_risk_id.ins_product_id', store=True)
+    branch_id = fields.Many2one(comodel_name='insurance.branch', string='Insurance Product', related='type_risk_id.ins_product_id.branch_id', store=True)
+    branch_categ = fields.Selection(related='branch_id.category', string='Branch Category', store=True)
     # aro_taxe_ids = fields.One2many(
     #     comodel_name='aro.taxe', inverse_name='product_id',
     #     string='Aro tax', help='Aro special tax')
