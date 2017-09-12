@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="insurance_product_incendies__primes_modr_r0" model="insurance.product">
+            <field name="amount_accessories">2000</field>
+            <field name="code">IPM</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
+            <field name="amount_accessories_nb">0.0</field>
+            <field name="pas_num_module">0</field>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual'))]"/>
+            <field name="name">Incendies à primes modéré</field>
+        </record>
+
+        <record id="aro_assistance_auto_h1" model="insurance.product">
+            <field name="code">ASSISTANCE_AUTO</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_automobile_r0"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
+            <field name="name">Assistance Auto</field>
+        </record>
+        <record id="aro_assistance_auto_flotte_h1" model="insurance.product">
+            <field name="code">ASSISTANCE_AUTOF</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_automobile_r0"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
+            <field name="name">Assistance Auto Flotte</field>
+        </record>
+        <record id="aro_global_de_banque_h1" model="insurance.product">
+            <field name="code">GLOBAL_BANQUE</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
+            <field name="name">Globale de Banque</field>
+        </record>
+
+        <record id="insurance_product_monovehicule" model="insurance.product">
+            <field name="code">MONOVEHICULE</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_automobile_r0"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
+            <field name="name">Monovehocule</field>
+        </record>
+        <record id="insurance_product_flottes_automobile" model="insurance.product">
+            <field name="code">FLOTTESAUTO</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_automobile_r0"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_half_yearly')), (4, ref('insurance_management.fraction_quarterly')), (4, ref('insurance_management.fraction_monthly')), (4, ref('insurance_management.fraction_unique'))]"/>
+            <field name="name">Flotte automobiles</field>
+        </record>
+        <record id="insurance_product_concessionnaire_garage" model="insurance.product">
+            <field name="code">CONGA</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_automobile_r0"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_half_yearly')), (4, ref('insurance_management.fraction_quarterly')), (4, ref('insurance_management.fraction_monthly')), (4, ref('insurance_management.fraction_unique'))]"/>
+            <field name="name">Concessionnaire-garage</field>
+        </record>
+        <record id="insurance_product_rc_vie_privee_g0" model="insurance.product">
+            <field name="amount_accessories">2000</field>
+            <field name="code">RCVP</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual'))]"/>
+            <field name="name">RC Vie Privée</field>
+        </record>
+        <record id="insurance_product_rc_collectivites_h0" model="insurance.product">
+            <field name="amount_accessories">2000</field>
+            <field name="code">RCCOLLECTIVITES</field>
+            <field name="amount_threshold">200</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
+            <field name="name">RC Collectivités</field>
+        </record>
+        <record id="insurance_product_rc_diverses_h0" model="insurance.product">
+            <field name="amount_accessories">2000</field>
+            <field name="code">RCDIVERSES</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
+            <field name="name">RC Diverses</field>
+        </record>
+        <record id="insurance_product_maritime_a0" model="insurance.product">
+            <field name="name">Embarcation de plaisance</field>
+            <field name="code">EMBARCATION_DE_PLAIS</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_maritime"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
+        </record>
+        <record id="insurance_product_maritime_a2" model="insurance.product">
+            <field name="name">RC Transporteur Maritime</field>
+            <field name="code">RCTM</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_branch_maritime"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
+        </record>
+        <record id="insurance_product_maritime_a3" model="insurance.product">
+            <field name="name">Corps de Navire</field>
+            <field name="code">CORPS_NAVIRE</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_branch_maritime"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
+        </record>
+        <record id="aro_assurance_scolaire_sr0" model="insurance.product">
+            <field name="code">ASSCO</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual'))]"/>
+            <field name="name">Assurance Scolaire</field>
+        </record>
+        <record id="aro_tous_risque_chantier_sr0" model="insurance.product">
+            <field name="code">TRISQUE_C/M</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_engineering"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_unique'))]"/>
+            <field name="name">Tous Risques Chantier/Montage</field>
+        </record>
+        <record id="aro_rc_decennal_sr0" model="insurance.product">
+            <field name="code">RC_DECENNAL</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_engineering"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_unique'))]"/>
+            <field name="name">RC Décennale</field>
+        </record>
+        <record id="aro_facultes_sr0" model="insurance.product">
+            <field name="code">FACULTES</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_maritime"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
+            <field name="name">Facultés</field>
+        </record>
+        <record id="aro_rctt_sr0" model="insurance.product">
+            <field name="code">RCTT</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_maritime"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
+            <field name="name">RCTT</field>
+        </record>
+        <record id="aro_sante_collectif" model="insurance.product">
+            <field name="name">Sante collectif</field>
+            <field name="code">SANTE_COL</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
+        </record>
+        <record id="aro_assistance_mapfre" model="insurance.product">
+            <field name="name">Assistance MAPFRE</field>
+            <field name="code">MAPFRE</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_unique'))]"/>
+        </record>
+        <record id="aro_aviation" model="insurance.product">
+            <field name="name">Aviation</field>
+            <field name="code">AVIATION</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_aviation"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_half_yearly')), (4, ref('insurance_management.fraction_quarterly')), (4, ref('insurance_management.fraction_monthly')), (4, ref('insurance_management.fraction_unique'))]"/>
+        </record>
+        <record id="aro_product_bris_de_glace_r0" model="insurance.product">
+            <field name="name">Bris de glaces</field>
+            <field name="code">BRISDEGLACES2</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
+        </record>
+        <record id="aro_individuelle_accident" model="insurance.product">
+            <field name="name">individuelle Accident</field>
+            <field name="code">INDIVACC</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_aviation"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
+        </record>
+        <record id="insurance_product_automobile_flotte_afp" model="insurance.product">
+            <field name="code">FLOTTES_AFP</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_automobile_r0"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_half_yearly')), (4, ref('insurance_management.fraction_quarterly')), (4, ref('insurance_management.fraction_monthly')), (4, ref('insurance_management.fraction_unique'))]"/>
+            <field name="name">Flottes AFP</field>
+        </record>
+        <record id="insurance_product_assistance_jw0" model="insurance.product">
+            <field name="code">PERS_ASSIST</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_unique'))]"/>
+            <field name="name">ASSISTANCE</field>
+        </record>
+        <record id="insurance_product_accident_collectif_jw0" model="insurance.product">
+            <field name="code">APA_COL</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
+            <field name="name">ACCIDENT COLLECTIF</field>
+        </record>
+        <record id="insurance_product_sante_individuel_jw0" model="insurance.product">
+            <field name="code">SANTE_IND</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_branch_personnes"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
+            <field name="name">SANTE INDIVIDUEL</field>
+        </record>
+        <record id="insurance_product_accident_individuel_jw0" model="insurance.product">
+            <field name="code">APA_IND</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
+            <field name="name">ACCIDENT INDIVIDUEL</field>
+        </record>
+        <record id="insurance_product_mr_entrep" model="insurance.product">
+            <field name="code">MR_ENTREP</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
+            <field name="name">Multirisque entreprise</field>
+        </record>
+        <record id="insurance_product_mrsh" model="insurance.product">
+            <field name="code">MRSH</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual'))]"/>
+            <field name="name">Multirisque simplifiiée habitation</field>
+        </record>
+        <record id="insurance_product_objets_precieux" model="insurance.product">
+            <field name="code">OBJETS_PRECIEUX</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
+            <field name="name">Objets précieux</field>
+        </record>
+        <record id="insurance_product_rcatc" model="insurance.product">
+            <field name="code">RCATC</field>
+            <field name="amount_accessories">2000</field>
+            <field name="amount_threshold">2000</field>
+            <field name="branch_id" ref="insurance_branch_maritime"/>
+            <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual'))]"/>
+            <field name="name">Responsablilité civile acconiers transitaires commissionnaires</field>
+        </record>
+    </data>
+</openerp>
