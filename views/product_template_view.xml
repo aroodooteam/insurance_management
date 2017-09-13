@@ -80,9 +80,9 @@
             <field name="context">{'default_is_warranty': True}</field>
         </record>
 
-        <!--parent="aro_v9.menu_root_type_risque_assurance"-->
         <menuitem id="menu_aro_type_rique_warranty"
             sequence="60"
+            parent="insurance_management.menu_root_type_risk_insurance"
             action="act_open_aro_type_rique_warranty_view"/>
     </data>
 </openerp>
