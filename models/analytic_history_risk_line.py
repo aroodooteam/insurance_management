@@ -11,17 +11,17 @@ class AnalyticHistoryRiskLine(models.Model):
     _description = 'Subscription line (Content list of risk type)'
 
     name = fields.Char(string='Description')
-    subscription_id = fields.Many2one(comodel_name='account.analytic.account', string='Subscription')
+    analytic_id = fields.Many2one(comodel_name='account.analytic.account', string='Subscription')
     history_id = fields.Many2one(comodel_name='analytic.history', string='Amendment Line')
-    ins_product_id = fields.Many2one(comodel_name='insurance.product', string='Insurance Product', related='subscription_id.ins_product_id')
+    ins_product_id = fields.Many2one(comodel_name='insurance.product', string='Insurance Product', related='analytic_id.ins_product_id')
     type_risk_id = fields.Many2one(comodel_name='insurance.type.risk', string='Risk', domain="[('ins_product_id', '=', ins_product_id)]")
     warranty_line_ids = fields.One2many(comodel_name='risk.warranty.line', inverse_name='history_risk_line_id', string='Warranty')
-    risk_description_ids = fields.One2many(comodel_name='analytic_history.risk.description', inverse_name='history_risk_line_id', string='Risk description')
+    risk_description_ids = fields.One2many(comodel_name='risk.description.line', inverse_name='history_risk_line_id', string='Risk description')
     # risk_warranty_tmpl_id = fields.Many2one(comodel_name='type.risk.warranty.template', string='Template', domain="[('type_risk_id', '=', type_risk_id)]")
 
     @api.onchange('history_id')
     def onchange_amendment_line(self):
-        self.subscription_id = self.history_id.subscription_id.id
+        self.analytic_id = self.history_id.analytic_id.id
 
     # TODO
     @api.multi
