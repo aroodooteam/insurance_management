@@ -39,6 +39,9 @@ class AccountAnalyticAccount(models.Model):
 
     branch_id = fields.Many2one(
         comodel_name='insurance.branch', string='Branch')
+    ins_product_id = fields.Many2one(
+        comodel_name='insurance.product', string='Inusrance Product',
+        required=True, domain="[('branch_id', '=', branch_id)]")
     on_warranty = fields.Boolean(string='On Warranty')
     warranty_invoiced = fields.Float(
         string='Invoiced', digits_compute=dp.get_precision('Account'),
