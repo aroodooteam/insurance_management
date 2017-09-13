@@ -36,7 +36,7 @@ class AnalyticHistory(models.Model):
         comodel_name='analytic.history.stage', string='Emission type',
         default=lambda self: self.env.ref('insurance_management.devis').id)
     risk_line_ids = fields.One2many(
-        comodel_name='aro.insurance.subscription.risk.line',
+        comodel_name='analytic_history.risk.line',
         inverse_name='history_id', string='Risks Type')
     parent_id = fields.Many2one(
         comodel_name='analytic.history', string='Parent',
