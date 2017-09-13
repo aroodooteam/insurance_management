@@ -46,7 +46,7 @@
             name="Insurance Product"
             sequence="40"/>
 
-        <menuitem id="menu_root_type_risque_insurance"
+        <menuitem id="menu_root_type_risk_insurance"
             parent="insurance_management.menu_root_configuration_insurance"
             name="Type risk"
             sequence="60"/>
