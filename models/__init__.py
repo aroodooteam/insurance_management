@@ -8,3 +8,6 @@ import insurance_type_risk
 import account_analytic_account
 import analytic_history_stage
 import analytic_history
+import analytic_history_risk_line
+import risk_warranty_line
+import risk_description_line
