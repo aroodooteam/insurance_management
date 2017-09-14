@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_analytic_history_tree" model="ir.ui.view">
+            <field name="name">analytic_history.tree</field>
+            <field name="model">analytic.history</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Analytic History" name="History" create="false">
+                    <field name="name"/>
+                    <field name="stage_id"/>
+                    <field name="starting_date"/>
+                    <field name="ending_date"/>
+                    <field name="is_validated"/>
+                    <field name="is_last_situation"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_analytic_history_form" model="ir.ui.view">
+            <field name="name">analytic_history.form</field>
+            <field name="model">analytic.history</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Analytic History" create="false">
+                    <header>
+                        <button string="Confirm" type="object" name="confirm_quotation" attrs="{'invisible': [('stage_id','!=', %(insurance_management.devis)d)]}"/>
+                        <field name="stage_id" widget="statusbar"/>
+                    </header>
+                    <sheet class="oe_form_sheet_full_screen">
+                        <div class="oe_left">
+                            <div class="oe_title">
+                                <label for="name" class="oe_edit_only"/>
+                                <h1>
+                                    <field name="name" required="True"/>
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="oe_right oe_button_box" name="button_box">
+                            <button class="oe_stat_button" string="Invoices" icon="fa-book" type="object" name="generate_invoice" attrs="{'invisible': [('is_last_situation','=', False)]}"/>
+                        </div>
+                        <group colspan="12">
+                            <group cols="6">
+                                <field name="parent_id" attrs="{'invisible': [('parent_id','=', False)], 'readonly': True}"/>
+                                <field name="analytic_id" invisible="0" readonly="1"/>
+                                <field name="is_last_situation"/>
+                                <field name="capital"/>
+                                <field name="eml"/>
+                                <field name="invoice_id" attrs="{'invisible': [('invoice_id','=', False)]}"/>
+                            </group>
+                            <group cols="6">
+                                <field name="starting_date"/>
+                                <field name="ending_date"/>
+                                <field name="creating_date"/>
+                            </group>
+                        </group>
+                        <notebook colspan="4">
+                            <page name="Risk Line" string="Risk Line">
+                                <field name="risk_line_ids" context="{'default_history_id': active_id}">
+                                    <tree string="Risk Line">
+                                        <field name="type_risk_id"/>
+                                        <field name="name"/>
+                                    </tree>
+                                    <form string="Risk Line">
+                                        <group colspan="4">
+                                            <field name="history_id" invisible="1"/>
+                                            <field name="analytic_id" invisible="1"/>
+                                            <field name="ins_product_id" invisible="1"/>
+                                            <field name="type_risk_id" string="Risk Type"/>
+                                            <field name="name"/>
+                                            <!--<field name="risk_warranty_tmpl_id" string="Warranty Lines Template" attrs="{'invisible': [('type_risk_id','=', False)]}"/>-->
+                                        </group>
+                                        <notebook colspan="4" attrs="{'invisible': [('type_risk_id','=', False)]}">
+                                            <page string="Warranty" name="Warranty" attrs="{'invisible': [('type_risk_id','=', False)]}">
+                                                <field name="warranty_line_ids" context="{'type_risk_id': type_risk_id}">
+                                                    <tree string="warranty" name="warranty" editable="top">
+                                                        <field name="warranty_id"/>
+                                                        <field name="name"/>
+                                                    </tree>
+                                                </field>
+                                            </page>
+                                            <page string="Descriptions" name="Descriptions" attrs="{'invisible': [('type_risk_id','=', False)]}">
+                                                <field name="risk_description_ids">
+                                                    <tree string="Descriptions" create="false" editable='top'>
+                                                        <field name="code" readonly="1"/>
+                                                        <field name="name" readonly="1"/>
+                                                        <field name="value"/>
+                                                    </tree>
+                                                </field>
+                                            </page>
+                                        </notebook>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                        <label string="Comments" for="comment"/>
+                        <field name="comment" placeholder="Notes..."/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_analytic_history_search" model="ir.ui.view">
+            <field name="name">analytic_history.search</field>
+            <field name="model">analytic.history</field>
+            <field name="type">search</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Amendment Lines">
+                    <field name="name" select="True"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</openerp>
