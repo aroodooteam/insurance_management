@@ -42,6 +42,7 @@ class AccountAnalyticAccount(models.Model):
     ins_product_id = fields.Many2one(
         comodel_name='insurance.product', string='Inusrance Product',
         required=True, domain="[('branch_id', '=', branch_id)]")
+
     on_warranty = fields.Boolean(string='On Warranty')
     warranty_invoiced = fields.Float(
         string='Invoiced', digits_compute=dp.get_precision('Account'),
@@ -59,17 +60,7 @@ class AccountAnalyticAccount(models.Model):
     # def open_hr_expense(self, cr, uid, ids, context=None):
     @api.multi
     def open_analytic_history(self):
-        # mod_obj = self.pool.get('ir.model.data')
-        # act_obj = self.pool.get('ir.actions.act_window')
-
-        # dummy, act_window_id = mod_obj.get_object_reference(cr, uid, 'hr_expense', 'expense_all')
-        # result = act_obj.read(cr, uid, [act_window_id], context=context)[0]
-
-        # line_ids = self.pool.get('hr.expense.line').search(cr,uid,[('analytic_account', 'in', ids)])
-        # result['domain'] = [('line_ids', 'in', line_ids)]
-        # names = [account.name for account in self.browse(cr, uid, ids, context=context)]
-        # result['name'] = _('Expenses of %s') % ','.join(names)
-        # result['context'] = {'analytic_account': ids[0]}
-        # result['view_type'] = 'form'
-        # return result
-        return True
+        act_window_id = self.env.ref('insurance_management.act_analytic_history_request')
+        fields_read = ['name', 'res_model', 'search_view_id', 'view_type', 'src_model', 'type', 'views', 'view_id', 'view_mode', 'target', 'context', 'domain']
+        res = act_window_id.read(fields_read)[0]
+        return res
