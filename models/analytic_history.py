@@ -13,7 +13,7 @@ class AnalyticHistory(models.Model):
     _name = 'analytic.history'
     _description = 'History of the policy'
 
-    subscription_id = fields.Many2one(
+    analytic_id = fields.Many2one(
         comodel_name='account.analytic.account', string='Subscription')
     name = fields.Char(string='History number')
     starting_date = fields.Date(
@@ -190,7 +190,7 @@ class AnalyticHistory(models.Model):
                     warranty_ids += risk_line_id.warranty_line_ids.mapped('warranty_id')
             invoice_line = []
             for warranty_id in warranty_ids:
-                compute_line = invline_obj.product_id_change(warranty_id.id, warranty_id.uom_id.id, partner_id=self.subscription_id.subscriber_id.id)
+                compute_line = invline_obj.product_id_change(warranty_id.id, warranty_id.uom_id.id, partner_id=self.analytic_id.subscriber_id.id)
                 line = compute_line.get('value', {})
                 line.update(product_id=warranty_id.id)
                 line.update(quantity=1)
@@ -199,7 +199,7 @@ class AnalyticHistory(models.Model):
             if self._context.get('insurance_categ') == 'T':
                 access_tmpl_id = self.env.ref('aro_custom_v8.product_template_accessoire_terrestre_r0')
                 access_id = product_obj.search([('product_tmpl_id', '=', access_tmpl_id.id)])
-                accessory_line = invline_obj.product_id_change(access_id.id, access_id.uom_id.id, partner_id=self.subscription_id.subscriber_id.id)
+                accessory_line = invline_obj.product_id_change(access_id.id, access_id.uom_id.id, partner_id=self.analytic_id.subscriber_id.id)
                 accessory_line = accessory_line.get('value', {})
                 compl_line = {
                     'product_id': access_id.id,
@@ -211,7 +211,7 @@ class AnalyticHistory(models.Model):
             elif self._context.get('insurance_categ') == 'M':
                 access_tmpl_id = self.env.ref('aro_custom_v8.product_template_accessoire_maritime_r0')
                 access_id = product_obj.search([('product_tmpl_id', '=', access_tmpl_id.id)])
-                accessory_line = invline_obj.product_id_change(access_id.id, access_id.uom_id.id, partner_id=self.subscription_id.subscriber_id.id)
+                accessory_line = invline_obj.product_id_change(access_id.id, access_id.uom_id.id, partner_id=self.analytic_id.subscriber_id.id)
                 accessory_line = accessory_line.get('value', {})
                 compl_line = {
                     'product_id': access_id.id,
@@ -225,16 +225,16 @@ class AnalyticHistory(models.Model):
                 'default_state': 'draft',
                 'default_type': 'out_invoice',
                 'default_history_id': self.id,
-                'default_subscription_id': self.subscription_id.id,
+                'default_analytic_id': self.analytic_id.id,
                 'default_prm_datedeb': dt.strftime(dt.strptime(self.starting_date, DEFAULT_SERVER_DATE_FORMAT), DEFAULT_SERVER_DATE_FORMAT),
                 'default_prm_datefin': dt.strftime(dt.strptime(self.ending_date, DEFAULT_SERVER_DATE_FORMAT), DEFAULT_SERVER_DATE_FORMAT),
                 'default_date_invoice': dt.strftime(dt.now(), DEFAULT_SERVER_DATE_FORMAT),
-                'default_partner_id': self.subscription_id.subscriber_id.id,
-                'default_final_customer_id': self.subscription_id.subscriber_id.id,
-                'default_origin': self.subscription_id.name +'/'+self.name,
-                'default_pol_numpol': self.subscription_id.name,
+                'default_partner_id': self.analytic_id.subscriber_id.id,
+                'default_final_customer_id': self.analytic_id.subscriber_id.id,
+                'default_origin': self.analytic_id.name +'/'+self.name,
+                'default_pol_numpol': self.analytic_id.name,
                 'default_journal_id': self._get_user_journal().id,
-                'default_account_id': self.subscription_id.subscriber_id.property_account_receivable.id or default_account.id,
+                'default_account_id': self.analytic_id.subscriber_id.property_account_receivable.id or default_account.id,
                 'default_invoice_line': invoice_line,
                 'default_comment': self.comment,
             }
