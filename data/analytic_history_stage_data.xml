@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="devis" model="analytic.history.stage">
+            <field name="name">Devis</field>
+            <field name="code">DEV</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="affaire_nouvelle" model="analytic.history.stage">
+            <field name="name">Affaire nouvelle</field>
+            <field name="code">AFN</field>
+            <field name="sequence">20</field>
+        </record>
+        <record id="renouvellement" model="analytic.history.stage">
+            <field name="name">Renouvellement</field>
+            <field name="code">REN</field>
+            <field name="sequence">30</field>
+        </record>
+        <record id="avenant" model="analytic.history.stage">
+            <field name="name">Avenant</field>
+            <field name="code">AVT</field>
+            <field name="sequence">40</field>
+        </record>
+        <record id="avenant_temporaire" model="analytic.history.stage">
+            <field name="name">Avenant temporaire</field>
+            <field name="code">TMP</field>
+            <field name="sequence">50</field>
+        </record>
+        <record id="regul_avenant_temporaire" model="analytic.history.stage">
+            <field name="name">Régularisation avenant temporaire</field>
+            <field name="code">REG</field>
+            <field name="sequence">60</field>
+        </record>
+        <record id="resiliation" model="analytic.history.stage">
+            <field name="name">Résiliation</field>
+            <field name="code">RES</field>
+            <field name="sequence">70</field>
+        </record>
+        <record id="suspension" model="analytic.history.stage">
+            <field name="name">Suspension</field>
+            <field name="code">SUS</field>
+            <field name="sequence">80</field>
+        </record>
+        <record id="remise_en_vigueur" model="analytic.history.stage">
+            <field name="name">Remise en vigueur</field>
+            <field name="code">REV</field>
+            <field name="sequence">90</field>
+        </record>
+        <record id="prime_ponctuelle" model="analytic.history.stage">
+            <field name="name">Prime ponctuelle</field>
+            <field name="code">PP</field>
+            <field name="sequence">100</field>
+        </record>
+        <record id="terme" model="analytic.history.stage">
+            <field name="name">Terme</field>
+            <field name="code">TER</field>
+            <field name="sequence">110</field>
+        </record>
+    </data>
+</openerp>
