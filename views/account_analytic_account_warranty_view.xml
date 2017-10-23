@@ -2,14 +2,30 @@
 <openerp>
     <data>
 
+            <!--view_mode="tree,form"-->
+        <!--
         <act_window id="act_analytic_history_request"
             name="History"
             res_model="analytic.history"
             src_model="account.analytic.account"
             context="{'default_analytic_id': active_id}"
-            view_mode="tree,form"
+            view_type="form"
             view_id="insurance_management.view_analytic_history_tree"
             domain="[('analytic_id', '=', active_id)]"/>
+        -->
+
+        <record id="act_analytic_history_request" model="ir.actions.act_window">
+            <field name="name">History</field>
+            <field name="res_model">analytic.history</field>
+            <field name="src_model">account.analytic.account</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="insurance_management.view_analytic_history_tree"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to register new history for contract
+                </p>
+            </field>
+        </record>
 
         <record id="account_analytic_account_form_warranty_form" model="ir.ui.view">
             <field name="name">account.analytic.account.form.warranty.inherit</field>
