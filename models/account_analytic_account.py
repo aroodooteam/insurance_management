@@ -46,6 +46,7 @@ class AccountAnalyticAccount(models.Model):
     risk_line_ids = fields.One2many(
         comodel_name='analytic.risk.line',
         inverse_name='analytic_id', string='Risks Type')
+    insured_id = fields.Many2one(comodel_name='res.partner', string='Insured')
 
     # End of new process with account_analytic_account
 
