@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import product_template
+import res_partner_family
+import res_partner
 import insurance_branch
 import insurance_fraction
 import insurance_product
