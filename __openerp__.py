@@ -8,6 +8,7 @@
     "complexity": "normal",
     "data": [
         # "data/templates.xml", # un comment to enable js, css code
+        'security/ir.model.access.csv',
         "data/insurance_branch_data.xml",
         "data/insurance_fraction_data.xml",
         "data/insurance_product_data.xml",
@@ -18,8 +19,8 @@
         "data/product_template_data.xml",
         # "security/security.xml",
         # "security/ir.model.access.csv",
-        "views/product_template_view.xml",
         "views/menu.xml",
+        "views/product_template_view.xml",
         "views/insurance_branch_view.xml",
         "views/insurance_fraction_view.xml",
         "views/insurance_type_risk_view.xml",
