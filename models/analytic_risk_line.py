@@ -18,6 +18,7 @@ class AnalyticRiskLine(models.Model):
     warranty_line_ids = fields.One2many(comodel_name='analytic.warranty.line', inverse_name='risk_line_id', string='Warranty')
     risk_description_ids = fields.One2many(comodel_name='analytic.description.line', inverse_name='risk_line_id', string='Risk description')
     risk_warranty_tmpl_id = fields.Many2one(comodel_name='analytic.risk.line', string='Template', domain="[('template', '=', True), ('type_risk_id', '=', type_risk_id)]")
+    partner_id = fields.Many2one(comodel_name='res.partner', string='Partner')
 
     @api.onchange('history_id')
     def onchange_amendment_line(self):
