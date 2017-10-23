@@ -7,11 +7,55 @@
             <field name="model">account.analytic.account</field>
             <field name="inherit_id" ref="account_analytic_analysis.account_analytic_account_form_form"/>
             <field name="arch" type="xml">
+                <xpath expr="//h1" position="after">
+                    <div name="insurance">
+                        <field name="is_insurance"/>
+                        <label for="is_insurance"/>
+                    </div>
+                </xpath>
                 <field name="manager_id" position="after">
-                    <field name="branch_id"/>
+                    <field name="branch_id" attrs="{'required': [('is_insurance', '=', True)], 'invisible': [('is_insurance', '!=', True)]}"/>
+                    <field name="ins_product_id" attrs="{'required': [('is_insurance', '=', True)], 'invisible': [('is_insurance', '!=', True)]}"/>
                 </field>
                 <xpath expr="//notebook" position="inside">
-                    <page string="Risk" name="Risk">
+                    <page string="Risk" name="Risk" attrs="{'invisible': [('is_insurance', '=', False)]}">
+                        <group colspan="4">
+                            <field name="risk_line_ids" nolabel="1" context="{'default_history_id': active_id}">
+                                <tree string="Risk Type" name="Risk Type">
+                                    <field name="type_risk_id"/>
+                                    <field name="name"/>
+                                </tree>
+                                <form string="Risk Line">
+                                    <group colspan="4">
+                                        <!--<field name="history_id" invisible="1"/>-->
+                                        <field name="analytic_id" invisible="1"/>
+                                        <field name="ins_product_id" invisible="1"/>
+                                        <field name="type_risk_id" string="Risk Type"/>
+                                        <field name="name"/>
+                                        <field name="risk_warranty_tmpl_id" string="Warranty Lines Template" attrs="{'invisible': [('type_risk_id','=', False)]}"/>
+                                    </group>
+                                    <notebook colspan="4" attrs="{'invisible': [('type_risk_id','=', False)]}">
+                                        <page string="Warranty" name="Warranty" attrs="{'invisible': [('type_risk_id','=', False)]}">
+                                            <field name="warranty_line_ids" context="{'type_risk_id': type_risk_id}">
+                                                <tree string="warranty" name="warranty" editable="top">
+                                                    <field name="warranty_id"/>
+                                                    <field name="name"/>
+                                                </tree>
+                                            </field>
+                                        </page>
+                                        <page string="Descriptions" name="Descriptions" attrs="{'invisible': [('type_risk_id','=', False)]}">
+                                            <field name="risk_description_ids">
+                                                <tree string="Descriptions" create="false" editable='top'>
+                                                    <field name="code" readonly="1"/>
+                                                    <field name="name" readonly="1"/>
+                                                    <field name="value"/>
+                                                </tree>
+                                            </field>
+                                        </page>
+                                    </notebook>
+                                </form>
+                            </field>
+                        </group>
                     </page>
                 </xpath>
             </field>
