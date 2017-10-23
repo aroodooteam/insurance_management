@@ -46,8 +46,8 @@ class AnalyticHistoryRiskLine(models.Model):
     def onchange_type_risk(self):
         if not self.type_risk_id:
             return False
-        description_obj = self.env['insurance.type.risk.description']
-        desc_ids = description_obj.search([('type_risque_id', '=', self.type_risk_id.id)])
+        description_obj = self.env['insurance_type_risk.description']
+        desc_ids = description_obj.search([('type_risk_id', '=', self.type_risk_id.id)])
         all_desc = []
         tmpl_obj = self.env['type.risk.warranty.template']
         tmpl_id = tmpl_obj.search([('type_risk_id', '=', self.type_risk_id.id), ('is_default', '=', True)], limit=1)
