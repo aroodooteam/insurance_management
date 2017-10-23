@@ -41,7 +41,13 @@ class AccountAnalyticAccount(models.Model):
         comodel_name='insurance.branch', string='Branch')
     ins_product_id = fields.Many2one(
         comodel_name='insurance.product', string='Inusrance Product',
-        required=True, domain="[('branch_id', '=', branch_id)]")
+        required=False, domain="[('branch_id', '=', branch_id)]")
+    is_insurance = fields.Boolean(string='Insurance contract', help='Check if it is an insurance contract')
+    risk_line_ids = fields.One2many(
+        comodel_name='analytic.risk.line',
+        inverse_name='analytic_id', string='Risks Type')
+
+    # End of new process with account_analytic_account
 
     on_warranty = fields.Boolean(string='On Warranty')
     warranty_invoiced = fields.Float(
@@ -61,6 +67,7 @@ class AccountAnalyticAccount(models.Model):
     @api.multi
     def open_analytic_history(self):
         act_window_id = self.env.ref('insurance_management.act_analytic_history_request')
-        fields_read = ['name', 'res_model', 'search_view_id', 'view_type', 'src_model', 'type', 'views', 'view_id', 'view_mode', 'target', 'context', 'domain']
-        res = act_window_id.read(fields_read)[0]
+        res = act_window_id.read()[0]
+        res['domain'] = [('analytic_id', '=', self.id)]
+        res['context'] = {'default_analytic_id': self.id}
         return res
