@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <delete id="insurance_type_risk_vhicule_r0" model="insurance.type.risk"/>
-        <delete id="insurance_type_risk_automobile_r0" model="aro.produit.assurance"/>
+        <!--<delete id="insurance_type_risk_vhicule_r0" model="insurance.type.risk"/>-->
+        <!--<delete id="insurance_type_risk_automobile_r0" model="aro.produit.assurance"/>-->
 
         <record id="insurance_type_risk_btiment_r0" model="insurance.type.risk">
             <field name="code">BATIMENT</field>
