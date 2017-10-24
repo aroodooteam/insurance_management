@@ -128,7 +128,7 @@ class AnalyticHistory(models.Model):
             parent_amendment_line = self._context.get('parent_amendment_line')
             parent_amendment_line = self.browse(parent_amendment_line)
             parent_amendment_line.write({'is_last_situation': False})
-        res = super(AroAmendmentLine, self).create(vals)
+        res = super(AnalyticHistory, self).create(vals)
         return res
 
     @api.multi
