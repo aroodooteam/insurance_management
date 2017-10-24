@@ -2,6 +2,15 @@
 <openerp>
     <data>
 
+        <act_window id="act_analytic_history_request"
+            name="History"
+            res_model="analytic.history"
+            src_model="account.analytic.account"
+            context="{'default_analytic_id': active_id}"
+            view_mode="tree,form"
+            view_id="insurance_management.view_analytic_history_tree"
+            domain="[('analytic_id', '=', active_id)]"/>
+
         <record id="view_account_analytic_account_form" model="ir.ui.view">
             <field name="name">account.analytic.account.form</field>
             <field name="model">account.analytic.account</field>
@@ -63,6 +72,11 @@
                             </field>
                         </group>
                     </page>
+                </xpath>
+                <xpath expr="//div[@name='buttons']" position="inside">
+                    <button name="%(act_analytic_history_request)d" type="action" class="oe_stat_button" icon="fa-calendar" attrs="{'invisible': [('history_count','=', 0)]}">
+                        <field name="history_count" widget="statinfo" string="History"/>
+                    </button>
                 </xpath>
             </field>
         </record>
