@@ -63,7 +63,7 @@
                                 Nothing to invoice, create
                             </span>
                             <button
-                                name="open_analytic_history"
+                                name="open_analytic_history_wiz"
                                 class="oe_link"
                                 string="History" type="object"/>
                         </td>
