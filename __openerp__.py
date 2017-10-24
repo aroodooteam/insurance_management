@@ -32,6 +32,7 @@
         # "actions/act_window.xml",
         "views/insurance_product_view.xml",
         # "data/data.xml",
+        "views/analytic_history_wiz_view.xml",
     ],
     "depends": [
         "base",
