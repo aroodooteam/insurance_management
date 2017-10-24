@@ -72,3 +72,17 @@ class AccountAnalyticAccount(models.Model):
         res['domain'] = [('analytic_id', '=', self.id)]
         res['context'] = {'default_analytic_id': self.id}
         return res
+
+    @api.multi
+    def open_analytic_history_wiz(self):
+        res = {
+            'name': 'History',
+            'type': 'ir.actions.act_window',
+            'res_model': 'analytic.history.wiz',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'view_id': self.env.ref('insurance_management.view_analytic_history_wiz_form').id,
+            'target': 'new',
+            'context': {}
+        }
+        return res
