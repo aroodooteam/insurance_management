@@ -17,11 +17,16 @@
                     <field name="branch_id" attrs="{'required': [('is_insurance', '=', True)], 'invisible': [('is_insurance', '!=', True)]}"/>
                     <field name="ins_product_id" attrs="{'required': [('is_insurance', '=', True)], 'invisible': [('is_insurance', '!=', True)]}"/>
                 </field>
+                <field name="partner_id" position="replace">
+                    <field name="partner_id" string="subscriber"/>
+                    <field name="insured_id"/>
+                </field>
                 <xpath expr="//notebook" position="inside">
                     <page string="Risk" name="Risk" attrs="{'invisible': [('is_insurance', '=', False)]}">
                         <group colspan="4">
                             <field name="risk_line_ids" nolabel="1" context="{'default_history_id': active_id}">
                                 <tree string="Risk Type" name="Risk Type">
+                                    <field name="partner_id"/>
                                     <field name="type_risk_id"/>
                                     <field name="name"/>
                                 </tree>
@@ -30,6 +35,7 @@
                                         <!--<field name="history_id" invisible="1"/>-->
                                         <field name="analytic_id" invisible="1"/>
                                         <field name="ins_product_id" invisible="1"/>
+                                        <field name="partner_id"/>
                                         <field name="type_risk_id" string="Risk Type"/>
                                         <field name="name"/>
                                         <field name="risk_warranty_tmpl_id" string="Warranty Lines Template" attrs="{'invisible': [('type_risk_id','=', False)]}"/>
