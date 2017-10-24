@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_analytic_history_wiz_form" model="ir.ui.view">
+            <field name="name">analytic.history.wiz.form</field>
+            <field name="model">analytic.history.wiz</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Analytic History">
+                    <group colspan="4" string="Choose the stage of history you need to create">
+                        <field name="stage_id" widget="selection"/>
+                    </group>
+                    <footer>
+                        <button string="Validate" type="object" name="to_validate" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" special="cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>
