@@ -47,7 +47,8 @@ class AccountAnalyticAccount(models.Model):
         comodel_name='analytic.risk.line',
         inverse_name='analytic_id', string='Risks Type')
     insured_id = fields.Many2one(comodel_name='res.partner', string='Insured')
-
+    history_count = fields.Integer(
+        compute='get_history_count', string='History count')
     # End of new process with account_analytic_account
 
     on_warranty = fields.Boolean(string='On Warranty')
@@ -86,3 +87,10 @@ class AccountAnalyticAccount(models.Model):
             'context': {}
         }
         return res
+
+    @api.multi
+    def get_history_count(self):
+        history_obj = self.env['analytic.history']
+        for analytic in self:
+            history_count = history_obj.search_count([('analytic_id', '=', analytic.id)])
+            analytic.history_count = history_count
