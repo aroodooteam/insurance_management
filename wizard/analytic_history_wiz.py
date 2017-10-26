@@ -142,6 +142,21 @@ class AnalyticHistoryWiz(models.TransientModel):
 
     # TODO
     @api.multi
-    def reinstatement_subscription(self):
-        res = False
-        return res
+    def reinstatement_analytic_account(self):
+        """ Reinstatment : d'abord voir si police suspendue """
+        status_id = self.env.ref('insurance_management.status_suspendu')
+        if self.status_id != status_id:
+            raise exceptions.Warning(_('Sorry, You don\'t have to reinstate a subscription which is not suspended'))
+        else:
+            history_obj = self.env['analytic.history']
+            res = self.with_context(version_type='reinstatement').renew_analytic_account()
+            ctx = res.get('context', {})
+            res.update(name=_('Reinstatment'))
+            history_id = ctx.get('default_parent_id', False)
+            history_id = history_obj.browse(history_id)
+            ctx.update(default_starting_date=history_id.starting_date)
+            ctx.update(default_ending_date=history_id.ending_date)
+            ctx.update(default_stage_id=self.env.ref('insurance_management.remise_en_vigueur').id)
+            res.update(context=ctx)
+            return res
+
