@@ -94,3 +94,24 @@ class AccountAnalyticAccount(models.Model):
         for analytic in self:
             history_count = history_obj.search_count([('analytic_id', '=', analytic.id)])
             analytic.history_count = history_count
+
+    @api.multi
+    def get_current_version(self):
+        res = {}
+        history_obj = self.env['analytic.history']
+        domain = [('is_last_situation', '=', True), ('analytic_id', '=', self.id)]
+        history_id = history_obj.search(domain)
+        if not history_id:
+            raise exceptions.Warning(_('Sorry, there is no recent version for this contract'))
+        view_id = self.env.ref('insurance_management.view_aro_amendment_line_form').id
+        res.update({
+                'type': 'ir.actions.act_window',
+                'name': _('Last Version'),
+                'res_model': 'analytic.history',
+                'view_type': 'form',
+                'view_mode': 'form',
+                'view_id': [view_id],
+                'res_id': history_id.id,
+                'target': 'current',
+            })
+        return res
