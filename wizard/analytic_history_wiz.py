@@ -43,6 +43,7 @@ class AnalyticHistoryWiz(models.TransientModel):
                 return self.renew_analytic_account()
             elif self.stage_id.code in ('SUS') and history_ids.stage_id.code not in ('RES', 'SUS'):
                 logger.info('Suspend contract')
+                return self.suspend_analytic_account()
             elif self.stage_id.code in ('REV') and history_ids.stage_id.code in ('SUS'):
                 logger.info('Re-activate contract')
         elif not history_ids and self.stage_id.code in ('AFN', 'DEV'):
@@ -115,4 +116,32 @@ class AnalyticHistoryWiz(models.TransientModel):
         ctx.update(default_ending_date=history_id.ending_date)
         ctx.update(default_stage_id=self.env.ref('insurance_management.avenant').id)
         res.update(context=ctx)
+        return res
+
+    # TODO
+    @api.multi
+    def cancel_subscription(self):
+        res = False
+        return res
+
+    # TODO
+    @api.multi
+    def suspend_analytic_account(self):
+        """ Suspend subscription : Suspension """
+        history_obj = self.env['analytic.history']
+        res = self.with_context(version_type='suspend').renew_analytic_account()
+        ctx = res.get('context', {})
+        res.update(name=_('Pending'))
+        history_id = ctx.get('default_parent_id', False)
+        history_id = history_obj.browse(history_id)
+        ctx.update(default_starting_date=history_id.starting_date)
+        ctx.update(default_ending_date=history_id.ending_date)
+        ctx.update(default_stage_id=self.env.ref('insurance_management.suspension').id)
+        res.update(context=ctx)
+        return res
+
+    # TODO
+    @api.multi
+    def reinstatement_subscription(self):
+        res = False
         return res
