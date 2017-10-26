@@ -24,6 +24,7 @@ class AnalyticHistoryWiz(models.TransientModel):
         logger.info('stage_id = %s' % self.stage_id)
         history_obj = self.env['analytic.history']
         history_ids = history_obj.search([('analytic_id', '=', self._context.get('active_id')), ('is_last_situation', '=', True)])
+        logger.info('=== history_ids = %s' % history_ids)
         if history_ids and len(history_ids) > 1:
             raise exceptions.Warning(_('You have too many last version for this contract. Please contact your Administrator.\n [Note]'))
         if not history_ids and self.stage_id.code not in ('AFN', 'DEV'):
@@ -38,6 +39,7 @@ class AnalyticHistoryWiz(models.TransientModel):
                 logger.info('Amendment contract')
             elif self.stage_id.code in ('REN') and history_ids.stage_id.code not in ('RES'):
                 logger.info('Renew contract')
+                return self.renew_analytic_account()
             elif self.stage_id.code in ('SUS') and history_ids.stage_id.code not in ('RES', 'SUS'):
                 logger.info('Suspend contract')
             elif self.stage_id.code in ('REV') and history_ids.stage_id.code in ('SUS'):
@@ -59,3 +61,40 @@ class AnalyticHistoryWiz(models.TransientModel):
             'target': 'current',
             'context': ctx
         }
+
+    @api.multi
+    def renew_analytic_account(self, history_ids=False):
+        """
+        Renew the insurance policy
+        """
+        res = {}
+        ctx = self._context.copy()
+        ctx['default_analytic_id'] = ctx.get('active_id')
+        ctx['version_type'] = 'renew'
+        ctx['default'] = True
+        history_obj = self.env['analytic.history']
+        if not history_ids:
+            history_ids = history_obj.search([('analytic_id', '=', self._context.get('active_id')), ('is_last_situation', '=', True)])
+        if not history_ids or len(history_ids) > 1:
+            raise exceptions.Warning(_('Sorry, You don\'t have or you get more than one amendment defined as last situation.\n Fix it first before continuing'))
+        else:
+            copy_vals = history_ids.with_context(ctx)._get_all_value()
+            ctx.update(parent_amendment_line=history_ids.id)
+            copy_vals.update(default_is_last_situation=True)
+            copy_vals.update(default_emission_id=self.env.ref('insurance_management.renouvellement').id)
+            copy_vals.update(default_parent_id=history_ids.id)
+            ctx.update(copy_vals)
+            view_id = self.env.ref('insurance_management.view_analytic_history_form').id
+            res.update({
+                'type': 'ir.actions.act_window',
+                'name': _('Renew'),
+                'res_model': 'analytic.history',
+                'view_type': 'form',
+                'view_mode': 'form',
+                'view_id': [view_id],
+                # 'res_id': new_amendment.id,
+                'context': ctx,
+                'target': 'current',
+                'flags': {'form': {'action_buttons': True, 'options': {'mode': 'edit'}}},
+            })
+        return res
