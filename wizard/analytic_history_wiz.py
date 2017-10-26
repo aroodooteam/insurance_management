@@ -35,6 +35,7 @@ class AnalyticHistoryWiz(models.TransientModel):
                 raise exceptions.Warning(_('You can\'t have twice <AFN> in same contract \n [Note]'))
             elif self.stage_id.code == 'RES' and history_ids.stage_id.code not in ('RES', 'DEV'):
                 logger.info('Resilliate contract: Create history with state=RES and close current contract')
+                return self.cancel_analytic_account()
             elif self.stage_id.code in ('AVT') and history_ids.stage_id.code not in ('RES'):
                 logger.info('Amendment contract')
                 return self.update_contract()
@@ -46,6 +47,7 @@ class AnalyticHistoryWiz(models.TransientModel):
                 return self.suspend_analytic_account()
             elif self.stage_id.code in ('REV') and history_ids.stage_id.code in ('SUS'):
                 logger.info('Re-activate contract')
+                return self.reinstatement_analytic_account()
         elif not history_ids and self.stage_id.code in ('AFN', 'DEV'):
             logger.info('Create AFN or DEV contract')
             if self.stage_id.code == 'AFN':
@@ -120,8 +122,19 @@ class AnalyticHistoryWiz(models.TransientModel):
 
     # TODO
     @api.multi
-    def cancel_subscription(self):
+    def cancel_analytic_account(self):
         res = False
+        history_obj = self.env['analytic.history']
+        res = self.with_context(version_type='terminate').renew_analytic_account()
+        ctx = res.get('context', {})
+        res.update(name=_('Terminate'))
+        history_id = ctx.get('default_parent_id', False)
+        history_id = history_obj.browse(history_id)
+        ctx.update(default_starting_date=history_id.starting_date)
+        ctx.update(default_ending_date=history_id.ending_date)
+        ctx.update(default_stage_id=self.env.ref('insurance_management.resiliation').id)
+        res.update(context=ctx)
+
         return res
 
     # TODO
