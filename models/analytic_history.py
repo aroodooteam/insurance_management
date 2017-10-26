@@ -59,7 +59,7 @@ class AnalyticHistory(models.Model):
         self.ensure_one()
         default = dict(default or {})
         default.update(name=_("%s (copy)") % (self.name or ''))
-        res = super(AroAmendmentLine, self).copy(default)
+        res = super(AnalyticHistory, self).copy(default)
         new_risk_line = False
         for risk_line_id in self.risk_line_ids:
             if not new_risk_line:
@@ -77,7 +77,7 @@ class AnalyticHistory(models.Model):
         res = {}
         list_fields = ['name', 'type_risk_id', 'risk_warranty_tmpl_id']
         om_fields = {
-            'warranty_line_ids': ['name', 'warranty_id', 'risk_id'],
+            'warranty_line_ids': ['name', 'warranty_id', 'history_risk_line_id'],
             'risk_description_ids': ['name', 'code', 'value']
         }
         new_risk_line = []
@@ -101,12 +101,13 @@ class AnalyticHistory(models.Model):
                 l['risk_warranty_tmpl_id'] = l.get('risk_warranty_tmpl_id')[0] if l.get('risk_warranty_tmpl_id', False) else False
                 del l['id']
                 # get o2m fields value
+                logger.info('wlids = %s' % risk_line_id.warranty_line_ids)
                 om_warrantys = risk_line_id.warranty_line_ids.read(om_fields.get('warranty_line_ids'))
                 warranty_list = []
                 for om_warranty in om_warrantys:
                     del om_warranty['id']
                     om_warranty['warranty_id'] = om_warranty.get('warranty_id')[0] if om_warranty.get('warranty_id') else False
-                    om_warranty['risk_id'] = om_warranty.get('risk_id')[0] if om_warranty.get('risk_id') else False
+                    om_warranty['history_risk_line_id'] = om_warranty.get('history_risk_line_id')[0] if om_warranty.get('history_risk_line_id') else False
                     warranty_list.append((0, 0, om_warranty))
                 l['warranty_line_ids'] = warranty_list
                 # =====================================
