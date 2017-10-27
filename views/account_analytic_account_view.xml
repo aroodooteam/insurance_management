@@ -25,6 +25,8 @@
                 <field name="manager_id" position="after">
                     <field name="branch_id" attrs="{'required': [('is_insurance', '=', True)], 'invisible': [('is_insurance', '!=', True)]}"/>
                     <field name="ins_product_id" attrs="{'required': [('is_insurance', '=', True)], 'invisible': [('is_insurance', '!=', True)]}"/>
+                    <field name="fraction_ids" placeholder="Insurance fractions" invisible="1"/>
+                    <field name="fraction_id" widget="selection"/>
                 </field>
                 <field name="partner_id" position="replace">
                     <field name="partner_id" string="subscriber"/>
