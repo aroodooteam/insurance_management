@@ -64,6 +64,7 @@ class AccountAnalyticAccount(models.Model):
     est_warranty = fields.Float(
         string='Estimation', digits_compute=dp.get_precision('Account'))
     wa_invoiced = fields.Float(string='Warranty Invoiced Amount', digits_compute=dp.get_precision('Account'), compute='_get_wa_invoiced')
+    state = fields.Selection(selection_add=[('suspend', 'Suspend')])
 
     # def open_hr_expense(self, cr, uid, ids, context=None):
     @api.multi
@@ -115,3 +116,8 @@ class AccountAnalyticAccount(models.Model):
                 'target': 'current',
             })
         return res
+
+    @api.multi
+    def set_suspend(self):
+        self.ensure_one()
+        self.write({'state': 'suspend'})
