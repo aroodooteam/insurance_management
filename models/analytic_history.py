@@ -123,12 +123,32 @@ class AnalyticHistory(models.Model):
             res['default_risk_line_ids'] = new_risk_line
         return res
 
+    # @api.model
+    # def create(self, vals):
+    #     if self._context.get('version_type') in ['renew', 'amendment']:
+    #         parent_history = self._context.get('parent_history')
+    #         parent_history = self.browse(parent_history)
+    #         parent_history.write({'is_last_situation': False})
+    #     res = super(AnalyticHistory, self).create(vals)
+    #     return res
+
     @api.model
     def create(self, vals):
-        if self._context.get('version_type') in ['renew', 'amendment']:
-            parent_amendment_line = self._context.get('parent_amendment_line')
-            parent_amendment_line = self.browse(parent_amendment_line)
-            parent_amendment_line.write({'is_last_situation': False})
+        analytic_obj = self.env['account.analytic.account']
+        analytic_id = analytic_obj.browse(self._context.get('default_analytic_id'))
+        logger.info('create a_id = %s' % analytic_id)
+        logger.info('create version_type = %s' % self._context.get('version_type'))
+        if self._context.get('version_type') in ['renew', 'amendment', 'terminate', 'suspend', 'reinstatement']:
+            parent_history = self._context.get('parent_history')
+            parent_history = self.browse(parent_history)
+            parent_history.write({'is_last_situation': False})
+        if self._context.get('version_type') in ['renew', 'amendment', 'reinstatement']:
+            analytic_id.write({'state': 'open'})
+        elif self._context.get('version_type') == 'suspend':
+            analytic_id.write({'state': 'suspend'})
+        elif self._context.get('version_type') == 'terminate':
+            # analytic_id.write({'state': 'close'})
+            analytic_id.set_close()
         res = super(AnalyticHistory, self).create(vals)
         return res
 
