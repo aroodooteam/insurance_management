@@ -42,6 +42,15 @@ class AccountAnalyticAccount(models.Model):
     ins_product_id = fields.Many2one(
         comodel_name='insurance.product', string='Inusrance Product',
         required=False, domain="[('branch_id', '=', branch_id)]")
+
+    fraction_ids = fields.Many2many(
+        comodel_name='insurance.fraction', string='Fractions',
+        related='ins_product_id.fraction_ids')
+
+    fraction_id = fields.Many2one(
+        comodel_name='insurance.fraction', string='Fraction',
+        domain="[('id', 'in', fraction_ids[0][2])]")
+
     is_insurance = fields.Boolean(string='Insurance contract', help='Check if it is an insurance contract')
     risk_line_ids = fields.One2many(
         comodel_name='analytic.risk.line',
@@ -65,6 +74,7 @@ class AccountAnalyticAccount(models.Model):
         string='Estimation', digits_compute=dp.get_precision('Account'))
     wa_invoiced = fields.Float(string='Warranty Invoiced Amount', digits_compute=dp.get_precision('Account'), compute='_get_wa_invoiced')
     state = fields.Selection(selection_add=[('suspend', 'Suspend')])
+
 
     # def open_hr_expense(self, cr, uid, ids, context=None):
     @api.multi
