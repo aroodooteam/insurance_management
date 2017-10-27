@@ -35,19 +35,19 @@ class AnalyticHistoryWiz(models.TransientModel):
                 raise exceptions.Warning(_('You can\'t have twice <AFN> in same contract \n [Note]'))
             elif self.stage_id.code == 'RES' and history_ids.stage_id.code not in ('RES', 'DEV'):
                 logger.info('Resilliate contract: Create history with state=RES and close current contract')
-                return self.cancel_analytic_account()
+                return self.cancel_analytic_account(history_ids)
             elif self.stage_id.code in ('AVT') and history_ids.stage_id.code not in ('RES'):
                 logger.info('Amendment contract')
                 return self.update_contract()
             elif self.stage_id.code in ('REN') and history_ids.stage_id.code not in ('RES'):
                 logger.info('Renew contract')
-                return self.renew_analytic_account()
+                return self.renew_analytic_account(history_ids)
             elif self.stage_id.code in ('SUS') and history_ids.stage_id.code not in ('RES', 'SUS'):
                 logger.info('Suspend contract')
                 return self.suspend_analytic_account()
             elif self.stage_id.code in ('REV') and history_ids.stage_id.code in ('SUS'):
                 logger.info('Re-activate contract')
-                return self.reinstatement_analytic_account()
+                return self.reinstatement_analytic_account(history_ids)
         elif not history_ids and self.stage_id.code in ('AFN', 'DEV'):
             logger.info('Create AFN or DEV contract')
             if self.stage_id.code == 'AFN':
@@ -66,29 +66,83 @@ class AnalyticHistoryWiz(models.TransientModel):
             'context': ctx
         }
 
+    # @api.multi
+    # def renew_analytic_account(self, history_ids=False):
+    #     """
+    #     Renew the insurance policy
+    #     """
+    #     res = {}
+    #     ctx = self._context.copy()
+    #     ctx['default_analytic_id'] = ctx.get('active_id')
+    #     ctx['version_type'] = 'renew'
+    #     ctx['default'] = True
+    #     history_obj = self.env['analytic.history']
+    #     if not history_ids:
+    #         history_ids = history_obj.search([('analytic_id', '=', self._context.get('active_id')), ('is_last_situation', '=', True)])
+    #     if not history_ids or len(history_ids) > 1:
+    #         raise exceptions.Warning(_('Sorry, You don\'t have or you get more than one amendment defined as last situation.\n Fix it first before continuing'))
+    #     else:
+    #         copy_vals = history_ids.with_context(ctx)._get_all_value()
+    #         ctx.update(parent_history=history_ids.id)
+    #         copy_vals.update(default_is_last_situation=True)
+    #         copy_vals.update(default_stage_id=self.env.ref('insurance_management.renouvellement').id)
+    #         copy_vals.update(default_parent_id=history_ids.id)
+    #         ctx.update(copy_vals)
+    #         view_id = self.env.ref('insurance_management.view_analytic_history_form').id
+    #         res.update({
+    #             'type': 'ir.actions.act_window',
+    #             'name': _('Renew'),
+    #             'res_model': 'analytic.history',
+    #             'view_type': 'form',
+    #             'view_mode': 'form',
+    #             'view_id': [view_id],
+    #             # 'res_id': new_amendment.id,
+    #             'context': ctx,
+    #             'target': 'current',
+    #             'flags': {'form': {'action_buttons': True, 'options': {'mode': 'edit'}}},
+    #         })
+    #     return res
+
     @api.multi
     def renew_analytic_account(self, history_ids=False):
-        """
-        Renew the insurance policy
-        """
+        # resilie = self.env.ref('insurance_management.status_resilie').id
+        # devis = self.env.ref('insurance_management.status_devis').id
+        history_obj = self.env['analytic.history']
+        analytic_obj = self.env['account.analytic.account']
+        analytic_id = analytic_obj.browse(self._context.get('active'))
+        # if self.stage_id.id == resilie:
+        if analytic_id.state == 'close':
+            raise exceptions.Warning(_('You can\'t create new version for contract closed'))
+            # raise exceptions.Warning(_('You can\'t renew contract closed'))
+        # elif self.status_id.id == devis:
+        #     raise exceptions.Warning(_('You can\'t renew unvalidated contract'))
         res = {}
         ctx = self._context.copy()
-        ctx['default_analytic_id'] = ctx.get('active_id')
-        ctx['version_type'] = 'renew'
+        ctx['default_analytic_id'] = self._context.get('active_id')
+        if not ctx.get('version_type', False):
+            ctx['version_type'] = 'renew'
+        # logger.info('\n === ctx version = %s' % ctx['version_type'])
         ctx['default'] = True
-        history_obj = self.env['analytic.history']
+        # logger.info('\n === ctx = %s' % self.ending_date)
         if not history_ids:
+            history_obj = self.env['analytic.history']
             history_ids = history_obj.search([('analytic_id', '=', self._context.get('active_id')), ('is_last_situation', '=', True)])
         if not history_ids or len(history_ids) > 1:
             raise exceptions.Warning(_('Sorry, You don\'t have or you get more than one amendment defined as last situation.\n Fix it first before continuing'))
         else:
+            logger.info('\n === ending_date = %s' % history_ids.ending_date)
             copy_vals = history_ids.with_context(ctx)._get_all_value()
-            ctx.update(parent_amendment_line=history_ids.id)
+            ctx.update(parent_history=history_ids.id)
             copy_vals.update(default_is_last_situation=True)
             copy_vals.update(default_stage_id=self.env.ref('insurance_management.renouvellement').id)
             copy_vals.update(default_parent_id=history_ids.id)
+            new_date = self.get_end_date(history_ids.ending_date)
+            copy_vals.update(default_starting_date=new_date.get('start_date'))
+            copy_vals.update(default_ending_date=new_date.get('end_date'))
+            # logger.info('\n === copy_vals = %s' % copy_vals)
+            # copy_vals.update(default_ending_date=self.get_end_date(self))
             ctx.update(copy_vals)
-            view_id = self.env.ref('insurance_management.view_analytic_history_form').id
+            view_id = self.env.ref('insurance_management.view_aro_amendment_line_form').id
             res.update({
                 'type': 'ir.actions.act_window',
                 'name': _('Renew'),
@@ -122,10 +176,10 @@ class AnalyticHistoryWiz(models.TransientModel):
 
     # TODO
     @api.multi
-    def cancel_analytic_account(self):
+    def cancel_analytic_account(self, history_ids=False):
         res = False
         history_obj = self.env['analytic.history']
-        res = self.with_context(version_type='terminate').renew_analytic_account()
+        res = self.with_context(version_type='terminate').renew_analytic_account(history_ids)
         ctx = res.get('context', {})
         res.update(name=_('Terminate'))
         history_id = ctx.get('default_parent_id', False)
@@ -134,7 +188,6 @@ class AnalyticHistoryWiz(models.TransientModel):
         ctx.update(default_ending_date=history_id.ending_date)
         ctx.update(default_stage_id=self.env.ref('insurance_management.resiliation').id)
         res.update(context=ctx)
-
         return res
 
     # TODO
@@ -155,10 +208,10 @@ class AnalyticHistoryWiz(models.TransientModel):
 
     # TODO
     @api.multi
-    def reinstatement_analytic_account(self):
+    def reinstatement_analytic_account(self, history_ids=False):
         """ Reinstatment : d'abord voir si police suspendue """
-        status_id = self.env.ref('insurance_management.status_suspendu')
-        if self.status_id != status_id:
+        status_id = self.env.ref('insurance_management.suspension')
+        if history_ids and history_ids.stage_id != status_id:
             raise exceptions.Warning(_('Sorry, You don\'t have to reinstate a subscription which is not suspended'))
         else:
             history_obj = self.env['analytic.history']
