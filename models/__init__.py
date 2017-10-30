@@ -18,3 +18,4 @@ import analytic_warranty_line
 import risk_warranty_line
 import analytic_description_line
 import risk_description_line
+import account_invoice
