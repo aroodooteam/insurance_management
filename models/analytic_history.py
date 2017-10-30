@@ -157,19 +157,27 @@ class AnalyticHistory(models.Model):
         """
         insurance_type: ['V', 'N']
         """
+        logger.info('=== ctx = %s' % self._context)
         user_obj = self.env['res.users']
         journal_obj = self.env['account.journal']
-        insurance_type = self._context.get('insurance_type')
+        insurance_type = self._context.get('insurance_type', False)
+        if not insurance_type:
+            insurance_type = self.analytic_id.branch_id.type
+        logger.info('\n === insurance_type = %s' % insurance_type)
         user = self._uid
         user_id = user_obj.browse(user)
         # logger.info('\n === user_id = %s' % user_id)
         agency_id = user_id.agency_id
+        if not agency_id:
+            raise Warning(_('Please contact your Administrator to set your agency'))
+
         domain = [('type', '=', 'sale'), ('agency_id', '=', agency_id.id)]
         if insurance_type == 'N':
             journal_code = 'PN%s' % agency_id.code
             domain.append(('code', '=', journal_code))
         logger.info('\n === domain = %s' % domain)
         journal_id = journal_obj.search(domain)
+        logger.info('=== journal_id = %s => %s' % (journal_id, journal_id.name))
         return journal_id
 
     @api.constrains('starting_date', 'ending_date')
@@ -211,10 +219,11 @@ class AnalyticHistory(models.Model):
                     warranty_ids += risk_line_id.warranty_line_ids.mapped('warranty_id')
             invoice_line = []
             for warranty_id in warranty_ids:
-                compute_line = invline_obj.product_id_change(warranty_id.id, warranty_id.uom_id.id, partner_id=self.analytic_id.subscriber_id.id)
+                compute_line = invline_obj.product_id_change(warranty_id.id, warranty_id.uom_id.id, partner_id=self.analytic_id.partner_id.id)
                 line = compute_line.get('value', {})
                 line.update(product_id=warranty_id.id)
                 line.update(quantity=1)
+                line.update(account_analytic_id=self.analytic_id.id)
                 invoice_line.append((0, 0, line))
             # Insert Accessories in invoice_line
             if self._context.get('insurance_categ') == 'T':
@@ -250,17 +259,19 @@ class AnalyticHistory(models.Model):
                 'default_prm_datedeb': dt.strftime(dt.strptime(self.starting_date, DEFAULT_SERVER_DATE_FORMAT), DEFAULT_SERVER_DATE_FORMAT),
                 'default_prm_datefin': dt.strftime(dt.strptime(self.ending_date, DEFAULT_SERVER_DATE_FORMAT), DEFAULT_SERVER_DATE_FORMAT),
                 'default_date_invoice': dt.strftime(dt.now(), DEFAULT_SERVER_DATE_FORMAT),
-                'default_partner_id': self.analytic_id.subscriber_id.id,
-                'default_final_customer_id': self.analytic_id.subscriber_id.id,
+                'default_partner_id': self.analytic_id.partner_id.id,
+                'default_final_customer_id': self.analytic_id.partner_id.id,
                 'default_origin': self.analytic_id.name +'/'+self.name,
                 'default_pol_numpol': self.analytic_id.name,
                 'default_journal_id': self._get_user_journal().id,
-                'default_account_id': self.analytic_id.subscriber_id.property_account_receivable.id or default_account.id,
+                'journal_id': self._get_user_journal().id,
+                'default_account_id': self.analytic_id.partner_id.property_account_receivable.id or default_account.id,
                 'default_invoice_line': invoice_line,
                 'default_comment': self.comment,
             }
             ctx = self._context.copy()
             ctx.update(ctx_vals)
+            logger.info('== ctx_journal_id = %s' % ctx.get('default_journal_id'))
             res.update({
                 'type': 'ir.actions.act_window',
                 'name': _('Invoice'),
@@ -272,4 +283,5 @@ class AnalyticHistory(models.Model):
                 'target': 'current',
                 'flags': {'form': {'action_buttons': True, 'options': {'mode': 'edit'}}},
             })
+            logger.info('ctx = %s' % res.get('context'))
         return res
