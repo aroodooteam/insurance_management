@@ -2,7 +2,12 @@
 
 import logging
 logger = logging.getLogger(__name__)
+from datetime import datetime
+from datetime import timedelta
+from dateutil.relativedelta import relativedelta
 from openerp import api, exceptions, fields, models, _
+from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
+from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 
 
 
@@ -36,10 +41,10 @@ class AnalyticHistoryWiz(models.TransientModel):
             elif self.stage_id.code == 'RES' and history_ids.stage_id.code not in ('RES', 'DEV'):
                 logger.info('Resilliate contract: Create history with state=RES and close current contract')
                 return self.cancel_analytic_account(history_ids)
-            elif self.stage_id.code in ('AVT') and history_ids.stage_id.code not in ('RES'):
+            elif self.stage_id.code in ('AVT') and history_ids.stage_id.code not in ('RES', 'SUS'):
                 logger.info('Amendment contract')
                 return self.update_contract()
-            elif self.stage_id.code in ('REN') and history_ids.stage_id.code not in ('RES'):
+            elif self.stage_id.code in ('REN') and history_ids.stage_id.code not in ('RES', 'SUS'):
                 logger.info('Renew contract')
                 return self.renew_analytic_account(history_ids)
             elif self.stage_id.code in ('SUS') and history_ids.stage_id.code not in ('RES', 'SUS'):
@@ -48,23 +53,29 @@ class AnalyticHistoryWiz(models.TransientModel):
             elif self.stage_id.code in ('REV') and history_ids.stage_id.code in ('SUS'):
                 logger.info('Re-activate contract')
                 return self.reinstatement_analytic_account(history_ids)
+            else:
+                logger.info('Un-treated case')
+                raise exceptions.Warning(_('Un-treated case \n [Note]'))
         elif not history_ids and self.stage_id.code in ('AFN', 'DEV'):
             logger.info('Create AFN or DEV contract')
             if self.stage_id.code == 'AFN':
                 logger.info('New contract')
             if self.stage_id.code == 'DEV':
                 logger.info('Devis contract')
-        logger.info('Before returning standard view')
-        return {
-            'name': 'History',
-            'type': 'ir.actions.act_window',
-            'res_model': 'analytic.history',
-            'view_type': 'form',
-            'view_mode': 'form',
-            'view_id': self.env.ref('insurance_management.view_analytic_history_form').id,
-            'target': 'current',
-            'context': ctx
-        }
+        # else:
+        #     logger.info('Un-treated case')
+        #     raise exceptions.Warning(_('Un-treated case \n [Note]'))
+        # logger.info('Before returning standard view')
+        # return {
+        #     'name': 'History',
+        #     'type': 'ir.actions.act_window',
+        #     'res_model': 'analytic.history',
+        #     'view_type': 'form',
+        #     'view_mode': 'form',
+        #     'view_id': self.env.ref('insurance_management.view_analytic_history_form').id,
+        #     'target': 'current',
+        #     'context': ctx
+        # }
 
     # @api.multi
     # def renew_analytic_account(self, history_ids=False):
@@ -142,7 +153,7 @@ class AnalyticHistoryWiz(models.TransientModel):
             # logger.info('\n === copy_vals = %s' % copy_vals)
             # copy_vals.update(default_ending_date=self.get_end_date(self))
             ctx.update(copy_vals)
-            view_id = self.env.ref('insurance_management.view_aro_amendment_line_form').id
+            view_id = self.env.ref('insurance_management.view_analytic_history_form').id
             res.update({
                 'type': 'ir.actions.act_window',
                 'name': _('Renew'),
@@ -226,3 +237,28 @@ class AnalyticHistoryWiz(models.TransientModel):
             res.update(context=ctx)
             return res
 
+    @api.multi
+    def get_end_date(self, start_date=False):
+        analytic_obj = self.env['account.analytic.account']
+        analytic_id = analytic_obj.browse(self._context.get('active_id'))
+        if not start_date:
+            start_date = datetime.today()
+        else:
+            start_date = datetime.strptime(start_date, DEFAULT_SERVER_DATE_FORMAT)
+        end_date = start_date
+        if analytic_id.fraction_id == self.env.ref('insurance_management.fraction_annual'):
+            end_date = start_date + relativedelta(months=12)
+        elif analytic_id.fraction_id == self.env.ref('insurance_management.fraction_half_yearly'):
+            end_date = start_date + relativedelta(months=6)
+        elif analytic_id.fraction_id == self.env.ref('insurance_management.fraction_quarterly'):
+            end_date = start_date + relativedelta(months=3)
+        elif analytic_id.fraction_id in (self.env.ref('insurance_management.fraction_monthly'),self.env.ref('insurance_management.fraction_unique')):
+            end_date = start_date + relativedelta(months=1)
+        if self._context.get('version_type') != 'new':
+            start_date = start_date + timedelta(days=1)
+        end_date = end_date - timedelta(days=1)
+        res = {
+            'end_date': datetime.strftime(end_date, DEFAULT_SERVER_DATE_FORMAT),
+            'start_date': datetime.strftime(start_date, DEFAULT_SERVER_DATE_FORMAT)
+        }
+        return res
