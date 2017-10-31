@@ -58,10 +58,16 @@ class AnalyticHistoryWiz(models.TransientModel):
                 raise exceptions.Warning(_('Un-treated case \n [Note]'))
         elif not history_ids and self.stage_id.code in ('AFN', 'DEV'):
             logger.info('Create AFN or DEV contract')
-            if self.stage_id.code == 'AFN':
-                logger.info('New contract')
-            if self.stage_id.code == 'DEV':
-                logger.info('Devis contract')
+            return {
+                'name': 'History',
+                'type': 'ir.actions.act_window',
+                'res_model': 'analytic.history',
+                'view_type': 'form',
+                'view_mode': 'form',
+                'view_id': self.env.ref('insurance_management.view_analytic_history_form').id,
+                'target': 'current',
+                'context': ctx
+            }
         # else:
         #     logger.info('Un-treated case')
         #     raise exceptions.Warning(_('Un-treated case \n [Note]'))
