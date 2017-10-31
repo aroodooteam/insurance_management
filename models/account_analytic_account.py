@@ -105,6 +105,12 @@ class AccountAnalyticAccount(models.Model):
 
     @api.multi
     def open_analytic_history_wiz(self):
+        ctx = self._context.copy()
+        logger.info('ctx org = %s' % ctx)
+        if not self.branch_id:
+            return False
+        if self.branch_id.code == 'ASSPERS':
+            ctx.update(insurance_person=True)
         res = {
             'name': 'History',
             'type': 'ir.actions.act_window',
@@ -113,7 +119,7 @@ class AccountAnalyticAccount(models.Model):
             'view_mode': 'form',
             'view_id': self.env.ref('insurance_management.view_analytic_history_wiz_form').id,
             'target': 'new',
-            'context': {}
+            'context': ctx
         }
         return res
 
