@@ -60,6 +60,7 @@
                             <page name="Risk Line" string="Risk Line">
                                 <field name="risk_line_ids" context="{'default_history_id': active_id}">
                                     <tree string="Risk Line">
+                                        <field name="partner_id"/>
                                         <field name="type_risk_id"/>
                                         <field name="name"/>
                                     </tree>
@@ -68,6 +69,7 @@
                                             <field name="history_id" invisible="1"/>
                                             <field name="analytic_id" invisible="1"/>
                                             <field name="ins_product_id" invisible="1"/>
+                                            <field name="partner_id" required="context.get('insurance_person', False)" invisible="not context.get('insurance_person', False)"/>
                                             <field name="type_risk_id" string="Risk Type"/>
                                             <field name="name"/>
                                             <field name="risk_warranty_tmpl_id" string="Warranty Lines Template" attrs="{'invisible': [('type_risk_id','=', False)]}"/>
