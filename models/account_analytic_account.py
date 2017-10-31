@@ -87,6 +87,13 @@ class AccountAnalyticAccount(models.Model):
         comodel_name='analytic.history.stage', string='History Stage',
         help='Stage of last history', compute='_get_last_history')
 
+    @api.onchange('ins_product_id')
+    def onchange_ins_product_id(self):
+        fraction_ids = self.ins_product_id.fraction_ids
+        logger.info('fraction_ids = %s' % fraction_ids)
+        if fraction_ids:
+            self.fraction_id = fraction_ids.ids[0]
+
     # def open_hr_expense(self, cr, uid, ids, context=None):
     @api.multi
     def open_analytic_history(self):
