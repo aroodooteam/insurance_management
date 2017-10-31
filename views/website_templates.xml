@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <template id="website_aro_layout" inherit_id="website.layout" name="Website Aro layout" priority="17">
+            <xpath expr="//head//link" position="after">
+                <link rel="shortcut icon" href="/insurance_management/static/src/img/favicon.ico" type="image/x-icon"/>
+            </xpath>
+        </template>
+        <template id="website_aro_web_layout" inherit_id="web.layout" name="Website Aro web layout" priority="17">
+            <xpath expr="//head//link[@rel='shortcut icon']" position="replace">
+                <link rel="shortcut icon" href="/insurance_management/static/src/img/favicon.ico" type="image/x-icon"/>
+            </xpath>
+        </template>
+        <template id="website_aro_qunit_suite" inherit_id="web.qunit_suite" name="Website Aro Qunit Suite" priority="17">
+            <xpath expr="//head//link[@rel='shortcut icon']" position="replace">
+                <link rel="shortcut icon" href="/insurance_management/static/src/img/favicon.ico" type="image/x-icon"/>
+            </xpath>
+        </template>
+    </data>
+</openerp>
