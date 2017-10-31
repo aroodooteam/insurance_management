@@ -10,6 +10,23 @@ class AnalyticHistoryRiskLine(models.Model):
     _name = 'analytic_history.risk.line'
     _description = 'Subscription line (Content list of risk type)'
 
+    @api.depends('insured_id')
+    @api.multi
+    def _get_partner_right(self):
+        if not self.insured_id:
+            return False
+        family_obj = self.env['res.partner.family']
+        family_ids = family_obj.search([('partner_id', '=', self.insured_id.id)])
+        having_right = self.insured_id
+        having_right += family_ids.mapped('name')
+        self.have_right_ids = having_right
+        return {
+            'domain': {
+                'partner_id': [('id', 'in', having_right.ids)]
+            }
+        }
+
+
     name = fields.Char(string='Description')
     template = fields.Boolean(string='Template', help='Used as template')
     analytic_id = fields.Many2one(comodel_name='account.analytic.account', string='Subscription')
@@ -20,7 +37,20 @@ class AnalyticHistoryRiskLine(models.Model):
     risk_description_ids = fields.One2many(comodel_name='risk.description.line', inverse_name='history_risk_line_id', string='Risk description')
     # risk_warranty_tmpl_id = fields.Many2one(comodel_name='type.risk.warranty.template', string='Template', domain="[('type_risk_id', '=', type_risk_id)]")
     risk_warranty_tmpl_id = fields.Many2one(comodel_name='analytic_history.risk.line', string='Template', domain="[('type_risk_id', '=', type_risk_id),('template', '=', True)]")
+    insured_id = fields.Many2one(comodel_name='res.partner', string='Insured', related='analytic_id.insured_id')
+    have_right_ids = fields.One2many(comodel_name='res.partner', string='Having right', compute='_get_partner_right', store=False)
     partner_id = fields.Many2one(comodel_name='res.partner', string='Partner')
+
+    @api.onchange('insured_id')
+    def onchange_insured_id(self):
+        if not self.insured_id:
+            return False
+        self.partner_id = self.insured_id
+        return {
+            'domain': {
+                'partner_id': [('id', 'in', self.have_right_ids.ids)]
+            },
+        }
 
     @api.onchange('history_id')
     def onchange_amendment_line(self):
