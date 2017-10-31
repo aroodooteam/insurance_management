@@ -37,6 +37,15 @@ class AccountAnalyticAccount(models.Model):
         for aaa in self:
             aaa.warranty_invoiced = 0.0
 
+    @api.multi
+    def _get_last_history(self):
+        history_obj = self.env['analytic.history']
+        # history_ids = history_obj.search([('analytic_id', 'in', self)])
+        dom = [('is_last_situation', '=', True), ('analytic_id', 'in', self.ids)]
+        history_ids = history_obj.search(dom)
+        for history_id in history_ids:
+            history_id.analytic_id.history_stage = history_id.stage_id.id
+
     branch_id = fields.Many2one(
         comodel_name='insurance.branch', string='Branch')
     ins_product_id = fields.Many2one(
@@ -74,7 +83,9 @@ class AccountAnalyticAccount(models.Model):
         string='Estimation', digits_compute=dp.get_precision('Account'))
     wa_invoiced = fields.Float(string='Warranty Invoiced Amount', digits_compute=dp.get_precision('Account'), compute='_get_wa_invoiced')
     state = fields.Selection(selection_add=[('suspend', 'Suspend')])
-
+    history_stage = fields.Many2one(
+        comodel_name='analytic.history.stage', string='History Stage',
+        help='Stage of last history', compute='_get_last_history')
 
     # def open_hr_expense(self, cr, uid, ids, context=None):
     @api.multi
