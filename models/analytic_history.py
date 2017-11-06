@@ -75,7 +75,7 @@ class AnalyticHistory(models.Model):
     def _get_all_value(self):
         self.ensure_one()
         res = {}
-        list_fields = ['name', 'type_risk_id', 'risk_warranty_tmpl_id']
+        list_fields = ['name', 'type_risk_id', 'risk_warranty_tmpl_id', 'partner_id']
         om_fields = {
             'warranty_line_ids': ['name', 'warranty_id', 'history_risk_line_id'],
             'risk_description_ids': ['name', 'code', 'value']
@@ -97,6 +97,7 @@ class AnalyticHistory(models.Model):
                 l = risk_line_id.read(list_fields)[0]
                 # get standard fields
                 l['type_risk_id'] = l.get('type_risk_id', False)[0]
+                l['partner_id'] = l.get('partner_id', False)[0] if l.get('partner_id', False) else False
                 l['risk_warranty_tmpl_id'] = l.get('risk_warranty_tmpl_id', False)
                 l['risk_warranty_tmpl_id'] = l.get('risk_warranty_tmpl_id')[0] if l.get('risk_warranty_tmpl_id', False) else False
                 del l['id']
