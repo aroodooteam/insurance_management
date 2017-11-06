@@ -227,27 +227,31 @@ class AnalyticHistory(models.Model):
                 line.update(account_analytic_id=self.analytic_id.id)
                 invoice_line.append((0, 0, line))
             # Insert Accessories in invoice_line
-            if self._context.get('insurance_categ') == 'T':
+            compl_line = {
+                'price_unit': self.analytic_id.ins_product_id.amount_accessories
+            }
+            if self._context.get('insurance_categ') == 'T' or self.analytic_id.branch_id.category == 'T':
                 access_tmpl_id = self.env.ref('aro_custom_v8.product_template_accessoire_terrestre_r0')
                 access_id = product_obj.search([('product_tmpl_id', '=', access_tmpl_id.id)])
-                accessory_line = invline_obj.product_id_change(access_id.id, access_id.uom_id.id, partner_id=self.analytic_id.subscriber_id.id)
+                accessory_line = invline_obj.product_id_change(access_id.id, access_id.uom_id.id, partner_id=self.analytic_id.partner_id.id)
                 accessory_line = accessory_line.get('value', {})
-                compl_line = {
+                compl_line.update({
                     'product_id': access_id.id,
                     'quantity': 1,
-                }
+                    'account_analytic_id': self.analytic_id.id,
+                })
                 accessory_line.update(compl_line)
                 invoice_line.append((0, 0, accessory_line))
             # =========================================================
-            elif self._context.get('insurance_categ') == 'M':
+            elif self._context.get('insurance_categ') == 'M' or self.analytic_id.branch_id.category == 'T':
                 access_tmpl_id = self.env.ref('aro_custom_v8.product_template_accessoire_maritime_r0')
                 access_id = product_obj.search([('product_tmpl_id', '=', access_tmpl_id.id)])
-                accessory_line = invline_obj.product_id_change(access_id.id, access_id.uom_id.id, partner_id=self.analytic_id.subscriber_id.id)
+                accessory_line = invline_obj.product_id_change(access_id.id, access_id.uom_id.id, partner_id=self.analytic_id.partner_id.id)
                 accessory_line = accessory_line.get('value', {})
-                compl_line = {
+                compl_line.update({
                     'product_id': access_id.id,
                     'quantity': 1,
-                }
+                })
                 accessory_line.update(compl_line)
                 invoice_line.append((0, 0, accessory_line))
             default_account = self.env['account.account'].search([('code', '=', '410000')])
