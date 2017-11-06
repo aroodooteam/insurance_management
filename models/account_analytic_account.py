@@ -86,6 +86,8 @@ class AccountAnalyticAccount(models.Model):
     history_stage = fields.Many2one(
         comodel_name='analytic.history.stage', string='History Stage',
         help='Stage of last history', compute='_get_last_history')
+    property_account_position = fields.Many2one(
+        comodel_name='account.fiscal.position', string='Fiscal Position')
 
     @api.onchange('ins_product_id')
     def onchange_ins_product_id(self):
@@ -93,6 +95,19 @@ class AccountAnalyticAccount(models.Model):
         logger.info('fraction_ids = %s' % fraction_ids)
         if fraction_ids:
             self.fraction_id = fraction_ids.ids[0]
+
+    @api.onchange('partner_id')
+    def on_change_partner_id(self):
+        res = super(AccountAnalyticAccount, self).on_change_partner_id(self.partner_id.id, self.name)
+        logger.info('=== res = %s' % res)
+        values = res.get('value', {})
+        if values.get('name'):
+            self.name = values.get('name')
+        self.pricelist_id = values.get('pricelist_id')
+        if values.get('manager_id', False):
+            self.manager_id = values.get('manager_id')
+        self.property_account_position = self.partner_id.property_account_position.id
+        self.insured_id = self.partner_id.id
 
     # def open_hr_expense(self, cr, uid, ids, context=None):
     @api.multi
