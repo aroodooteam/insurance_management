@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_res_partner_form_inherit_family_r0" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="priority" eval="25"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='sales_purchases']/group/group/field[@name='customer']" position="after">
+                    <field name="is_broker"/>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="Family">
+                        <field name="family_ids">
+                            <tree string="Family" editable="top">
+                                <field name="name"/>
+                                <field name="type"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Broker Informations" attrs="{'invisible': [('is_broker','=', False)]}">
+                        <separator string="Details" colspan="4"/>
+                        <group class="mt32" col="4">
+                            <field name="agency_id"/>
+                            <!--<field name="title"/>-->
+                            <field name="ap_code"/>
+                            <field name="serial_identification"/>
+                            <field name="statut"/>
+                            <field name="ref_apporteur"/>
+                        </group>
+                        <separator string="Under Agency Information" colspan="4"/>
+                        <group class="mt32" col="4">
+                            <field name="is_under_agency"/>
+                            <field name="ua_code" attrs="{'invisible': [('is_under_agency','=', False)], 'required': [('is_under_agency','=', True)]}"/>
+                        </group>
+                        <separator string="Account setting" colspan="4"/>
+                        <group class="mt32" col="4">
+                            <field name="account_charge_vie_id"/>
+                            <field name="account_charge_id"/>
+                        </group>
+                        <!--
+                        <separator string="Account list" colspan="4" invisible="1"/>
+                        <field name="linked_account_ids" invisible="1">
+                            <tree string="Account list" name="Account list">
+                                <field name="apporteur_id" invisible="1"/>
+                                <field name="agency_id"/>
+                                <field name="ap_code"/>
+                                <field name="serial_identification"/>
+                            </tree>
+                        </field>
+                        -->
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
