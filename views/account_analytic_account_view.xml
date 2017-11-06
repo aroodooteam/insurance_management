@@ -26,12 +26,14 @@
                     <field name="branch_id" attrs="{'required': [('is_insurance', '=', True)], 'invisible': [('is_insurance', '!=', True)]}"/>
                     <field name="ins_product_id" attrs="{'required': [('is_insurance', '=', True)], 'invisible': [('is_insurance', '!=', True)]}"/>
                     <field name="fraction_ids" placeholder="Insurance fractions" invisible="1"/>
-                    <field name="fraction_id" widget="selection"/>
-                    <field name="history_stage" options="{'no_open': True}"/>
+                    <field name="fraction_id" widget="selection" attrs="{'invisible': [('is_insurance', '!=', True)], 'readonly': [('history_stage', 'not in', (False, %(insurance_management.devis)d))]}"/>
+                    <field name="history_stage" options="{'no_open': True}" attrs="{'invisible': [('is_insurance', '!=', True)]}"/>
                 </field>
                 <field name="partner_id" position="replace">
-                    <field name="partner_id" string="subscriber"/>
-                    <field name="insured_id"/>
+                    <field name="partner_id" string="Subscriber" attrs="{'required': [('is_insurance', '=', True)]}"/>
+                    <field name="property_account_position" placeholder="Fiscal position"
+                        attrs="{'invisible': [('partner_id','=', False),('is_insurance', '!=', True)], 'readonly': [('history_stage', 'not in', (False, %(insurance_management.devis)d))]}"/>
+                    <field name="insured_id" attrs="{'required': [('is_insurance', '=', True)], 'invisible': [('is_insurance', '!=', True)]}"/>
                 </field>
                 <xpath expr="//notebook" position="inside">
                     <page string="Risk" name="Risk" attrs="{'invisible': [('is_insurance', '=', False)]}">
