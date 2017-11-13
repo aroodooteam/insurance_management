@@ -47,6 +47,7 @@ class AnalyticHistory(models.Model):
     # apporteur_id = fields.Many2one(
     #    comodel_name='res.apporteur', string='Broker',
     #    help='Initial broker of the contract')
+    ver_ident = fields.Char(string='Ver Ident')
 
     @api.multi
     def confirm_quotation(self):
