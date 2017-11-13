@@ -35,6 +35,9 @@
                         attrs="{'invisible': [('partner_id','=', False),('is_insurance', '!=', True)], 'readonly': [('history_stage', 'not in', (False, %(insurance_management.devis)d))]}"/>
                     <field name="insured_id" attrs="{'required': [('is_insurance', '=', True)], 'invisible': [('is_insurance', '!=', True)]}"/>
                 </field>
+                <field name="code" position="after">
+                    <field name="pol_ident" attrs="{'invisible': [('is_insurance', '!=', True)]}"/>
+                </field>
                 <xpath expr="//notebook" position="inside">
                     <page string="Risk" name="Risk" attrs="{'invisible': [('is_insurance', '=', False)]}">
                         <group colspan="4">
