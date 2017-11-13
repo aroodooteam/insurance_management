@@ -23,6 +23,7 @@
         "views/product_template_view.xml",
         "views/insurance_branch_view.xml",
         "views/insurance_fraction_view.xml",
+        "views/analytic_history_stage_view.xml",
         "views/insurance_type_risk_view.xml",
         "views/insurance_type_risk_description_view.xml",
         "views/insurance_type_risk_clause_view.xml",
