@@ -88,6 +88,7 @@ class AccountAnalyticAccount(models.Model):
         help='Stage of last history', compute='_get_last_history')
     property_account_position = fields.Many2one(
         comodel_name='account.fiscal.position', string='Fiscal Position')
+    pol_ident = fields.Char(string='Police ID')
 
     @api.onchange('ins_product_id')
     def onchange_ins_product_id(self):
