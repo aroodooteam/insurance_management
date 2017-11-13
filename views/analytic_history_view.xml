@@ -54,6 +54,7 @@
                                 <field name="starting_date"/>
                                 <field name="ending_date"/>
                                 <field name="creating_date"/>
+                                <field name="ver_ident"/>
                             </group>
                         </group>
                         <notebook colspan="4">
