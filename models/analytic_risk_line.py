@@ -20,17 +20,14 @@ class AnalyticRiskLine(models.Model):
     risk_warranty_tmpl_id = fields.Many2one(comodel_name='analytic.risk.line', string='Template', domain="[('template', '=', True), ('type_risk_id', '=', type_risk_id)]")
     partner_id = fields.Many2one(comodel_name='res.partner', string='Partner')
 
-    @api.onchange('history_id')
-    def onchange_amendment_line(self):
-        self.analytic_id = self.history_id.analytic_id.id
-
     # TODO
     @api.multi
     def copy(self, default=None):
         self.ensure_one()
         default = dict(default or {})
         default.update(name="%s" % (self.name or ''))
-        res = super(AroInsuranceSubscriptionRiskLine, self).copy(default)
+        # res = super(AroInsuranceSubscriptionRiskLine, self).copy(default)
+        res = super(AnalyticRiskLine, self).copy(default)
         new_warranty_line = False
         for warranty_line_id in self.warranty_line_ids:
             if not new_warranty_line:
