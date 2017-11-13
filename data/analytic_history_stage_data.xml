@@ -57,5 +57,10 @@
             <field name="code">TER</field>
             <field name="sequence">110</field>
         </record>
+        <record id="sans_effet" model="analytic.history.stage">
+            <field name="name">Sans Effet</field>
+            <field name="code">SNF</field>
+            <field name="sequence">120</field>
+        </record>
     </data>
 </openerp>
