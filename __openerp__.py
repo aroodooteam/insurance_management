@@ -42,8 +42,8 @@
         "base",
         "account",
         "aro_custom_v8",
-        "web", "website",
-        "account_analytic_analysis",
+        "analytic",
+        # "account_analytic_analysis",
     ],
     "qweb": [
         # "static/src/xml/*.xml",
