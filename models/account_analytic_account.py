@@ -61,9 +61,9 @@ class AccountAnalyticAccount(models.Model):
         domain="[('id', 'in', fraction_ids[0][2])]")
 
     is_insurance = fields.Boolean(string='Insurance contract', help='Check if it is an insurance contract')
-    risk_line_ids = fields.One2many(
-        comodel_name='analytic.risk.line',
-        inverse_name='analytic_id', string='Risks Type')
+    # risk_line_ids = fields.One2many(
+    #     comodel_name='analytic.risk.line',
+    #     inverse_name='analytic_id', string='Risks Type')
     insured_id = fields.Many2one(comodel_name='res.partner', string='Insured')
     history_count = fields.Integer(
         compute='get_history_count', string='History count')
