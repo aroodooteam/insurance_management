@@ -171,3 +171,22 @@ class AccountAnalyticAccount(models.Model):
     def set_suspend(self):
         self.ensure_one()
         self.write({'state': 'suspend'})
+
+    @api.multi
+    def open_history_list(self):
+        ctx = self._context.copy()
+        res = {
+            'name': 'History',
+            'type': 'ir.actions.act_window',
+            'res_model': 'analytic.history',
+            'src_model': 'account.analytic.account',
+            'context': ctx,
+            'view_type': 'form',
+            'view_mode': 'tree,form',
+            # 'view_id': self.env.ref('insurance_management.view_analytic_history_tree').id,
+            'domain': [('analytic_id', '=', self.ids[0])]
+        }
+        if self.branch_id.code == 'ASSPERS':
+            ctx.update({'insurance_person': True})
+            res['context'] = ctx
+        return res
