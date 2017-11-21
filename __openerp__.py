@@ -29,7 +29,6 @@
         "views/insurance_type_risk_clause_view.xml",
         "views/analytic_history_view.xml",
         "views/account_analytic_account_view.xml",
-        "views/account_analytic_account_warranty_view.xml",
         # "actions/act_window.xml",
         "views/insurance_product_view.xml",
         # "data/data.xml",
