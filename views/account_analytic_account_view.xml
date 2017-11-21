@@ -14,13 +14,28 @@
         <record id="view_account_analytic_account_form" model="ir.ui.view">
             <field name="name">account.analytic.account.form</field>
             <field name="model">account.analytic.account</field>
-            <field name="inherit_id" ref="account_analytic_analysis.account_analytic_account_form_form"/>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//h1" position="after">
+                <xpath expr='//div[@name="project"]' position='inside'>
                     <div name="insurance">
                         <field name="is_insurance"/>
                         <label for="is_insurance"/>
                     </div>
+                </xpath>
+                <xpath expr="//div[@name='buttons']" position="inside">
+                    <button
+                        name="open_analytic_history_wiz"
+                        class="oe_stat_button"
+                        string="New version" type="object"
+                        icon="fa-file-o"/>
+                    <button name="open_history_list" class="oe_stat_button" type="object" icon="fa-list-alt" attrs="{'invisible': [('history_count','=', 0)]}">
+                        <field name="history_count" widget="statinfo" string="Histories"/>
+                    </button>
+                    <!--
+                    <button name="%(act_analytic_history_request)d" type="action" class="oe_stat_button" icon="fa-calendar" attrs="{'invisible': [('history_count','=', 0)]}">
+                        <field name="history_count" widget="statinfo" string="History"/>
+                    </button>
+                    -->
                 </xpath>
                 <field name="manager_id" position="after">
                     <field name="branch_id" attrs="{'required': [('is_insurance', '=', True)], 'invisible': [('is_insurance', '!=', True)]}"/>
@@ -38,56 +53,6 @@
                 <field name="code" position="after">
                     <field name="pol_ident" attrs="{'invisible': [('is_insurance', '!=', True)]}"/>
                 </field>
-                <!--
-                <xpath expr="//notebook" position="inside">
-                    <page string="Risk" name="Risk" attrs="{'invisible': [('is_insurance', '=', False)]}">
-                        <group colspan="4">
-                            <field name="risk_line_ids" nolabel="1" context="{'default_history_id': active_id}">
-                                <tree string="Risk Type" name="Risk Type">
-                                    <field name="partner_id"/>
-                                    <field name="type_risk_id"/>
-                                    <field name="name"/>
-                                </tree>
-                                <form string="Risk Line">
-                                    <group colspan="4">
-                                        [><field name="history_id" invisible="1"/><]
-                                        <field name="analytic_id" invisible="1"/>
-                                        <field name="ins_product_id" invisible="1"/>
-                                        <field name="partner_id"/>
-                                        <field name="type_risk_id" string="Risk Type"/>
-                                        <field name="name"/>
-                                        <field name="risk_warranty_tmpl_id" string="Warranty Lines Template" attrs="{'invisible': [('type_risk_id','=', False)]}"/>
-                                    </group>
-                                    <notebook colspan="4" attrs="{'invisible': [('type_risk_id','=', False)]}">
-                                        <page string="Warranty" name="Warranty" attrs="{'invisible': [('type_risk_id','=', False)]}">
-                                            <field name="warranty_line_ids" context="{'type_risk_id': type_risk_id}">
-                                                <tree string="warranty" name="warranty" editable="top">
-                                                    <field name="warranty_id"/>
-                                                    <field name="name"/>
-                                                </tree>
-                                            </field>
-                                        </page>
-                                        <page string="Descriptions" name="Descriptions" attrs="{'invisible': [('type_risk_id','=', False)]}">
-                                            <field name="risk_description_ids">
-                                                <tree string="Descriptions" create="false" editable='top'>
-                                                    <field name="code" readonly="1"/>
-                                                    <field name="name" readonly="1"/>
-                                                    <field name="value"/>
-                                                </tree>
-                                            </field>
-                                        </page>
-                                    </notebook>
-                                </form>
-                            </field>
-                        </group>
-                    </page>
-                </xpath>
-                -->
-                <xpath expr="//div[@name='buttons']" position="inside">
-                    <button name="%(act_analytic_history_request)d" type="action" class="oe_stat_button" icon="fa-calendar" attrs="{'invisible': [('history_count','=', 0)]}">
-                        <field name="history_count" widget="statinfo" string="History"/>
-                    </button>
-                </xpath>
             </field>
         </record>
 
@@ -96,9 +61,9 @@
             <field name="res_model">account.analytic.account</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="context">{'default_type':'contract', 'search_default_open':1, 'search_default_pending':1, 'default_manager_id':uid}</field>
+            <field name="context">{"default_is_insurance":1, 'default_type':'contract', 'search_default_open':1, 'search_default_pending':1, 'default_manager_id':uid}</field>
             <field name="domain">[('type','=','contract')]</field>
-            <field name="search_view_id" ref="account_analytic_analysis.view_account_analytic_account_overdue_search"/>
+            <field name="search_view_id" ref="account.view_account_analytic_account_search"/>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
                     Click to create a new contract.
