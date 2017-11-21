@@ -38,6 +38,7 @@
                 <field name="code" position="after">
                     <field name="pol_ident" attrs="{'invisible': [('is_insurance', '!=', True)]}"/>
                 </field>
+                <!--
                 <xpath expr="//notebook" position="inside">
                     <page string="Risk" name="Risk" attrs="{'invisible': [('is_insurance', '=', False)]}">
                         <group colspan="4">
@@ -49,7 +50,7 @@
                                 </tree>
                                 <form string="Risk Line">
                                     <group colspan="4">
-                                        <!--<field name="history_id" invisible="1"/>-->
+                                        [><field name="history_id" invisible="1"/><]
                                         <field name="analytic_id" invisible="1"/>
                                         <field name="ins_product_id" invisible="1"/>
                                         <field name="partner_id"/>
@@ -81,6 +82,7 @@
                         </group>
                     </page>
                 </xpath>
+                -->
                 <xpath expr="//div[@name='buttons']" position="inside">
                     <button name="%(act_analytic_history_request)d" type="action" class="oe_stat_button" icon="fa-calendar" attrs="{'invisible': [('history_count','=', 0)]}">
                         <field name="history_count" widget="statinfo" string="History"/>
