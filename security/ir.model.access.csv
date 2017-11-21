@@ -10,7 +10,4 @@ access_insurance_type_risk_clause,access_insurance_type_risk_clause,model_insura
 access_analytic_history_risk_line,access_analytic_history_risk_line,model_analytic_history_risk_line,,1,0,0,0
 access_risk_warranty_line,access_risk_warranty_line,model_risk_warranty_line,,1,0,0,0
 access_risk_description_line,access_risk_description_line,model_risk_description_line,,1,0,0,0
-access_analytic_risk_line,access_analytic_risk_line,model_analytic_risk_line,,1,0,0,0
-access_analytic_warranty_line,access_analytic_warranty_line,model_analytic_warranty_line,,1,0,0,0
-access_analytic_description_line,access_analytic_description_line,model_analytic_description_line,,1,0,0,0
 access_res_partner_family,access_res_partner_family,model_res_partner_family,,1,0,0,0
