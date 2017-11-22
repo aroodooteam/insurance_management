@@ -83,6 +83,8 @@
                                                     <tree string="warranty" name="warranty" editable="top">
                                                         <field name="warranty_id"/>
                                                         <field name="name"/>
+                                                        <field name="yearly_net_amount"/>
+                                                        <field name="proratee_net_amount"/>
                                                     </tree>
                                                 </field>
                                             </page>
