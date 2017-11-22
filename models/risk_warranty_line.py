@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from openerp import api, exceptions, fields, models, _
+import openerp.addons.decimal_precision as dp
 
 
 class RiskWarrantyLine(models.Model):
@@ -16,6 +17,8 @@ class RiskWarrantyLine(models.Model):
     warranty_id = fields.Many2one(
         comodel_name='product.product', string='Warranty',
         domain="[('type_risk_id', '=', type_risk_id),('is_warranty', '=', True)]")
+    yearly_net_amount = fields.Float(string='Yearly Net Amount', digits_compute=dp.get_precision('Account'), help='Yearly net amount')
+    proratee_net_amount = fields.Float(string='Yearly Net Amount', digits_compute=dp.get_precision('Account'), help='Proratee net amount')
 
     @api.onchange('warranty_id')
     def onchange_warranty(self):
