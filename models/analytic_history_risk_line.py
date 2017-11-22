@@ -80,7 +80,7 @@ class AnalyticHistoryRiskLine(models.Model):
         if not self.type_risk_id:
             return False
         description_obj = self.env['insurance_type_risk.description']
-        desc_ids = description_obj.search([('type_risk_id', '=', self.type_risk_id.id)])
+        desc_ids = description_obj.search([('type_risk_id', '=', self.type_risk_id.id)], order='code asc')
         all_desc = []
         # tmpl_obj = self.env['type.risk.warranty.template']
         tmpl_id = self.search([('template', '=', True), ('type_risk_id', '=', self.type_risk_id.id)], limit=1)
