@@ -42,6 +42,7 @@
         "account",
         "aro_custom_v8",
         "analytic",
+        "insurance_setup",
         # "account_analytic_analysis",
     ],
     "qweb": [
