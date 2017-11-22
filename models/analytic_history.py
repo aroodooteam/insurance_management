@@ -224,8 +224,8 @@ class AnalyticHistory(models.Model):
             # Remove duplicated Warranty (group same warranty in invoice)
             if not warranty_ids:
                 raise Warning(_('There is no warranty to invoice in this contract history'))
-            warranty_ids = list(set(warranty_ids))[0]
-            logger.info('warranty_ids3 = %s' % warranty_ids)
+            warranty_ids = list(set(warranty_ids.ids))
+            warranty_ids = product_obj.browse(warranty_ids)
             # Get amount of warranty in current history
             warranty_line_ids_map = self.risk_line_ids.mapped('warranty_line_ids')
             logger.info('warranty_line_ids_map = %s' % warranty_line_ids_map)
