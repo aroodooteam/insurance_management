@@ -201,6 +201,7 @@ class AnalyticHistory(models.Model):
         product_obj = self.env['product.product']
         res = {}
         warranty_ids = False
+        warranty_amount = {}
         if self.invoice_id:
             res = {
                 'type': 'ir.actions.act_window',
@@ -214,11 +215,26 @@ class AnalyticHistory(models.Model):
                 # 'flags': {'form': {'action_buttons': True, 'options': {'mode': 'edit'}}},
             }
         else:
+            # Get list of warranty in current history
             for risk_line_id in self.risk_line_ids:
                 if not warranty_ids:
                     warranty_ids = risk_line_id.warranty_line_ids.mapped('warranty_id')
                 else:
                     warranty_ids += risk_line_id.warranty_line_ids.mapped('warranty_id')
+            # Remove duplicated Warranty (group same warranty in invoice)
+            if not warranty_ids:
+                raise Warning(_('There is no warranty to invoice in this contract history'))
+            warranty_ids = list(set(warranty_ids))[0]
+            logger.info('warranty_ids3 = %s' % warranty_ids)
+            # Get amount of warranty in current history
+            warranty_line_ids_map = self.risk_line_ids.mapped('warranty_line_ids')
+            logger.info('warranty_line_ids_map = %s' % warranty_line_ids_map)
+            for wl_id in warranty_line_ids_map:
+                if wl_id.warranty_id.id in warranty_amount.keys():
+                    warranty_amount[wl_id.warranty_id.id] += wl_id.proratee_net_amount
+                else:
+                    warranty_amount[wl_id.warranty_id.id] = wl_id.proratee_net_amount
+            logger.info('wa = %s' % warranty_amount)
             invoice_line = []
             for warranty_id in warranty_ids:
                 compute_line = invline_obj.product_id_change(warranty_id.id, warranty_id.uom_id.id, partner_id=self.analytic_id.partner_id.id)
@@ -226,6 +242,7 @@ class AnalyticHistory(models.Model):
                 line.update(product_id=warranty_id.id)
                 line.update(quantity=1)
                 line.update(account_analytic_id=self.analytic_id.id)
+                line.update(price_unit=warranty_amount.get(warranty_id.id))
                 invoice_line.append((0, 0, line))
             # Insert Accessories in invoice_line
             compl_line = {
