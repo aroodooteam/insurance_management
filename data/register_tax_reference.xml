@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="reg_tax_reference_fiscalit_rc_automobile_r0" model="reg.tax.reference">
+            <field name="indice">33.1</field>
+            <field name="name">Fiscalité RC automobile</field>
+            <field name="fiscal_code">FRCA</field>
+            <field name="date_start">2000-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_fcemt_r0"/>
+        </record>
+        <record id="reg_tax_reference_fiscalit_dommages_particuliers_r0" model="reg.tax.reference">
+            <field name="indice">18.0</field>
+            <field name="name">Fiscalité Dommages particuliers</field>
+            <field name="fiscal_code">FDOP</field>
+            <field name="date_start">2000-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_fcemt_r0"/>
+        </record>
+        <record id="reg_tax_reference_fiscalit_dommages_entreprise_r0" model="reg.tax.reference">
+            <field name="indice">9.0</field>
+            <field name="name">Fiscalité Dommages entreprise</field>
+            <field name="fiscal_code">FDOE</field>
+            <field name="date_start">2000-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_fcemt_r0"/>
+        </record>
+        <record id="reg_tax_reference_fiscalit_assurance_de_personnes_r0" model="reg.tax.reference">
+            <field name="indice">9.0</field>
+            <field name="name">Fiscalité assurance de personnes</field>
+            <field name="fiscal_code">FPE</field>
+            <field name="date_start">2000-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_fcemt_r0"/>
+        </record>
+        <record id="reg_tax_reference_fiscalit_catastrophe_naturelles_r0" model="reg.tax.reference">
+            <field name="indice">9.0</field>
+            <field name="name">Fiscalité catastrophe naturelles</field>
+            <field name="fiscal_code">FCN</field>
+            <field name="date_start">2000-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_fcemt_r0"/>
+        </record>
+        <record id="reg_tax_reference_exonration_de_fiscalit_r0" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Exonération de fiscalité</field>
+            <field name="fiscal_code">F0</field>
+            <field name="date_start">2000-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_fcemt_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__45_r0" model="reg.tax.reference">
+            <field name="indice">4.5</field>
+            <field name="name">Taxe à 4,5</field>
+            <field name="fiscal_code">4500</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_z_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__45_r1" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Taxe à 4,5</field>
+            <field name="fiscal_code">4500</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_e_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__20_r0" model="reg.tax.reference">
+            <field name="indice">20.0</field>
+            <field name="name">Taxe à 20</field>
+            <field name="fiscal_code">4500</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_u2_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__45_r2" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Taxe à 4,5</field>
+            <field name="fiscal_code">4500</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_b_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__4_r0" model="reg.tax.reference">
+            <field name="indice">4.0</field>
+            <field name="name">Taxe à 4</field>
+            <field name="fiscal_code">4000</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_z_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__4_r1" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Taxe à 4</field>
+            <field name="fiscal_code">4000</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_e_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__4_r2" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Taxe à 4</field>
+            <field name="fiscal_code">4000</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_b_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__4_r3" model="reg.tax.reference">
+            <field name="indice">4.0</field>
+            <field name="name">Taxe à 4</field>
+            <field name="fiscal_code">4000</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_u_r0"/>
+        </record>
+        <record id="reg_tax_reference_fausse_taxe_attentat_r0" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Fausse taxe attentat</field>
+            <field name="fiscal_code">TXATT</field>
+            <field name="date_start">2008-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_z_r0"/>
+        </record>
+        <record id="reg_tax_reference_fausse_taxe_attentat_r1" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Fausse taxe attentat</field>
+            <field name="fiscal_code">TXATT</field>
+            <field name="date_start">2008-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_e_r0"/>
+        </record>
+        <record id="reg_tax_reference_fausse_taxe_attentat_r2" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Fausse taxe attentat</field>
+            <field name="fiscal_code">TXATT</field>
+            <field name="date_start">2008-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_b_r0"/>
+        </record>
+        <record id="reg_tax_reference_fausse_taxe_attentat_r3" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Fausse taxe attentat</field>
+            <field name="fiscal_code">TXATT</field>
+            <field name="date_start">2008-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_u_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__145_r0" model="reg.tax.reference">
+            <field name="indice">14.5</field>
+            <field name="name">Taxe à 14,5</field>
+            <field name="fiscal_code">4500</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_t_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__45_r3" model="reg.tax.reference">
+            <field name="indice">4.5</field>
+            <field name="name">Taxe à 4,5</field>
+            <field name="fiscal_code">4501</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_z_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__45_r4" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Taxe à 4,5</field>
+            <field name="fiscal_code">4501</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_e_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__45_r5" model="reg.tax.reference">
+            <field name="indice">4.5</field>
+            <field name="name">Taxe à 4,5</field>
+            <field name="fiscal_code">4501</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_u_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__45_r6" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Taxe à 4,5</field>
+            <field name="fiscal_code">4501</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_b_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__45_r7" model="reg.tax.reference">
+            <field name="indice">4.5</field>
+            <field name="name">Taxe à 4,5</field>
+            <field name="fiscal_code">4501</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_t_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__4_r4" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Taxe à 4</field>
+            <field name="fiscal_code">4502</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_b_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__4_r5" model="reg.tax.reference">
+            <field name="indice">4.0</field>
+            <field name="name">Taxe à 4</field>
+            <field name="fiscal_code">4502</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_u_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__4_r6" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Taxe à 4</field>
+            <field name="fiscal_code">4502</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_e_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__4_r7" model="reg.tax.reference">
+            <field name="indice">4.0</field>
+            <field name="name">Taxe à 4</field>
+            <field name="fiscal_code">4502</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_z_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__20_r1" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Taxe à 20</field>
+            <field name="fiscal_code">4500</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_b2_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__7_r0" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Taxe à 7</field>
+            <field name="fiscal_code">4500</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_b3_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__7_r1" model="reg.tax.reference">
+            <field name="indice">7.0</field>
+            <field name="name">Taxe à 7</field>
+            <field name="fiscal_code">4500</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_u3_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__20_r2" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Taxe à 20</field>
+            <field name="fiscal_code">4500</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_e2_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__7_r2" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Taxe à 7</field>
+            <field name="fiscal_code">4500</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_e3_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__20_r3" model="reg.tax.reference">
+            <field name="indice">20.0</field>
+            <field name="name">Taxe à 20</field>
+            <field name="fiscal_code">4500</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_z2_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__7_r3" model="reg.tax.reference">
+            <field name="indice">7.0</field>
+            <field name="name">Taxe à 7</field>
+            <field name="fiscal_code">4500</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_z3_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__0_r0" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Taxe à 0</field>
+            <field name="fiscal_code">0</field>
+            <field name="date_start">1900-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_z_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__0_r1" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Taxe à 0</field>
+            <field name="fiscal_code">0</field>
+            <field name="date_start">1900-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_b_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__0_r2" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Taxe à 0</field>
+            <field name="fiscal_code">0</field>
+            <field name="date_start">1900-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_e_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__0_r3" model="reg.tax.reference">
+            <field name="indice">0.0</field>
+            <field name="name">Taxe à 0</field>
+            <field name="fiscal_code">0</field>
+            <field name="date_start">1900-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_u_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe_habitation_ipm_r0" model="reg.tax.reference">
+            <field name="indice">20.0</field>
+            <field name="name">Taxe Habitation IPM</field>
+            <field name="fiscal_code">TXIPM</field>
+            <field name="date_start">2016-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_th_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe_commerciale_ipm_r0" model="reg.tax.reference">
+            <field name="indice">7.0</field>
+            <field name="name">Taxe Commerciale IPM</field>
+            <field name="fiscal_code">TXIPM</field>
+            <field name="date_start">2016-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_tc_r0"/>
+        </record>
+        <record id="reg_tax_reference_taxe__145_r1" model="reg.tax.reference">
+            <field name="indice">14.5</field>
+            <field name="name">Taxe à 14,5</field>
+            <field name="fiscal_code">4500</field>
+            <field name="date_start">1990-01-01</field>
+            <field name="property_account_fiscal" ref="insurance_management.account_fiscal_position_v_r0"/>
+        </record>
+    </data>
+</openerp>
