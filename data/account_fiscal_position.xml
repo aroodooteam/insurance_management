@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="account_fiscal_position_b_r0" model="account.fiscal.position">
+            <field name="name">B</field>
+            <field name="sequence">0</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record id="account_fiscal_position_b2_r0" model="account.fiscal.position">
+            <field name="name">B2</field>
+            <field name="sequence">0</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record id="account_fiscal_position_b3_r0" model="account.fiscal.position">
+            <field name="name">B3</field>
+            <field name="sequence">0</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record id="account_fiscal_position_e_r0" model="account.fiscal.position">
+            <field name="name">E</field>
+            <field name="sequence">0</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record id="account_fiscal_position_e2_r0" model="account.fiscal.position">
+            <field name="name">E2</field>
+            <field name="sequence">0</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record id="account_fiscal_position_e3_r0" model="account.fiscal.position">
+            <field name="name">E3</field>
+            <field name="sequence">0</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record id="account_fiscal_position_fcemt_r0" model="account.fiscal.position">
+            <field name="name">FCEMT</field>
+            <field name="sequence">0</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record id="account_fiscal_position_t_r0" model="account.fiscal.position">
+            <field name="name">T</field>
+            <field name="sequence">0</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record id="account_fiscal_position_tc_r0" model="account.fiscal.position">
+            <field name="name">TC</field>
+            <field name="sequence">0</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record id="account_fiscal_position_th_r0" model="account.fiscal.position">
+            <field name="name">TH</field>
+            <field name="sequence">0</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record id="account_fiscal_position_u_r0" model="account.fiscal.position">
+            <field name="name">U</field>
+            <field name="sequence">0</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record id="account_fiscal_position_u2_r0" model="account.fiscal.position">
+            <field name="name">U2</field>
+            <field name="sequence">0</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record id="account_fiscal_position_u3_r0" model="account.fiscal.position">
+            <field name="name">U3</field>
+            <field name="sequence">0</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record id="account_fiscal_position_v_r0" model="account.fiscal.position">
+            <field name="name">V</field>
+            <field name="sequence">0</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record id="account_fiscal_position_z_r0" model="account.fiscal.position">
+            <field name="name">Z</field>
+            <field name="sequence">0</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record id="account_fiscal_position_z2_r0" model="account.fiscal.position">
+            <field name="name">Z2</field>
+            <field name="sequence">0</field>
+            <field name="active" eval="True"/>
+        </record>
+        <record id="account_fiscal_position_z3_r0" model="account.fiscal.position">
+            <field name="name">Z3</field>
+            <field name="sequence">0</field>
+            <field name="active" eval="True"/>
+        </record>
+    </data>
+</openerp>
