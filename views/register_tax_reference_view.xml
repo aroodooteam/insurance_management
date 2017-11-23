@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_reg_tax_reference_tree" model="ir.ui.view">
+            <field name="name">reg.tax.reference.tree</field>
+            <field name="model">reg.tax.reference</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Register tax reference">
+                    <field name="name"/>
+                    <field name="fiscal_code"/>
+                    <field name="property_account_fiscal"/>
+                    <field name="indice"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_reg_tax_reference_form" model="ir.ui.view">
+            <field name="name">reg.tax.reference.form</field>
+            <field name="model">reg.tax.reference</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Register tax reference">
+                    <group colspan="4">
+                        <field name="name"/>
+                        <field name="fiscal_code"/>
+                        <field name="property_account_fiscal"/>
+                        <field name="indice"/>
+                    </group>
+                    <group colspan="4">
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_reg_tax_reference_view">
+            <field name="name">Register tax reference</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">reg.tax.reference</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_reg_tax_reference_view_form">
+            <field name="act_window_id" ref="act_open_reg_tax_reference_view"/>
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_reg_tax_reference_form"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_open_reg_tax_reference_view_tree">
+            <field name="act_window_id" ref="act_open_reg_tax_reference_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_reg_tax_reference_tree"/>
+        </record>
+
+        <menuitem id="menu_reg_tax_reference"
+            parent="insurance_management.menu_root_configuration_insurance"
+            sequence="20"
+            action="act_open_reg_tax_reference_view"/>
+    </data>
+</openerp>
