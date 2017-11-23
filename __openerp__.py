@@ -40,5 +40,7 @@
         'views/res_partner_family_view.xml',
         'views/res_partner_view.xml',
         'data/account_fiscal_position.xml',
+        'views/register_tax_reference_view.xml',
+        'data/register_tax_reference.xml',
     ],
 }
