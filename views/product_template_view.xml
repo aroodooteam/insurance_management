@@ -16,6 +16,9 @@
                 </xpath>
                 <xpath expr="//notebook" position="inside">
                     <page string="Insurance" attrs="{'invisible': [('is_warranty', '!=', True)]}">
+                        <group colspan="4">
+                            <field name="fiscal_code"/>
+                        </group>
                         <!--
                         <separator string="Type of risk" colspan="4"/>
                         <div name="Type of risk">
