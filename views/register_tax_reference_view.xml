@@ -10,7 +10,8 @@
                 <tree string="Register tax reference">
                     <field name="name"/>
                     <field name="fiscal_code"/>
-                    <field name="property_account_fiscal"/>
+                    <field name="property_account_position"/>
+                    <field name="tax_id"/>
                     <field name="indice"/>
                 </tree>
             </field>
@@ -26,7 +27,8 @@
                     <group colspan="4">
                         <field name="name"/>
                         <field name="fiscal_code"/>
-                        <field name="property_account_fiscal"/>
+                        <field name="property_account_position"/>
+                        <field name="tax_id"/>
                         <field name="indice"/>
                     </group>
                     <group colspan="4">
