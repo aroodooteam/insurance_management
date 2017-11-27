@@ -10,7 +10,8 @@ class RegisterTaxReference(models.Model):
 
     name = fields.Char(string='Name')
     fiscal_code = fields.Char(string='Code')
-    property_account_fiscal = fields.Many2one(comodel_name='account.fiscal.position', string='Fiscal Position')
+    property_account_position = fields.Many2one(comodel_name='account.fiscal.position', string='Fiscal Position')
     indice = fields.Float(string='Indice', digits_compute=dp.get_precision('Account'))
+    tax_id = fields.Many2one(comodel_name='account.tax', string='Register tax')
     date_start = fields.Date(string='Start')
     date_end = fields.Date(string='End')
