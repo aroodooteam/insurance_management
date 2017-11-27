@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, fields, api, _
+from openerp import models, fields, api, exceptions, _
 from openerp.exceptions import Warning,ValidationError
 from datetime import datetime as dt
 from openerp.addons.decimal_precision import decimal_precision as dp
@@ -48,6 +48,8 @@ class AnalyticHistory(models.Model):
     #    comodel_name='res.apporteur', string='Broker',
     #    help='Initial broker of the contract')
     ver_ident = fields.Char(string='Ver Ident')
+    property_account_position = fields.Many2one(
+        comodel_name='account.fiscal.position', string='Fiscal Position')
 
     @api.multi
     def confirm_quotation(self):
@@ -192,6 +194,33 @@ class AnalyticHistory(models.Model):
         if self.eml > self.capital:
             raise ValidationError(_('The expected maximum loss should be less than the capital'))
 
+    @api.multi
+    def _get_reg_tax(self, warranty_id, fpos_id):
+        """
+        :param:: warranty_id: product.product()
+        :param:: fpos_id: account.fiscal.position()
+        """
+        logger.info('war_id = %s' % warranty_id)
+        logger.info('fpos_id = %s' % fpos_id)
+        tax_id = False
+        if not warranty_id :
+            return False
+        if not fpos_id:
+            fpos_id = self.env['account.fiscal.position'].search([('name', '=', 'Z')])
+        fiscal_code = warranty_id.fiscal_code
+        if not fiscal_code:
+            fiscal_code = '4500'
+        regtaxref_obj = self.env['reg.tax.reference']
+        domain = [('property_account_position', '=', fpos_id.id), ('fiscal_code', '=', fiscal_code)]
+        regte = regtaxref_obj.search(domain)
+        logger.info('regte = %s' % regte)
+        if not regte or len(regte) > 1:
+            raise exceptions.Warning(_('Too much result found'))
+        tax_id = regte.tax_id
+        if not tax_id:
+            tax_id = self.env['account.tax'].search([('description', '=', 'Te-0.0')])
+        return tax_id
+
     # TODO
     @api.multi
     def generate_invoice(self):
@@ -237,12 +266,18 @@ class AnalyticHistory(models.Model):
             logger.info('wa = %s' % warranty_amount)
             invoice_line = []
             for warranty_id in warranty_ids:
+                # Get reg tax_id
                 compute_line = invline_obj.product_id_change(warranty_id.id, warranty_id.uom_id.id, partner_id=self.analytic_id.partner_id.id)
                 line = compute_line.get('value', {})
                 line.update(product_id=warranty_id.id)
                 line.update(quantity=1)
                 line.update(account_analytic_id=self.analytic_id.id)
                 line.update(price_unit=warranty_amount.get(warranty_id.id))
+                regte_id = self._get_reg_tax(warranty_id, self.property_account_position)
+                logger.info('=== regte_id = %s ===' % regte_id)
+                if regte_id:
+                    line['invoice_line_tax_id'].append(regte_id.id)
+                logger.info('=== line = %s ===' % line)
                 invoice_line.append((0, 0, line))
             # Insert Accessories in invoice_line
             compl_line = {
