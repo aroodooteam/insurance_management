@@ -45,6 +45,7 @@
                             <group cols="6">
                                 <field name="parent_id" attrs="{'invisible': [('parent_id','=', False)], 'readonly': True}"/>
                                 <field name="analytic_id" invisible="0" readonly="1"/>
+                                <field name="property_account_position"/>
                                 <field name="is_last_situation"/>
                                 <field name="capital"/>
                                 <field name="eml"/>
