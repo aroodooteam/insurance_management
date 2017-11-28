@@ -19,7 +19,7 @@ class ProductTemplate(models.Model):
     type_risk_id = fields.Many2one(
         comodel_name='insurance.type.risk', string='Type of risk', required=False)
     ins_product_id = fields.Many2one(comodel_name='insurance.product', string='Insurance Product', related='type_risk_id.ins_product_id', store=True)
-    branch_id = fields.Many2one(comodel_name='insurance.branch', string='Insurance Product', related='type_risk_id.ins_product_id.branch_id', store=True)
+    branch_id = fields.Many2one(comodel_name='insurance.branch', string='Insurance Branch', related='type_risk_id.ins_product_id.branch_id', store=True)
     branch_categ = fields.Selection(related='branch_id.category', string='Branch Category', store=True)
     fiscal_code = fields.Char(string='Fiscal code')
     # aro_taxe_ids = fields.One2many(
