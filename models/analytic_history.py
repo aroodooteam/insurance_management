@@ -202,6 +202,7 @@ class AnalyticHistory(models.Model):
         """
         logger.info('war_id = %s' % warranty_id)
         logger.info('fpos_id = %s' % fpos_id)
+        tax_obj = self.env['account.tax']
         tax_id = False
         if not warranty_id :
             return False
@@ -214,11 +215,12 @@ class AnalyticHistory(models.Model):
         domain = [('property_account_position', '=', fpos_id.id), ('fiscal_code', '=', fiscal_code)]
         regte = regtaxref_obj.search(domain)
         logger.info('regte = %s' % regte)
-        if not regte or len(regte) > 1:
+        if not regte:
+            tax_id = tax_obj.search([('description', '=', 'Te-0.0')])
+        elif regte and len(regte) > 1:
             raise exceptions.Warning(_('Too much result found'))
-        tax_id = regte.tax_id
-        if not tax_id:
-            tax_id = self.env['account.tax'].search([('description', '=', 'Te-0.0')])
+        else:
+            tax_id = regte.tax_id
         return tax_id
 
     # TODO
