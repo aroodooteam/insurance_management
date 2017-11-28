@@ -1,0 +1,3694 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* insurance_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-28 07:16+0000\n"
+"PO-Revision-Date: 2017-11-28 07:16+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: insurance_management
+#: code:addons/insurance_management/models/analytic_history.py:64
+#: code:addons/insurance_management/models/analytic_history.py:90
+#: code:addons/insurance_management/models/analytic_history.py:96
+#, python-format
+msgid "%s (copy)"
+msgstr "%s (copie)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_garanties_batiment_r0
+msgid "------------GARANTIES BATIMENT------------"
+msgstr "------------GARANTIES BATIMENT------------"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_garanties_bris_de_machines_r0
+msgid "------------GARANTIES BRIS DE MACHINES------------"
+msgstr "------------GARANTIES BRIS DE MACHINES------------"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_garanties_contenu_r0
+msgid "------------GARANTIES CONTENU------------"
+msgstr "------------GARANTIES CONTENU------------"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_garanties_mat__electroniques_r0
+msgid "------------GARANTIES MAT. ELECTRONIQUES------------"
+msgstr "------------GARANTIES MAT. ELECTRONIQUES------------"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_garanties_resp__civile_r0
+msgid "------------GARANTIES RESP. CIVILE------------"
+msgstr "------------GARANTIES RESP. CIVILE------------"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_garanties_risques_locatifs_r0
+msgid "------------GARANTIES RISQUES LOCATIFS------------"
+msgstr "------------GARANTIES RISQUES LOCATIFS------------"
+
+#. module: insurance_management
+#: model:ir.actions.act_window,help:insurance_management.act_open_account_analytic_account_view
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to create a new contract.\n"
+"                </p><p>\n"
+"                    Use contracts to follow tasks, issues, timesheets or invoicing based on\n"
+"                    work done, expenses and/or sales orders. Odoo will automatically manage\n"
+"                    the alerts for the renewal of the contracts to the right salesperson.\n"
+"                </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                    Click to create a new contract.\n"
+"                </p><p>\n"
+"                    Use contracts to follow tasks, issues, timesheets or invoicing based on\n"
+"                    work done, expenses and/or sales orders. Odoo will automatically manage\n"
+"                    the alerts for the renewal of the contracts to the right salesperson.\n"
+"                </p>\n"
+"            "
+
+#. module: insurance_management
+#: field:res.partner,ap_code:0
+msgid "AP code"
+msgstr "AP code"
+
+#. module: insurance_management
+#: field:insurance.product,amount_accessories:0
+msgid "Accessories Amount"
+msgstr "Montant Accessoires"
+
+#. module: insurance_management
+#: field:insurance.product,amount_accessories_nb:0
+msgid "Accessories Amount per object"
+msgstr "Montant Accessoires par objet"
+
+#. module: insurance_management
+#: view:insurance.product:insurance_management.view_insurance_product_form
+msgid "Accessories Information"
+msgstr "Information Accessoires "
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_accidents_majeurs_r0
+msgid "Accidents majeurs"
+msgstr "Accidents majeurs"
+
+#. module: insurance_management
+#: view:res.partner:insurance_management.view_res_partner_form_inherit_family_r0
+msgid "Account setting"
+msgstr "Configuration compte"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_amendes_et_pnalits_r0
+msgid "Amendes et pénalités"
+msgstr "Amendes et pénalités"
+
+#. module: insurance_management
+#: code:addons/insurance_management/models/aro_insurance_subscription.py:150
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:183
+#, python-format
+msgid "Amendment"
+msgstr "Avenant"
+
+#. module: insurance_management
+#: field:analytic_history.risk.line,history_id:0
+msgid "Amendment Line"
+msgstr "Détails de l'avenant"
+
+#. module: insurance_management
+#: view:analytic.history:insurance_management.view_analytic_history_search
+msgid "Amendment Lines"
+msgstr "Détails de l'avenant"
+
+#. module: insurance_management
+#: model:ir.model,name:insurance_management.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "Compte analytique"
+
+#. module: insurance_management
+#: view:analytic.history:insurance_management.view_analytic_history_form
+#: view:analytic.history:insurance_management.view_analytic_history_tree
+#: view:analytic.history.wiz:insurance_management.view_analytic_history_wiz_form
+msgid "Analytic History"
+msgstr "Version de police"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_assistance_r0
+msgid "Assistance"
+msgstr "Assistance"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_assistance_coporelle_flotte_r0
+msgid "Assistance Coporelle Flotte"
+msgstr "Assistance Coporelle Flotte"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_assistance_mapfre_r0
+msgid "Assistance MAPFRE"
+msgstr "Assistance MAPFRE"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_assurance_corporelle_r0
+msgid "Assurance Corporelle"
+msgstr "Assurance Corporelle"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_avaries_communes_faps_r0
+#: model:product.template,name:insurance_management.pt_avaries_communes_faps_r1
+#: model:product.template,name:insurance_management.pt_avaries_communes_faps_r2
+#: model:product.template,name:insurance_management.pt_avaries_communes_faps_r3
+msgid "Avaries Communes (FAPS*)"
+msgstr "Avaries Communes (FAPS*)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_avaries_communes_tr_r0
+#: model:product.template,name:insurance_management.pt_avaries_communes_tr_r1
+#: model:product.template,name:insurance_management.pt_avaries_communes_tr_r2
+#: model:product.template,name:insurance_management.pt_avaries_communes_tr_r3
+msgid "Avaries Communes (TR***)"
+msgstr "Avaries Communes (TR***)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_avaries_particulires_diverses_tr_r0
+#: model:product.template,name:insurance_management.pt_avaries_particulires_diverses_tr_r1
+#: model:product.template,name:insurance_management.pt_avaries_particulires_diverses_tr_r2
+#: model:product.template,name:insurance_management.pt_avaries_particulires_diverses_tr_r3
+msgid "Avaries particulières Diverses (TR***)"
+msgstr "Avaries particulières Diverses (TR***)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_avaries_particulires_sauf_faps_r0
+#: model:product.template,name:insurance_management.pt_avaries_particulires_sauf_faps_r1
+#: model:product.template,name:insurance_management.pt_avaries_particulires_sauf_faps_r2
+#: model:product.template,name:insurance_management.pt_avaries_particulires_sauf_faps_r3
+msgid "Avaries particulières sauf (FAPS*)"
+msgstr "Avaries particulières sauf (FAPS*)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_avaries_particulires_sauf_tr_r0
+#: model:product.template,name:insurance_management.pt_avaries_particulires_sauf_tr_r1
+#: model:product.template,name:insurance_management.pt_avaries_particulires_sauf_tr_r2
+#: model:product.template,name:insurance_management.pt_avaries_particulires_sauf_tr_r3
+msgid "Avaries particulières sauf (TR***)"
+msgstr "Avaries particulières sauf (TR***)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_base_bris_de_glaces_r0
+msgid "Base Bris De Glaces"
+msgstr "Base Bris De Glaces"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_base_matriels_electroniques_r0
+#: model:product.template,name:insurance_management.pt_base_matriels_electroniques_r1
+msgid "Base Matériels Electroniques"
+msgstr "Base Matériels Electroniques"
+
+#. module: insurance_management
+#: field:account.analytic.account,branch_id:0
+#: field:insurance.product,branch_id:0
+#: view:product.template:insurance_management.view_insurance_warranty_search
+msgid "Branch"
+msgstr "Branches"
+
+#. module: insurance_management
+#: field:product.template,branch_categ:0
+msgid "Branch Category"
+msgstr "Branch Category"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_bris_de_glaces_r4
+#: model:product.template,name:insurance_management.pt_bris_de_glaces_r5
+msgid "Bris de Glaces"
+msgstr "Bris de Glaces"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_bris_de_glaces_gemp_r1
+msgid "Bris de Glaces GEMP"
+msgstr "Bris de Glaces GEMP"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_bris_de_glaces_r0
+#: model:product.template,name:insurance_management.pt_bris_de_glaces_r1
+#: model:product.template,name:insurance_management.pt_bris_de_glaces_r2
+#: model:product.template,name:insurance_management.pt_bris_de_glaces_r3
+msgid "Bris de glaces"
+msgstr "Bris de glaces"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_bris_de_glaces_gemp_r0
+msgid "Bris de glaces GEMP"
+msgstr "Bris de glaces GEMP"
+
+#. module: insurance_management
+#: field:res.partner,is_broker:0
+msgid "Broker"
+msgstr "Apporteur"
+
+#. module: insurance_management
+#: view:res.partner:insurance_management.view_res_partner_form_inherit_family_r0
+msgid "Broker Informations"
+msgstr "Informations Apporteur"
+
+#. module: insurance_management
+#: model:ir.ui.menu,name:insurance_management.menu_root_type_broker_insurance
+msgid "Brokers"
+msgstr "Apporteurs"
+
+#. module: insurance_management
+#: view:analytic.history.wiz:insurance_management.view_analytic_history_wiz_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: insurance_management
+#: field:analytic.history,capital:0
+msgid "Capital"
+msgstr "Capital"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_casse_et_coulage_r0
+msgid "Casse et coulage"
+msgstr "Casse et coulage"
+
+#. module: insurance_management
+#: field:insurance.branch,category:0
+msgid "Category"
+msgstr "Categorie"
+
+#. module: insurance_management
+#: help:account.analytic.account,is_insurance:0
+msgid "Check if it is an insurance contract"
+msgstr "Cochez si c'est une police d'assurance"
+
+#. module: insurance_management
+#: help:product.template,is_warranty:0
+msgid "Check if this product is an warranty"
+msgstr "Cochez si ce produit est une garantie"
+
+#. module: insurance_management
+#: help:product.template,commissionable:0
+msgid "Check if this product is commissionable"
+msgstr "Est commissionable"
+
+#. module: insurance_management
+#: selection:res.partner.family,type:0
+msgid "Child"
+msgstr "Enfant"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_choc_vhic__terrestres__moteur_identifis_r0
+#: model:product.template,name:insurance_management.pt_choc_vhic__terrestres__moteur_identifis_r1
+#: model:product.template,name:insurance_management.pt_choc_vhic__terrestres__moteur_identifis_r2
+#: model:product.template,name:insurance_management.pt_choc_vhic__terrestres__moteur_identifis_r3
+msgid "Choc véhic. terrestres à moteur identifiés"
+msgstr "Choc véhic. terrestres à moteur identifiés"
+
+#. module: insurance_management
+#: view:analytic.history.wiz:insurance_management.view_analytic_history_wiz_form
+msgid "Choose the stage of history you need to create"
+msgstr "Choisissez une type d'émission"
+
+#. module: insurance_management
+#: view:product.template:insurance_management.view_insurance_warranty_search
+msgid "Classification"
+msgstr "Classification"
+
+#. module: insurance_management
+#: field:insurance_type_risk.clause,description:0
+msgid "Clause description"
+msgstr "Description Clause"
+
+#. module: insurance_management
+#: model:ir.model,name:insurance_management.model_insurance_type_risk_clause
+msgid "Clause of insurance type of risk"
+msgstr "Clause type de risque"
+
+#. module: insurance_management
+#: model:ir.actions.act_window,name:insurance_management.act_open_insurance_type_risk_clause_view
+#: model:ir.ui.menu,name:insurance_management.menu_insurance_type_risk_clause
+msgid "Clauses"
+msgstr "Clauses"
+
+#. module: insurance_management
+#: field:analytic.history.stage,code:0
+#: field:insurance.fraction,code:0
+#: view:insurance.product:insurance_management.view_insurance_product_form
+#: field:insurance.type.risk,code:0
+#: field:insurance_type_risk.clause,code:0
+#: field:insurance_type_risk.description,code:0
+#: field:reg.tax.reference,fiscal_code:0
+#: field:risk.description.line,code:0
+msgid "Code"
+msgstr "Code"
+
+#. module: insurance_management
+#: sql_constraint:analytic.history.stage:0
+#: sql_constraint:insurance.branch:0
+#: sql_constraint:insurance.fraction:0
+msgid "Code must be unique."
+msgstr "Code doit être unique."
+
+#. module: insurance_management
+#: view:insurance.type.risk:insurance_management.view_insurance_type_risk_form
+msgid "Code of Risk type"
+msgstr "Code type de risque"
+
+#. module: insurance_management
+#: field:analytic.history,comment:0
+msgid "Comment"
+msgstr "Commentaires"
+
+#. module: insurance_management
+#: view:analytic.history:insurance_management.view_analytic_history_form
+#: field:insurance.product,comments:0
+msgid "Comments"
+msgstr "Commentaires"
+
+#. module: insurance_management
+#: view:product.template:insurance_management.view_product_product_form
+msgid "Commission Information"
+msgstr "Information Commission"
+
+#. module: insurance_management
+#: field:product.template,commissionable:0
+msgid "Commissionable"
+msgstr "Commissionable"
+
+#. module: insurance_management
+#: model:ir.ui.menu,name:insurance_management.menu_root_configuration_insurance
+msgid "Configurations"
+msgstr "Configurations"
+
+#. module: insurance_management
+#: view:analytic.history:insurance_management.view_analytic_history_form
+msgid "Confirm"
+msgstr "Confirmer"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_contenu_des_coffresforts_r0
+msgid "Contenu des coffres-forts"
+msgstr "Contenu des coffres-forts"
+
+#. module: insurance_management
+#: field:account.invoice,analytic_id:0
+msgid "Contract"
+msgstr "Police"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_contribution_aux_avaries_communes_r0
+#: model:product.template,name:insurance_management.pt_contribution_aux_avaries_communes_r1
+#: model:product.template,name:insurance_management.pt_contribution_aux_avaries_communes_r2
+#: model:product.template,name:insurance_management.pt_contribution_aux_avaries_communes_r3
+#: model:product.template,name:insurance_management.pt_contribution_aux_avaries_communes_r4
+#: model:product.template,name:insurance_management.pt_contribution_aux_avaries_communes_r5
+#: model:product.template,name:insurance_management.pt_contribution_aux_avaries_communes_r6
+#: model:product.template,name:insurance_management.pt_contribution_aux_avaries_communes_r7
+msgid "Contribution aux avaries communes"
+msgstr "Contribution aux avaries communes"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_corps_ro_avec_rachat_de_franchise_r0
+msgid "Corps RO avec Rachat de franchise"
+msgstr "Corps RO avec Rachat de franchise"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_corps_risques_ordinaires_r0
+msgid "Corps Risques Ordinaires"
+msgstr "Corps Risques Ordinaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_corps_ext__pices_dtaches_rg_r0
+msgid "Corps ext. Pièces Détachées RG"
+msgstr "Corps ext. Pièces Détachées RG"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_corps_ext__pices_dtaches_ro_r0
+msgid "Corps ext. Pièces Détachées RO"
+msgstr "Corps ext. Pièces Détachées RO"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_corps_ext__risques_de_guerre_r0
+msgid "Corps ext. Risques de Guerre"
+msgstr "Corps ext. Risques de Guerre"
+
+#. module: insurance_management
+#: field:analytic.history,create_uid:0
+#: field:analytic.history.stage,create_uid:0
+#: field:analytic.history.wiz,create_uid:0
+#: field:analytic_history.risk.line,create_uid:0
+#: field:insurance.branch,create_uid:0
+#: field:insurance.fraction,create_uid:0
+#: field:insurance.product,create_uid:0
+#: field:insurance.type.risk,create_uid:0
+#: field:insurance_type_risk.clause,create_uid:0
+#: field:insurance_type_risk.description,create_uid:0
+#: field:reg.tax.reference,create_uid:0
+#: field:res.partner.family,create_uid:0
+#: field:risk.description.line,create_uid:0
+#: field:risk.warranty.line,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: insurance_management
+#: field:analytic.history,create_date:0
+#: field:analytic.history.stage,create_date:0
+#: field:analytic.history.wiz,create_date:0
+#: field:analytic_history.risk.line,create_date:0
+#: field:insurance.branch,create_date:0
+#: field:insurance.fraction,create_date:0
+#: field:insurance.product,create_date:0
+#: field:insurance.type.risk,create_date:0
+#: field:insurance_type_risk.clause,create_date:0
+#: field:insurance_type_risk.description,create_date:0
+#: field:reg.tax.reference,create_date:0
+#: field:res.partner.family,create_date:0
+#: field:risk.description.line,create_date:0
+#: field:risk.warranty.line,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: insurance_management
+#: field:analytic.history,creating_date:0
+msgid "Creating date"
+msgstr "Creating date"
+
+#. module: insurance_management
+#: model:ir.ui.menu,name:insurance_management.menu_customer_insurance
+#: model:ir.ui.menu,name:insurance_management.menu_root_customer_insurance
+msgid "Customers"
+msgstr "Clients"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_cyclones_r0
+#: model:product.template,name:insurance_management.pt_cyclones_r1
+msgid "Cyclones"
+msgstr "Cyclones"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_cyclones__ext__inondation_r0
+msgid "Cyclones - Ext. Inondation"
+msgstr "Cyclones - Ext. Inondation"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_cyclones__ext__inondation_btiment_r0
+msgid "Cyclones - Ext. Inondation Bâtiment"
+msgstr "Cyclones - Ext. Inondation Bâtiment"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_cyclones__ext__inondation_contenu_r0
+msgid "Cyclones - Ext. Inondation Contenu"
+msgstr "Cyclones - Ext. Inondation Contenu"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_cyclones__ext__inondation_conscutive__un_cyclone_r0
+msgid "Cyclones - Ext. Inondation consécutive à un cyclone"
+msgstr "Cyclones - Ext. Inondation consécutive à un cyclone"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_cyclones__ext__perte_de_loyers_r0
+#: model:product.template,name:insurance_management.pt_cyclones__ext__perte_de_loyers_r1
+msgid "Cyclones - Ext. Perte de loyers"
+msgstr "Cyclones - Ext. Perte de loyers"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_cyclones__ext__raz_de_mare_r0
+msgid "Cyclones - Ext. Raz de marée"
+msgstr "Cyclones - Ext. Raz de marée"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_cyclones__ext__raz_de_mare_btiment_r0
+msgid "Cyclones - Ext. Raz de marée Bâtiment"
+msgstr "Cyclones - Ext. Raz de marée Bâtiment"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_cyclones__ext__raz_de_mare_contenu_r0
+msgid "Cyclones - Ext. Raz de marée Contenu"
+msgstr "Cyclones - Ext. Raz de marée Contenu"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_cyclones__ext__raz_de_mare_conscutif__un_cyclone_r0
+msgid "Cyclones - Ext. Raz de marée consécutif à un cyclone"
+msgstr "Cyclones - Ext. Raz de marée consécutif à un cyclone"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_cyclones_btiment_r0
+msgid "Cyclones Bâtiment"
+msgstr "Cyclones Bâtiment"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_cyclones_contenu_r0
+msgid "Cyclones Contenu"
+msgstr "Cyclones Contenu"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_cyclones_ouragans_vents_violents_temptes_r0
+msgid "Cyclones, ouragans, vents violents, tempêtes"
+msgstr "Cyclones, ouragans, vents violents, tempêtes"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dc_dcs_r0
+msgid "DC (Décès)"
+msgstr "DC (Décès)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_ddeprivation_de_jouissance_locataires_r0
+msgid "DDE-Privation de Jouissance Locataires"
+msgstr "DDE-Privation de Jouissance Locataires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_ddeprivation_de_jouissance_des_locataires_r0
+msgid "DDE-Privation de Jouissance des Locataires"
+msgstr "DDE-Privation de Jouissance des Locataires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_ddeprivation_de_jouissance_des_propr__r0
+#: model:product.template,name:insurance_management.pt_ddeprivation_de_jouissance_des_propr__r1
+msgid "DDE-Privation de Jouissance des Propr."
+msgstr "DDE-Privation de Jouissance des Propr."
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_ddeprivation_de_jouissance_des_propritaires_r0
+#: model:product.template,name:insurance_management.pt_ddeprivation_de_jouissance_des_propritaires_r1
+msgid "DDE-Privation de Jouissance des Propriétaires"
+msgstr "DDE-Privation de Jouissance des Propriétaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dderecours_locataires_contre_propr__r0
+msgid "DDE-Recours Locataires contre Propr."
+msgstr "DDE-Recours Locataires contre Propr."
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dderecours_des_locataires_contre_les_propritaires_r0
+msgid "DDE-Recours des Locataires contre les Propriétaires"
+msgstr "DDE-Recours des Locataires contre les Propriétaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dderecours_des_voisins_et_des_tiers_r1
+#: model:product.template,name:insurance_management.pt_dderecours_des_voisins_et_des_tiers_r2
+#: model:product.template,name:insurance_management.pt_dderecours_des_voisins_et_des_tiers_r3
+msgid "DDE-Recours des Voisins et des Tiers"
+msgstr "DDE-Recours des Voisins et des Tiers"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dderecours_des_voisins_et_des_tiers_r0
+msgid "DDE-Recours des voisins et des Tiers"
+msgstr "DDE-Recours des voisins et des Tiers"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dderenonc___recours_loc__contre_propr__r0
+msgid "DDE-Renonc. à Recours Loc. contre Propr."
+msgstr "DDE-Renonc. à Recours Loc. contre Propr."
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dderenonc___recours_propr__contre_loc__r0
+msgid "DDE-Renonc. à Recours Propr. contre Loc."
+msgstr "DDE-Renonc. à Recours Propr. contre Loc."
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dderenonc___recours_des_loc__contre_les_propr__r0
+msgid "DDE-Renonc. à Recours des Loc. contre les Propr."
+msgstr "DDE-Renonc. à Recours des Loc. contre les Propr."
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dderenonc___recours_des_propr__contre_les_loc__r0
+msgid "DDE-Renonc. à Recours des Propr. contre les Loc."
+msgstr "DDE-Renonc. à Recours des Propr. contre les Loc."
+
+#. module: insurance_management
+#: help:insurance.product,amount_accessories:0
+msgid "Default Accessories amount"
+msgstr "Montant Accessoires par Défaut"
+
+#. module: insurance_management
+#: help:insurance.product,amount_accessories_nb:0
+msgid "Default Accessories amount if more than one object"
+msgstr "Montant Accessoires par défaut si plus d'un objet"
+
+#. module: insurance_management
+#: field:analytic_history.risk.line,name:0
+#: view:insurance_type_risk.clause:insurance_management.view_insurance_type_risk_clause_form
+#: field:risk.warranty.line,name:0
+msgid "Description"
+msgstr "Description"
+
+#. module: insurance_management
+#: model:ir.model,name:insurance_management.model_insurance_type_risk_description
+msgid "Description of insurance type of risk"
+msgstr "Description of insurance type of risk"
+
+#. module: insurance_management
+#: view:analytic.history:insurance_management.view_analytic_history_form
+#: model:ir.actions.act_window,name:insurance_management.act_open_insurance_type_risk_description_view
+#: model:ir.ui.menu,name:insurance_management.menu_insurance_type_risk_description
+msgid "Descriptions"
+msgstr "Descriptions"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_destruction_partielle_ou_totale_r0
+msgid "Destruction partielle ou totale"
+msgstr "Destruction partielle ou totale"
+
+#. module: insurance_management
+#: view:res.partner:insurance_management.view_res_partner_form_inherit_family_r0
+msgid "Details"
+msgstr "Details"
+
+#. module: insurance_management
+#: help:analytic.history.wiz,stage_id:0
+msgid "Different stage of the history"
+msgstr "Type Emission"
+
+#. module: insurance_management
+#: field:analytic.history,display_name:0
+#: field:analytic.history.stage,display_name:0
+#: field:analytic.history.wiz,display_name:0
+#: field:analytic_history.risk.line,display_name:0
+#: field:insurance.branch,display_name:0
+#: field:insurance.fraction,display_name:0
+#: field:insurance.product,display_name:0
+#: field:insurance.type.risk,display_name:0
+#: field:insurance_type_risk.clause,display_name:0
+#: field:insurance_type_risk.description,display_name:0
+#: field:reg.tax.reference,display_name:0
+#: field:res.partner.family,display_name:0
+#: field:risk.description.line,display_name:0
+#: field:risk.warranty.line,display_name:0
+msgid "Display Name"
+msgstr "Display Name"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dom__ext__ampoules_de_projecteurs_dclairage_r0
+msgid "Dom - Ext. Ampoules de projecteurs d'éclairage"
+msgstr "Dom - Ext. Ampoules de projecteurs d'éclairage"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dom__ext__bandes_et_chanes_de_convoyeurs_r0
+msgid "Dom - Ext. Bandes et chaînes de convoyeurs"
+msgstr "Dom - Ext. Bandes et chaînes de convoyeurs"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dom__ext__biens_avoisinants_et_rc_r0
+msgid "Dom - Ext. Biens avoisinants et RC"
+msgstr "Dom - Ext. Biens avoisinants et RC"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dom_extcaisract_mat_installs_int_caisson_r0
+msgid "Dom - Ext. Caisson du réacteur et mat. installés à l'intérieur du caisson"
+msgstr "Dom - Ext. Caisson du réacteur et mat. installés à l'intérieur du caisson"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dom__ext__elments_combustibles_r0
+msgid "Dom - Ext. Eléments combustibles"
+msgstr "Dom - Ext. Eléments combustibles"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dom__ext__fils_et_cbles_non_lectriques_r0
+msgid "Dom - Ext. Fils et câbles non électriques"
+msgstr "Dom - Ext. Fils et câbles non électriques"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dom__ext__frais_de_contamination_r0
+msgid "Dom - Ext. Frais de contamination"
+msgstr "Dom - Ext. Frais de contamination"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dom__ext__frais_pour_heures_supplmentaires_r0
+msgid "Dom - Ext. Frais pour heures supplémentaires"
+msgstr "Dom - Ext. Frais pour heures supplémentaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dom__ext__frais_supplmentaires_pour_transport_arien_r0
+msgid "Dom - Ext. Frais supplémentaires pour transport aérien"
+msgstr "Dom - Ext. Frais supplémentaires pour transport aérien"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dom__ext__honoraires_dexpert_r0
+msgid "Dom - Ext. Honoraires d'expert"
+msgstr "Dom - Ext. Honoraires d'expert"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dom__ext__huile_lubrifiante_ou_rfrigrant_r0
+msgid "Dom - Ext. Huile lubrifiante ou réfrigérant"
+msgstr "Dom - Ext. Huile lubrifiante ou réfrigérant"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dom__ext__incendie_dorigine_interne_explosion_interne_r0
+msgid "Dom - Ext. Incendie d'origine interne, explosion interne"
+msgstr "Dom - Ext. Incendie d'origine interne, explosion interne"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dom__ext__inondation_et_embourbement_r0
+msgid "Dom - Ext. Inondation et embourbement"
+msgstr "Dom - Ext. Inondation et embourbement"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dom__ext__machines_et_quipements__usage_souterrain_r0
+msgid "Dom - Ext. Machines et équipements à usage souterrain"
+msgstr "Dom - Ext. Machines et équipements à usage souterrain"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_mat_rfractaires_maonnerie_fours_indus_chaud_r0
+msgid "Dom - Ext. Mat. réfractaires et de maçonnerie pr fours industriels et dans les chaudières"
+msgstr "Dom - Ext. Mat. réfractaires et de maçonnerie pr fours industriels et dans les chaudières"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dom__ext__pertes_de_contenu_r0
+msgid "Dom - Ext. Pertes de contenu"
+msgstr "Dom - Ext. Pertes de contenu"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dom__ext__pompes_immerges_et_pompes_pour_puits_profonds_r0
+msgid "Dom - Ext. Pompes immergées et pompes pour puits profonds"
+msgstr "Dom - Ext. Pompes immergées et pompes pour puits profonds"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dom__ext__risque_corps_de_machines__transport_exclu_r0
+msgid "Dom - Ext. Risque Corps de Machines - transport exclu"
+msgstr "Dom - Ext. Risque Corps de Machines - transport exclu"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dom__ext__risque_corps_de_machines_transport_inclu_r0
+msgid "Dom - Ext. Risque Corps de Machines transport inclu"
+msgstr "Dom - Ext. Risque Corps de Machines transport inclu"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_ampoules_de_projecteurs_dclairage_r0
+#: model:product.template,name:insurance_management.pt_domext_ampoules_de_projecteurs_dclairage_r1
+msgid "Dom-Ext Ampoules de projecteurs d’éclairage"
+msgstr "Dom-Ext Ampoules de projecteurs d’éclairage"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_bandes_et_chanes_de_convoyeurs_r0
+#: model:product.template,name:insurance_management.pt_domext_bandes_et_chanes_de_convoyeurs_r1
+msgid "Dom-Ext Bandes et chaînes de convoyeurs"
+msgstr "Dom-Ext Bandes et chaînes de convoyeurs"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_biens_avoisinants_et_rc_r0
+#: model:product.template,name:insurance_management.pt_domext_biens_avoisinants_et_rc_r1
+msgid "Dom-Ext Biens avoisinants et RC"
+msgstr "Dom-Ext Biens avoisinants et RC"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_caisson_racteurmat___lintrieur_r0
+#: model:product.template,name:insurance_management.pt_domext_caisson_racteurmat___lintrieur_r1
+msgid "Dom-Ext Caisson réacteur/mat. à l’intérieur"
+msgstr "Dom-Ext Caisson réacteur/mat. à l’intérieur"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_elments_combustibles_r0
+#: model:product.template,name:insurance_management.pt_domext_elments_combustibles_r1
+msgid "Dom-Ext Eléments combustibles"
+msgstr "Dom-Ext Eléments combustibles"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_fils__cbles_non_lectriques_r0
+#: model:product.template,name:insurance_management.pt_domext_fils__cbles_non_lectriques_r1
+msgid "Dom-Ext Fils & câbles non électriques"
+msgstr "Dom-Ext Fils & câbles non électriques"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_frais_de_contamination_r0
+#: model:product.template,name:insurance_management.pt_domext_frais_de_contamination_r1
+msgid "Dom-Ext Frais de contamination"
+msgstr "Dom-Ext Frais de contamination"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_frais_pour_heures_suppl__r0
+#: model:product.template,name:insurance_management.pt_domext_frais_pour_heures_suppl__r1
+msgid "Dom-Ext Frais pour heures suppl."
+msgstr "Dom-Ext Frais pour heures suppl."
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_frais_suppl__transport_arien_r0
+#: model:product.template,name:insurance_management.pt_domext_frais_suppl__transport_arien_r1
+msgid "Dom-Ext Frais suppl. transport aérien"
+msgstr "Dom-Ext Frais suppl. transport aérien"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_honoraires_dexpert_r0
+#: model:product.template,name:insurance_management.pt_domext_honoraires_dexpert_r1
+msgid "Dom-Ext Honoraires d’expert"
+msgstr "Dom-Ext Honoraires d’expert"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_huile_lubrifiante_ou_rfrigrante_r0
+#: model:product.template,name:insurance_management.pt_domext_huile_lubrifiante_ou_rfrigrante_r1
+msgid "Dom-Ext Huile lubrifiante ou réfrigérante"
+msgstr "Dom-Ext Huile lubrifiante ou réfrigérante"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_incendie_dorigine_interne_r0
+#: model:product.template,name:insurance_management.pt_domext_incendie_dorigine_interne_r1
+msgid "Dom-Ext Incendie d'origine interne"
+msgstr "Dom-Ext Incendie d'origine interne"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_inondation_et_embourbement_r0
+#: model:product.template,name:insurance_management.pt_domext_inondation_et_embourbement_r1
+msgid "Dom-Ext Inondation et embourbement"
+msgstr "Dom-Ext Inondation et embourbement"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_machquipt__usage_souterrain_r0
+#: model:product.template,name:insurance_management.pt_domext_machquipt__usage_souterrain_r1
+msgid "Dom-Ext Mach/équipt à usage souterrain"
+msgstr "Dom-Ext Mach/équipt à usage souterrain"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_mat_rfractaires_et_de_maonnerie_r0
+#: model:product.template,name:insurance_management.pt_domext_mat_rfractaires_et_de_maonnerie_r1
+msgid "Dom-Ext Mat réfractaires et de maçonnerie"
+msgstr "Dom-Ext Mat réfractaires et de maçonnerie"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_pertes_de_contenu_r0
+#: model:product.template,name:insurance_management.pt_domext_pertes_de_contenu_r1
+msgid "Dom-Ext Pertes de contenu"
+msgstr "Dom-Ext Pertes de contenu"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_pompes_immergespour_puits_profond_r0
+#: model:product.template,name:insurance_management.pt_domext_pompes_immergespour_puits_profond_r1
+msgid "Dom-Ext Pompes immergées/pour puits profond"
+msgstr "Dom-Ext Pompes immergées/pour puits profond"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_risque_corps_mach_transp_excl_r0
+#: model:product.template,name:insurance_management.pt_domext_risque_corps_mach_transp_excl_r1
+msgid "Dom-Ext Risque Corps mach transp excl"
+msgstr "Dom-Ext Risque Corps mach transp excl"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_domext_risque_corps_mach_transp_incl_r0
+#: model:product.template,name:insurance_management.pt_domext_risque_corps_mach_transp_incl_r1
+msgid "Dom-Ext Risque Corps mach transp incl"
+msgstr "Dom-Ext Risque Corps mach transp incl"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dommage_et_perte_matriel_r0
+msgid "Dommage et Perte Matériel"
+msgstr "Dommage et Perte Matériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dommage_et_pertes_matriels_partiels_r0
+#: model:product.template,name:insurance_management.pt_dommage_et_pertes_matriels_partiels_r1
+#: model:product.template,name:insurance_management.pt_dommage_et_pertes_matriels_partiels_r2
+#: model:product.template,name:insurance_management.pt_dommage_et_pertes_matriels_partiels_r3
+#: model:product.template,name:insurance_management.pt_dommage_et_pertes_matriels_partiels_r4
+#: model:product.template,name:insurance_management.pt_dommage_et_pertes_matriels_partiels_r5
+#: model:product.template,name:insurance_management.pt_dommage_et_pertes_matriels_partiels_r6
+#: model:product.template,name:insurance_management.pt_dommage_et_pertes_matriels_partiels_r7
+msgid "Dommage et pertes matériels partiels"
+msgstr "Dommage et pertes matériels partiels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dommages_r0
+msgid "Dommages"
+msgstr "Dommages"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dommages_corporels_r1
+#: model:product.template,name:insurance_management.pt_dommages_corporels_r10
+#: model:product.template,name:insurance_management.pt_dommages_corporels_r11
+#: model:product.template,name:insurance_management.pt_dommages_corporels_r2
+#: model:product.template,name:insurance_management.pt_dommages_corporels_r3
+#: model:product.template,name:insurance_management.pt_dommages_corporels_r4
+#: model:product.template,name:insurance_management.pt_dommages_corporels_r5
+#: model:product.template,name:insurance_management.pt_dommages_corporels_r6
+#: model:product.template,name:insurance_management.pt_dommages_corporels_r7
+#: model:product.template,name:insurance_management.pt_dommages_corporels_r8
+#: model:product.template,name:insurance_management.pt_dommages_corporels_r9
+msgid "Dommages Corporels"
+msgstr "Dommages Corporels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dommages_immatriels_r0
+msgid "Dommages Immatériels"
+msgstr "Dommages Immatériels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dommages_immatriels_conscutifs_r1
+#: model:product.template,name:insurance_management.pt_dommages_immatriels_conscutifs_r10
+#: model:product.template,name:insurance_management.pt_dommages_immatriels_conscutifs_r2
+#: model:product.template,name:insurance_management.pt_dommages_immatriels_conscutifs_r3
+#: model:product.template,name:insurance_management.pt_dommages_immatriels_conscutifs_r4
+#: model:product.template,name:insurance_management.pt_dommages_immatriels_conscutifs_r5
+#: model:product.template,name:insurance_management.pt_dommages_immatriels_conscutifs_r6
+#: model:product.template,name:insurance_management.pt_dommages_immatriels_conscutifs_r7
+#: model:product.template,name:insurance_management.pt_dommages_immatriels_conscutifs_r8
+#: model:product.template,name:insurance_management.pt_dommages_immatriels_conscutifs_r9
+msgid "Dommages Immatériels Consécutifs"
+msgstr "Dommages Immatériels Consécutifs"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dommages_matriels_r0
+#: model:product.template,name:insurance_management.pt_dommages_matriels_r1
+#: model:product.template,name:insurance_management.pt_dommages_matriels_r10
+#: model:product.template,name:insurance_management.pt_dommages_matriels_r2
+#: model:product.template,name:insurance_management.pt_dommages_matriels_r3
+#: model:product.template,name:insurance_management.pt_dommages_matriels_r4
+#: model:product.template,name:insurance_management.pt_dommages_matriels_r5
+#: model:product.template,name:insurance_management.pt_dommages_matriels_r6
+#: model:product.template,name:insurance_management.pt_dommages_matriels_r7
+#: model:product.template,name:insurance_management.pt_dommages_matriels_r8
+#: model:product.template,name:insurance_management.pt_dommages_matriels_r9
+msgid "Dommages Matériels"
+msgstr "Dommages Matériels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dommages_aux_gros_ouvrages_r0
+msgid "Dommages aux gros ouvrages"
+msgstr "Dommages aux gros ouvrages"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dommages_aux_seconds_ouvrages_r0
+msgid "Dommages aux seconds ouvrages"
+msgstr "Dommages aux seconds ouvrages"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dommages_corporels_r0
+msgid "Dommages corporels"
+msgstr "Dommages corporels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dommages_corporels_et_immatriels_conscutifs_r0
+msgid "Dommages corporels et immatériels consécutifs"
+msgstr "Dommages corporels et immatériels consécutifs"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dommages_immatriels_conscutifs_r0
+msgid "Dommages immatériels consécutifs"
+msgstr "Dommages immatériels consécutifs"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dommages_matriels_et_immatriels_conscutifs_r0
+msgid "Dommages matériels et immatériels consécutifs"
+msgstr "Dommages matériels et immatériels consécutifs"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dommages_matrils_r0
+msgid "Dommages matériéls"
+msgstr "Dommages matériéls"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dommages_subis_au_cours_de_transport_par_voie_terrestre_r0
+msgid "Dommages subis au cours de transport par voie terrestre"
+msgstr "Dommages subis au cours de transport par voie terrestre"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dommages_subis_par_les_machines_dom_r2
+msgid "Dommages subis par les machines (Dom)"
+msgstr "Dommages subis par les machines (Dom)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dommages_subis_par_les_machines_dom_r0
+#: model:product.template,name:insurance_management.pt_dommages_subis_par_les_machines_dom_r1
+msgid "Dommages subis par les machines (dom)"
+msgstr "Dommages subis par les machines (dom)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dommages_lectriques_r0
+msgid "Dommages électriques"
+msgstr "Dommages électriques"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dcs_r0
+#: model:product.template,name:insurance_management.pt_dcs_r1
+#: model:product.template,name:insurance_management.pt_dcs_r2
+#: model:product.template,name:insurance_management.pt_dcs_r3
+#: model:product.template,name:insurance_management.pt_dcs_r4
+#: model:product.template,name:insurance_management.pt_dcs_r5
+#: model:product.template,name:insurance_management.pt_dcs_r6
+#: model:product.template,name:insurance_management.pt_dcs_r7
+msgid "Décès"
+msgstr "Décès"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dfauts_dtanchit_pour_toiture_faades__r0
+msgid "Défauts d'étanchéité pour toiture, façades, …"
+msgstr "Défauts d'étanchéité pour toiture, façades, …"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dfense_et_recours_r1
+#: model:product.template,name:insurance_management.pt_dfense_et_recours_r2
+msgid "Défense et Recours"
+msgstr "Défense et Recours"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dfense_et_recours_r0
+msgid "Défense et recours"
+msgstr "Défense et recours"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dgts_des_eaux_dde_resp__locative_r0
+msgid "Dégâts Des Eaux (DDE) Resp. Locative"
+msgstr "Dégâts Des Eaux (DDE) Resp. Locative"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dgts_des_eaux_r2
+#: model:product.template,name:insurance_management.pt_dgts_des_eaux_r3
+msgid "Dégâts des Eaux"
+msgstr "Dégâts des Eaux"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dgts_des_eaux_contenu_r0
+msgid "Dégâts des Eaux Contenu"
+msgstr "Dégâts des Eaux Contenu"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dgts_des_eaux_r0
+#: model:product.template,name:insurance_management.pt_dgts_des_eaux_r1
+msgid "Dégâts des eaux"
+msgstr "Dégâts des eaux"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dgts_des_eaux_btiment_r0
+msgid "Dégâts des eaux Bâtiment"
+msgstr "Dégâts des eaux Bâtiment"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_dtriorations_immobilires_r0
+msgid "Détériorations immobilières"
+msgstr "Détériorations immobilières"
+
+#. module: insurance_management
+#: field:analytic.history,stage_id:0
+#: view:analytic.history.stage:insurance_management.view_analytic_history_stage_form
+#: view:analytic.history.stage:insurance_management.view_analytic_history_stage_search
+#: view:analytic.history.stage:insurance_management.view_analytic_history_stage_tree
+#: model:ir.actions.act_window,name:insurance_management.act_open_analytic_history_stage_view
+#: model:ir.model,name:insurance_management.model_analytic_history_stage
+#: model:ir.ui.menu,name:insurance_management.menu_analytic_history_stage
+msgid "Emission type"
+msgstr "Type Emission"
+
+#. module: insurance_management
+#: field:reg.tax.reference,date_end:0
+msgid "End"
+msgstr "Date de fin"
+
+#. module: insurance_management
+#: field:analytic.history,ending_date:0
+msgid "Ending date"
+msgstr "Date de Fin"
+
+#. module: insurance_management
+#: field:account.analytic.account,est_warranty:0
+msgid "Estimation"
+msgstr "Estimation"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_evacuation_sanitaire_et_assistance__letranger_r0
+#: model:product.template,name:insurance_management.pt_evacuation_sanitaire_et_assistance__letranger_r1
+msgid "Evacuation Sanitaire et Assistance à l'Etranger"
+msgstr "Evacuation Sanitaire et Assistance à l'Etranger"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_evacuation_sanitaire__madagascar_evasan_r0
+#: model:product.template,name:insurance_management.pt_evacuation_sanitaire__madagascar_evasan_r1
+msgid "Evacuation Sanitaire à Madagascar (EVASAN)"
+msgstr "Evacuation Sanitaire à Madagascar (EVASAN)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_evnements_climatiques_r0
+msgid "Evénements climatiques"
+msgstr "Evénements climatiques"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_evnements_naturels_r0
+msgid "Evénements naturels"
+msgstr "Evénements naturels"
+
+#. module: insurance_management
+#: field:analytic.history,eml:0
+msgid "Expected maximum loss"
+msgstr "Pertes maximum prévue"
+
+#. module: insurance_management
+#: field:res.partner,account_charge_id:0
+msgid "Expense Account"
+msgstr "Compte de dépense"
+
+#. module: insurance_management
+#: field:res.partner,account_charge_vie_id:0
+msgid "Expense Account Life"
+msgstr "Expense Account Life"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_ext__evnements_naturels_r0
+msgid "Ext. Evénements Naturels"
+msgstr "Ext. Evénements Naturels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_ext__frais_supplmentaires_r0
+msgid "Ext. Frais Supplémentaires"
+msgstr "Ext. Frais Supplémentaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_ext__portables_r0
+msgid "Ext. Portables"
+msgstr "Ext. Portables"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_ext__reconstitution_des_donnes_r0
+msgid "Ext. Reconstitution des Données"
+msgstr "Ext. Reconstitution des Données"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_ext__transport__grande_vitesse_r0
+msgid "Ext. Transport à Grande Vitesse"
+msgstr "Ext. Transport à Grande Vitesse"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_ext__vol_sans_effraction_r0
+msgid "Ext. Vol sans effraction"
+msgstr "Ext. Vol sans effraction"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_extension_epilation_r0
+msgid "Extension Epilation"
+msgstr "Extension Epilation"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_extension_manucure_r0
+msgid "Extension Manucure"
+msgstr "Extension Manucure"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_extension_maquillage_r0
+msgid "Extension Maquillage"
+msgstr "Extension Maquillage"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_fap_sauf_r10
+#: model:product.template,name:insurance_management.pt_fap_sauf_r11
+#: model:product.template,name:insurance_management.pt_fap_sauf_r8
+#: model:product.template,name:insurance_management.pt_fap_sauf_r9
+msgid "FAP SAUF"
+msgstr "FAP SAUF"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_fap_sauf_r0
+#: model:product.template,name:insurance_management.pt_fap_sauf_r1
+#: model:product.template,name:insurance_management.pt_fap_sauf_r2
+#: model:product.template,name:insurance_management.pt_fap_sauf_r3
+#: model:product.template,name:insurance_management.pt_fap_sauf_r4
+#: model:product.template,name:insurance_management.pt_fap_sauf_r5
+#: model:product.template,name:insurance_management.pt_fap_sauf_r6
+#: model:product.template,name:insurance_management.pt_fap_sauf_r7
+msgid "FAP Sauf"
+msgstr "FAP Sauf"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_fap_sauf_uniquement_r0
+#: model:product.template,name:insurance_management.pt_fap_sauf_uniquement_r1
+#: model:product.template,name:insurance_management.pt_fap_sauf_uniquement_r2
+#: model:product.template,name:insurance_management.pt_fap_sauf_uniquement_r3
+#: model:product.template,name:insurance_management.pt_fap_sauf_uniquement_r4
+#: model:product.template,name:insurance_management.pt_fap_sauf_uniquement_r5
+#: model:product.template,name:insurance_management.pt_fap_sauf_uniquement_r6
+#: model:product.template,name:insurance_management.pt_fap_sauf_uniquement_r7
+msgid "FAP Sauf Uniquement"
+msgstr "FAP Sauf Uniquement"
+
+#. module: insurance_management
+#: model:ir.actions.act_window,name:insurance_management.act_open_res_partner_family_view
+#: view:res.partner:insurance_management.view_res_partner_form_inherit_family_r0
+#: view:res.partner.family:insurance_management.view_res_partner_family_init_form_r0
+#: view:res.partner.family:insurance_management.view_res_partner_family_tree
+msgid "Family"
+msgstr "Famille"
+
+#. module: insurance_management
+#: model:ir.model,name:insurance_management.model_res_partner_family
+msgid "Family Partner"
+msgstr "Famille"
+
+#. module: insurance_management
+#: field:account.analytic.account,property_account_position:0
+#: field:analytic.history,property_account_position:0
+#: field:reg.tax.reference,property_account_position:0
+msgid "Fiscal Position"
+msgstr "Position Fiscal"
+
+#. module: insurance_management
+#: field:product.template,fiscal_code:0
+msgid "Fiscal code"
+msgstr "Code Fiscal"
+
+#. module: insurance_management
+#: view:account.analytic.account:insurance_management.view_account_analytic_account_form
+msgid "Fiscal position"
+msgstr "Position Fiscal "
+
+#. module: insurance_management
+#: field:account.analytic.account,fraction_id:0
+#: field:insurance.product,fraction_ids:0
+msgid "Fraction"
+msgstr "Fraction"
+
+#. module: insurance_management
+#: field:account.analytic.account,fraction_ids:0
+msgid "Fractions"
+msgstr "Fractions"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_frais_dassistance_et_de_sauvetage_r0
+msgid "Frais d'assistance et de sauvetage"
+msgstr "Frais d'assistance et de sauvetage"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_frais_dassistance_et_de_sauvetage_dom_r0
+msgid "Frais d'assistance et de sauvetage (DOM**)"
+msgstr "Frais d'assistance et de sauvetage (DOM**)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_frais_dassistance_et_de_sauvetage_faps_r0
+#: model:product.template,name:insurance_management.pt_frais_dassistance_et_de_sauvetage_faps_r1
+#: model:product.template,name:insurance_management.pt_frais_dassistance_et_de_sauvetage_faps_r2
+#: model:product.template,name:insurance_management.pt_frais_dassistance_et_de_sauvetage_faps_r3
+msgid "Frais d'assistance et de sauvetage (FAPS*)"
+msgstr "Frais d'assistance et de sauvetage (FAPS*)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_frais_dassistance_et_de_sauvetage_ptd_r0
+#: model:product.template,name:insurance_management.pt_frais_dassistance_et_de_sauvetage_ptd_r1
+#: model:product.template,name:insurance_management.pt_frais_dassistance_et_de_sauvetage_ptd_r2
+#: model:product.template,name:insurance_management.pt_frais_dassistance_et_de_sauvetage_ptd_r3
+msgid "Frais d'assistance et de sauvetage (PTD**)"
+msgstr "Frais d'assistance et de sauvetage (PTD**)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_frais_dassistance_et_de_sauvetage_tr_r0
+#: model:product.template,name:insurance_management.pt_frais_dassistance_et_de_sauvetage_tr_r1
+#: model:product.template,name:insurance_management.pt_frais_dassistance_et_de_sauvetage_tr_r2
+#: model:product.template,name:insurance_management.pt_frais_dassistance_et_de_sauvetage_tr_r3
+msgid "Frais d'assistance et de sauvetage (TR***)"
+msgstr "Frais d'assistance et de sauvetage (TR***)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_frais_de_traitement_r6
+#: model:product.template,name:insurance_management.pt_frais_de_traitement_r7
+msgid "Frais de Traitement"
+msgstr "Frais de Traitement"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_frais_de_chirurgie_r0
+#: model:product.template,name:insurance_management.pt_frais_de_chirurgie_r1
+msgid "Frais de chirurgie"
+msgstr "Frais de chirurgie"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_frais_de_dblaisdmolition_aprs_sinistre_r0
+msgid "Frais de déblais/démolition après sinistre"
+msgstr "Frais de déblais/démolition après sinistre"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_frais_de_retirement_r0
+#: model:product.template,name:insurance_management.pt_frais_de_retirement_r1
+#: model:product.template,name:insurance_management.pt_frais_de_retirement_r2
+#: model:product.template,name:insurance_management.pt_frais_de_retirement_r3
+#: model:product.template,name:insurance_management.pt_frais_de_retirement_r4
+msgid "Frais de retirement"
+msgstr "Frais de retirement"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_frais_de_retirement_dom_r0
+msgid "Frais de retirement (DOM**)"
+msgstr "Frais de retirement (DOM**)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_frais_de_sauvetage_r0
+#: model:product.template,name:insurance_management.pt_frais_de_sauvetage_r1
+#: model:product.template,name:insurance_management.pt_frais_de_sauvetage_r2
+msgid "Frais de sauvetage"
+msgstr "Frais de sauvetage"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_frais_de_soins_et_hospitalisation_rembourss__lextrieur_r0
+#: model:product.template,name:insurance_management.pt_frais_de_soins_et_hospitalisation_rembourss__lextrieur_r1
+msgid "Frais de soins et hospitalisation remboursés à l'extérieur"
+msgstr "Frais de soins et hospitalisation remboursés à l'extérieur"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_frais_de_traitement_r0
+#: model:product.template,name:insurance_management.pt_frais_de_traitement_r1
+#: model:product.template,name:insurance_management.pt_frais_de_traitement_r2
+#: model:product.template,name:insurance_management.pt_frais_de_traitement_r3
+#: model:product.template,name:insurance_management.pt_frais_de_traitement_r4
+#: model:product.template,name:insurance_management.pt_frais_de_traitement_r5
+msgid "Frais de traitement"
+msgstr "Frais de traitement"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_frais_et_pertes_divers_r0
+msgid "Frais et pertes divers"
+msgstr "Frais et pertes divers"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_frais_mdicaux_et_pharmaceutiques_r0
+#: model:product.template,name:insurance_management.pt_frais_mdicaux_et_pharmaceutiques_r1
+msgid "Frais médicaux et pharmaceutiques"
+msgstr "Frais médicaux et pharmaceutiques"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_fraude_abus_de_confiance_dtournement____r0
+msgid "Fraude, abus de confiance, détournement..."
+msgstr "Fraude, abus de confiance, détournement..."
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_garantie_fictive_r0
+msgid "GARANTIE FICTIVE"
+msgstr "GARANTIE FICTIVE"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_garanties_rctt_global_r0
+msgid "Garanties RCTT Global"
+msgstr "Garanties RCTT Global"
+
+#. module: insurance_management
+#: view:insurance.product:insurance_management.view_insurance_product_search
+#: view:insurance.type.risk:insurance_management.view_insurance_type_risk_search
+#: view:insurance_type_risk.clause:insurance_management.view_insurance_type_risk_clause_search
+#: view:insurance_type_risk.description:insurance_management.view_insurance_type_risk_description_search
+#: view:product.template:insurance_management.view_insurance_warranty_search
+msgid "Group by"
+msgstr "Grouper par"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_grves__emeutes_et_mouvements_populaire_r0
+#: model:product.template,name:insurance_management.pt_grves__emeutes_et_mouvements_populaire_r1
+msgid "Grèves - Emeutes et Mouvements Populaire"
+msgstr "Grèves - Emeutes et Mouvements Populaire"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_grves_emeutes_et_mouvements_populaires_r0
+#: model:product.template,name:insurance_management.pt_grves_emeutes_et_mouvements_populaires_r1
+msgid "Grèves, Emeutes et Mouvements Populaires"
+msgstr "Grèves, Emeutes et Mouvements Populaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_grves_meutes_et_mouvements_populaires_r0
+#: model:product.template,name:insurance_management.pt_grves_meutes_et_mouvements_populaires_r1
+#: model:product.template,name:insurance_management.pt_grves_meutes_et_mouvements_populaires_r2
+#: model:product.template,name:insurance_management.pt_grves_meutes_et_mouvements_populaires_r3
+#: model:product.template,name:insurance_management.pt_grves_meutes_et_mouvements_populaires_r4
+#: model:product.template,name:insurance_management.pt_grves_meutes_et_mouvements_populaires_r5
+#: model:product.template,name:insurance_management.pt_grves_meutes_et_mouvements_populaires_r6
+#: model:product.template,name:insurance_management.pt_grves_meutes_et_mouvements_populaires_r7
+msgid "Grèves, émeutes et mouvements populaires"
+msgstr "Grèves, émeutes et mouvements populaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_grves_emeutes_et_mouvements_populaires_r2
+msgid "Grêves, emeutes et mouvements populaires"
+msgstr "Grêves, emeutes et mouvements populaires"
+
+#. module: insurance_management
+#: field:analytic_history.risk.line,have_right_ids:0
+msgid "Having right"
+msgstr "Ayant droit"
+
+#. module: insurance_management
+#: view:account.analytic.account:insurance_management.view_account_analytic_account_form
+msgid "Histories"
+msgstr "Version"
+
+#. module: insurance_management
+#: field:account.invoice,history_id:0
+#: model:ir.actions.act_window,name:insurance_management.act_analytic_history_request
+msgid "History"
+msgstr "Version"
+
+#. module: insurance_management
+#: field:account.analytic.account,history_stage:0
+msgid "History Stage"
+msgstr "Status Version"
+
+#. module: insurance_management
+#: field:account.analytic.account,history_count:0
+msgid "History count"
+msgstr "Nombre Version"
+
+#. module: insurance_management
+#: field:analytic.history,name:0
+msgid "History number"
+msgstr "Numero Version"
+
+#. module: insurance_management
+#: model:ir.model,name:insurance_management.model_analytic_history
+msgid "History of the policy"
+msgstr "Version police"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_honoraires_darchitectes_etou_bureau_dtudes_r0
+msgid "Honoraires d'architectes et/ou bureau d'études"
+msgstr "Honoraires d'architectes et/ou bureau d'études"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_honoraires_dexp__cont__marchandises_excl_r0
+msgid "Honoraires d'exp. Cont. Marchandises excl"
+msgstr "Honoraires d'exp. Cont. Marchandises excl"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_honoraires_dexperts_btiment_r0
+#: model:product.template,name:insurance_management.pt_honoraires_dexperts_btiment_r1
+msgid "Honoraires d'experts Bâtiment"
+msgstr "Honoraires d'experts Bâtiment"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_honoraires_dexperts_contenu_marchandises_exclues_r0
+msgid "Honoraires d'experts Contenu (marchandises exclues)"
+msgstr "Honoraires d'experts Contenu (marchandises exclues)"
+
+#. module: insurance_management
+#: field:analytic.history,id:0
+#: field:analytic.history.stage,id:0
+#: field:analytic.history.wiz,id:0
+#: field:analytic_history.risk.line,id:0
+#: field:insurance.branch,id:0
+#: field:insurance.fraction,id:0
+#: field:insurance.product,id:0
+#: field:insurance.type.risk,id:0
+#: field:insurance_type_risk.clause,id:0
+#: field:insurance_type_risk.description,id:0
+#: field:reg.tax.reference,id:0
+#: field:res.partner.family,id:0
+#: field:risk.description.line,id:0
+#: field:risk.warranty.line,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_ip_infirmit_permanente_r0
+msgid "IP (Infirmité Permanente)"
+msgstr "IP (Infirmité Permanente)"
+
+#. module: insurance_management
+#: help:insurance.product,image:0
+msgid "Image size is limited to 1024px1024px"
+msgstr "Image size is limited to 1024px1024px"
+
+#. module: insurance_management
+#: help:insurance.product,image_medium:0
+msgid "Image size is limited to 128px128px"
+msgstr "Image size is limited to 128px128px"
+
+#. module: insurance_management
+#: help:insurance.product,image_small:0
+msgid "Image size is limited to 64px64px"
+msgstr "Image size is limited to 64px64px"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_incapacit_temporaire_r0
+#: model:product.template,name:insurance_management.pt_incapacit_temporaire_r1
+msgid "Incapacité temporaire"
+msgstr "Incapacité temporaire"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_incendie_r0
+#: model:product.template,name:insurance_management.pt_incendie_r1
+#: model:product.template,name:insurance_management.pt_incendie_r2
+msgid "Incendie"
+msgstr "Incendie"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_incendie_btiment_et_contenu_r0
+msgid "Incendie (bâtiment et contenu)"
+msgstr "Incendie (bâtiment et contenu)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_incendie__ext__frais_de_dplacement_du_mobilier_r0
+msgid "Incendie - Ext. Frais de déplacement du mobilier"
+msgstr "Incendie - Ext. Frais de déplacement du mobilier"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_incendie__ext__frais_dpl__du_mobilier_r0
+msgid "Incendie - Ext. Frais dépl. du mobilier"
+msgstr "Incendie - Ext. Frais dépl. du mobilier"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_incendie__ext_dommages_electriques_r0
+msgid "Incendie - Ext.Dommages Electriques"
+msgstr "Incendie - Ext.Dommages Electriques"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_incendie__ext_dommages_lectriques_r0
+msgid "Incendie - Ext.Dommages électriques"
+msgstr "Incendie - Ext.Dommages électriques"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_incendie_btiment_r0
+msgid "Incendie Bâtiment"
+msgstr "Incendie Bâtiment"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_incendie_contenu_r0
+msgid "Incendie Contenu"
+msgstr "Incendie Contenu"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_incendie_ext__recours_de_locataire_r0
+#: model:product.template,name:insurance_management.pt_incendie_ext__recours_de_locataire_r1
+msgid "Incendie Ext. Recours de locataire"
+msgstr "Incendie Ext. Recours de locataire"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_incendie_gemp_r0
+#: model:product.template,name:insurance_management.pt_incendie_gemp_r1
+msgid "Incendie GEMP"
+msgstr "Incendie GEMP"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_incendie_gemp_btiment_r0
+msgid "Incendie GEMP Bâtiment"
+msgstr "Incendie GEMP Bâtiment"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_incendie_gemp_contenu_r0
+msgid "Incendie GEMP Contenu"
+msgstr "Incendie GEMP Contenu"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_incendie_risques_locatifs_r0
+msgid "Incendie Risques Locatifs"
+msgstr "Incendie Risques Locatifs"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_incendie_et_risques_annexes_r0
+msgid "Incendie et risques annexes"
+msgstr "Incendie et risques annexes"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_incendies_et_explosions_chute_de_la_foudre_r0
+msgid "Incendies et explosions, chute de la foudre"
+msgstr "Incendies et explosions, chute de la foudre"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_indemn__contract___dcs_r0
+msgid "Indemn. Contract. : Décès"
+msgstr "Indemn. Contract. : Décès"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_indemn__contract___frais_de_traitement_r0
+msgid "Indemn. Contract. : Frais de Traitement"
+msgstr "Indemn. Contract. : Frais de Traitement"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_indemn__contract___infirmit_permanente_r0
+msgid "Indemn. Contract. : Infirmité Permanente"
+msgstr "Indemn. Contract. : Infirmité Permanente"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_indemnit_journalire_r0
+#: model:product.template,name:insurance_management.pt_indemnit_journalire_r1
+#: model:product.template,name:insurance_management.pt_indemnit_journalire_r2
+msgid "Indemnité journalière"
+msgstr "Indemnité journalière"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_indemnit_quotidienne_r0
+#: model:product.template,name:insurance_management.pt_indemnit_quotidienne_r1
+#: model:product.template,name:insurance_management.pt_indemnit_quotidienne_r2
+msgid "Indemnité quotidienne"
+msgstr "Indemnité quotidienne"
+
+#. module: insurance_management
+#: field:reg.tax.reference,indice:0
+msgid "Indice"
+msgstr "Indice"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_individuelle_ext__perte_de_licence_r0
+msgid "Individuelle ext. Perte de licence"
+msgstr "Individuelle ext. Perte de licence"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_individuelle_ext__risques_de_guerre_r0
+msgid "Individuelle ext. Risques de Guerre"
+msgstr "Individuelle ext. Risques de Guerre"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_infirmit_permanente_r6
+#: model:product.template,name:insurance_management.pt_infirmit_permanente_r7
+msgid "Infirmité Permanente"
+msgstr "Infirmité Permanente"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_infirmit_permanente_r0
+#: model:product.template,name:insurance_management.pt_infirmit_permanente_r1
+#: model:product.template,name:insurance_management.pt_infirmit_permanente_r2
+#: model:product.template,name:insurance_management.pt_infirmit_permanente_r3
+#: model:product.template,name:insurance_management.pt_infirmit_permanente_r4
+#: model:product.template,name:insurance_management.pt_infirmit_permanente_r5
+msgid "Infirmité permanente"
+msgstr "Infirmité permanente"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_inflammabilit_r0
+msgid "Inflammabilité"
+msgstr "Inflammabilité"
+
+#. module: insurance_management
+#: help:analytic.history,parent_id:0
+msgid "Inherited Amendment"
+msgstr "Avenant parent"
+
+#. module: insurance_management
+#: view:product.template:insurance_management.view_product_product_form
+msgid "Insurance"
+msgstr "Assurance"
+
+#. module: insurance_management
+#: field:product.template,branch_id:0
+msgid "Insurance Branch"
+msgstr "Branche"
+
+#. module: insurance_management
+#: field:analytic_history.risk.line,ins_product_id:0
+#: view:insurance.type.risk:insurance_management.view_insurance_type_risk_search
+#: field:insurance.type.risk,ins_product_id:0
+#: model:ir.ui.menu,name:insurance_management.menu_root_product_insurance
+#: field:product.template,ins_product_id:0
+msgid "Insurance Product"
+msgstr "Produit d'assurance"
+
+#. module: insurance_management
+#: view:insurance.branch:insurance_management.view_insurance_branch_form
+#: view:insurance.branch:insurance_management.view_insurance_branch_search
+#: view:insurance.branch:insurance_management.view_insurance_branch_tree
+#: view:insurance.product:insurance_management.view_insurance_product_form
+#: model:ir.actions.act_window,name:insurance_management.act_open_insurance_branch_view
+#: model:ir.ui.menu,name:insurance_management.menu_insurance_branch
+msgid "Insurance branch"
+msgstr "Branche"
+
+#. module: insurance_management
+#: view:insurance.product:insurance_management.view_insurance_product_form
+msgid "Insurance complement"
+msgstr "Complement d'assurance"
+
+#. module: insurance_management
+#: field:account.analytic.account,is_insurance:0
+msgid "Insurance contract"
+msgstr "Police"
+
+#. module: insurance_management
+#: view:insurance.fraction:insurance_management.view_insurance_fraction_form
+#: view:insurance.fraction:insurance_management.view_insurance_fraction_search
+#: view:insurance.fraction:insurance_management.view_insurance_fraction_tree
+#: model:ir.actions.act_window,name:insurance_management.act_open_insurance_fraction_view
+#: model:ir.ui.menu,name:insurance_management.menu_insurance_fraction
+msgid "Insurance fraction"
+msgstr "Fraction"
+
+#. module: insurance_management
+#: view:account.analytic.account:insurance_management.view_account_analytic_account_form
+msgid "Insurance fractions"
+msgstr "Fractions"
+
+#. module: insurance_management
+#: model:ir.ui.menu,name:insurance_management.menu_root_operation_insurance
+msgid "Insurance operations"
+msgstr "Operations d'Asssurance "
+
+#. module: insurance_management
+#: view:insurance.product:insurance_management.view_insurance_product_form
+#: view:insurance.product:insurance_management.view_insurance_product_search
+#: view:insurance.product:insurance_management.view_insurance_product_tree
+#: view:insurance.type.risk:insurance_management.view_insurance_type_risk_form
+#: model:ir.actions.act_window,name:insurance_management.act_open_insurance_product_view
+#: model:ir.model,name:insurance_management.model_insurance_product
+#: model:ir.ui.menu,name:insurance_management.menu_insurance_product
+msgid "Insurance product"
+msgstr "Produit d'assurance "
+
+#. module: insurance_management
+#: model:ir.model,name:insurance_management.model_insurance_type_risk
+msgid "Insurance type of risk"
+msgstr "Type de risque"
+
+#. module: insurance_management
+#: model:ir.ui.menu,name:insurance_management.menu_root_insurance
+msgid "Insurances"
+msgstr "Assurances"
+
+#. module: insurance_management
+#: field:account.analytic.account,insured_id:0
+#: field:analytic_history.risk.line,insured_id:0
+msgid "Insured"
+msgstr "Assuré"
+
+#. module: insurance_management
+#: field:account.analytic.account,ins_product_id:0
+msgid "Inusrance Product"
+msgstr "Produit assusrance"
+
+#. module: insurance_management
+#: code:addons/insurance_management/models/analytic_history.py:237
+#: code:addons/insurance_management/models/analytic_history.py:335
+#: field:analytic.history,invoice_id:0
+#: model:ir.model,name:insurance_management.model_account_invoice
+#, python-format
+msgid "Invoice"
+msgstr "Facture"
+
+#. module: insurance_management
+#: field:account.analytic.account,warranty_invoiced:0
+msgid "Invoiced"
+msgstr "Facturé"
+
+#. module: insurance_management
+#: view:analytic.history:insurance_management.view_analytic_history_form
+msgid "Invoices"
+msgstr "Primes"
+
+#. module: insurance_management
+#: field:analytic.history,is_last_situation:0
+msgid "Is the last situation"
+msgstr "Dernière version"
+
+#. module: insurance_management
+#: field:analytic.history,is_validated:0
+msgid "Is validated"
+msgstr "Est Validé"
+
+#. module: insurance_management
+#: field:product.template,is_warranty:0
+msgid "Is warranty"
+msgstr "Est une garantie"
+
+#. module: insurance_management
+#: field:risk.description.line,name:0
+msgid "Item"
+msgstr "Item"
+
+#. module: insurance_management
+#: field:analytic.history,__last_update:0
+#: field:analytic.history.stage,__last_update:0
+#: field:analytic.history.wiz,__last_update:0
+#: field:analytic_history.risk.line,__last_update:0
+#: field:insurance.branch,__last_update:0
+#: field:insurance.fraction,__last_update:0
+#: field:insurance.product,__last_update:0
+#: field:insurance.type.risk,__last_update:0
+#: field:insurance_type_risk.clause,__last_update:0
+#: field:insurance_type_risk.description,__last_update:0
+#: field:reg.tax.reference,__last_update:0
+#: field:res.partner.family,__last_update:0
+#: field:risk.description.line,__last_update:0
+#: field:risk.warranty.line,__last_update:0
+msgid "Last Modified on"
+msgstr "Last Modified on"
+
+#. module: insurance_management
+#: field:analytic.history,write_uid:0
+#: field:analytic.history.stage,write_uid:0
+#: field:analytic.history.wiz,write_uid:0
+#: field:analytic_history.risk.line,write_uid:0
+#: field:insurance.branch,write_uid:0
+#: field:insurance.fraction,write_uid:0
+#: field:insurance.product,write_uid:0
+#: field:insurance.type.risk,write_uid:0
+#: field:insurance_type_risk.clause,write_uid:0
+#: field:insurance_type_risk.description,write_uid:0
+#: field:reg.tax.reference,write_uid:0
+#: field:res.partner.family,write_uid:0
+#: field:risk.description.line,write_uid:0
+#: field:risk.warranty.line,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: insurance_management
+#: field:analytic.history,write_date:0
+#: field:analytic.history.stage,write_date:0
+#: field:analytic.history.wiz,write_date:0
+#: field:analytic_history.risk.line,write_date:0
+#: field:insurance.branch,write_date:0
+#: field:insurance.fraction,write_date:0
+#: field:insurance.product,write_date:0
+#: field:insurance.type.risk,write_date:0
+#: field:insurance_type_risk.clause,write_date:0
+#: field:insurance_type_risk.description,write_date:0
+#: field:reg.tax.reference,write_date:0
+#: field:res.partner.family,write_date:0
+#: field:risk.description.line,write_date:0
+#: field:risk.warranty.line,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: insurance_management
+#: code:addons/insurance_management/models/account_analytic_account.py:160
+#, python-format
+msgid "Last Version"
+msgstr "Dernière Version"
+
+#. module: insurance_management
+#: help:insurance.product,amount_threshold:0
+msgid "Limit of amount"
+msgstr "Limite du montant"
+
+#. module: insurance_management
+#: field:insurance.product,image:0
+msgid "Logo"
+msgstr "Logo"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_lunettes_et_verres_optiques_r0
+#: model:product.template,name:insurance_management.pt_lunettes_et_verres_optiques_r1
+msgid "Lunettes et verres optiques"
+msgstr "Lunettes et verres optiques"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_me__ext__evnements_naturels_r0
+msgid "ME : Ext. Evénements Naturels"
+msgstr "ME : Ext. Evénements Naturels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_me__ext__frais_supplmentaires_r0
+msgid "ME : Ext. Frais Supplémentaires"
+msgstr "ME : Ext. Frais Supplémentaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_me__ext__portables_r0
+msgid "ME : Ext. Portables"
+msgstr "ME : Ext. Portables"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_me__ext__reconstitution_des_donnes_r0
+msgid "ME : Ext. Reconstitution des Données"
+msgstr "ME : Ext. Reconstitution des Données"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_me__ext__transport__grande_vitesse_r0
+msgid "ME : Ext. Transport à Grande Vitesse"
+msgstr "ME : Ext. Transport à Grande Vitesse"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_me__ext__vol_sans_effraction_r0
+msgid "ME : Ext. Vol Sans Effraction"
+msgstr "ME : Ext. Vol Sans Effraction"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_maintenance_r0
+msgid "Maintenance"
+msgstr "Maintenance"
+
+#. module: insurance_management
+#: selection:insurance.branch,category:0
+msgid "Maritime"
+msgstr "Maritime"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_maternit_r0
+#: model:product.template,name:insurance_management.pt_maternit_r1
+msgid "Maternité"
+msgstr "Maternité"
+
+#. module: insurance_management
+#: field:insurance.product,image_medium:0
+msgid "Medium-sized image"
+msgstr "Medium-sized image"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_mobilier_hors_du_domicile_r0
+#: model:product.template,name:insurance_management.pt_mobilier_hors_du_domicile_r1
+msgid "Mobilier hors du domicile"
+msgstr "Mobilier hors du domicile"
+
+#. module: insurance_management
+#: field:insurance.product,pas_num_module:0
+msgid "Module number"
+msgstr "Numero Module"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_multirisque_dgts_des_eaux_r1
+msgid "Multirisque Dégâts des Eaux"
+msgstr "Multirisque Dégâts des Eaux"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_multirisque_dgts_des_eaux_btiment_r0
+msgid "Multirisque Dégâts des Eaux Bâtiment"
+msgstr "Multirisque Dégâts des Eaux Bâtiment"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_multirisque_dgts_des_eaux_r0
+msgid "Multirisque Dégâts des eaux"
+msgstr "Multirisque Dégâts des eaux"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_multirisque_dgts_des_eaux_contenu_r0
+msgid "Multirisque Dégâts des eaux Contenu"
+msgstr "Multirisque Dégâts des eaux Contenu"
+
+#. module: insurance_management
+#: field:analytic.history.stage,name:0
+#: field:insurance.branch,name:0
+#: field:insurance.fraction,name:0
+#: field:insurance.product,name:0
+#: view:insurance.type.risk:insurance_management.view_insurance_type_risk_form
+#: field:insurance.type.risk,name:0
+#: field:insurance_type_risk.clause,name:0
+#: field:insurance_type_risk.description,name:0
+#: field:reg.tax.reference,name:0
+msgid "Name"
+msgstr "Nom"
+
+#. module: insurance_management
+#: code:addons/insurance_management/models/aro_insurance_subscription.py:102
+#, python-format
+msgid "New Amendment"
+msgstr "Nouvelle Avenant"
+
+#. module: insurance_management
+#: view:account.analytic.account:insurance_management.view_account_analytic_account_form
+msgid "New version"
+msgstr "Nouvelle Avenant"
+
+#. module: insurance_management
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:28
+#, python-format
+msgid "No stage selected. Please choose one before process"
+msgstr "Aucune type d'émission selectionné. Choisissez en un"
+
+#. module: insurance_management
+#: selection:insurance.branch,type:0
+msgid "Non Vie"
+msgstr "Non Vie"
+
+#. module: insurance_management
+#: view:insurance.product:insurance_management.view_insurance_product_form
+msgid "Notes"
+msgstr "Notes"
+
+#. module: insurance_management
+#: view:analytic.history:insurance_management.view_analytic_history_form
+msgid "Notes..."
+msgstr "Notes..."
+
+#. module: insurance_management
+#: field:insurance.product,pas_ident:0
+msgid "Old ID"
+msgstr "Ancien ID"
+
+#. module: insurance_management
+#: field:account.analytic.account,on_warranty:0
+msgid "On Warranty"
+msgstr "Sur Garantie"
+
+#. module: insurance_management
+#: selection:res.partner.family,type:0
+msgid "Other"
+msgstr "Autre"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_peabmext_corps_mach_engins_mobiles_trans_excl_r0
+#: model:product.template,name:insurance_management.pt_peabmext_corps_mach_engins_mobiles_trans_excl_r1
+msgid "PEABM-Ext Corps mach engins mobiles trans excl"
+msgstr "PEABM-Ext Corps mach engins mobiles trans excl"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_peabmext_corps_mach_engins_mobiles_trans_incl_r0
+#: model:product.template,name:insurance_management.pt_peabmext_corps_mach_engins_mobiles_trans_incl_r1
+msgid "PEABM-Ext Corps mach engins mobiles trans incl"
+msgstr "PEABM-Ext Corps mach engins mobiles trans incl"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_peabmext_incendie_dorigine_interne_r0
+#: model:product.template,name:insurance_management.pt_peabmext_incendie_dorigine_interne_r1
+msgid "PEABM-Ext Incendie d’origine interne"
+msgstr "PEABM-Ext Incendie d’origine interne"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_peabmext_machquipt__usage_souterrain_r0
+#: model:product.template,name:insurance_management.pt_peabmext_machquipt__usage_souterrain_r1
+msgid "PEABM-Ext Mach/équipt à usage souterrain"
+msgstr "PEABM-Ext Mach/équipt à usage souterrain"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_pec__ext__frais_supplmentaires_r0
+msgid "PEC - Ext. Frais Supplémentaires"
+msgstr "PEC - Ext. Frais Supplémentaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_pec__ext__frais_supplmentaires_impts_etc_r0
+msgid "PEC - Ext. Frais Supplémentaires (impôts, etc)"
+msgstr "PEC - Ext. Frais Supplémentaires (impôts, etc)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_pei__ext__frais_supplmentaires_impts_etc_r0
+msgid "PEI - Ext. Frais Supplémentaires (impôts, etc)"
+msgstr "PEI - Ext. Frais Supplémentaires (impôts, etc)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_pei__ext__frais_supplmentaires_r0
+msgid "PEI - Ext. Frais supplémentaires"
+msgstr "PEI - Ext. Frais supplémentaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_pei__ext__salaires_r0
+#: model:product.template,name:insurance_management.pt_pei__ext__salaires_r1
+msgid "PEI - Ext. Salaires"
+msgstr "PEI - Ext. Salaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_ppefext_interr__alim_lec_rseau_priv_r0
+#: model:product.template,name:insurance_management.pt_ppefext_interr__alim_lec_rseau_priv_r1
+msgid "PPEF-Ext Interr. alim élec réseau privé"
+msgstr "PPEF-Ext Interr. alim élec réseau privé"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_ppefext_interr__alim_lec_rseau_public_r0
+#: model:product.template,name:insurance_management.pt_ppefext_interr__alim_lec_rseau_public_r1
+msgid "PPEF-Ext Interr. alim élec réseau public"
+msgstr "PPEF-Ext Interr. alim élec réseau public"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_ppefext_perte_dexploitation_r0
+#: model:product.template,name:insurance_management.pt_ppefext_perte_dexploitation_r1
+msgid "PPEF-Ext Perte d'exploitation"
+msgstr "PPEF-Ext Perte d'exploitation"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_ppefext_prod_ds_frigo__atmosph_contrle_r0
+#: model:product.template,name:insurance_management.pt_ppefext_prod_ds_frigo__atmosph_contrle_r1
+msgid "PPEF-Ext Prod ds frigo à atmosph contrôlée"
+msgstr "PPEF-Ext Prod ds frigo à atmosph contrôlée"
+
+#. module: insurance_management
+#: field:analytic.history,parent_id:0
+msgid "Parent"
+msgstr "Parent"
+
+#. module: insurance_management
+#: field:res.partner.family,partner_id:0
+msgid "Parent insured"
+msgstr "Assuré Parent"
+
+#. module: insurance_management
+#: field:analytic_history.risk.line,partner_id:0
+#: model:ir.model,name:insurance_management.model_res_partner
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: insurance_management
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:217
+#, python-format
+msgid "Pending"
+msgstr "Suspension"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_perte_totale_uniquement__ptu_r0
+#: model:product.template,name:insurance_management.pt_perte_totale_uniquement__ptu_r1
+msgid "Perte Totale Uniquement : PTU"
+msgstr "Perte Totale Uniquement : PTU"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_perte_dexploit_aprs_bris_de_machpeabm_r0
+#: model:product.template,name:insurance_management.pt_perte_dexploit_aprs_bris_de_machpeabm_r1
+msgid "Perte d'exploit après bris de mach(PEABM)"
+msgstr "Perte d'exploit après bris de mach(PEABM)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_perte_de_licence_r0
+#: model:product.template,name:insurance_management.pt_perte_de_licence_r1
+msgid "Perte de licence"
+msgstr "Perte de licence"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_perte_des_loyers_des_colocataires_r0
+#: model:product.template,name:insurance_management.pt_perte_des_loyers_des_colocataires_r1
+msgid "Perte des Loyers des Co-locataires"
+msgstr "Perte des Loyers des Co-locataires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_perte_des_loyers_rsultant_de_lincendie_r2
+#: model:product.template,name:insurance_management.pt_perte_des_loyers_rsultant_de_lincendie_r3
+msgid "Perte des Loyers résultant de l'Incendie"
+msgstr "Perte des Loyers résultant de l'Incendie"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_perte_des_loyers_rsultant_de_lincendie_r0
+#: model:product.template,name:insurance_management.pt_perte_des_loyers_rsultant_de_lincendie_r1
+msgid "Perte des loyers résultant de l'incendie"
+msgstr "Perte des loyers résultant de l'incendie"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_perte_prod__en_entrepts_frigorifiqppef_r0
+#: model:product.template,name:insurance_management.pt_perte_prod__en_entrepts_frigorifiqppef_r1
+msgid "Perte prod. en entrepôts frigorifiq(PPEF)"
+msgstr "Perte prod. en entrepôts frigorifiq(PPEF)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_perte_totale_de_lexpdition_r0
+#: model:product.template,name:insurance_management.pt_perte_totale_de_lexpdition_r1
+#: model:product.template,name:insurance_management.pt_perte_totale_de_lexpdition_r2
+#: model:product.template,name:insurance_management.pt_perte_totale_de_lexpdition_r3
+#: model:product.template,name:insurance_management.pt_perte_totale_de_lexpdition_r4
+#: model:product.template,name:insurance_management.pt_perte_totale_de_lexpdition_r5
+#: model:product.template,name:insurance_management.pt_perte_totale_de_lexpdition_r6
+#: model:product.template,name:insurance_management.pt_perte_totale_de_lexpdition_r7
+msgid "Perte totale de l'expédition"
+msgstr "Perte totale de l'expédition"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_perte_totale_etou_dlaissement_r0
+#: model:product.template,name:insurance_management.pt_perte_totale_etou_dlaissement_r1
+#: model:product.template,name:insurance_management.pt_perte_totale_etou_dlaissement_r2
+#: model:product.template,name:insurance_management.pt_perte_totale_etou_dlaissement_r3
+msgid "Perte totale et/ou délaissement"
+msgstr "Perte totale et/ou délaissement"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_perte_totale_etou_dlaissement_faps_r0
+#: model:product.template,name:insurance_management.pt_perte_totale_etou_dlaissement_faps_r1
+#: model:product.template,name:insurance_management.pt_perte_totale_etou_dlaissement_faps_r2
+#: model:product.template,name:insurance_management.pt_perte_totale_etou_dlaissement_faps_r3
+msgid "Perte totale et/ou délaissement (FAPS*)"
+msgstr "Perte totale et/ou délaissement (FAPS*)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_perte_totale_etou_dlaissement_ptd_r0
+#: model:product.template,name:insurance_management.pt_perte_totale_etou_dlaissement_ptd_r1
+#: model:product.template,name:insurance_management.pt_perte_totale_etou_dlaissement_ptd_r2
+#: model:product.template,name:insurance_management.pt_perte_totale_etou_dlaissement_ptd_r3
+msgid "Perte totale et/ou délaissement (PTD**)"
+msgstr "Perte totale et/ou délaissement (PTD**)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_perte_totale_etou_dlaissement_tr_r0
+#: model:product.template,name:insurance_management.pt_perte_totale_etou_dlaissement_tr_r1
+#: model:product.template,name:insurance_management.pt_perte_totale_etou_dlaissement_tr_r2
+#: model:product.template,name:insurance_management.pt_perte_totale_etou_dlaissement_tr_r3
+msgid "Perte totale et/ou délaissement (TR***)"
+msgstr "Perte totale et/ou délaissement (TR***)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_pertes_dexploitation_suite__un_cyclone_pec_r0
+msgid "Pertes d'Exploitation suite à un Cyclone (PEC)"
+msgstr "Pertes d'Exploitation suite à un Cyclone (PEC)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_pertes_dexploit__honoraires_dexperts_r0
+msgid "Pertes d'exploit : Honoraires d'experts"
+msgstr "Pertes d'exploit : Honoraires d'experts"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_pertes_dexploit__suite__un_cycl__pec_r0
+msgid "Pertes d'exploit. suite à un cycl. (PEC)"
+msgstr "Pertes d'exploit. suite à un cycl. (PEC)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_pertes_dexploitation__honoraires_dexperts_r0
+msgid "Pertes d'exploitation : Honoraires d'experts"
+msgstr "Pertes d'exploitation : Honoraires d'experts"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_pertes_dexploitation_incendie_pei_r0
+#: model:product.template,name:insurance_management.pt_pertes_dexploitation_incendie_pei_r1
+msgid "Pertes d'exploitation incendie (PEI)"
+msgstr "Pertes d'exploitation incendie (PEI)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_pertes_en_poids_et_de_qualits_r0
+#: model:product.template,name:insurance_management.pt_pertes_en_poids_et_de_qualits_r1
+#: model:product.template,name:insurance_management.pt_pertes_en_poids_et_de_qualits_r2
+#: model:product.template,name:insurance_management.pt_pertes_en_poids_et_de_qualits_r3
+#: model:product.template,name:insurance_management.pt_pertes_en_poids_et_de_qualits_r4
+#: model:product.template,name:insurance_management.pt_pertes_en_poids_et_de_qualits_r5
+#: model:product.template,name:insurance_management.pt_pertes_en_poids_et_de_qualits_r6
+#: model:product.template,name:insurance_management.pt_pertes_en_poids_et_de_qualits_r7
+msgid "Pertes en poids et de qualités"
+msgstr "Pertes en poids et de qualités"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_pertes_et_avaries_r0
+msgid "Pertes et avaries"
+msgstr "Pertes et avaries"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_pertes_indirectes_r0
+msgid "Pertes indirectes"
+msgstr "Pertes indirectes"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_phnomenes_lectriques_r0
+msgid "Phénomenes électriques"
+msgstr "Phénomenes électriques"
+
+#. module: insurance_management
+#: code:addons/insurance_management/models/analytic_history.py:176
+#, python-format
+msgid "Please contact your Administrator to set your agency"
+msgstr "SVP, contactez votre Administrateur pour définir votre agence"
+
+#. module: insurance_management
+#: field:account.analytic.account,pol_ident:0
+msgid "Police ID"
+msgstr "Police ID"
+
+#. module: insurance_management
+#: model:ir.actions.act_window,name:insurance_management.act_open_account_analytic_account_view
+#: model:ir.ui.menu,name:insurance_management.menu_account_analytic_account
+msgid "Policy"
+msgstr "Police"
+
+#. module: insurance_management
+#: field:insurance.product,price:0
+msgid "Prices"
+msgstr "Prix"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_privation_de_jouissance_des_locataires_r0
+#: model:product.template,name:insurance_management.pt_privation_de_jouissance_des_locataires_r1
+msgid "Privation de Jouissance des Locataires"
+msgstr "Privation de Jouissance des Locataires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_privation_de_jouissance_des_propr__r0
+#: model:product.template,name:insurance_management.pt_privation_de_jouissance_des_propr__r1
+msgid "Privation de Jouissance des Propr."
+msgstr "Privation de Jouissance des Propr."
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_privation_de_jouissance_des_propritaires_r0
+#: model:product.template,name:insurance_management.pt_privation_de_jouissance_des_propritaires_r1
+msgid "Privation de Jouissance des Propriétaires"
+msgstr "Privation de Jouissance des Propriétaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_privation_de_jouissance_r0
+#: model:product.template,name:insurance_management.pt_privation_de_jouissance_r1
+msgid "Privation de jouissance"
+msgstr "Privation de jouissance"
+
+#. module: insurance_management
+#: view:insurance.product:insurance_management.view_insurance_product_form
+msgid "Product Insurance Name"
+msgstr "Produit d'assurance"
+
+#. module: insurance_management
+#: model:ir.model,name:insurance_management.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
+
+#. module: insurance_management
+#: model:ir.model,name:insurance_management.model_insurance_fraction
+msgid "Product insurance fraction"
+msgstr "Fraction Produit d'assurance "
+
+#. module: insurance_management
+#: field:risk.warranty.line,proratee_net_amount:0
+msgid "Proratee Net"
+msgstr "Proratee Net"
+
+#. module: insurance_management
+#: help:risk.warranty.line,proratee_net_amount:0
+msgid "Proratee net amount"
+msgstr "Montant Net Proratee"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_protection_juridique_r0
+#: model:product.template,name:insurance_management.pt_protection_juridique_r1
+msgid "Protection Juridique"
+msgstr "Protection Juridique"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_prjudice_clientle_suite_aux_dfaillances_lectroniques_r0
+msgid "Préjudice clientèle suite aux défaillances électroniques"
+msgstr "Préjudice clientèle suite aux défaillances électroniques"
+
+#. module: insurance_management
+#: model:ir.ui.menu,name:insurance_management.menu_quotation_operation_insurance
+msgid "Quotations"
+msgstr "Devis"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_aprs_livraison_matriel_r0
+msgid "RC Après Livraison matériel"
+msgstr "RC Après Livraison matériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_aprs_livraison__travaux__corporel_r0
+#: model:product.template,name:insurance_management.pt_rc_aprs_livraison__travaux__corporel_r1
+#: model:product.template,name:insurance_management.pt_rc_aprs_livraison__travaux__corporel_r2
+msgid "RC Après livraison / travaux - corporel"
+msgstr "RC Après livraison / travaux - corporel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_aprs_livraison__travaux__matriel_r0
+#: model:product.template,name:insurance_management.pt_rc_aprs_livraison__travaux__matriel_r1
+#: model:product.template,name:insurance_management.pt_rc_aprs_livraison__travaux__matriel_r2
+msgid "RC Après livraison / travaux - matériel"
+msgstr "RC Après livraison / travaux - matériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_aprs_livraisonaprs_travaux__corporel_r0
+msgid "RC Après livraison/Après travaux - corporel"
+msgstr "RC Après livraison/Après travaux - corporel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_aprs_livraisonaprs_travaux__matriel_r0
+msgid "RC Après livraison/Après travaux - matériel"
+msgstr "RC Après livraison/Après travaux - matériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_bagages_trajet_terrestre_r0
+msgid "RC Bagages (trajet terrestre)"
+msgstr "RC Bagages (trajet terrestre)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_bagages_trajet_terrestre_r1
+msgid "RC Bagages Trajet Terrestre"
+msgstr "RC Bagages Trajet Terrestre"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_biens_confis_matriel_r0
+msgid "RC Biens Confiés Matériel"
+msgstr "RC Biens Confiés Matériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_biens_confies_r0
+#: model:product.template,name:insurance_management.pt_rc_biens_confies_r1
+msgid "RC Biens confiées"
+msgstr "RC Biens confiées"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_collectivits_dcs_r0
+msgid "RC Collectivités Décès"
+msgstr "RC Collectivités Décès"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_collectivits_frais_de_traitement_r0
+msgid "RC Collectivités Frais de Traitement"
+msgstr "RC Collectivités Frais de Traitement"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_collectivits_infirmit_permanente_r0
+msgid "RC Collectivités Infirmité Permanente"
+msgstr "RC Collectivités Infirmité Permanente"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_dommages_corporels_r5
+msgid "RC Dommages Corporels"
+msgstr "RC Dommages Corporels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_dommages_matriels_r5
+msgid "RC Dommages Matériels"
+msgstr "RC Dommages Matériels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_dommages_corporels_r0
+#: model:product.template,name:insurance_management.pt_rc_dommages_corporels_r1
+#: model:product.template,name:insurance_management.pt_rc_dommages_corporels_r2
+#: model:product.template,name:insurance_management.pt_rc_dommages_corporels_r3
+#: model:product.template,name:insurance_management.pt_rc_dommages_corporels_r4
+msgid "RC Dommages corporels"
+msgstr "RC Dommages corporels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_dommages_matriels_r0
+#: model:product.template,name:insurance_management.pt_rc_dommages_matriels_r1
+#: model:product.template,name:insurance_management.pt_rc_dommages_matriels_r2
+#: model:product.template,name:insurance_management.pt_rc_dommages_matriels_r3
+#: model:product.template,name:insurance_management.pt_rc_dommages_matriels_r4
+msgid "RC Dommages matériels"
+msgstr "RC Dommages matériels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_dfense_et_recours_r0
+msgid "RC Défense et Recours"
+msgstr "RC Défense et Recours"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_dpositaire_r0
+#: model:product.template,name:insurance_management.pt_rc_dpositaire_r1
+#: model:product.template,name:insurance_management.pt_rc_dpositaire_r2
+msgid "RC Dépositaire"
+msgstr "RC Dépositaire"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_ex_dommages_corporels_r0
+#: model:product.template,name:insurance_management.pt_rc_ex_dommages_corporels_r1
+#: model:product.template,name:insurance_management.pt_rc_ex_dommages_corporels_r2
+msgid "RC Ex Dommages corporels"
+msgstr "RC Ex Dommages corporels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_ex_dommages_immatriels_conscutifs_r0
+#: model:product.template,name:insurance_management.pt_rc_ex_dommages_immatriels_conscutifs_r1
+msgid "RC Ex Dommages immatériels consécutifs"
+msgstr "RC Ex Dommages immatériels consécutifs"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_ex_dommages_matriels_r0
+#: model:product.template,name:insurance_management.pt_rc_ex_dommages_matriels_r1
+msgid "RC Ex Dommages matériels"
+msgstr "RC Ex Dommages matériels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_ex_dommages_matriels_et_immatriels_conscutifs_r0
+msgid "RC Ex Dommages matériels et immatériels consécutifs"
+msgstr "RC Ex Dommages matériels et immatériels consécutifs"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_explext_biens_confis_immatriel_r0
+msgid "RC Expl-Ext Biens Confiés Immatériel"
+msgstr "RC Expl-Ext Biens Confiés Immatériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_explext_biens_confis_matriel_r0
+msgid "RC Expl-Ext Biens Confiés Matériel"
+msgstr "RC Expl-Ext Biens Confiés Matériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_explext_dommages_aux_existants_imm_r0
+msgid "RC Expl-Ext Dommages aux Existants Imm"
+msgstr "RC Expl-Ext Dommages aux Existants Imm"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_explext_dommages_aux_existants_mat_r0
+msgid "RC Expl-Ext Dommages aux Existants Mat"
+msgstr "RC Expl-Ext Dommages aux Existants Mat"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_explext_dpositaire_corporel_r0
+msgid "RC Expl-Ext Dépositaire Corporel"
+msgstr "RC Expl-Ext Dépositaire Corporel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_explext_dpositaire_immatriel_r0
+msgid "RC Expl-Ext Dépositaire Immatériel"
+msgstr "RC Expl-Ext Dépositaire Immatériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_explext_dpositaire_matriel_r0
+msgid "RC Expl-Ext Dépositaire Matériel"
+msgstr "RC Expl-Ext Dépositaire Matériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_explext_intoxications_alimentaires_r0
+msgid "RC Expl-Ext Intoxications Alimentaires"
+msgstr "RC Expl-Ext Intoxications Alimentaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_explext_rc_aprs_livraisontravaux_cor_r0
+msgid "RC Expl-Ext RC après Livraison/Travaux Cor"
+msgstr "RC Expl-Ext RC après Livraison/Travaux Cor"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_explext_rc_aprs_livraisontravaux_imm_r0
+msgid "RC Expl-Ext RC après Livraison/Travaux Imm"
+msgstr "RC Expl-Ext RC après Livraison/Travaux Imm"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_explext_rc_aprs_livraisontravaux_mat_r0
+msgid "RC Expl-Ext RC après Livraison/Travaux Mat"
+msgstr "RC Expl-Ext RC après Livraison/Travaux Mat"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_explext_vol_immatriel_r0
+msgid "RC Expl-Ext Vol Immatériel"
+msgstr "RC Expl-Ext Vol Immatériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_explext_vol_matriel_r0
+msgid "RC Expl-Ext Vol Matériel"
+msgstr "RC Expl-Ext Vol Matériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_expl__arodrome_ro_cormat_r0
+msgid "RC Expl. aérodrome RO Cor+Mat"
+msgstr "RC Expl. aérodrome RO Cor+Mat"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_expl__arodrome_ro_imm__non_conscutif_r0
+msgid "RC Expl. aérodrome RO Imm. non consécutif"
+msgstr "RC Expl. aérodrome RO Imm. non consécutif"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_exploitation_corporel_r0
+#: model:product.template,name:insurance_management.pt_rc_exploitation_corporel_r1
+#: model:product.template,name:insurance_management.pt_rc_exploitation_corporel_r2
+msgid "RC Exploitation Corporel"
+msgstr "RC Exploitation Corporel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_exploitation_dommages_corporels_r0
+msgid "RC Exploitation Dommages corporels"
+msgstr "RC Exploitation Dommages corporels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_exploitation_dommages_matriels_r0
+msgid "RC Exploitation Dommages matériels"
+msgstr "RC Exploitation Dommages matériels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_exploitation_immatriel_r0
+#: model:product.template,name:insurance_management.pt_rc_exploitation_immatriel_r1
+msgid "RC Exploitation Immatériel"
+msgstr "RC Exploitation Immatériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_exploitation_immatriels_conscutifs_r0
+msgid "RC Exploitation Immatériels Consécutifs"
+msgstr "RC Exploitation Immatériels Consécutifs"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_exploitation_matriel_r0
+#: model:product.template,name:insurance_management.pt_rc_exploitation_matriel_r1
+#: model:product.template,name:insurance_management.pt_rc_exploitation_matriel_r2
+msgid "RC Exploitation Matériel"
+msgstr "RC Exploitation Matériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_exploitation_matriels_r0
+msgid "RC Exploitation Matériels"
+msgstr "RC Exploitation Matériels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_exploitation_darodrome_rg_r0
+msgid "RC Exploitation d'aérodrome RG"
+msgstr "RC Exploitation d'aérodrome RG"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_exploitation_darodrome_ro_produit_r0
+msgid "RC Exploitation d'aérodrome RO Produit"
+msgstr "RC Exploitation d'aérodrome RO Produit"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_expoitation_corporel_r0
+msgid "RC Expoitation Corporel"
+msgstr "RC Expoitation Corporel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_ext__bagages_r0
+msgid "RC Ext. Bagages"
+msgstr "RC Ext. Bagages"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_ext__frais_de_recherche_et_de_sauvetage_r0
+msgid "RC Ext. Frais de Recherche et de Sauvetage"
+msgstr "RC Ext. Frais de Recherche et de Sauvetage"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_ext__frt_r0
+msgid "RC Ext. Frêt"
+msgstr "RC Ext. Frêt"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_ext__risques_de_guerre_r0
+msgid "RC Ext. Risques de Guerre"
+msgstr "RC Ext. Risques de Guerre"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_intoxications_alimentaires_r3
+msgid "RC Intoxications Alimentaires"
+msgstr "RC Intoxications Alimentaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_intoxications_alimentaires_r0
+#: model:product.template,name:insurance_management.pt_rc_intoxications_alimentaires_r1
+#: model:product.template,name:insurance_management.pt_rc_intoxications_alimentaires_r2
+msgid "RC Intoxications alimentaires"
+msgstr "RC Intoxications alimentaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_notairesavocats_defense_et_recours_r0
+msgid "RC Notaires/Avocats Defense et Recours"
+msgstr "RC Notaires/Avocats Defense et Recours"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_notairesavocats_ex_dommages_materiels_r0
+msgid "RC Notaires/Avocats Ex Dommages Materiels"
+msgstr "RC Notaires/Avocats Ex Dommages Materiels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_notairesavocats_ex_dommages_corporels_r0
+msgid "RC Notaires/Avocats Ex Dommages corporels"
+msgstr "RC Notaires/Avocats Ex Dommages corporels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_notairesavocats_pro_dommages_corp_r0
+msgid "RC Notaires/Avocats Pro Dommages Corp"
+msgstr "RC Notaires/Avocats Pro Dommages Corp"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_notairesavocats_pro_dommages_materiels_r0
+msgid "RC Notaires/Avocats Pro Dommages Materiels"
+msgstr "RC Notaires/Avocats Pro Dommages Materiels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_parking_r0
+#: model:product.template,name:insurance_management.pt_rc_parking_r1
+#: model:product.template,name:insurance_management.pt_rc_parking_r2
+msgid "RC Parking"
+msgstr "RC Parking"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_pers__trans__dom__corporels_r0
+#: model:product.template,name:insurance_management.pt_rc_pers__trans__dom__corporels_r1
+#: model:product.template,name:insurance_management.pt_rc_pers__trans__dom__corporels_r2
+#: model:product.template,name:insurance_management.pt_rc_pers__trans__dom__corporels_r3
+#: model:product.template,name:insurance_management.pt_rc_pers__trans__dom__corporels_r4
+msgid "RC Pers. Trans. Dom. Corporels"
+msgstr "RC Pers. Trans. Dom. Corporels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_pers__trans__dom__matriels_r0
+#: model:product.template,name:insurance_management.pt_rc_pers__trans__dom__matriels_r1
+#: model:product.template,name:insurance_management.pt_rc_pers__trans__dom__matriels_r2
+#: model:product.template,name:insurance_management.pt_rc_pers__trans__dom__matriels_r3
+#: model:product.template,name:insurance_management.pt_rc_pers__trans__dom__matriels_r4
+msgid "RC Pers. Trans. Dom. Matériels"
+msgstr "RC Pers. Trans. Dom. Matériels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_professionnelle_corporel_r0
+#: model:product.template,name:insurance_management.pt_rc_professionnelle_corporel_r1
+#: model:product.template,name:insurance_management.pt_rc_professionnelle_corporel_r2
+#: model:product.template,name:insurance_management.pt_rc_professionnelle_corporel_r3
+msgid "RC Professionnelle Corporel"
+msgstr "RC Professionnelle Corporel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_professionnelle_dommages_corporels_r0
+#: model:product.template,name:insurance_management.pt_rc_professionnelle_dommages_corporels_r1
+#: model:product.template,name:insurance_management.pt_rc_professionnelle_dommages_corporels_r2
+msgid "RC Professionnelle Dommages corporels"
+msgstr "RC Professionnelle Dommages corporels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_professionnelle_dommages_immatriels_conscutifs_ou_non_r0
+msgid "RC Professionnelle Dommages immatériels consécutifs ou non"
+msgstr "RC Professionnelle Dommages immatériels consécutifs ou non"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_professionnelle_dommages_matriels_r0
+#: model:product.template,name:insurance_management.pt_rc_professionnelle_dommages_matriels_r1
+msgid "RC Professionnelle Dommages matériels"
+msgstr "RC Professionnelle Dommages matériels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_prof_dom_mat_immat_cons_non_r0
+msgid "RC Professionnelle Dommages matériels et immatériels consécutifs ou non"
+msgstr "RC Professionnelle Dommages matériels et immatériels consécutifs ou non"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_professionnelle_immatriel_r0
+#: model:product.template,name:insurance_management.pt_rc_professionnelle_immatriel_r1
+#: model:product.template,name:insurance_management.pt_rc_professionnelle_immatriel_r2
+#: model:product.template,name:insurance_management.pt_rc_professionnelle_immatriel_r3
+msgid "RC Professionnelle Immatériel"
+msgstr "RC Professionnelle Immatériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_professionnelle_matriel_r0
+#: model:product.template,name:insurance_management.pt_rc_professionnelle_matriel_r1
+#: model:product.template,name:insurance_management.pt_rc_professionnelle_matriel_r2
+#: model:product.template,name:insurance_management.pt_rc_professionnelle_matriel_r3
+msgid "RC Professionnelle Matériel"
+msgstr "RC Professionnelle Matériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_propritaire_dimmeubles_corporel_r0
+#: model:product.template,name:insurance_management.pt_rc_propritaire_dimmeubles_corporel_r1
+msgid "RC Propriétaire d'Immeubles Corporel"
+msgstr "RC Propriétaire d'Immeubles Corporel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_propritaire_dimmeubles_immatriel_r0
+msgid "RC Propriétaire d'Immeubles Immatériel"
+msgstr "RC Propriétaire d'Immeubles Immatériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_propritaire_dimmeubles_immatriel_conscutifs_r0
+msgid "RC Propriétaire d'Immeubles Immatériel Consécutifs"
+msgstr "RC Propriétaire d'Immeubles Immatériel Consécutifs"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_propritaire_dimmeubles_matriel_r0
+#: model:product.template,name:insurance_management.pt_rc_propritaire_dimmeubles_matriel_r1
+msgid "RC Propriétaire d'Immeubles Matériel"
+msgstr "RC Propriétaire d'Immeubles Matériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_rsidence_secondaire_corporel_r0
+msgid "RC Résidence Secondaire Corporel"
+msgstr "RC Résidence Secondaire Corporel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_rsidence_secondaire_matriel_r0
+msgid "RC Résidence Secondaire Matériel"
+msgstr "RC Résidence Secondaire Matériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_tiers__la_surface_et_passagersbiens_confis_corporel_r0
+msgid "RC Tiers à la surface et passagers/Biens confiés corporel"
+msgstr "RC Tiers à la surface et passagers/Biens confiés corporel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_vp_dommages_corporels_r0
+#: model:product.template,name:insurance_management.pt_rc_vp_dommages_corporels_r1
+msgid "RC VP Dommages corporels"
+msgstr "RC VP Dommages corporels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_vp_dommages_matriels_r0
+#: model:product.template,name:insurance_management.pt_rc_vp_dommages_matriels_r1
+msgid "RC VP Dommages matériels"
+msgstr "RC VP Dommages matériels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_vp_dfense_et_recours_r1
+msgid "RC VP Défense et Recours"
+msgstr "RC VP Défense et Recours"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_vp_dfense_et_recours_r0
+msgid "RC VP Défense et recours"
+msgstr "RC VP Défense et recours"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_vp_vol_r0
+#: model:product.template,name:insurance_management.pt_rc_vp_vol_r1
+msgid "RC VP Vol"
+msgstr "RC VP Vol"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_vie_prive_corporel_r0
+#: model:product.template,name:insurance_management.pt_rc_vie_prive_corporel_r1
+#: model:product.template,name:insurance_management.pt_rc_vie_prive_corporel_r2
+msgid "RC Vie Privée Corporel"
+msgstr "RC Vie Privée Corporel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_vie_prive_immatriel_r0
+#: model:product.template,name:insurance_management.pt_rc_vie_prive_immatriel_r1
+msgid "RC Vie Privée Immatériel"
+msgstr "RC Vie Privée Immatériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_vie_prive_matriel_r0
+#: model:product.template,name:insurance_management.pt_rc_vie_prive_matriel_r1
+#: model:product.template,name:insurance_management.pt_rc_vie_prive_matriel_r2
+msgid "RC Vie Privée Matériel"
+msgstr "RC Vie Privée Matériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_vol_r0
+#: model:product.template,name:insurance_management.pt_rc_vol_r1
+msgid "RC Vol"
+msgstr "RC Vol"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_vol_dans_les_chambres_r0
+msgid "RC Vol dans les chambres"
+msgstr "RC Vol dans les chambres"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_admise__lgard_des_passagers_r0
+msgid "RC admise à l'égard des passagers"
+msgstr "RC admise à l'égard des passagers"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_combine_r0
+msgid "RC combinée"
+msgstr "RC combinée"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_ext__rcrg_excdent_de_la_rc_gle_en_rg_r0
+msgid "RC ext. RC-RG excédent de la RC gle en RG"
+msgstr "RC ext. RC-RG excédent de la RC gle en RG"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rc_visvis_des_tiers_uniquement_r0
+msgid "RC vis-à-vis des Tiers uniquement"
+msgstr "RC vis-à-vis des Tiers uniquement"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rcexplext_biens_confis_immatriel_r0
+msgid "RCExpl-Ext Biens Confiés Immatériel"
+msgstr "RCExpl-Ext Biens Confiés Immatériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rcexplext_biens_confis_matriel_r0
+msgid "RCExpl-Ext Biens Confiés Matériel"
+msgstr "RCExpl-Ext Biens Confiés Matériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rcexplext_dommages_aux_existants_imm_r0
+msgid "RCExpl-Ext Dommages aux Existants Imm"
+msgstr "RCExpl-Ext Dommages aux Existants Imm"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rcexplext_dommages_aux_existants_mat_r0
+msgid "RCExpl-Ext Dommages aux Existants Mat"
+msgstr "RCExpl-Ext Dommages aux Existants Mat"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rcexplext_dpositaire_corporel_r0
+msgid "RCExpl-Ext Dépositaire Corporel"
+msgstr "RCExpl-Ext Dépositaire Corporel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rcexplext_dpositaire_immatriel_r0
+msgid "RCExpl-Ext Dépositaire Immatériel"
+msgstr "RCExpl-Ext Dépositaire Immatériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rcexplext_dpositaire_matriel_r0
+msgid "RCExpl-Ext Dépositaire Matériel"
+msgstr "RCExpl-Ext Dépositaire Matériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rcexplext_intoxications_alimentaires_r0
+msgid "RCExpl-Ext Intoxications Alimentaires"
+msgstr "RCExpl-Ext Intoxications Alimentaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rcexplext_rc_aprs_livraisontravaux_cor_r0
+msgid "RCExpl-Ext RC après Livraison/Travaux Cor"
+msgstr "RCExpl-Ext RC après Livraison/Travaux Cor"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rcexplext_rc_aprs_livraisontravaux_imm_r0
+msgid "RCExpl-Ext RC après Livraison/Travaux Imm"
+msgstr "RCExpl-Ext RC après Livraison/Travaux Imm"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rcexplext_rc_aprs_livraisontravaux_mat_r0
+msgid "RCExpl-Ext RC après Livraison/Travaux Mat"
+msgstr "RCExpl-Ext RC après Livraison/Travaux Mat"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rcexplext_vol_immatriel_r0
+msgid "RCExpl-Ext Vol Immatériel"
+msgstr "RCExpl-Ext Vol Immatériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rcexplext_vol_matriel_r0
+msgid "RCExpl-Ext Vol Matériel"
+msgstr "RCExpl-Ext Vol Matériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rcp_dommages_corporels_r0
+msgid "RCP Dommages Corporels"
+msgstr "RCP Dommages Corporels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rcp_dommages_matriels_r0
+msgid "RCP Dommages Matériels"
+msgstr "RCP Dommages Matériels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rcvp_ext__chasse_corporel_r0
+msgid "RCVP Ext. Chasse Corporel"
+msgstr "RCVP Ext. Chasse Corporel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rcvp_ext__chasse_matriel_r0
+msgid "RCVP Ext. Chasse Matériel"
+msgstr "RCVP Ext. Chasse Matériel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_rcvp_ext__transcorps_r0
+msgid "RCVP Ext. Transcorps"
+msgstr "RCVP Ext. Transcorps"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_reconstitution_darchives_r0
+#: model:product.template,name:insurance_management.pt_reconstitution_darchives_r1
+msgid "Reconstitution d’archives"
+msgstr "Reconstitution d’archives"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_recours_r0
+#: model:product.template,name:insurance_management.pt_recours_r1
+msgid "Recours"
+msgstr "Recours"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_recours_locataires_contre_propritaires_r0
+msgid "Recours Locataires contre Propriétaires"
+msgstr "Recours Locataires contre Propriétaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_recours_des_locataires_contre_les_propritaires_r0
+msgid "Recours des Locataires contre les Propriétaires"
+msgstr "Recours des Locataires contre les Propriétaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_recours_des_voisins_et_des_tiers_r0
+#: model:product.template,name:insurance_management.pt_recours_des_voisins_et_des_tiers_r1
+#: model:product.template,name:insurance_management.pt_recours_des_voisins_et_des_tiers_r2
+#: model:product.template,name:insurance_management.pt_recours_des_voisins_et_des_tiers_r3
+msgid "Recours des Voisins et des Tiers"
+msgstr "Recours des Voisins et des Tiers"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_recours_des_voisins_et_tiers_r0
+msgid "Recours des voisins et tiers"
+msgstr "Recours des voisins et tiers"
+
+#. module: insurance_management
+#: field:res.partner,ref_apporteur:0
+msgid "Reference"
+msgstr "Reference"
+
+#. module: insurance_management
+#: model:ir.model,name:insurance_management.model_reg_tax_reference
+msgid "Register Tax"
+msgstr "Tax d'enregistrement"
+
+#. module: insurance_management
+#: field:reg.tax.reference,tax_id:0
+msgid "Register tax"
+msgstr "Tax d'enregistrement"
+
+#. module: insurance_management
+#: model:ir.actions.act_window,name:insurance_management.act_open_reg_tax_reference_view
+#: model:ir.ui.menu,name:insurance_management.menu_reg_tax_reference
+#: view:reg.tax.reference:insurance_management.view_reg_tax_reference_form
+#: view:reg.tax.reference:insurance_management.view_reg_tax_reference_tree
+msgid "Register tax reference"
+msgstr "Référence Tax d'enregistrement"
+
+#. module: insurance_management
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:237
+#, python-format
+msgid "Reinstatment"
+msgstr "Remise en Vigueur"
+
+#. module: insurance_management
+#: field:account.analytic.account,remaining_warranty:0
+msgid "Remaining"
+msgstr "Remaining"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_remboursement_recharges_dextincteurs_r0
+msgid "Remboursement recharges d’extincteurs"
+msgstr "Remboursement recharges d’extincteurs"
+
+#. module: insurance_management
+#: code:addons/insurance_management/models/aro_insurance_subscription.py:132
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:165
+#, python-format
+msgid "Renew"
+msgstr "Renouvellement"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_renonc___recours_loc__contre_propr__r0
+msgid "Renonc. à Recours Loc. contre Propr."
+msgstr "Renonc. à Recours Loc. contre Propr."
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_renonc___recours_propr__contre_loc__r0
+msgid "Renonc. à Recours Propr. contre Loc."
+msgstr "Renonc. à Recours Propr. contre Loc."
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_renonc___recours_des_loc__contre_les_propr__r0
+msgid "Renonc. à Recours des Loc. contre les Propr."
+msgstr "Renonc. à Recours des Loc. contre les Propr."
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_renonc___recours_des_propr__contre_les_loc__r0
+msgid "Renonc. à Recours des Propr. contre les Loc."
+msgstr "Renonc. à Recours des Propr. contre les Loc."
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_responsabilit_civile__dommages_corporels_aux_tiers_r0
+msgid "Responsabilité Civile : dommages corporels aux tiers"
+msgstr "Responsabilité Civile : dommages corporels aux tiers"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_responsabilit_civile__dommages_matriels_aux_tiers_r0
+msgid "Responsabilité Civile : dommages matériels aux tiers"
+msgstr "Responsabilité Civile : dommages matériels aux tiers"
+
+#. module: insurance_management
+#: field:analytic_history.risk.line,type_risk_id:0
+msgid "Risk"
+msgstr "Risque"
+
+#. module: insurance_management
+#: view:analytic.history:insurance_management.view_analytic_history_form
+msgid "Risk Line"
+msgstr "Lignes de risque"
+
+#. module: insurance_management
+#: view:analytic.history:insurance_management.view_analytic_history_form
+#: view:product.template:insurance_management.view_insurance_warranty_search
+msgid "Risk Type"
+msgstr "Type de risque"
+
+#. module: insurance_management
+#: field:analytic_history.risk.line,risk_description_ids:0
+msgid "Risk description"
+msgstr "Description des Risques"
+
+#. module: insurance_management
+#: model:ir.model,name:insurance_management.model_risk_warranty_line
+msgid "Risk detail in subscription"
+msgstr "Détails des risques du contrat"
+
+#. module: insurance_management
+#: field:risk.description.line,history_risk_line_id:0
+msgid "Risk line"
+msgstr "Ligne de risque"
+
+#. module: insurance_management
+#: field:risk.warranty.line,history_risk_line_id:0
+msgid "Risk type"
+msgstr "Type de risque"
+
+#. module: insurance_management
+#: field:analytic.history,risk_line_ids:0
+msgid "Risks Type"
+msgstr "Type de risques"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_risque_a_responsabilit_civile_r0
+#: model:product.template,name:insurance_management.pt_risque_a_responsabilit_civile_r1
+#: model:product.template,name:insurance_management.pt_risque_a_responsabilit_civile_r2
+msgid "Risque A: Responsabilité Civile"
+msgstr "Risque A: Responsabilité Civile"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_risque_b__tierce_complte_r0
+#: model:product.template,name:insurance_management.pt_risque_b__tierce_complte_r1
+#: model:product.template,name:insurance_management.pt_risque_b__tierce_complte_r2
+msgid "Risque B : Tierce complète"
+msgstr "Risque B : Tierce complète"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_risque_b__tierce_collision_r0
+#: model:product.template,name:insurance_management.pt_risque_b__tierce_collision_r1
+msgid "Risque B’ : Tierce collision"
+msgstr "Risque B’ : Tierce collision"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_risque_b__tierce_collision_amnage_r0
+msgid "Risque B’’ : Tierce collision aménagée"
+msgstr "Risque B’’ : Tierce collision aménagée"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_risque_b_tierce_collision_amnage_r0
+msgid "Risque B’’: Tierce collision aménagée"
+msgstr "Risque B’’: Tierce collision aménagée"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_risque_c__incendie_et_explosions_r0
+#: model:product.template,name:insurance_management.pt_risque_c__incendie_et_explosions_r1
+#: model:product.template,name:insurance_management.pt_risque_c__incendie_et_explosions_r2
+msgid "Risque C : Incendie et explosions"
+msgstr "Risque C : Incendie et explosions"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_risque_d__vol_r0
+#: model:product.template,name:insurance_management.pt_risque_d__vol_r1
+#: model:product.template,name:insurance_management.pt_risque_d__vol_r2
+msgid "Risque D : Vol"
+msgstr "Risque D : Vol"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_risque_pollution_r0
+msgid "Risque Pollution"
+msgstr "Risque Pollution"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_risque_de_guerre_r0
+#: model:product.template,name:insurance_management.pt_risque_de_guerre_r1
+#: model:product.template,name:insurance_management.pt_risque_de_guerre_r2
+#: model:product.template,name:insurance_management.pt_risque_de_guerre_r3
+msgid "Risque de guerre"
+msgstr "Risque de guerre"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_risque_de_guerre_mines_et_risques_assimils_r0
+#: model:product.template,name:insurance_management.pt_risque_de_guerre_mines_et_risques_assimils_r1
+#: model:product.template,name:insurance_management.pt_risque_de_guerre_mines_et_risques_assimils_r2
+#: model:product.template,name:insurance_management.pt_risque_de_guerre_mines_et_risques_assimils_r3
+#: model:product.template,name:insurance_management.pt_risque_de_guerre_mines_et_risques_assimils_r4
+#: model:product.template,name:insurance_management.pt_risque_de_guerre_mines_et_risques_assimils_r5
+#: model:product.template,name:insurance_management.pt_risque_de_guerre_mines_et_risques_assimils_r6
+#: model:product.template,name:insurance_management.pt_risque_de_guerre_mines_et_risques_assimils_r7
+msgid "Risque de guerre, mines et risques assimilés"
+msgstr "Risque de guerre, mines et risques assimilés"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_risques_locatifs_dgts_des_eaux_dde_r0
+msgid "Risques Locatifs Dégâts Des Eaux (DDE)"
+msgstr "Risques Locatifs Dégâts Des Eaux (DDE)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_risques_locatifs_incendie_r0
+msgid "Risques Locatifs Incendie"
+msgstr "Risques Locatifs Incendie"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_risques_locatifs_supplmentaires_r1
+msgid "Risques Locatifs Supplémentaires"
+msgstr "Risques Locatifs Supplémentaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_risques_naturels_r0
+msgid "Risques Naturels"
+msgstr "Risques Naturels"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_risques_ordinaires_r0
+msgid "Risques Ordinaires"
+msgstr "Risques Ordinaires"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_risques_spciaux_immeubles__contenu_r0
+#: model:product.template,name:insurance_management.pt_risques_spciaux_immeubles__contenu_r1
+#: model:product.template,name:insurance_management.pt_risques_spciaux_immeubles__contenu_r2
+#: model:product.template,name:insurance_management.pt_risques_spciaux_immeubles__contenu_r3
+msgid "Risques Spéciaux immeubles & contenu"
+msgstr "Risques Spéciaux immeubles & contenu"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_risques_de_guerre_r0
+#: model:product.template,name:insurance_management.pt_risques_de_guerre_r1
+msgid "Risques de guerre"
+msgstr "Risques de guerre"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_risques_de_transport_r0
+msgid "Risques de transport"
+msgstr "Risques de transport"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_risques_locatifs_supplmentaires_r0
+msgid "Risques locatifs supplémentaires"
+msgstr "Risques locatifs supplémentaires"
+
+#. module: insurance_management
+#: field:analytic.history.stage,sequence:0
+msgid "Sequence"
+msgstr "Sequence"
+
+#. module: insurance_management
+#: field:res.partner,serial_identification:0
+msgid "Serial Id"
+msgstr "Serial Id"
+
+#. module: insurance_management
+#: field:insurance.product,image_small:0
+msgid "Small-sized image"
+msgstr "Small-sized image"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_soins_chirurgie_prothses_dentaires_r0
+#: model:product.template,name:insurance_management.pt_soins_chirurgie_prothses_dentaires_r1
+msgid "Soins, chirurgie, prothèses dentaires"
+msgstr "Soins, chirurgie, prothèses dentaires"
+
+#. module: insurance_management
+#: help:analytic.history,comment:0
+msgid "Some of your note"
+msgstr "Vos notes"
+
+#. module: insurance_management
+#: code:addons/insurance_management/models/aro_insurance_subscription.py:121
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:148
+#, python-format
+msgid "Sorry, You don't have or you get more than one amendment defined as last situation.\n"
+" Fix it first before continuing"
+msgstr "Désolé, Trop de version est déclaré comme dernière version pour ce contrat.\n"
+" Corrigez cela avant de procéder"
+
+#. module: insurance_management
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:232
+#, python-format
+msgid "Sorry, You don't have to reinstate a subscription which is not suspended"
+msgstr "Désolé, vous ne pouvez re-mettre en vigueur un contrat non suspendue"
+
+#. module: insurance_management
+#: code:addons/insurance_management/models/account_analytic_account.py:156
+#, python-format
+msgid "Sorry, there is no recent version for this contract"
+msgstr "Désolé, Aucune version récente n'est disponible pour ce contrat"
+
+#. module: insurance_management
+#: selection:res.partner.family,type:0
+msgid "Spouse"
+msgstr "Epoux(se)"
+
+#. module: insurance_management
+#: field:analytic.history.wiz,stage_id:0
+msgid "Stage"
+msgstr "Etat"
+
+#. module: insurance_management
+#: help:account.analytic.account,history_stage:0
+msgid "Stage of last history"
+msgstr "Statut de la dernière version"
+
+#. module: insurance_management
+#: field:reg.tax.reference,date_start:0
+msgid "Start"
+msgstr "Date Début"
+
+#. module: insurance_management
+#: field:analytic.history,starting_date:0
+msgid "Starting date"
+msgstr "Date début"
+
+#. module: insurance_management
+#: field:res.partner,statut:0
+msgid "Statut"
+msgstr "Statut"
+
+#. module: insurance_management
+#: view:account.analytic.account:insurance_management.view_account_analytic_account_form
+msgid "Subscriber"
+msgstr "Souscripteur"
+
+#. module: insurance_management
+#: field:analytic.history,analytic_id:0
+#: field:analytic_history.risk.line,analytic_id:0
+msgid "Subscription"
+msgstr "Souscription"
+
+#. module: insurance_management
+#: model:ir.model,name:insurance_management.model_analytic_history_risk_line
+msgid "Subscription line (Content list of risk type)"
+msgstr "Détails du contrat (Contenu des types de risques)"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_transcorps__rapatriement_du_corps_r0
+#: model:product.template,name:insurance_management.pt_transcorps__rapatriement_du_corps_r1
+#: model:product.template,name:insurance_management.pt_transcorps__rapatriement_du_corps_r2
+msgid "TRANSCORPS - Rapatriement du corps"
+msgstr "TRANSCORPS - Rapatriement du corps"
+
+#. module: insurance_management
+#: field:analytic_history.risk.line,risk_warranty_tmpl_id:0
+#: field:analytic_history.risk.line,template:0
+msgid "Template"
+msgstr "Modèle"
+
+#. module: insurance_management
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:201
+#, python-format
+msgid "Terminate"
+msgstr "Terminer"
+
+#. module: insurance_management
+#: selection:insurance.branch,category:0
+msgid "Terrestre"
+msgstr "Terrestre"
+
+#. module: insurance_management
+#: code:addons/insurance_management/models/analytic_history.py:195
+#, python-format
+msgid "The expected maximum loss should be less than the capital"
+msgstr "Le montant maximum de remboursement doit être inférieur au capital"
+
+#. module: insurance_management
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:36
+#, python-format
+msgid "There is no history yet for this contract. You have to select <AFN> or <DEV>"
+msgstr "Aucune version n'est encore disponible pour ce contrat. Vous devez choisir <AFN> ou <DEV>"
+
+#. module: insurance_management
+#: code:addons/insurance_management/models/analytic_history.py:255
+#, python-format
+msgid "There is no warranty to invoice in this contract history"
+msgstr "Il n'y a aucune garantie à facturer dans ce contrat"
+
+#. module: insurance_management
+#: field:insurance.product,amount_threshold:0
+msgid "Threshold amount"
+msgstr "Montant seuil"
+
+#. module: insurance_management
+#: field:account.analytic.account,warranty_to_invoice:0
+msgid "To invoice"
+msgstr "A Facturé"
+
+#. module: insurance_management
+#: code:addons/insurance_management/models/analytic_history.py:218
+#, python-format
+msgid "Too much result found"
+msgstr "Trop de valeur trouvé"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_tous_risques_chantiermontage_r0
+msgid "Tous Risques Chantier/Montage"
+msgstr "Tous Risques Chantier/Montage"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_tous_risques_r0
+#: model:product.template,name:insurance_management.pt_tous_risques_r1
+#: model:product.template,name:insurance_management.pt_tous_risques_r10
+#: model:product.template,name:insurance_management.pt_tous_risques_r11
+#: model:product.template,name:insurance_management.pt_tous_risques_r2
+#: model:product.template,name:insurance_management.pt_tous_risques_r3
+#: model:product.template,name:insurance_management.pt_tous_risques_r4
+#: model:product.template,name:insurance_management.pt_tous_risques_r5
+#: model:product.template,name:insurance_management.pt_tous_risques_r6
+#: model:product.template,name:insurance_management.pt_tous_risques_r7
+#: model:product.template,name:insurance_management.pt_tous_risques_r8
+#: model:product.template,name:insurance_management.pt_tous_risques_r9
+msgid "Tous risques"
+msgstr "Tous risques"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_toutes_autres_causes_r0
+msgid "Toutes autres causes"
+msgstr "Toutes autres causes"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_transport_sanitaires_entre_2_pays_r0
+#: model:product.template,name:insurance_management.pt_transport_sanitaires_entre_2_pays_r1
+msgid "Transport sanitaires entre 2 pays"
+msgstr "Transport sanitaires entre 2 pays"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_tremblements_de_terre_r0
+#: model:product.template,name:insurance_management.pt_tremblements_de_terre_r1
+msgid "Tremblements de terre"
+msgstr "Tremblements de terre"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_tremblements_de_terre_btiment_r0
+msgid "Tremblements de terre Bâtiment"
+msgstr "Tremblements de terre Bâtiment"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_tremblements_de_terre_contenu_r0
+msgid "Tremblements de terre Contenu"
+msgstr "Tremblements de terre Contenu"
+
+#. module: insurance_management
+#: field:insurance.branch,type:0
+msgid "Type"
+msgstr "Type"
+
+#. module: insurance_management
+#: field:risk.warranty.line,type_risk_id:0
+msgid "Type Risk"
+msgstr "Type de Risque"
+
+#. module: insurance_management
+#: view:insurance_type_risk.clause:insurance_management.view_insurance_type_risk_clause_search
+#: field:insurance_type_risk.clause,type_risk_id:0
+#: view:insurance_type_risk.description:insurance_management.view_insurance_type_risk_description_search
+#: field:insurance_type_risk.description,type_risk_id:0
+#: view:product.template:insurance_management.view_product_product_form
+#: field:product.template,type_risk_id:0
+msgid "Type of risk"
+msgstr "Type de risque"
+
+#. module: insurance_management
+#: view:insurance.type.risk:insurance_management.view_insurance_type_risk_form
+#: view:insurance.type.risk:insurance_management.view_insurance_type_risk_search
+#: view:insurance.type.risk:insurance_management.view_insurance_type_risk_tree
+#: model:ir.actions.act_window,name:insurance_management.act_open_insurance_type_risk_view
+#: model:ir.ui.menu,name:insurance_management.menu_insurance_type_risk
+#: model:ir.ui.menu,name:insurance_management.menu_root_type_risk_insurance
+msgid "Type risk"
+msgstr "Type de risque"
+
+#. module: insurance_management
+#: view:insurance_type_risk.clause:insurance_management.view_insurance_type_risk_clause_form
+#: view:insurance_type_risk.clause:insurance_management.view_insurance_type_risk_clause_search
+#: view:insurance_type_risk.clause:insurance_management.view_insurance_type_risk_clause_tree
+msgid "Type risk clause"
+msgstr "Clause Type de risque"
+
+#. module: insurance_management
+#: view:insurance_type_risk.description:insurance_management.view_insurance_type_risk_description_form
+#: view:insurance_type_risk.description:insurance_management.view_insurance_type_risk_description_search
+#: view:insurance_type_risk.description:insurance_management.view_insurance_type_risk_description_tree
+msgid "Type risk description"
+msgstr "Description type de risque"
+
+#. module: insurance_management
+#: field:res.partner,ua_code:0
+msgid "UA Code"
+msgstr "Code Sous Agence"
+
+#. module: insurance_management
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:58
+#, python-format
+msgid "Un-treated case \n"
+" [Note]"
+msgstr "Cas non-traité \n"
+" [Note]"
+
+#. module: insurance_management
+#: field:res.partner,is_under_agency:0
+msgid "Under Agency"
+msgstr "Sous Agence"
+
+#. module: insurance_management
+#: view:res.partner:insurance_management.view_res_partner_form_inherit_family_r0
+msgid "Under Agency Information"
+msgstr "Information sous agence"
+
+#. module: insurance_management
+#: help:analytic_history.risk.line,template:0
+msgid "Used as template"
+msgstr "Utiliser comme modèle"
+
+#. module: insurance_management
+#: view:analytic.history.wiz:insurance_management.view_analytic_history_wiz_form
+msgid "Validate"
+msgstr "Valider"
+
+#. module: insurance_management
+#: field:risk.description.line,value:0
+msgid "Value"
+msgstr "Valeur"
+
+#. module: insurance_management
+#: model:ir.model,name:insurance_management.model_risk_description_line
+msgid "Value corresponding to each risk description"
+msgstr "Valeur correspondant à chaque description de risque"
+
+#. module: insurance_management
+#: field:analytic.history,ver_ident:0
+msgid "Ver Ident"
+msgstr "Ver Ident"
+
+#. module: insurance_management
+#: selection:insurance.branch,category:0
+#: selection:insurance.branch,type:0
+msgid "Vie"
+msgstr "Vie"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_vol_r0
+#: model:product.template,name:insurance_management.pt_vol_r1
+#: model:product.template,name:insurance_management.pt_vol_r2
+msgid "Vol"
+msgstr "Vol"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_vol__ext__dterioration_immobilire_r0
+#: model:product.template,name:insurance_management.pt_vol__ext__dterioration_immobilire_r1
+msgid "Vol - Ext. Déterioration immobilière"
+msgstr "Vol - Ext. Déterioration immobilière"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_vol__ext__dterioration_mobilire_r0
+#: model:product.template,name:insurance_management.pt_vol__ext__dterioration_mobilire_r1
+msgid "Vol - Ext. Déterioration mobilière"
+msgstr "Vol - Ext. Déterioration mobilière"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_vol_coffres_forts_r0
+#: model:product.template,name:insurance_management.pt_vol_coffres_forts_r1
+msgid "Vol Coffres Forts"
+msgstr "Vol Coffres Forts"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_vol_coffres_forts__ext__dterioration_r0
+msgid "Vol Coffres Forts - Ext. Déterioration"
+msgstr "Vol Coffres Forts - Ext. Déterioration"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_vol_coffres_forts__ext__dterioration_du_coffre_fort_r0
+msgid "Vol Coffres Forts - Ext. Déterioration du coffre fort"
+msgstr "Vol Coffres Forts - Ext. Déterioration du coffre fort"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_vol_gemp_r0
+#: model:product.template,name:insurance_management.pt_vol_gemp_r1
+msgid "Vol GEMP"
+msgstr "Vol GEMP"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_vol_avec_effraction_r0
+msgid "Vol avec effraction"
+msgstr "Vol avec effraction"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_vol_avec_violence__cas_de_force_majeure_r0
+msgid "Vol avec violence / cas de force majeure"
+msgstr "Vol avec violence / cas de force majeure"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_vol_du_moteur_amovible_r0
+msgid "Vol du moteur amovible"
+msgstr "Vol du moteur amovible"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_vol_partiel_r0
+#: model:product.template,name:insurance_management.pt_vol_partiel_r1
+#: model:product.template,name:insurance_management.pt_vol_partiel_r2
+#: model:product.template,name:insurance_management.pt_vol_partiel_r3
+#: model:product.template,name:insurance_management.pt_vol_partiel_r4
+#: model:product.template,name:insurance_management.pt_vol_partiel_r5
+#: model:product.template,name:insurance_management.pt_vol_partiel_r6
+#: model:product.template,name:insurance_management.pt_vol_partiel_r7
+msgid "Vol partiel"
+msgstr "Vol partiel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_vol_sans_effraction_r0
+msgid "Vol sans effraction"
+msgstr "Vol sans effraction"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_vol_total_disparition_dun_colis_entier_r0
+#: model:product.template,name:insurance_management.pt_vol_total_disparition_dun_colis_entier_r1
+#: model:product.template,name:insurance_management.pt_vol_total_disparition_dun_colis_entier_r2
+#: model:product.template,name:insurance_management.pt_vol_total_disparition_dun_colis_entier_r3
+#: model:product.template,name:insurance_management.pt_vol_total_disparition_dun_colis_entier_r4
+#: model:product.template,name:insurance_management.pt_vol_total_disparition_dun_colis_entier_r5
+#: model:product.template,name:insurance_management.pt_vol_total_disparition_dun_colis_entier_r6
+#: model:product.template,name:insurance_management.pt_vol_total_disparition_dun_colis_entier_r7
+msgid "Vol total disparition d'un colis entier"
+msgstr "Vol total disparition d'un colis entier"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_vol_total_et_partiel_r0
+msgid "Vol total et partiel"
+msgstr "Vol total et partiel"
+
+#. module: insurance_management
+#: model:product.template,name:insurance_management.pt_vols_r0
+msgid "Vols"
+msgstr "Vols"
+
+#. module: insurance_management
+#: view:analytic.history:insurance_management.view_analytic_history_form
+#: field:analytic_history.risk.line,warranty_line_ids:0
+#: model:ir.actions.act_window,name:insurance_management.act_open_aro_type_rique_warranty_view
+#: model:ir.ui.menu,name:insurance_management.menu_aro_type_rique_warranty
+#: view:product.template:insurance_management.view_insurance_warranty_search
+#: field:risk.warranty.line,warranty_id:0
+msgid "Warranty"
+msgstr "Garantie"
+
+#. module: insurance_management
+#: field:account.analytic.account,wa_invoiced:0
+msgid "Warranty Invoiced Amount"
+msgstr "Garantie Facturé"
+
+#. module: insurance_management
+#: view:insurance.product:insurance_management.view_insurance_product_form
+msgid "Warranty Limit"
+msgstr "Limite de Garantie"
+
+#. module: insurance_management
+#: view:analytic.history:insurance_management.view_analytic_history_form
+msgid "Warranty Lines Template"
+msgstr "Modèle de ligne de garantie"
+
+#. module: insurance_management
+#: model:ir.model,name:insurance_management.model_analytic_history_wiz
+msgid "Wizard to control the version of contract will be created"
+msgstr "Wizard to control the version of contract will be created"
+
+#. module: insurance_management
+#: field:risk.warranty.line,yearly_net_amount:0
+msgid "Yearly Net"
+msgstr "Prime Net Annuel"
+
+#. module: insurance_management
+#: help:risk.warranty.line,yearly_net_amount:0
+msgid "Yearly net amount"
+msgstr "Prime Net annuel"
+
+#. module: insurance_management
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:132
+#, python-format
+msgid "You can't create new version for contract closed"
+msgstr "Vous ne pouvez créer un avenant pour un contrat clos"
+
+#. module: insurance_management
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:40
+#, python-format
+msgid "You can't have twice <AFN> in same contract \n"
+" [Note]"
+msgstr "Impossible de créer plusieurs <AFN> dans un même contrat \n"
+" [Note]"
+
+#. module: insurance_management
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:34
+#, python-format
+msgid "You have too many last version for this contract. Please contact your Administrator.\n"
+" [Note]"
+msgstr "Vous disposez de plusieurs dernière version pour ce contrat. SVP, contactez votre Administrateur.\n"
+" [Note]"
+
+#. module: insurance_management
+#: view:insurance.product:insurance_management.view_insurance_product_search
+msgid "branch"
+msgstr "branche"
+
+#. module: insurance_management
+#: field:insurance.branch,code:0
+#: field:insurance.product,code:0
+msgid "code"
+msgstr "code"
+
+#. module: insurance_management
+#: view:insurance.product:insurance_management.view_insurance_product_form
+msgid "comments"
+msgstr "commentaires"
+
+#. module: insurance_management
+#: field:res.partner,family_ids:0
+msgid "family"
+msgstr "famille"
+
+#. module: insurance_management
+#: field:res.partner.family,name:0
+msgid "name"
+msgstr "nom"
+
+#. module: insurance_management
+#: view:analytic.history.wiz:insurance_management.view_analytic_history_wiz_form
+msgid "or"
+msgstr "ou"
+
+#. module: insurance_management
+#: code:addons/insurance_management/models/analytic_history.py:190
+#, python-format
+msgid "the effective date must be after the end date"
+msgstr "the effective date must be after the end date"
+
+#. module: insurance_management
+#: field:res.partner.family,type:0
+msgid "type"
+msgstr "type"
+
+#. module: insurance_management
+#: view:analytic.history:insurance_management.view_analytic_history_form
+msgid "warranty"
+msgstr "Garantie"
+
