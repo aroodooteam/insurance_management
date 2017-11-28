@@ -44,7 +44,7 @@
             <field name="amount_threshold">2000</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_automobile_r0"/>
             <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
-            <field name="name">Monovehocule</field>
+            <field name="name">Monovehicule</field>
         </record>
         <record id="insurance_product_flottes_automobile" model="insurance.product">
             <field name="code">FLOTTESAUTO</field>
