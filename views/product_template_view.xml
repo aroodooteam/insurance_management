@@ -19,17 +19,15 @@
                         <group colspan="4">
                             <field name="fiscal_code"/>
                         </group>
-                        <!--
                         <separator string="Type of risk" colspan="4"/>
                         <div name="Type of risk">
                             <group colspan="4">
-                                <field name="type_risque_id" attrs="{'required': [('is_warranty', '=', True)]}"/>
-                                <field name="product_insurance_id" attrs="{'required': [('is_warranty', '=', True)]}"/>
-                                <field name="branch_insurance_id" attrs="{'required': [('is_warranty', '=', True)]}"/>
+                                <field name="type_risk_id" attrs="{'required': [('is_warranty', '=', True)]}"/>
+                                <field name="ins_product_id" attrs="{'required': [('is_warranty', '=', True)]}"/>
+                                <field name="branch_id" attrs="{'required': [('is_warranty', '=', True)]}"/>
                                 <field name="branch_categ" attrs="{'required': [('is_warranty', '=', True)]}"/>
                             </group>
                         </div>
-                        -->
                         <separator string="Commission Information" colspan="4"/>
                         <div name="Commission information">
                             <field name="commissionable"/>
@@ -61,13 +59,11 @@
             <field name="arch" type="xml">
                 <search string="Warranty">
                     <field name="name" select="True"/>
-                    <!--
                     <group expand="1" string="Group by">
-                        <filter name="group_by_type_risque" context="{'group_by': 'type_risque_id'}" string="Risk Type"/>
-                        <filter name="group_by_branch" context="{'group_by': 'branch_insurance_id'}" string="Branch"/>
+                        <filter name="group_by_type_risk" context="{'group_by': 'type_risk_id'}" string="Risk Type"/>
+                        <filter name="group_by_branch" context="{'group_by': 'branch_id'}" string="Branch"/>
                         <filter name="group_by_branch_categ" context="{'group_by': 'branch_categ'}" string="Classification"/>
                     </group>
-                    -->
                 </search>
             </field>
         </record>
