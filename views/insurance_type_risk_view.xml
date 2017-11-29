@@ -34,6 +34,7 @@
                             <div class="oe_left" name="options">
                                 <group colspan="4">
                                     <field name="code" placeholder="Code of Risk type"/>
+                                    <field name="fiscal_code" placeholder="Fiscal Code"/>
                                     <field name="ins_product_id" placeholder="Insurance product"/>
                                 </group>
                             </div>
