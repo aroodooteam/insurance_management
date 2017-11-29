@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 07:16+0000\n"
-"PO-Revision-Date: 2017-11-28 07:16+0000\n"
+"POT-Creation-Date: 2017-11-29 07:36+0000\n"
+"PO-Revision-Date: 2017-11-29 07:36+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -109,7 +109,7 @@ msgstr "Amendes et pénalités"
 
 #. module: insurance_management
 #: code:addons/insurance_management/models/aro_insurance_subscription.py:150
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:183
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:184
 #, python-format
 msgid "Amendment"
 msgstr "Avenant"
@@ -157,6 +157,16 @@ msgid "Assurance Corporelle"
 msgstr "Assurance Corporelle"
 
 #. module: insurance_management
+#: model:insurance.branch,name:insurance_management.insurance_branch_engineering
+msgid "Assurance Engineering"
+msgstr "Assurance Engineering"
+
+#. module: insurance_management
+#: model:insurance.branch,name:insurance_management.insurance_branch_personnes
+msgid "Assurance de Personnes"
+msgstr "Assurance de Personnes"
+
+#. module: insurance_management
 #: model:product.template,name:insurance_management.pt_avaries_communes_faps_r0
 #: model:product.template,name:insurance_management.pt_avaries_communes_faps_r1
 #: model:product.template,name:insurance_management.pt_avaries_communes_faps_r2
@@ -195,6 +205,11 @@ msgstr "Avaries particulières sauf (FAPS*)"
 #: model:product.template,name:insurance_management.pt_avaries_particulires_sauf_tr_r3
 msgid "Avaries particulières sauf (TR***)"
 msgstr "Avaries particulières sauf (TR***)"
+
+#. module: insurance_management
+#: model:insurance.branch,name:insurance_management.insurance_branch_aviation
+msgid "Aviation"
+msgstr "Aviation"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_base_bris_de_glaces_r0
@@ -1229,6 +1244,11 @@ msgid "Family Partner"
 msgstr "Famille"
 
 #. module: insurance_management
+#: view:insurance.type.risk:insurance_management.view_insurance_type_risk_form
+msgid "Fiscal Code"
+msgstr "Code Fiscal "
+
+#. module: insurance_management
 #: field:account.analytic.account,property_account_position:0
 #: field:analytic.history,property_account_position:0
 #: field:reg.tax.reference,property_account_position:0
@@ -1236,6 +1256,7 @@ msgid "Fiscal Position"
 msgstr "Position Fiscal"
 
 #. module: insurance_management
+#: field:insurance.type.risk,fiscal_code:0
 #: field:product.template,fiscal_code:0
 msgid "Fiscal code"
 msgstr "Code Fiscal"
@@ -1584,6 +1605,11 @@ msgid "Incendie et risques annexes"
 msgstr "Incendie et risques annexes"
 
 #. module: insurance_management
+#: model:insurance.branch,name:insurance_management.insurance_branch_incendies_et_risques_divers_r0
+msgid "Incendies et Risques Divers"
+msgstr "Incendies et Risques Divers"
+
+#. module: insurance_management
 #: model:product.template,name:insurance_management.pt_incendies_et_explosions_chute_de_la_foudre_r0
 msgid "Incendies et explosions, chute de la foudre"
 msgstr "Incendies et explosions, chute de la foudre"
@@ -1749,8 +1775,8 @@ msgid "Inusrance Product"
 msgstr "Produit assusrance"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/analytic_history.py:237
-#: code:addons/insurance_management/models/analytic_history.py:335
+#: code:addons/insurance_management/models/analytic_history.py:239
+#: code:addons/insurance_management/models/analytic_history.py:337
 #: field:analytic.history,invoice_id:0
 #: model:ir.model,name:insurance_management.model_account_invoice
 #, python-format
@@ -1842,7 +1868,7 @@ msgid "Last Updated on"
 msgstr "Last Updated on"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/account_analytic_account.py:160
+#: code:addons/insurance_management/models/account_analytic_account.py:161
 #, python-format
 msgid "Last Version"
 msgstr "Dernière Version"
@@ -1899,6 +1925,11 @@ msgid "Maintenance"
 msgstr "Maintenance"
 
 #. module: insurance_management
+#: model:insurance.branch,name:insurance_management.insurance_branch_maritime
+msgid "Marine Insurance"
+msgstr "Marine Insurance"
+
+#. module: insurance_management
 #: selection:insurance.branch,category:0
 msgid "Maritime"
 msgstr "Maritime"
@@ -1924,6 +1955,11 @@ msgstr "Mobilier hors du domicile"
 #: field:insurance.product,pas_num_module:0
 msgid "Module number"
 msgstr "Numero Module"
+
+#. module: insurance_management
+#: model:insurance.branch,name:insurance_management.insurance_branch_automobile_r0
+msgid "Motor"
+msgstr "Automobile"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_multirisque_dgts_des_eaux_r1
@@ -1970,7 +2006,7 @@ msgid "New version"
 msgstr "Nouvelle Avenant"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:28
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:29
 #, python-format
 msgid "No stage selected. Please choose one before process"
 msgstr "Aucune type d'émission selectionné. Choisissez en un"
@@ -2096,7 +2132,7 @@ msgid "Partner"
 msgstr "Partenaire"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:217
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:218
 #, python-format
 msgid "Pending"
 msgstr "Suspension"
@@ -2980,7 +3016,7 @@ msgid "Register tax reference"
 msgstr "Référence Tax d'enregistrement"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:237
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:238
 #, python-format
 msgid "Reinstatment"
 msgstr "Remise en Vigueur"
@@ -2997,7 +3033,7 @@ msgstr "Remboursement recharges d’extincteurs"
 
 #. module: insurance_management
 #: code:addons/insurance_management/models/aro_insurance_subscription.py:132
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:165
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:166
 #, python-format
 msgid "Renew"
 msgstr "Renouvellement"
@@ -3219,7 +3255,7 @@ msgstr "Vos notes"
 
 #. module: insurance_management
 #: code:addons/insurance_management/models/aro_insurance_subscription.py:121
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:148
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:149
 #, python-format
 msgid "Sorry, You don't have or you get more than one amendment defined as last situation.\n"
 " Fix it first before continuing"
@@ -3227,13 +3263,13 @@ msgstr "Désolé, Trop de version est déclaré comme dernière version pour ce 
 " Corrigez cela avant de procéder"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:232
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:233
 #, python-format
 msgid "Sorry, You don't have to reinstate a subscription which is not suspended"
 msgstr "Désolé, vous ne pouvez re-mettre en vigueur un contrat non suspendue"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/account_analytic_account.py:156
+#: code:addons/insurance_management/models/account_analytic_account.py:157
 #, python-format
 msgid "Sorry, there is no recent version for this contract"
 msgstr "Désolé, Aucune version récente n'est disponible pour ce contrat"
@@ -3298,7 +3334,7 @@ msgid "Template"
 msgstr "Modèle"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:201
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:202
 #, python-format
 msgid "Terminate"
 msgstr "Terminer"
@@ -3315,13 +3351,13 @@ msgid "The expected maximum loss should be less than the capital"
 msgstr "Le montant maximum de remboursement doit être inférieur au capital"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:36
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:37
 #, python-format
 msgid "There is no history yet for this contract. You have to select <AFN> or <DEV>"
 msgstr "Aucune version n'est encore disponible pour ce contrat. Vous devez choisir <AFN> ou <DEV>"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/analytic_history.py:255
+#: code:addons/insurance_management/models/analytic_history.py:257
 #, python-format
 msgid "There is no warranty to invoice in this contract history"
 msgstr "Il n'y a aucune garantie à facturer dans ce contrat"
@@ -3337,7 +3373,7 @@ msgid "To invoice"
 msgstr "A Facturé"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/analytic_history.py:218
+#: code:addons/insurance_management/models/analytic_history.py:221
 #, python-format
 msgid "Too much result found"
 msgstr "Trop de valeur trouvé"
@@ -3440,7 +3476,7 @@ msgid "UA Code"
 msgstr "Code Sous Agence"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:58
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:59
 #, python-format
 msgid "Un-treated case \n"
 " [Note]"
@@ -3624,13 +3660,13 @@ msgid "Yearly net amount"
 msgstr "Prime Net annuel"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:132
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:133
 #, python-format
 msgid "You can't create new version for contract closed"
 msgstr "Vous ne pouvez créer un avenant pour un contrat clos"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:40
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:41
 #, python-format
 msgid "You can't have twice <AFN> in same contract \n"
 " [Note]"
@@ -3638,7 +3674,7 @@ msgstr "Impossible de créer plusieurs <AFN> dans un même contrat \n"
 " [Note]"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:34
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:35
 #, python-format
 msgid "You have too many last version for this contract. Please contact your Administrator.\n"
 " [Note]"
