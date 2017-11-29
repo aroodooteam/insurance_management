@@ -3,7 +3,6 @@
     <data>
         <!--<delete id="insurance_type_risk_vhicule_r0" model="insurance.type.risk"/>-->
         <!--<delete id="insurance_type_risk_automobile_r0" model="aro.produit.assurance"/>-->
-
         <record id="insurance_type_risk_btiment_r0" model="insurance.type.risk">
             <field name="code">BATIMENT</field>
             <field name="name">Bâtiment</field>
@@ -13,36 +12,43 @@
             <field name="code">15001</field>
             <field name="name">APA Collectif Assuré</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_collectif_jw0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_accident_collectif_college_jw0" model="insurance.type.risk">
             <field name="code">15002</field>
             <field name="name">APA Collectif Collège</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_collectif_jw0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_accident_individuel_college_jw0" model="insurance.type.risk">
             <field name="code">14001</field>
             <field name="name">APA individuel</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_individuel_jw0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_assistance_auto_jw0" model="insurance.type.risk">
             <field name="code">20001</field>
             <field name="name">Assistance Auto</field>
             <field name="ins_product_id" ref="insurance_management.aro_assistance_auto_h1"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_assistance_auto_flotte_jw0" model="insurance.type.risk">
             <field name="code">21001</field>
             <field name="name">Assistance Auto Flotte</field>
             <field name="ins_product_id" ref="insurance_management.aro_assistance_auto_flotte_h1"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_aviation_jw0" model="insurance.type.risk">
             <field name="code">30001</field>
             <field name="name">Aviation</field>
             <field name="ins_product_id" ref="insurance_management.aro_aviation"/>
+            <field name="fiscal_code">4000</field>
         </record>
         <record id="insurance_type_risk_bris_de_glaces_jw0" model="insurance.type.risk">
             <field name="code">33001</field>
             <field name="name">Bris de glaces</field>
             <field name="ins_product_id" ref="insurance_management.aro_product_bris_de_glace_r0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_OC_bris_de_glaces_jw0" model="insurance.type.risk">
             <field name="code">33002</field>
@@ -53,57 +59,67 @@
             <field name="code">37011</field>
             <field name="name">RC Commerçants et artisans</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rc_diverses_h0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="aro_rc_intermediaire_sr0" model="insurance.type.risk">
             <field name="code">37012</field>
             <field name="name">RC Intermédiaire d'assurance</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rc_diverses_h0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="aro_propietaire_immeuble_sr0" model="insurance.type.risk">
             <field name="code">37013</field>
             <field name="name">Propriétaire d'immeuble</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rc_diverses_h0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="aro_rc_tour_operator_sr0" model="insurance.type.risk">
             <field name="code">37014</field>
             <field name="name">RC Tour Operator</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rc_diverses_h0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="aro_rc_guides_touristiques_sr0" model="insurance.type.risk">
             <field name="code">37015</field>
             <field name="name">RC Guides touristiques indépendants</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rc_diverses_h0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="aro_rc_notaire_sr0" model="insurance.type.risk">
             <field name="code">37016</field>
             <field name="name">RC Notaires Avocats</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rc_diverses_h0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="aro_rc_ingenieur_sr0" model="insurance.type.risk">
             <field name="code">37017</field>
             <field name="name">RC Ingénieur</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rc_diverses_h0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="aro_rctm_sr0" model="insurance.type.risk">
             <field name="code">53001</field>
             <field name="name">RC Transporteur Maritime</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_maritime_a2"/>
+            <field name="fiscal_code">4502</field>
         </record>
         <record id="aro_rctm_oc_sr0" model="insurance.type.risk">
             <field name="code">53002</field>
             <field name="name">RC Transporteur Maritime</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_maritime_a2"/>
+            <field name="fiscal_code">4502</field>
         </record>
         <record id="insurance_type_risk_rctt_sr0" model="insurance.type.risk">
             <field name="code">52001</field>
             <field name="name">RC Transport Terrestre</field>
             <field name="ins_product_id" ref="insurance_management.aro_rctt_sr0"/>
+            <field name="fiscal_code">4500</field>
         </record>
-
         <record id="aro_type_assure_rc_collectivites_g0" model="insurance.type.risk">
             <field name="code">36002</field>
             <field name="name">Assuré RC Collectivités</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rc_collectivites_h0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="aro_type_oc_rc_diverses_g0" model="insurance.type.risk">
             <field name="code">37001</field>
@@ -114,227 +130,267 @@
             <field name="code">37002</field>
             <field name="name">RC Propriétaires d'animaux</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rc_diverses_h0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="aro_type_rc_vehicules_non_motorises_g0" model="insurance.type.risk">
             <field name="code">37003</field>
             <field name="name">RC Véhicules non motorisés</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rc_diverses_h0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="aro_type_rc_coiffeurs_g0" model="insurance.type.risk">
             <field name="code">37004</field>
             <field name="name">RC Coiffeurs</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rc_diverses_h0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="aro_type_rc_garagistes_g0" model="insurance.type.risk">
             <field name="code">37005</field>
             <field name="name">RC Garagistes</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rc_diverses_h0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="aro_type_rc_distributeurs_de_carburant_g0" model="insurance.type.risk">
             <field name="code">37006</field>
             <field name="name">RC Distributeurs de carburant</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rc_diverses_h0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="aro_type_rc_exploitants_agricoles_g0" model="insurance.type.risk">
             <field name="code">37007</field>
             <field name="name">RC Exploitants agricoles</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rc_diverses_h0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="aro_type_rc_pharmaciens_et_depositaires_g0" model="insurance.type.risk">
             <field name="code">37008</field>
             <field name="name">RC Pharmaciens et dépositaires</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rc_diverses_h0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="aro_type_rc_professions_medicaless_g0" model="insurance.type.risk">
             <field name="code">37009</field>
             <field name="name">RC Professions médicales</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rc_diverses_h0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="aro_type_rc_hotels_g0" model="insurance.type.risk">
             <field name="code">37010</field>
             <field name="name">RC Professions médicales</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rc_diverses_h0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_individuelle_accident_h1" model="insurance.type.risk">
             <field name="code">31001</field>
             <field name="name">Individuelle Accident</field>
             <field name="ins_product_id" ref="insurance_management.aro_individuelle_accident"/>
+            <field name="fiscal_code">4000</field>
         </record>
         <record id="Incendies_a_primes moderees_h1" model="insurance.type.risk">
             <field name="code">38000</field>
             <field name="name">Incendies à primes modérées</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_incendies__primes_modr_r0"/>
+            <field name="fiscal_code">TXIPM</field>
         </record>
         <record id="insurance_type_risk_assistance_mapfre_h1" model="insurance.type.risk">
             <field name="code">58001</field>
             <field name="name">Assistance MAPFRE</field>
             <field name="ins_product_id" ref="insurance_management.aro_assistance_mapfre"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_monovehicule_h1" model="insurance.type.risk">
             <field name="code">18001</field>
             <field name="name">Monovehicule</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_monovehicule"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_oc_multirisque_h1" model="insurance.type.risk">
             <field name="code">29001</field>
             <field name="name">OC Multirisque</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_batiment_proprietaire_h1" model="insurance.type.risk">
             <field name="code">29002</field>
             <field name="name">Bâtiment (propriétaire)</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_contenu_h1" model="insurance.type.risk">
             <field name="code">29003</field>
             <field name="name">Contenu</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_batiment_risques_locatifs_h1" model="insurance.type.risk">
             <field name="code">29004</field>
             <field name="name">Bâtiment (risques locatifs)</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_responsabilite_civile_h1" model="insurance.type.risk">
             <field name="code">29005</field>
             <field name="name">Responsabilité Civile</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_materiels_electroniques_h1" model="insurance.type.risk">
             <field name="code">29006</field>
             <field name="name">Matériels électroniques</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_appareil_electronique_sinistres_h1" model="insurance.type.risk">
             <field name="code">29007</field>
             <field name="name">Appareil Electronique (sinistres)</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
         </record>
-
         <record id="insurance_type_risk_rcttoc_r0" model="insurance.type.risk">
             <field name="code">52002</field>
             <field name="name">RCTT Objets Communs</field>
             <field name="ins_product_id" ref="insurance_management.aro_rctt_sr0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_rcvp_r0" model="insurance.type.risk">
             <field name="code">35001</field>
             <field name="name">RC Vie Privée</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rc_vie_privee_g0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_adhsc_r0" model="insurance.type.risk">
             <field name="code">13001</field>
             <field name="name">ADH santé collectif</field>
             <field name="ins_product_id" ref="insurance_management.aro_sante_collectif"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_adhsi_r0" model="insurance.type.risk">
             <field name="code">12001</field>
             <field name="name">ADH santé individuel</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_sante_individuel_jw0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_trcm_r0" model="insurance.type.risk">
             <field name="code">51001</field>
             <field name="name">Tous risques Chantier/Montage</field>
             <field name="ins_product_id" ref="insurance_management.aro_tous_risque_chantier_sr0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_octrcm_r0" model="insurance.type.risk">
             <field name="code">51002</field>
             <field name="name">Objet commun TRCM</field>
             <field name="ins_product_id" ref="insurance_management.aro_tous_risque_chantier_sr0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_concession_garage" model="insurance.type.risk">
-            <field name="name">Concessionnaire et Garage</field>
             <field name="code">19003</field>
+            <field name="name">Concessionnaire et Garage</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_concessionnaire_garage"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_corps_navire_r0" model="insurance.type.risk">
-            <field name="name">Corps de Navire</field>
             <field name="code">56001</field>
+            <field name="name">Corps de Navire</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_maritime_a3"/>
+            <field name="fiscal_code">4502</field>
         </record>
         <record id="insurance_type_risk_corps_navire_r1" model="insurance.type.risk">
-            <field name="name">OC Corps de Navire</field>
             <field name="code">56002</field>
+            <field name="name">OC Corps de Navire</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_maritime_a3"/>
         </record>
         <record id="insurance_type_risk_corps_fluvial" model="insurance.type.risk">
-            <field name="name">Corps FLUVIAL</field>
             <field name="code">56003</field>
+            <field name="name">Corps FLUVIAL</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_maritime_a3"/>
+            <field name="fiscal_code">4502</field>
         </record>
         <record id="insurance_type_risk_corps_peche" model="insurance.type.risk">
-            <field name="name">Corps PECHE</field>
             <field name="code">56004</field>
+            <field name="name">Corps PECHE</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_maritime_a3"/>
+            <field name="fiscal_code">4502</field>
         </record>
         <record id="insurance_type_risk_mat_port" model="insurance.type.risk">
-            <field name="name">Corps MAT. PORT</field>
             <field name="code">56005</field>
+            <field name="name">Corps MAT. PORT</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_maritime_a3"/>
+            <field name="fiscal_code">4502</field>
         </record>
         <record id="insurance_type_risk_embarcation_plaisance_r0" model="insurance.type.risk">
-            <field name="name">Embarcation de plaisance</field>
             <field name="code">57001</field>
+            <field name="name">Embarcation de plaisance</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_maritime_a0"/>
+            <field name="fiscal_code">4502</field>
         </record>
         <record id="insurance_type_risk_embarcation_plaisance_r1" model="insurance.type.risk">
-            <field name="name">OC Embarcation de plaisance</field>
             <field name="code">57002</field>
+            <field name="name">OC Embarcation de plaisance</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_maritime_a0"/>
         </record>
         <record id="insurance_type_risk_facultes_r0" model="insurance.type.risk">
-            <field name="name">FACULTES</field>
             <field name="code">50001</field>
+            <field name="name">FACULTES</field>
             <field name="ins_product_id" ref="insurance_management.aro_facultes_sr0"/>
+            <field name="fiscal_code">4502</field>
         </record>
         <record id="insurance_type_risk_facultes_r1" model="insurance.type.risk">
-            <field name="name">OC FACULTES</field>
             <field name="code">50002</field>
+            <field name="name">OC FACULTES</field>
             <field name="ins_product_id" ref="insurance_management.aro_facultes_sr0"/>
         </record>
         <record id="insurance_type_risk_facultes_terrestre_r0" model="insurance.type.risk">
-            <field name="name">FACULTES TERRESTRE</field>
             <field name="code">50003</field>
+            <field name="name">FACULTES TERRESTRE</field>
             <field name="ins_product_id" ref="insurance_management.aro_facultes_sr0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_facultes_fluvial_r0" model="insurance.type.risk">
-            <field name="name">FACULTES FLUVIAL</field>
             <field name="code">50004</field>
+            <field name="name">FACULTES FLUVIAL</field>
             <field name="ins_product_id" ref="insurance_management.aro_facultes_sr0"/>
+            <field name="fiscal_code">4502</field>
         </record>
         <record id="insurance_type_risk_facultes_aerienne_r0" model="insurance.type.risk">
-            <field name="name">FACULTES AERIENNE</field>
             <field name="code">50005</field>
+            <field name="name">FACULTES AERIENNE</field>
             <field name="ins_product_id" ref="insurance_management.aro_facultes_sr0"/>
+            <field name="fiscal_code">4502</field>
         </record>
         <record id="insurance_type_risk_transport_fonds_de_valeur_r0" model="insurance.type.risk">
-            <field name="name">TRANSPORT FONDS DE VALEUR</field>
             <field name="code">50006</field>
+            <field name="name">TRANSPORT FONDS DE VALEUR</field>
             <field name="ins_product_id" ref="insurance_management.aro_facultes_sr0"/>
+            <field name="fiscal_code">4502</field>
         </record>
         <record id="insurance_type_risk_facultes_aerienne_import_export_r0" model="insurance.type.risk">
-            <field name="name">FACULTES AERIENNE IMPORT EXPORT</field>
             <field name="code">50007</field>
+            <field name="name">FACULTES AERIENNE IMPORT EXPORT</field>
             <field name="ins_product_id" ref="insurance_management.aro_facultes_sr0"/>
+            <field name="fiscal_code">0000</field>
         </record>
         <record id="insurance_type_risk_facultes_maritime_import_export_r0" model="insurance.type.risk">
-            <field name="name">FACULTES MARITIME IMPORT EXPORT</field>
             <field name="code">50008</field>
+            <field name="name">FACULTES MARITIME IMPORT EXPORT</field>
             <field name="ins_product_id" ref="insurance_management.aro_facultes_sr0"/>
+            <field name="fiscal_code">0000</field>
         </record>
         <record id="insurance_type_risk_facultes_test_1_r0" model="insurance.type.risk">
-            <field name="name">Test - 1</field>
             <field name="code">50009</field>
+            <field name="name">Test - 1</field>
             <field name="ins_product_id" ref="insurance_management.aro_facultes_sr0"/>
+            <field name="fiscal_code">4502</field>
         </record>
         <record id="insurance_type_risk_bris_de_machines" model="insurance.type.risk">
             <field name="code">29008</field>
             <field name="name">Bris de machines</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_machine_de_production" model="insurance.type.risk">
             <field name="code">29009</field>
             <field name="name">Machine de production(sinistre)</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_objet_declare" model="insurance.type.risk">
             <field name="code">29010</field>
@@ -345,11 +401,13 @@
             <field name="code">24001</field>
             <field name="name">Habitation MRSH</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mrsh"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_objets_precieux" model="insurance.type.risk">
             <field name="code">25001</field>
             <field name="name">OBJETS PRECIEUX</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_objets_precieux"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_oc_objets_precieux" model="insurance.type.risk">
             <field name="code">25002</field>
@@ -360,11 +418,13 @@
             <field name="code">11001</field>
             <field name="name">ADH ASSISTANCE</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_assistance_jw0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_rc_decennal" model="insurance.type.risk">
             <field name="code">55001</field>
             <field name="name">RC DECENNAL</field>
             <field name="ins_product_id" ref="insurance_management.aro_rc_decennal_sr0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_oc_rc_decennal" model="insurance.type.risk">
             <field name="code">55002</field>
@@ -375,41 +435,49 @@
             <field name="code">54001</field>
             <field name="name">RCATC</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rcatc"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_oc_rc_collectivites" model="insurance.type.risk">
             <field name="code">36001</field>
             <field name="name">OC RC COLLECTIVITES</field>
             <field name="ins_product_id" ref="insurance_management.insurance_product_rc_collectivites_h0"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_automobile_flotte_afp_17001" model="insurance.type.risk">
             <field name="code">17001</field>
             <field name="name">Flottes AFP</field>
-            <field name="ins_product_id" ref="insurance_product_automobile_flotte_afp"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_automobile_flotte_afp"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_automobile_flotte_Automobile_16001" model="insurance.type.risk">
             <field name="code">16001</field>
             <field name="name">Flotte Automobile</field>
-            <field name="ins_product_id" ref="insurance_product_flottes_automobile"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_flottes_automobile"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_aro_global_de_banque_28001" model="insurance.type.risk">
             <field name="code">28001</field>
             <field name="name">OC Globale de banque</field>
-            <field name="ins_product_id" ref="aro_global_de_banque_h1"/>
+            <field name="ins_product_id" ref="insurance_management.aro_global_de_banque_h1"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="insurance_type_risk_aro_global_de_banque_28002" model="insurance.type.risk">
             <field name="code">28002</field>
             <field name="name">Globale de banque</field>
-            <field name="ins_product_id" ref="aro_global_de_banque_h1"/>
+            <field name="ins_product_id" ref="insurance_management.aro_global_de_banque_h1"/>
+            <field name="fiscal_code">4500</field>
         </record>
         <record id="aro_individuelle_accident_31000" model="insurance.type.risk">
             <field name="code">31000</field>
             <field name="name">Prime Provisoire</field>
-            <field name="ins_product_id" ref="aro_individuelle_accident"/>
+            <field name="ins_product_id" ref="insurance_management.aro_individuelle_accident"/>
+            <field name="fiscal_code">4000</field>
         </record>
         <record id="type_risque_aro_assurance_scolaire_59001" model="insurance.type.risk">
             <field name="code">59001</field>
             <field name="name">ASSCO</field>
-            <field name="ins_product_id" ref="aro_individuelle_accident"/>
+            <field name="ins_product_id" ref="insurance_management.aro_individuelle_accident"/>
+            <field name="fiscal_code">4500</field>
         </record>
     </data>
 </openerp>
