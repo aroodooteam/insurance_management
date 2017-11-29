@@ -10,7 +10,7 @@ class InsuranceBranch(models.Model):
     """Insurance Branch """
     _name = "insurance.branch"
 
-    name = fields.Char(string='Name', required=True)
+    name = fields.Char(string='Name', required=True, translate=True)
     code = fields.Char(string='code', required=True)
     type = fields.Selection(selection=[('V', 'Vie'), ('N', 'Non Vie')], string='Type')
     category = fields.Selection(selection=[('T', 'Terrestre'), ('M', 'Maritime'), ('V', 'Vie')], string='Category')
