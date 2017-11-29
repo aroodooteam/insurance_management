@@ -12,3 +12,4 @@ class InsuranceTypeRisk(models.Model):
     ins_product_id = fields.Many2one(
         string='Insurance Product', required=True,
         comodel_name='insurance.product')
+    fiscal_code = fields.Char(string='Fiscal code')
