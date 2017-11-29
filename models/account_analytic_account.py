@@ -122,6 +122,7 @@ class AccountAnalyticAccount(models.Model):
     @api.multi
     def open_analytic_history_wiz(self):
         ctx = self._context.copy()
+        ctx.update(property_account_position=self.property_account_position.id)
         logger.info('ctx org = %s' % ctx)
         if not self.branch_id:
             return False
