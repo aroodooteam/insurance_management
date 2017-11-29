@@ -19,11 +19,12 @@ class AnalyticHistoryWiz(models.TransientModel):
 
     @api.multi
     def to_validate(self):
-        logger.info('ctx = %s'% str(self._context))
+        logger.info('\n=== ctx_to_validate = %s'% str(self._context))
         ctx = self._context.copy()
         ctx['default_stage_id'] = self.stage_id.id
         ctx['default_is_last_situation'] = True
         ctx['default_analytic_id'] = ctx.get('active_id')
+        ctx['default_property_account_position'] = ctx.get('property_account_position')
         if not self.stage_id:
             raise exceptions.Warning(_('No stage selected. Please choose one before process'))
         logger.info('stage_id = %s' % self.stage_id)
