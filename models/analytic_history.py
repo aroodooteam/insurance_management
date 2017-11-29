@@ -223,6 +223,34 @@ class AnalyticHistory(models.Model):
             tax_id = regte.tax_id
         return tax_id
 
+    @api.multi
+    def _get_accessories_reg_tax(self, type_risk_id, fpos_id):
+        """
+        Get accessories register tax
+        :param:: type_risk_id: insurance.type.risk()
+        :param:: fpos_id: account.fiscal.position()
+        """
+        tax_obj = self.env['account.tax']
+        tax_id = False
+        if not type_risk_id:
+            return False
+        if not fpos_id:
+            fpos_id = self.env['account.fiscal.position'].search([('name', '=', 'Z')])
+        fiscal_code = type_risk_id.fiscal_code
+        if not fiscal_code:
+            fiscal_code = '4500'
+        regtaxref_obj = self.env['reg.tax.reference']
+        domain = [('property_account_position', '=', fpos_id.id), ('fiscal_code', '=', fiscal_code)]
+        regte = regtaxref_obj.search(domain)
+        logger.info('regte = %s' % regte)
+        if not regte:
+            tax_id = tax_obj.search([('description', '=', 'Te-0.0')])
+        elif regte and len(regte) > 1:
+            raise exceptions.Warning(_('Too much result found'))
+        else:
+            tax_id = regte.tax_id
+        return tax_id
+
     # TODO
     @api.multi
     def generate_invoice(self):
@@ -281,6 +309,13 @@ class AnalyticHistory(models.Model):
                     line['invoice_line_tax_id'].append(regte_id.id)
                 logger.info('=== line = %s ===' % line)
                 invoice_line.append((0, 0, line))
+            # Get each type risk in current history
+            type_risk_ids_map = self.risk_line_ids.mapped('type_risk_id')
+            logger.info('\n=== tr_ids_map = %s' % type_risk_ids_map)
+            access_reg_tax = []
+            for type_risk_id in type_risk_ids_map:
+                acc_te = self._get_accessories_reg_tax(type_risk_id, self.property_account_position)
+                access_reg_tax.append(acc_te.id)
             # Insert Accessories in invoice_line
             compl_line = {
                 'price_unit': self.analytic_id.ins_product_id.amount_accessories
@@ -296,6 +331,8 @@ class AnalyticHistory(models.Model):
                     'account_analytic_id': self.analytic_id.id,
                 })
                 accessory_line.update(compl_line)
+                # update accessory_line with register tax
+                accessory_line['invoice_line_tax_id'] += access_reg_tax
                 invoice_line.append((0, 0, accessory_line))
             # =========================================================
             elif self._context.get('insurance_categ') == 'M' or self.analytic_id.branch_id.category == 'M':
@@ -309,7 +346,11 @@ class AnalyticHistory(models.Model):
                     'account_analytic_id': self.analytic_id.id,
                 })
                 accessory_line.update(compl_line)
+                # update accessory_line with register tax
+                accessory_line['invoice_line_tax_id'] += access_reg_tax
                 invoice_line.append((0, 0, accessory_line))
+                logger.info('\n=== acc_line = %s' % accessory_line)
+            logger.info('\n=== inv_line = %s' % invoice_line)
             # =========================================================
             default_account = self.env['account.account'].search([('code', '=', '410000')])
             ctx_vals = {
