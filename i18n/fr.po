@@ -1927,7 +1927,7 @@ msgstr "Maintenance"
 #. module: insurance_management
 #: model:insurance.branch,name:insurance_management.insurance_branch_maritime
 msgid "Marine Insurance"
-msgstr "Marine Insurance"
+msgstr "Maritime"
 
 #. module: insurance_management
 #: selection:insurance.branch,category:0
