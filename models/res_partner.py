@@ -18,3 +18,4 @@ class ResPartner(models.Model):
     ref_apporteur = fields.Char(string='Reference', size=16)
     account_charge_vie_id = fields.Many2one('account.account', string='Expense Account Life')
     account_charge_id = fields.Many2one('account.account', string='Expense Account')
+    ref_unique = fields.Char(string='Unique Reference')
