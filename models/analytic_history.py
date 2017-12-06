@@ -3,6 +3,7 @@
 from openerp import models, fields, api, exceptions, _
 from openerp.exceptions import Warning,ValidationError
 from datetime import datetime as dt
+from datetime import date
 from openerp.addons.decimal_precision import decimal_precision as dp
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 import logging
@@ -12,6 +13,18 @@ logger = logging.getLogger(__name__)
 class AnalyticHistory(models.Model):
     _name = 'analytic.history'
     _description = 'History of the policy'
+
+    @api.depends('starting_date', 'ending_date')
+    @api.multi
+    def _get_nb_of_days(self):
+        if not self.starting_date or not self.ending_date:
+            return False
+        ending_date = dt.strptime(self.ending_date, '%Y-%m-%d')
+        starting_date = dt.strptime(self.starting_date, '%Y-%m-%d')
+        logger.info('=== ending_date = %s' % ending_date)
+        delta = ending_date - starting_date
+        logger.info('=== delta = %s' % delta)
+        self.nb_of_days = delta.days
 
     analytic_id = fields.Many2one(
         comodel_name='account.analytic.account', string='Subscription')
@@ -50,6 +63,7 @@ class AnalyticHistory(models.Model):
     ver_ident = fields.Char(string='Ver Ident')
     property_account_position = fields.Many2one(
         comodel_name='account.fiscal.position', string='Fiscal Position')
+    nb_of_days = fields.Integer(compute='_get_nb_of_days', string='Number of days', help='Number of days between start and end date')
 
     @api.multi
     def confirm_quotation(self):
