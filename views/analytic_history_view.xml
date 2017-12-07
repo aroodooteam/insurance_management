@@ -46,6 +46,7 @@
                                 <field name="parent_id" attrs="{'invisible': [('parent_id','=', False)], 'readonly': True}"/>
                                 <field name="analytic_id" invisible="0" readonly="1"/>
                                 <field name="property_account_position"/>
+                                <field name="agency_id"/>
                                 <field name="is_last_situation"/>
                                 <field name="capital"/>
                                 <field name="eml"/>
@@ -54,6 +55,7 @@
                             <group cols="6">
                                 <field name="starting_date"/>
                                 <field name="ending_date"/>
+                                <field name="nb_of_days"/>
                                 <field name="creating_date"/>
                                 <field name="ver_ident"/>
                             </group>
@@ -79,6 +81,15 @@
                                             <field name="risk_warranty_tmpl_id" string="Warranty Lines Template" attrs="{'invisible': ['|', ('partner_id', '=', False), ('type_risk_id','=', False)]}"/>
                                         </group>
                                         <notebook colspan="4" attrs="{'invisible': [('type_risk_id','=', False)]}">
+                                            <page string="Descriptions" name="Descriptions" attrs="{'invisible': [('type_risk_id','=', False)]}">
+                                                <field name="risk_description_ids">
+                                                    <tree string="Descriptions" create="false" editable='top'>
+                                                        <field name="code" readonly="1"/>
+                                                        <field name="name" readonly="1"/>
+                                                        <field name="value"/>
+                                                    </tree>
+                                                </field>
+                                            </page>
                                             <page string="Warranty" name="Warranty" attrs="{'invisible': [('type_risk_id','=', False)]}">
                                                 <field name="warranty_line_ids" context="{'type_risk_id': type_risk_id}">
                                                     <tree string="warranty" name="warranty" editable="top">
@@ -86,15 +97,6 @@
                                                         <field name="name"/>
                                                         <field name="yearly_net_amount"/>
                                                         <field name="proratee_net_amount"/>
-                                                    </tree>
-                                                </field>
-                                            </page>
-                                            <page string="Descriptions" name="Descriptions" attrs="{'invisible': [('type_risk_id','=', False)]}">
-                                                <field name="risk_description_ids">
-                                                    <tree string="Descriptions" create="false" editable='top'>
-                                                        <field name="code" readonly="1"/>
-                                                        <field name="name" readonly="1"/>
-                                                        <field name="value"/>
                                                     </tree>
                                                 </field>
                                             </page>
