@@ -64,6 +64,7 @@ class AnalyticHistory(models.Model):
     property_account_position = fields.Many2one(
         comodel_name='account.fiscal.position', string='Fiscal Position')
     nb_of_days = fields.Integer(compute='_get_nb_of_days', string='Number of days', help='Number of days between start and end date')
+    agency_id = fields.Many2one(comodel_name='base.agency', string='Agency')
 
     @api.multi
     def confirm_quotation(self):
@@ -321,7 +322,7 @@ class AnalyticHistory(models.Model):
                 logger.info('=== regte_id = %s ===' % regte_id)
                 if regte_id:
                     line['invoice_line_tax_id'].append(regte_id.id)
-                logger.info('=== line = %s ===' % line)
+                # logger.info('=== line = %s ===' % line)
                 invoice_line.append((0, 0, line))
             # Get each type risk in current history
             type_risk_ids_map = self.risk_line_ids.mapped('type_risk_id')
@@ -364,7 +365,7 @@ class AnalyticHistory(models.Model):
                 accessory_line['invoice_line_tax_id'] += access_reg_tax
                 invoice_line.append((0, 0, accessory_line))
                 logger.info('\n=== acc_line = %s' % accessory_line)
-            logger.info('\n=== inv_line = %s' % invoice_line)
+            # logger.info('\n=== inv_line = %s' % invoice_line)
             # =========================================================
             default_account = self.env['account.account'].search([('code', '=', '410000')])
             ctx_vals = {
@@ -388,7 +389,7 @@ class AnalyticHistory(models.Model):
             }
             ctx = self._context.copy()
             ctx.update(ctx_vals)
-            logger.info('== ctx_journal_id = %s' % ctx.get('default_journal_id'))
+            # logger.info('== ctx_journal_id = %s' % ctx.get('default_journal_id'))
             res.update({
                 'type': 'ir.actions.act_window',
                 'name': _('Invoice'),
@@ -401,4 +402,23 @@ class AnalyticHistory(models.Model):
                 'flags': {'form': {'action_buttons': True, 'options': {'mode': 'edit'}}},
             })
             logger.info('ctx = %s' % res.get('context'))
+            if self._context.get('invoice_unedit', False):
+                return {
+                    'name': self.name,
+                    'state': 'draft',
+                    'type': 'out_invoice',
+                    'history_id': self.id,
+                    'analytic_id': self.analytic_id.id,
+                    'prm_datedeb': dt.strftime(dt.strptime(self.starting_date, DEFAULT_SERVER_DATE_FORMAT), DEFAULT_SERVER_DATE_FORMAT),
+                    'prm_datefin': dt.strftime(dt.strptime(self.ending_date, DEFAULT_SERVER_DATE_FORMAT), DEFAULT_SERVER_DATE_FORMAT),
+                    'date_invoice': dt.strftime(dt.now(), DEFAULT_SERVER_DATE_FORMAT),
+                    'partner_id': self.analytic_id.partner_id.id,
+                    'final_customer_id': self.analytic_id.partner_id.id,
+                    'origin': self.analytic_id.name +'/'+self.name,
+                    'pol_numpol': self.analytic_id.name,
+                    'journal_id': self._get_user_journal().id,
+                    'account_id': self.analytic_id.partner_id.property_account_receivable.id or default_account.id,
+                    'invoice_line': invoice_line,
+                    'comment': self.comment,
+                }
         return res
