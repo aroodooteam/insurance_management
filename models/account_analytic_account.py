@@ -191,3 +191,33 @@ class AccountAnalyticAccount(models.Model):
             ctx.update({'insurance_person': True})
             res['context'] = ctx
         return res
+
+    @api.multi
+    def generate_invoice_for_each_version(self):
+        """
+        Generate invoice for each version doesn't have invoice yet
+        """
+        logger.info('=== Generate invoice for version')
+        # logger.info('=== ids = %s' % self)
+        # logger.info('=== ctx = %s' % self._context)
+        history_obj = self.env['analytic.history']
+        invoice_obj = self.env['account.invoice']
+        history_ids = history_obj.search([('analytic_id', 'in', self.ids), ('invoice_id', '=', False)])
+        # logger.info('=== history_ids = %s' % history_ids)
+        for history_id in history_ids:
+            vals = history_id.with_context(invoice_unedit=True).generate_invoice()
+            logger.info('=== history_id.id => vals = %s' % vals)
+            inv_lines = vals.get('invoice_line')
+            inv_lines_buf = []
+            # logger.info('=== inv_lines => %s' % inv_lines)
+            for inv_line in inv_lines:
+                inv_line[2]['invoice_line_tax_id'] = [(6,0,inv_line[2].get('invoice_line_tax_id'))]
+                inv_lines_buf.append(inv_line)
+            logger.info('=== inv_lines_buf => %s' % inv_lines_buf)
+            vals['invoice_line'] = inv_lines_buf
+            # logger.info('=== history_id.id => vals = %s' % vals)
+            inv_id = invoice_obj.create(vals)
+            inv_id.button_reset_taxes()
+            # logger.info('=== inv_id => %s' % inv_id)
+            history_id.write({'invoice_id': inv_id.id})
+
