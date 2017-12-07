@@ -82,5 +82,19 @@
             sequence="20"
             action="act_open_account_analytic_account_view"/>
 
+        <record id="generate_invoice_act_server" model="ir.actions.server">
+            <field name="name">Generate Invoice</field>
+            <field name="model_id" ref="insurance_management.model_account_analytic_account"/>
+            <field name="state">code</field>
+            <field name="code">action = self.generate_invoice_for_each_version(cr, uid, context.get('active_ids', []), context=context)</field>
+        </record>
+
+        <record id="action_generate_invoice_act_server" model="ir.values">
+            <field eval="'client_action_multi'" name="key2"/>
+            <field eval="'account.analytic.account'" name="model"/>
+            <field name="name">Generate invoice</field>
+            <field eval="'ir.actions.server,%d'%generate_invoice_act_server" name="value"/>
+        </record>
+
     </data>
 </openerp>
