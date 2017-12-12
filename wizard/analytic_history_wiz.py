@@ -21,6 +21,13 @@ class AnalyticHistoryWiz(models.TransientModel):
     def to_validate(self):
         logger.info('\n=== ctx_to_validate = %s'% str(self._context))
         ctx = self._context.copy()
+        analytic_obj = self.env['account.analytic.account']
+        analytic_id = analytic_obj.browse(ctx.get('active_id'))
+        seq_obj = self.env['ir.sequence'] # .with_context(number_next_actual=1).next_by_code('analytic.history')
+        seq_id = seq_obj.search([('code', '=', 'analytic.history')])
+        seq = analytic_id.name + '-%%0%sd' % seq_id.padding % analytic_id.next_sequence
+        logger.info('seq = %s' % seq)
+        ctx.update(default_name=seq)
         ctx['default_stage_id'] = self.stage_id.id
         ctx['default_is_last_situation'] = True
         ctx['default_analytic_id'] = ctx.get('active_id')
@@ -41,19 +48,19 @@ class AnalyticHistoryWiz(models.TransientModel):
                 raise exceptions.Warning(_('You can\'t have twice <AFN> in same contract \n [Note]'))
             elif self.stage_id.code == 'RES' and history_ids.stage_id.code not in ('RES', 'DEV'):
                 logger.info('Resilliate contract: Create history with state=RES and close current contract')
-                return self.cancel_analytic_account(history_ids)
+                return self.with_context(ctx).cancel_analytic_account(history_ids)
             elif self.stage_id.code in ('AVT') and history_ids.stage_id.code not in ('RES', 'SUS'):
                 logger.info('Amendment contract')
-                return self.update_contract()
+                return self.with_context(ctx).update_contract()
             elif self.stage_id.code in ('REN') and history_ids.stage_id.code not in ('RES', 'SUS'):
                 logger.info('Renew contract')
-                return self.renew_analytic_account(history_ids)
+                return self.with_context(ctx).renew_analytic_account(history_ids)
             elif self.stage_id.code in ('SUS') and history_ids.stage_id.code not in ('RES', 'SUS'):
                 logger.info('Suspend contract')
-                return self.suspend_analytic_account()
+                return self.with_context(ctx).suspend_analytic_account()
             elif self.stage_id.code in ('REV') and history_ids.stage_id.code in ('SUS'):
                 logger.info('Re-activate contract')
-                return self.reinstatement_analytic_account(history_ids)
+                return self.with_context(ctx).reinstatement_analytic_account(history_ids)
             else:
                 logger.info('Un-treated case')
                 raise exceptions.Warning(_('Un-treated case \n [Note]'))
@@ -150,6 +157,10 @@ class AnalyticHistoryWiz(models.TransientModel):
         else:
             logger.info('\n === ending_date = %s' % history_ids.ending_date)
             copy_vals = history_ids.with_context(ctx)._get_all_value()
+            # get default_name in ctx
+            if 'default_name' in ctx:
+                copy_vals.pop('default_name')
+            # end of ctx get name
             ctx.update(parent_history=history_ids.id)
             copy_vals.update(default_is_last_situation=True)
             copy_vals.update(default_stage_id=self.env.ref('insurance_management.renouvellement').id)
