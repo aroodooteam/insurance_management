@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_account_invoice_analytic_form" model="ir.ui.view">
+            <field name="name">account.invoice.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="history_id" readonly="1"/>
+                    <field name="analytic_id" readonly="1"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
