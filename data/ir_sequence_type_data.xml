@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="ir_sequence_type_policy_r0" model="ir.sequence.type">
+      <field name="code">analytic.history</field>
+      <field name="name">Policy</field>
+    </record>
+  </data>
+</openerp>
