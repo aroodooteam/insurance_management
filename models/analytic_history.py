@@ -17,14 +17,15 @@ class AnalyticHistory(models.Model):
     @api.depends('starting_date', 'ending_date')
     @api.multi
     def _get_nb_of_days(self):
-        if not self.starting_date or not self.ending_date:
-            return False
-        ending_date = dt.strptime(self.ending_date, '%Y-%m-%d')
-        starting_date = dt.strptime(self.starting_date, '%Y-%m-%d')
-        logger.info('=== ending_date = %s' % ending_date)
-        delta = ending_date - starting_date
-        logger.info('=== delta = %s' % delta)
-        self.nb_of_days = delta.days
+        for rec in self:
+            if not rec.starting_date or not rec.ending_date:
+                return False
+            ending_date = dt.strptime(rec.ending_date, '%Y-%m-%d')
+            starting_date = dt.strptime(rec.starting_date, '%Y-%m-%d')
+            logger.info('=== ending_date = %s' % ending_date)
+            delta = ending_date - starting_date
+            logger.info('=== delta = %s' % delta)
+            rec.nb_of_days = delta.days
 
     analytic_id = fields.Many2one(
         comodel_name='account.analytic.account', string='Subscription')
@@ -157,6 +158,10 @@ class AnalyticHistory(models.Model):
         analytic_id = analytic_obj.browse(self._context.get('default_analytic_id'))
         logger.info('create a_id = %s' % analytic_id)
         logger.info('create version_type = %s' % self._context.get('version_type'))
+        # increment next_sequence in analytic_account
+        ir_seq = self.env['ir.sequence'].search([('code', '=', 'analytic.history')])
+        next_sequence = analytic_id.next_sequence + ir_seq.number_increment
+        analytic_id.write({'next_sequence': next_sequence})
         if self._context.get('version_type') in ['renew', 'amendment', 'terminate', 'suspend', 'reinstatement']:
             parent_history = self._context.get('parent_history')
             parent_history = self.browse(parent_history)
