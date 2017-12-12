@@ -89,6 +89,7 @@ class AccountAnalyticAccount(models.Model):
     property_account_position = fields.Many2one(
         comodel_name='account.fiscal.position', string='Fiscal Position')
     pol_ident = fields.Char(string='Police ID')
+    next_sequence = fields.Integer(string='Next version Sequence')
 
     @api.onchange('ins_product_id')
     def onchange_ins_product_id(self):
