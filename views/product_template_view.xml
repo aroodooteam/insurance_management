@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
     <data>
-        <function model="product.template" name="update_property_income"/>
+        <function id="update_property_income_r0" model="product.template" name="update_property_income"/>
         <record id="view_product_product_template_tree_r0" model="ir.ui.view">
             <field name="name">product.template.tree</field>
             <field name="model">product.template</field>
