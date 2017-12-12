@@ -42,5 +42,8 @@
         'data/account_fiscal_position.xml',
         'views/register_tax_reference_view.xml',
         'data/register_tax_reference.xml',
+        'views/account_invoice_view.xml',
+        'data/ir_sequence_type_data.xml',
+        'data/ir_sequence_data.xml',
     ],
 }
