@@ -1998,12 +1998,12 @@ msgstr "Nom"
 #: code:addons/insurance_management/models/aro_insurance_subscription.py:102
 #, python-format
 msgid "New Amendment"
-msgstr "Nouvelle Avenant"
+msgstr "Nouvelle Version"
 
 #. module: insurance_management
 #: view:account.analytic.account:insurance_management.view_account_analytic_account_form
 msgid "New version"
-msgstr "Nouvelle Avenant"
+msgstr "Nouvelle Version"
 
 #. module: insurance_management
 #: code:addons/insurance_management/wizard/analytic_history_wiz.py:29
