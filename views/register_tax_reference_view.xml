@@ -12,6 +12,7 @@
                     <field name="fiscal_code"/>
                     <field name="property_account_position"/>
                     <field name="tax_id"/>
+                    <field name="tax_ids"/>
                     <field name="indice"/>
                 </tree>
             </field>
@@ -29,6 +30,7 @@
                         <field name="fiscal_code"/>
                         <field name="property_account_position"/>
                         <field name="tax_id"/>
+                        <field name="tax_ids"/>
                         <field name="indice"/>
                     </group>
                     <group colspan="4">
