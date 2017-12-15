@@ -223,7 +223,7 @@ class AnalyticHistory(models.Model):
         logger.info('war_id = %s' % warranty_id)
         logger.info('fpos_id = %s' % fpos_id)
         tax_obj = self.env['account.tax']
-        tax_id = False
+        tax_ids = False
         if not warranty_id :
             return False
         if not fpos_id:
@@ -236,12 +236,12 @@ class AnalyticHistory(models.Model):
         regte = regtaxref_obj.search(domain)
         logger.info('regte = %s' % regte)
         if not regte:
-            tax_id = tax_obj.search([('description', '=', 'Te-0.0')])
+            tax_ids = tax_obj.search([('description', '=', 'Te-0.0')])
         elif regte and len(regte) > 1:
             raise exceptions.Warning(_('Too much result found'))
         else:
-            tax_id = regte.tax_id
-        return tax_id
+            tax_ids = regte.tax_ids
+        return tax_ids
 
     @api.multi
     def _get_accessories_reg_tax(self, type_risk_id, fpos_id):
@@ -268,7 +268,7 @@ class AnalyticHistory(models.Model):
         elif regte and len(regte) > 1:
             raise exceptions.Warning(_('Too much result found'))
         else:
-            tax_id = regte.tax_id
+            tax_id = regte.tax_ids
         return tax_id
 
     # TODO
@@ -326,7 +326,8 @@ class AnalyticHistory(models.Model):
                 regte_id = self._get_reg_tax(warranty_id, self.property_account_position)
                 logger.info('=== regte_id = %s ===' % regte_id)
                 if regte_id:
-                    line['invoice_line_tax_id'].append(regte_id.id)
+                    # line['invoice_line_tax_id'].append(regte_id.ids)
+                    line['invoice_line_tax_id'] += regte_id.ids
                 # logger.info('=== line = %s ===' % line)
                 invoice_line.append((0, 0, line))
             # Get each type risk in current history
@@ -335,7 +336,8 @@ class AnalyticHistory(models.Model):
             access_reg_tax = []
             for type_risk_id in type_risk_ids_map:
                 acc_te = self._get_accessories_reg_tax(type_risk_id, self.property_account_position)
-                access_reg_tax.append(acc_te.id)
+                # access_reg_tax.append(acc_te.id)
+                access_reg_tax = acc_te.ids
             # Insert Accessories in invoice_line
             compl_line = {
                 'price_unit': self.analytic_id.ins_product_id.amount_accessories
@@ -408,7 +410,7 @@ class AnalyticHistory(models.Model):
             })
             logger.info('ctx = %s' % res.get('context'))
             if self._context.get('invoice_unedit', False):
-                return {
+                res = {
                     'name': self.name,
                     'state': 'draft',
                     'type': 'out_invoice',
