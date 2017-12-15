@@ -295,5 +295,6 @@
             <field name="date_start">1990-01-01</field>
             <field name="property_account_position" ref="insurance_management.account_fiscal_position_v_r0"/>
         </record>
+        <function id="update_reg_tx_ids" name="update_tax_ids" model="reg.tax.reference"/>
     </data>
 </openerp>
