@@ -66,6 +66,7 @@ class AnalyticHistory(models.Model):
         comodel_name='account.fiscal.position', string='Fiscal Position')
     nb_of_days = fields.Integer(compute='_get_nb_of_days', string='Number of days', help='Number of days between start and end date')
     agency_id = fields.Many2one(comodel_name='base.agency', string='Agency')
+    accessories = fields.Float(string='Accessories')
 
     @api.multi
     def confirm_quotation(self):
@@ -355,6 +356,10 @@ class AnalyticHistory(models.Model):
                 accessory_line.update(compl_line)
                 # update accessory_line with register tax
                 accessory_line['invoice_line_tax_id'] += access_reg_tax
+                logger.info('acc_line T = %s' % accessory_line)
+                # update amount of accessories if accessories in history is not zero
+                if self.accessories != 0:
+                    accessory_line['price_unit'] = self.accessories
                 invoice_line.append((0, 0, accessory_line))
             # =========================================================
             elif self._context.get('insurance_categ') == 'M' or self.analytic_id.branch_id.category == 'M':
@@ -370,6 +375,10 @@ class AnalyticHistory(models.Model):
                 accessory_line.update(compl_line)
                 # update accessory_line with register tax
                 accessory_line['invoice_line_tax_id'] += access_reg_tax
+                logger.info('acc_line M = %s' % accessory_line)
+                # update amount of accessories if accessories in history is not zero
+                if self.accessories != 0:
+                    accessory_line['price_unit'] = self.accessories
                 invoice_line.append((0, 0, accessory_line))
                 logger.info('\n=== acc_line = %s' % accessory_line)
             # logger.info('\n=== inv_line = %s' % invoice_line)
