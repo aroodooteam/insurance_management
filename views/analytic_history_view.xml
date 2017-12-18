@@ -49,6 +49,7 @@
                                 <field name="agency_id"/>
                                 <field name="is_last_situation"/>
                                 <field name="capital"/>
+                                <field name="accessories"/>
                                 <field name="eml"/>
                                 <field name="invoice_id" attrs="{'invisible': [('invoice_id','=', False)]}"/>
                             </group>
