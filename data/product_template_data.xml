@@ -15101,5 +15101,25 @@
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4502</field>
         </record>
+        <record id="product_template_multirisque_dgts_des_eaux_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">DDECO29003</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
+            <field name="commissionable" eval="True"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
+            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_contenu_h1"/>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">T</field>
+            <field name="name">Multirisque Dégâts des eaux</field>
+            <field name="lst_price">1.0</field>
+            <field name="fiscal_code">4500</field>
+        </record>
     </data>
 </openerp>
