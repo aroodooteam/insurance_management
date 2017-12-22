@@ -13,3 +13,4 @@ class InsuranceTypeRisk(models.Model):
         string='Insurance Product', required=True,
         comodel_name='insurance.product')
     fiscal_code = fields.Char(string='Fiscal code')
+    description = fields.Text(string='Description', help='List of code of description to use, separated by comma')
