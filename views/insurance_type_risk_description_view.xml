@@ -7,9 +7,10 @@
             <field name="type">tree</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
-            <tree string="Type risk description">
-                <field name="name"/>
-            </tree>
+                <tree string="Type risk description">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
             </field>
         </record>
 
