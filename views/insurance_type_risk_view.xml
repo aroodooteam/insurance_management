@@ -25,13 +25,14 @@
                     <header>
                     </header>
                     <sheet>
-                        <div class="oe_left">
-                            <div class="oe_title">
-                                <label for="name" string="Name" class="oe_edit_only"/>
-                                <h1>
-                                    <field name="name" class="oe_inline"/>
-                                </h1>
-                            </div>
+                        <div class="oe_title">
+                            <label for="name" string="Name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+                        </div>
+                        <separator/>
+                        <div>
                             <div class="oe_left" name="options">
                                 <group colspan="4">
                                     <field name="code" placeholder="Code of Risk type"/>
@@ -41,8 +42,8 @@
                             </div>
                         </div>
                         <div>
-                            <group colspan="4">
-                            </group>
+                            <!--<label for="description" string="Description"/>-->
+                            <field name="description" placeholder="['DC001','DC002']"/>
                         </div>
                     </sheet>
                 </form>
