@@ -4,6 +4,7 @@
 from openerp import api, exceptions, fields, models, _
 import logging
 logger = logging.getLogger(__name__)
+from openerp.tools.safe_eval import safe_eval
 
 
 class AnalyticHistoryRiskLine(models.Model):
@@ -79,6 +80,9 @@ class AnalyticHistoryRiskLine(models.Model):
     def onchange_type_risk(self):
         if not self.type_risk_id:
             return False
+        ctx = self._context.copy()
+        ctx.update(onchange_type_risk=True)
+        self.with_context(ctx)
         description_obj = self.env['insurance_type_risk.description']
         desc_ids = description_obj.search([('type_risk_id', '=', self.type_risk_id.id)], order='code asc')
         all_desc = []
@@ -105,3 +109,34 @@ class AnalyticHistoryRiskLine(models.Model):
             )
             self.update({'warranty_line_ids': all_tmpl})
         logger.info(' \n === onchange warranty template')
+
+    # TODO
+    # @api.multi
+    # def compute_risk_description_ids(self):
+    @api.onchange('risk_description_ids')
+    def onchange_risk_description_ids(self):
+        desc_obj = self.env['risk.description.line']
+        logger.info('self = %s' % self)
+        if not self.risk_description_ids:
+            # self.name = _("No description specified")
+            logger.info('desc_list = %s' % self.risk_description_ids)
+            return False
+        else:
+            logger.info('else desc_list = %s' % self.risk_description_ids)
+            if self.type_risk_id.description:
+                code = safe_eval(self.type_risk_id.description)
+                logger.info('desc_ok = %s' % code)
+                if isinstance(code, list):
+                    # dom = [('code','in', code),('id','in',self.risk_description_ids.ids)]
+                    self.name = ''
+                    for cd in code:
+                        for risk in self.risk_description_ids:
+                            if risk.code == cd and risk.value:
+                                logger.info('value %s = %s' % (code, risk.value))
+                                if not self.name:
+                                    self.name = risk.value + ' | '
+                                else:
+                                    self.name += risk.value
+                            elif risk.code == cd and not risk.value:
+                                logger.info('value %s = %s' % (code, risk.value))
+                                # raise exceptions.Warning(_('Contact your Administrator to fix the description of risk in type of risk'))
