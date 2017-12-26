@@ -97,12 +97,12 @@ class AnalyticHistory(models.Model):
         res = {}
         list_fields = ['name', 'type_risk_id', 'risk_warranty_tmpl_id', 'partner_id']
         om_fields = {
-            'warranty_line_ids': ['name', 'warranty_id', 'history_risk_line_id'],
+            'warranty_line_ids': ['name', 'warranty_id', 'history_risk_line_id', 'yearly_net_amount', 'proratee_net_amount'],
             'risk_description_ids': ['name', 'code', 'value']
         }
         new_risk_line = []
         # TODO
-        # content of if should be implemented
+        # content of <if> should be implemented
         if not self._context.get('default', False):
             res['name'] = _('%s (copy)') % self.name or ''
             res['capital'] = self.capital
