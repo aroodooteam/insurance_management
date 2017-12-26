@@ -175,6 +175,10 @@ class AccountAnalyticAccount(models.Model):
         self.write({'state': 'suspend'})
 
     @api.multi
+    def set_close_insurance(self):
+        self.write({'state': 'close'})
+
+    @api.multi
     def open_history_list(self):
         ctx = self._context.copy()
         res = {
@@ -186,7 +190,8 @@ class AccountAnalyticAccount(models.Model):
             'view_type': 'form',
             'view_mode': 'tree,form',
             # 'view_id': self.env.ref('insurance_management.view_analytic_history_tree').id,
-            'domain': [('analytic_id', '=', self.ids[0])]
+            'domain': [('analytic_id', '=', self.ids[0])],
+            'flags': {'form': {'action_buttons': True, 'options': {'mode': 'edit'}}},
         }
         if self.branch_id.code == 'ASSPERS':
             ctx.update({'insurance_person': True})
