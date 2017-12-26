@@ -15124,15 +15124,9 @@
         <record id="pt_incendie_gemp_r2" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">GEMP*29003</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -15141,13 +15135,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_contenu_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Incendie GEMP</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15155,15 +15144,9 @@
         <record id="pt_incendie__ext__frais_de_dplacement_du_mobilier_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">INCCO29003</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -15172,13 +15155,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_contenu_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Incendie - Ext. Frais de déplacement du mobilier</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15186,15 +15164,9 @@
         <record id="pt_mobilier_hors_du_domicile_r3" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">MOBHD29003</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -15203,13 +15175,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_contenu_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Mobilier hors du domicile</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15217,15 +15184,9 @@
         <record id="pt_honoraires_dexperts_contenu_marchandises_exclues_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">RECAR29003</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -15234,13 +15195,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_contenu_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Honoraires d'experts Contenu (marchandises exclues)</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15248,15 +15204,9 @@
         <record id="pt_risques_spciaux_immeubles__contenu_r4" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">RSIC*29003</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -15265,13 +15215,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_contenu_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Risques Spéciaux immeubles &amp; contenu</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15279,15 +15224,9 @@
         <record id="pt_tremblements_de_terre_r2" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">TRMBL29003</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -15296,13 +15235,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_contenu_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Tremblements de terre</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15310,15 +15244,9 @@
         <record id="pt_vol_r3" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">VOL**29003</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -15327,13 +15255,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_contenu_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Vol</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15341,15 +15264,9 @@
         <record id="pt_ddeprivation_de_jouissance_des_locataires_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">LOC**29004</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -15358,13 +15275,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_batiment_risques_locatifs_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">DDE-Privation de Jouissance des Locataires</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15372,15 +15284,9 @@
         <record id="pt_dfense_et_recours_r3" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">RC***29005</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -15389,13 +15295,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_responsabilite_civile_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Défense et Recours</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15403,15 +15304,9 @@
         <record id="pt_base_matriels_electroniques_r3" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">ME***29006</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -15420,13 +15315,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_materiels_electroniques_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Base Matériels Electroniques</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15434,15 +15324,9 @@
         <record id="pt_domext_ampoules_de_projecteurs_dclairage_r3" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">BM***29008</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -15451,13 +15335,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_bris_de_machines"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Dom-Ext Ampoules de projecteurs d’éclairage</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15465,15 +15344,9 @@
         <record id="pt_dom__ext__ampoules_de_projecteurs_dclairage_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">BM***29009</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -15482,13 +15355,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_machine_de_production"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Dom - Ext. Ampoules de projecteurs d'éclairage</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15496,15 +15364,9 @@
         <record id="pt_garantie_fictive_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">TXATT30001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_aviation"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.aro_aviation"/>
@@ -15513,28 +15375,17 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_aviation_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">GARANTIE FICTIVE</field>
             <field name="lst_price">1.0</field>
         </record>
         <record id="pt_risques_naturels_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">TRCM*51001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_engineering"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.aro_tous_risque_chantier_sr0"/>
@@ -15543,13 +15394,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_trcm_r0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Risques Naturels</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15557,15 +15403,9 @@
         <record id="pt_tous_risques_chantiermontage_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">TRCM* 0,0051002</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_engineering"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.aro_tous_risque_chantier_sr0"/>
@@ -15574,13 +15414,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_octrcm_r0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Tous Risques Chantier/Montage</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15588,15 +15423,9 @@
         <record id="pt_risque_pollution_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">DPM**53001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_maritime"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_maritime_a2"/>
@@ -15605,13 +15434,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.aro_rctm_sr0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">M</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Risque Pollution</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4502</field>
@@ -15619,15 +15443,9 @@
         <record id="pt_dommages_aux_gros_ouvrages_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">RCDEC55001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_engineering"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.aro_rc_decennal_sr0"/>
@@ -15636,13 +15454,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_rc_decennal"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Dommages aux gros ouvrages</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15650,15 +15463,9 @@
         <record id="pt_dcs_r8" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">DC14001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_individuel_jw0"/>
@@ -15667,13 +15474,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_individuel_college_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Décès</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15681,15 +15483,9 @@
         <record id="pt_frais_de_sauvetage_r3" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">FS14001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_individuel_jw0"/>
@@ -15698,13 +15494,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_individuel_college_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Frais de sauvetage</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15712,15 +15503,9 @@
         <record id="pt_frais_de_traitement_r8" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">FT14001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_individuel_jw0"/>
@@ -15729,13 +15514,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_individuel_college_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Frais de traitement</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15743,15 +15523,9 @@
         <record id="pt_indemnit_journalire_r3" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">IJ14001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_individuel_jw0"/>
@@ -15760,13 +15534,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_individuel_college_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Indemnité journalière</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15774,15 +15543,9 @@
         <record id="pt_infirmit_permanente_r8" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">IP14001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_individuel_jw0"/>
@@ -15791,13 +15554,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_individuel_college_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Infirmité permanente</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15805,15 +15563,9 @@
         <record id="pt_indemnit_quotidienne_r3" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">IQ14001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_individuel_jw0"/>
@@ -15822,13 +15574,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_individuel_college_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Indemnité quotidienne</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15836,15 +15583,9 @@
         <record id="pt_transcorps__rapatriement_du_corps_r3" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">TC14001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_individuel_jw0"/>
@@ -15853,13 +15594,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_individuel_college_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">TRANSCORPS - Rapatriement du corps</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15867,15 +15603,9 @@
         <record id="pt_dcs_r9" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">DC15001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_collectif_jw0"/>
@@ -15884,13 +15614,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_collectif_assure_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Décès</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15898,15 +15623,9 @@
         <record id="pt_frais_de_sauvetage_r4" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">FS15001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_collectif_jw0"/>
@@ -15915,13 +15634,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_collectif_assure_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Frais de sauvetage</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15929,15 +15643,9 @@
         <record id="pt_frais_de_traitement_r9" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">FT15001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_collectif_jw0"/>
@@ -15946,13 +15654,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_collectif_assure_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Frais de traitement</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15960,15 +15663,9 @@
         <record id="pt_indemnit_journalire_r4" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">IJ15001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_collectif_jw0"/>
@@ -15977,13 +15674,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_collectif_assure_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Indemnité journalière</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -15991,15 +15683,9 @@
         <record id="pt_infirmit_permanente_r9" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">IP15001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_collectif_jw0"/>
@@ -16008,13 +15694,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_collectif_assure_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Infirmité permanente</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16022,15 +15703,9 @@
         <record id="pt_indemnit_quotidienne_r4" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">IQ15001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_collectif_jw0"/>
@@ -16039,13 +15714,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_collectif_assure_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Indemnité quotidienne</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16053,15 +15723,9 @@
         <record id="pt_transcorps__rapatriement_du_corps_r4" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">TC15001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_collectif_jw0"/>
@@ -16070,13 +15734,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_collectif_assure_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">TRANSCORPS - Rapatriement du corps</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16084,15 +15743,9 @@
         <record id="pt_dcs_r10" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">DC15002</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_collectif_jw0"/>
@@ -16101,13 +15754,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_collectif_college_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Décès</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16115,15 +15763,9 @@
         <record id="pt_frais_de_sauvetage_r5" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">FS15002</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_collectif_jw0"/>
@@ -16132,13 +15774,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_collectif_college_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Frais de sauvetage</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16146,15 +15783,9 @@
         <record id="pt_frais_de_traitement_r10" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">FT15002</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_collectif_jw0"/>
@@ -16163,13 +15794,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_collectif_college_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Frais de traitement</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16177,15 +15803,9 @@
         <record id="pt_indemnit_journalire_r5" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">IJ15002</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_collectif_jw0"/>
@@ -16194,13 +15814,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_collectif_college_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Indemnité journalière</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16208,15 +15823,9 @@
         <record id="pt_infirmit_permanente_r10" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">IP15002</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_collectif_jw0"/>
@@ -16225,13 +15834,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_collectif_college_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Infirmité permanente</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16239,15 +15843,9 @@
         <record id="pt_indemnit_quotidienne_r5" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">IQ15002</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_collectif_jw0"/>
@@ -16256,13 +15854,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_collectif_college_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Indemnité quotidienne</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16270,15 +15863,9 @@
         <record id="pt_transcorps__rapatriement_du_corps_r5" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">TC15002</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_accident_collectif_jw0"/>
@@ -16287,13 +15874,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_collectif_college_jw0"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">TRANSCORPS - Rapatriement du corps</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16301,15 +15883,9 @@
         <record id="pt_rcp_dommages_matriels_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">RC***24001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mrsh"/>
@@ -16318,13 +15894,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_habitation_mrsh"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">RCP Dommages Matériels</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16332,15 +15903,9 @@
         <record id="pt_bris_de_glaces_r6" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">BASBG29001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16349,13 +15914,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_oc_multirisque_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Bris de Glaces</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16363,15 +15923,9 @@
         <record id="pt_domext_ampoules_de_projecteurs_dclairage_r2" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">BM***29001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16380,13 +15934,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_oc_multirisque_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Dom-Ext Ampoules de projecteurs d’éclairage</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16394,15 +15943,9 @@
         <record id="pt_cyclones__ext__inondation_btiment_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">CYCL*29001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16411,13 +15954,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_oc_multirisque_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Cyclones - Ext. Inondation Bâtiment</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16425,15 +15963,9 @@
         <record id="pt_dgts_des_eaux_btiment_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">DDE**29001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16442,13 +15974,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_oc_multirisque_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Dégâts des eaux Bâtiment</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16456,15 +15983,9 @@
         <record id="pt_frais_et_pertes_divers_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">FPD**29001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16473,13 +15994,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_oc_multirisque_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Frais et pertes divers</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16487,15 +16003,9 @@
         <record id="pt_bris_de_glaces_gemp_r2" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">GEMP*29001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16504,13 +16014,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_oc_multirisque_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Bris de Glaces GEMP</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16518,15 +16023,9 @@
         <record id="pt_ddeprivation_de_jouissance_des_propr__r2" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">HONOE29001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16535,13 +16034,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_oc_multirisque_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">DDE-Privation de Jouissance des Propr.</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16549,15 +16043,9 @@
         <record id="pt_incendie__ext__frais_dpl__du_mobilier_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">INC**29001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16566,13 +16054,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_oc_multirisque_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Incendie - Ext. Frais dépl. du mobilier</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16580,15 +16063,9 @@
         <record id="pt_ddeprivation_de_jouissance_des_propr__r3" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">LOC**29001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16597,13 +16074,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_oc_multirisque_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">DDE-Privation de Jouissance des Propr.</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16611,15 +16083,9 @@
         <record id="pt_base_matriels_electroniques_r2" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">ME***29001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16628,13 +16094,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_oc_multirisque_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Base Matériels Electroniques</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16642,15 +16103,9 @@
         <record id="pt_mobilier_hors_du_domicile_r2" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">MOBHD29001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16659,13 +16114,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_oc_multirisque_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Mobilier hors du domicile</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16673,15 +16123,9 @@
         <record id="pt_pec__ext__frais_supplmentaires_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">PE***29001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16690,13 +16134,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_oc_multirisque_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">PEC - Ext. Frais Supplémentaires</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16704,15 +16143,9 @@
         <record id="pt_dfense_et_recours_r4" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">RC***29001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16721,13 +16154,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_oc_multirisque_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Défense et Recours</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16735,15 +16163,9 @@
         <record id="pt_honoraires_dexp__cont__marchandises_excl_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">RECAR29001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16752,13 +16174,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_oc_multirisque_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Honoraires d'exp. Cont. Marchandises excl</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16766,15 +16183,9 @@
         <record id="pt_choc_vhic__terrestres__moteur_identifis_r4" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">RSIC*29001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16783,13 +16194,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_oc_multirisque_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Choc véhic. terrestres à moteur identifiés</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16797,15 +16203,9 @@
         <record id="pt_tremblements_de_terre_btiment_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">TRMBL29001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16814,13 +16214,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_oc_multirisque_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Tremblements de terre Bâtiment</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16828,15 +16223,9 @@
         <record id="pt_vol_r4" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">VOL**29001</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16845,13 +16234,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_oc_multirisque_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Vol</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16859,15 +16243,9 @@
         <record id="pt_bris_de_glaces_r7" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">BASBG29002</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16876,13 +16254,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_batiment_proprietaire_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Bris de Glaces</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16890,15 +16263,9 @@
         <record id="pt_cyclones__ext__inondation_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">CYCBA29002</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16907,13 +16274,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_batiment_proprietaire_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Cyclones - Ext. Inondation</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16921,15 +16283,9 @@
         <record id="pt_multirisque_dgts_des_eaux_r3" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">DDEBA29002</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16938,13 +16294,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_batiment_proprietaire_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Multirisque Dégâts des Eaux</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16952,15 +16303,9 @@
         <record id="pt_frais_de_dblaisdmolition_aprs_sinistre_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">FPD**29002</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -16969,13 +16314,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_batiment_proprietaire_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Frais de déblais/démolition après sinistre</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -16983,15 +16323,9 @@
         <record id="pt_bris_de_glaces_gemp_r3" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">GEMP*29002</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -17000,13 +16334,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_batiment_proprietaire_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Bris de glaces GEMP</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -17014,15 +16343,9 @@
         <record id="pt_honoraires_dexperts_btiment_r2" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">HONOE29002</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -17031,13 +16354,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_batiment_proprietaire_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Honoraires d'experts Bâtiment</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -17045,15 +16363,9 @@
         <record id="pt_pec__ext__frais_supplmentaires_impts_etc_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">PE***29002</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -17062,13 +16374,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_batiment_proprietaire_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">PEC - Ext. Frais Supplémentaires (impôts, etc)</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -17076,15 +16383,9 @@
         <record id="pt_choc_vhic__terrestres__moteur_identifis_r5" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">RSIC*29002</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -17093,13 +16394,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_batiment_proprietaire_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Choc véhic. terrestres à moteur identifiés</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -17107,15 +16403,9 @@
         <record id="pt_tremblements_de_terre_r3" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">TRMBL29002</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -17124,13 +16414,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_batiment_proprietaire_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Tremblements de terre</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
@@ -17138,15 +16423,9 @@
         <record id="pt_cyclones__ext__inondation_conscutive__un_cyclone_r1" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
-            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
-            <field name="standard_price">0.0</field>
-            <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">CYCCO29003</field>
-            <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="commissionable" eval="True"/>
             <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
@@ -17155,13 +16434,8 @@
             <field name="uom_po_id" ref="product.product_uom_unit"/>
             <field name="type">service</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_contenu_h1"/>
-            <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Cyclones - Ext. Inondation consécutive à un cyclone</field>
             <field name="lst_price">1.0</field>
             <field name="fiscal_code">4500</field>
