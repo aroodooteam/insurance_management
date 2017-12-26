@@ -27,6 +27,9 @@ class AnalyticHistory(models.Model):
             logger.info('=== delta = %s' % delta)
             rec.nb_of_days = delta.days
 
+    # def _get_user_agency(self):
+
+
     analytic_id = fields.Many2one(
         comodel_name='account.analytic.account', string='Subscription')
     name = fields.Char(string='History number')
@@ -65,7 +68,7 @@ class AnalyticHistory(models.Model):
     property_account_position = fields.Many2one(
         comodel_name='account.fiscal.position', string='Fiscal Position')
     nb_of_days = fields.Integer(compute='_get_nb_of_days', string='Number of days', help='Number of days between start and end date')
-    agency_id = fields.Many2one(comodel_name='base.agency', string='Agency')
+    agency_id = fields.Many2one(comodel_name='base.agency', string='Agency', default=lambda self: self.env.user.agency_id)
     accessories = fields.Float(string='Accessories')
 
     @api.multi
@@ -113,6 +116,8 @@ class AnalyticHistory(models.Model):
             res['default_name'] = _('%s (copy)') % self.name or ''
             res['default_capital'] = self.capital
             res['default_eml'] = self.eml
+            res['default_agency_id'] = self.agency_id.id
+            res['default_property_account_position'] = self.property_account_position.id
             for risk_line_id in self.risk_line_ids:
                 l = risk_line_id.read(list_fields)[0]
                 # get standard fields
@@ -173,7 +178,7 @@ class AnalyticHistory(models.Model):
             analytic_id.write({'state': 'suspend'})
         elif self._context.get('version_type') == 'terminate':
             # analytic_id.write({'state': 'close'})
-            analytic_id.set_close()
+            analytic_id.set_close_insurance()
         res = super(AnalyticHistory, self).create(vals)
         return res
 
