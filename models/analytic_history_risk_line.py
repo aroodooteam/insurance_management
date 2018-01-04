@@ -41,6 +41,8 @@ class AnalyticHistoryRiskLine(models.Model):
     insured_id = fields.Many2one(comodel_name='res.partner', string='Insured', related='analytic_id.insured_id')
     have_right_ids = fields.One2many(comodel_name='res.partner', string='Having right', compute='_get_partner_right', store=False)
     partner_id = fields.Many2one(comodel_name='res.partner', string='Partner')
+    comment = fields.Text(string='Comment')
+    sor_ident = fields.Char(string='Sor Ident')
 
     @api.onchange('insured_id')
     def onchange_insured_id(self):
