@@ -227,3 +227,6 @@ class AccountAnalyticAccount(models.Model):
             # logger.info('=== inv_id => %s' % inv_id)
             history_id.write({'invoice_id': inv_id.id})
 
+    @api.multi
+    def open_policy(self):
+        self.write({'state': 'open'})
