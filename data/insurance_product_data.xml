@@ -31,8 +31,8 @@
         </record>
         <record id="aro_global_de_banque_h1" model="insurance.product">
             <field name="code">GLOBAL_BANQUE</field>
-            <field name="amount_accessories">2000</field>
-            <field name="amount_threshold">2000</field>
+            <field name="amount_accessories">10000</field>
+            <field name="amount_threshold">10000</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
             <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
             <field name="name">Globale de Banque</field>
