@@ -198,8 +198,10 @@ class AnalyticHistory(models.Model):
         user_id = user_obj.browse(user)
         # logger.info('\n === user_id = %s' % user_id)
         agency_id = user_id.agency_id
-        if not agency_id:
+        if not agency_id and not self.agency_id:
             raise Warning(_('Please contact your Administrator to set your agency'))
+        else:
+            agency_id = self.agency_id
 
         domain = [('type', '=', 'sale'), ('agency_id', '=', agency_id.id)]
         if insurance_type == 'N':
@@ -442,4 +444,45 @@ class AnalyticHistory(models.Model):
                     'invoice_line': invoice_line,
                     'comment': self.comment,
                 }
+        return res
+
+    @api.multi
+    def _compare_warrantys_history(self):
+        if not self.parent_id:
+            return False
+
+    @api.multi
+    def _compare_type_risk_history(self):
+        if not self.parent_id or not self.risk_line_ids:
+            return False
+        new_rline_list = []
+        updated_rline_list = [] # if something is changed
+        removed_rline_list = []
+        ah_rl_obj = self.env['analytic_history.risk.line']
+        for rl_id in self.risk_line_ids:
+            # search if exist in parent_version
+            rline = {
+                'partner_id': rl_id.partner_id.id,
+                'type_risk_id': rl_id.type_risk_id.id,
+                'name': rl_id.name,
+                'history_id': self.parent_id.id,
+            }
+            domain = self._convert_dict_to_domain(rline)
+            ah_rl_id = ah_rl_obj.search(domain)
+            if not ah_rl_id:
+                rline.pop('history_id')
+                rline['id'] = rl_id.id
+                new_rline_list.append(rline)
+
+    @api.multi
+    def _convert_dict_to_domain(self, vals):
+        res = []
+        if not vals:
+            return res
+        for k in vals.keys():
+            if isinstance(vals[k], list):
+                vals[k] = tuple(vals[k])
+            elif isinstance(vals[k], dict):
+                logger.info('''Can't convert dict as domain''')
+            res.append((k, '=', vals[k]))
         return res
