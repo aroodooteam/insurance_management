@@ -16,6 +16,7 @@
     "category": "Tools",
     "installable": True,
     "data": [
+        'security/security.xml',
         'security/ir.model.access.csv',
         'data/insurance_branch_data.xml',
         'data/insurance_fraction_data.xml',
