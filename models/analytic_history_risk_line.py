@@ -43,6 +43,7 @@ class AnalyticHistoryRiskLine(models.Model):
     partner_id = fields.Many2one(comodel_name='res.partner', string='Partner')
     comment = fields.Text(string='Comment')
     sor_ident = fields.Char(string='Sor Ident')
+    parent_id = fields.Many2one(comodel_name='analytic_history.risk.line', string='Parent', help='Parent of this analytic_history.risk.line')
 
     @api.onchange('insured_id')
     def onchange_insured_id(self):
