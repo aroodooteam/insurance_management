@@ -17,10 +17,11 @@ class RiskWarrantyLine(models.Model):
     warranty_id = fields.Many2one(
         comodel_name='product.product', string='Warranty',
         domain="[('type_risk_id', '=', type_risk_id),('is_warranty', '=', True)]",
-        required=True
+        required=False
     )
     yearly_net_amount = fields.Float(string='Yearly Net', digits_compute=dp.get_precision('Account'), help='Yearly net amount')
     proratee_net_amount = fields.Float(string='Proratee Net', digits_compute=dp.get_precision('Account'), help='Proratee net amount')
+    invoiced = fields.Boolean(string='Invoiced', help='This field is checked if this warranty is invoiced allready')
 
     # TODO
     # 1- Get yearly_net_amount value in onchange_warranty
