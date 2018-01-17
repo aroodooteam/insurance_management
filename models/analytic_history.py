@@ -125,6 +125,7 @@ class AnalyticHistory(models.Model):
                 l['partner_id'] = l.get('partner_id', False)[0] if l.get('partner_id', False) else False
                 l['risk_warranty_tmpl_id'] = l.get('risk_warranty_tmpl_id', False)
                 l['risk_warranty_tmpl_id'] = l.get('risk_warranty_tmpl_id')[0] if l.get('risk_warranty_tmpl_id', False) else False
+                l['parent_id'] = l.get('id', False)
                 del l['id']
                 # get o2m fields value
                 logger.info('wlids = %s' % risk_line_id.warranty_line_ids)
