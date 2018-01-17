@@ -44,7 +44,7 @@
                         <group colspan="12">
                             <group cols="6">
                                 <field name="parent_id" attrs="{'invisible': [('parent_id','=', False)], 'readonly': True}"/>
-                                <field name="analytic_id" invisible="0" readonly="1"/>
+                                <field name="analytic_id" invisible="0" readonly="1" context="{'form_view_ref' : 'insurance_management.view_account_analytic_account_form'}"/>
                                 <field name="property_account_position"/>
                                 <field name="agency_id"/>
                                 <field name="is_last_situation"/>
@@ -69,6 +69,7 @@
                                         <field name="partner_id"/>
                                         <field name="type_risk_id"/>
                                         <field name="name"/>
+                                        <field name="parent_id" groups="insurance_management.group_insurance_sale_manager"/>
                                     </tree>
                                     <form string="Risk Line">
                                         <group colspan="4">
@@ -80,6 +81,7 @@
                                             <field name="type_risk_id" string="Risk Type"/>
                                             <field name="name" required="True"/>
                                             <field name="sor_ident"/>
+                                            <field name="parent_id" readonly="True"/>
                                             <field name="risk_warranty_tmpl_id" string="Warranty Lines Template" attrs="{'invisible': ['|', ('partner_id', '=', False), ('type_risk_id','=', False)]}"/>
                                         </group>
                                         <notebook colspan="4" attrs="{'invisible': [('type_risk_id','=', False)]}">
@@ -99,6 +101,7 @@
                                                         <field name="name"/>
                                                         <field name="yearly_net_amount"/>
                                                         <field name="proratee_net_amount"/>
+                                                        <field name="invoiced"/>
                                                     </tree>
                                                 </field>
                                             </page>
