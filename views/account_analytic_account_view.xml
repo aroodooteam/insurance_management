@@ -53,6 +53,8 @@
                             <div name="insurance">
                                 <field name="is_insurance"/>
                                 <label for="is_insurance"/>
+                                <field name="is_recurrent"/>
+                                <label for="is_recurrent"/>
                             </div>
                         </div>
 
