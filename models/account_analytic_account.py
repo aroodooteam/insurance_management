@@ -61,6 +61,7 @@ class AccountAnalyticAccount(models.Model):
         domain="[('id', 'in', fraction_ids[0][2])]")
 
     is_insurance = fields.Boolean(string='Insurance contract', help='Check if it is an insurance contract')
+    is_recurrent = fields.Boolean(string=u'Recurrent (Terme)', help='Check if it is an recurrent contract')
     # risk_line_ids = fields.One2many(
     #     comodel_name='analytic.risk.line',
     #     inverse_name='analytic_id', string='Risks Type')
