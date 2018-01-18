@@ -453,6 +453,144 @@ class AnalyticHistory(models.Model):
             return False
 
     @api.multi
+    def compare_trisk_hist(self):
+        if not self.parent_id or not self.risk_line_ids:
+            return False
+        # new_rline_list = []
+        # updated_rline_list = [] # if something is changed
+        # removed_rline_list = []
+        # ah_rl_obj = self.env['analytic_history.risk.line']
+        movement = self.env['analytic_history.movement']
+        logger.info('\n=== all_risk = %s' % self.risk_line_ids)
+        # check wich risk is removed from the parent version first
+        current_parent_ids = self.risk_line_ids.mapped('parent_id')
+        # logger.info('\n=== cur_parent = %s' % current_parent_ids)
+        real_parent_ids = self.parent_id.risk_line_ids
+        # logger.info('\n=== real_parent = %s' % real_parent_ids)
+        removed = real_parent_ids - current_parent_ids
+        logger.info('\n=== removed = %s' % removed)
+        # =========================================
+        # check new risk added
+        new_risk_ids = self.risk_line_ids.filtered(lambda r: not r.parent_id)
+        logger.info('\n=== new_risk_ids = %s' % new_risk_ids)
+        # =========================================
+        # check updated risk (compare dict)
+        upd_risk_ids = False
+        ntc_risk_ids = False
+        upd_risk_ids_1 = self.risk_line_ids.filtered(lambda r: r.parent_id)
+        # logger.info('\n=== upd_risk_ids = %s' % upd_risk_ids)
+        # logger.info('\n=== upd_risk_ids_data = %s' % upd_risk_ids.read(['name','type_risk_id']))
+        for upd_risk in upd_risk_ids_1:
+            inh_risk = upd_risk.read(['name','type_risk_id'])[0]
+            del inh_risk['id']
+            par_risk = upd_risk.parent_id.read(['name','type_risk_id'])[0]
+            del par_risk['id']
+            if inh_risk != par_risk:
+                logger.info('\n=== Modified risk')
+                if not upd_risk_ids:
+                    upd_risk_ids = upd_risk
+                else:
+                    upd_risk_ids += upd_risk
+            else:
+                if not ntc_risk_ids:
+                    ntc_risk_ids = upd_risk
+                else:
+                    ntc_risk_ids += upd_risk
+        vals = []
+        # =========================================
+        # Treatment for removed risk
+        if removed:
+            rm_vals = removed.read(['name', 'type_risk_id'])
+            for rm_val in rm_vals:
+                del rm_val['id']
+                rm_val['state'] = 'removed'
+                rm_val['type_risk_id'] = rm_val.get('type_risk_id', False)[0] if rm_val.get('type_risk_id', False) else False
+                # vals.append((0, 0, rm_val))
+                vals.append(rm_val)
+        # =========================================
+        # Treatment for new risk
+        if new_risk_ids:
+            new_vals = new_risk_ids.read(['name', 'type_risk_id'])
+            for new_val in new_vals:
+                del new_val['id']
+                new_val['state'] = 'new'
+                new_val['type_risk_id'] = new_val.get('type_risk_id', False)[0] if new_val.get('type_risk_id', False) else False
+                # vals.append((0, 0, new_val))
+                vals.append(new_val)
+        # =========================================
+        # Treatment for update risk
+        if upd_risk_ids:
+            upd_vals = upd_risk_ids.read(['name', 'type_risk_id'])
+            for upd_val in upd_vals:
+                del upd_val['id']
+                upd_val['state'] = 'updated'
+                upd_val['type_risk_id'] = upd_val.get('type_risk_id', False)[0] if upd_val.get('type_risk_id', False) else False
+                # vals.append((0, 0, upd_val))
+                vals.append(upd_val)
+        # =========================================
+        # Treatment for intact risk
+        if ntc_risk_ids:
+            ntc_vals = ntc_risk_ids.read(['name', 'type_risk_id'])
+            for ntc_val in ntc_vals:
+                del ntc_val['id']
+                ntc_val['state'] = 'intact'
+                ntc_val['type_risk_id'] = ntc_val.get('type_risk_id', False)[0] if ntc_val.get('type_risk_id', False) else False
+                # vals.append((0, 0, ntc_val))
+                vals.append(ntc_val)
+        logger.info('\n=== vals = %s' % vals)
+        # =========================================
+        # ctx = self._context.copy()
+        # logger.info('\n=== ctx = %s' % ctx)
+        mvt = {
+            'name': 'Test',
+            # 'movement_line_ids': vals,
+        }
+        mvt_id = movement.create(mvt)
+        logger.info('\n=== mvt_id = %s' % mvt_id)
+        mvt_line_obj = self.env['analytic_history.movement.line']
+        for mvt_line in vals:
+            logger.info('\n=== mvt_line = %s' % mvt_line)
+            mvt_line['movement_id'] = mvt_id.id
+            mvt_line_obj.create(mvt_line)
+        ctx = {
+            'default_name': 'Test',
+            'default_movement_line_ids': vals,
+        }
+        logger.info('\n=== ctx2 = %s' % ctx)
+        # =========================================
+        res = {
+            'name': 'History',
+            'type': 'ir.actions.act_window',
+            'res_model': 'analytic_history.movement',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'view_id': [self.env.ref('insurance_management.view_analytic_history_movement_form').id],
+            'target': 'new',
+            'res_id': mvt_id.id
+            # 'context': ctx
+        }
+        return res
+        # for rl_id in self.risk_line_ids:
+        #     if rl_id.parent_id:
+        #         # we have to compare the risk
+        #         logger.info('compare risk')
+        #     else:
+        #         logger.info('New risk')
+        #     # search if exist in parent_version
+        #     rline = {
+        #         'partner_id': rl_id.partner_id.id,
+        #         'type_risk_id': rl_id.type_risk_id.id,
+        #         'name': rl_id.name,
+        #         'history_id': self.parent_id.id,
+        #     }
+        #     domain = self._convert_dict_to_domain(rline)
+        #     ah_rl_id = ah_rl_obj.search(domain)
+        #     if not ah_rl_id:
+        #         rline.pop('history_id')
+        #         rline['id'] = rl_id.id
+        #         new_rline_list.append(rline)
+
+    @api.multi
     def _compare_type_risk_history(self):
         if not self.parent_id or not self.risk_line_ids:
             return False
