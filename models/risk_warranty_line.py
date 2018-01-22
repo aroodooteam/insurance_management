@@ -22,6 +22,7 @@ class RiskWarrantyLine(models.Model):
     yearly_net_amount = fields.Float(string='Yearly Net', digits_compute=dp.get_precision('Account'), help='Yearly net amount')
     proratee_net_amount = fields.Float(string='Proratee Net', digits_compute=dp.get_precision('Account'), help='Proratee net amount')
     invoiced = fields.Boolean(string='Invoiced', help='This field is checked if this warranty is invoiced allready')
+    parent_id = fields.Many2one(comodel_name='risk.warranty.line', string='Parent')
 
     # TODO
     # 1- Get yearly_net_amount value in onchange_warranty
