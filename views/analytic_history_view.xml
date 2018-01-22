@@ -50,8 +50,8 @@
                                 <field name="agency_id"/>
                                 <field name="is_last_situation"/>
                                 <field name="capital"/>
-                                <field name="accessories"/>
                                 <field name="eml"/>
+                                <field name="accessories"/>
                                 <field name="invoice_id" attrs="{'invisible': [('invoice_id','=', False)]}"/>
                             </group>
                             <group cols="6">
@@ -103,6 +103,7 @@
                                                         <field name="yearly_net_amount"/>
                                                         <field name="proratee_net_amount"/>
                                                         <field name="invoiced"/>
+                                                        <field name="parent_id"/>
                                                     </tree>
                                                 </field>
                                             </page>
