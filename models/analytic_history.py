@@ -100,7 +100,7 @@ class AnalyticHistory(models.Model):
         res = {}
         list_fields = ['name', 'type_risk_id', 'risk_warranty_tmpl_id', 'partner_id']
         om_fields = {
-            'warranty_line_ids': ['name', 'warranty_id', 'history_risk_line_id', 'yearly_net_amount', 'proratee_net_amount'],
+            'warranty_line_ids': ['name', 'warranty_id', 'history_risk_line_id', 'yearly_net_amount', 'proratee_net_amount', 'parent_id'],
             'risk_description_ids': ['name', 'code', 'value']
         }
         new_risk_line = []
@@ -110,6 +110,7 @@ class AnalyticHistory(models.Model):
             res['name'] = _('%s (copy)') % self.name or ''
             res['capital'] = self.capital
             res['eml'] = self.eml
+            res['accessories'] = self.accessories
             for risk_line_id in self.risk_line_ids:
                 new_risk_line.append(risk_line_id.read(list_fields))
         else:
@@ -117,6 +118,7 @@ class AnalyticHistory(models.Model):
             res['default_capital'] = self.capital
             res['default_eml'] = self.eml
             res['default_agency_id'] = self.agency_id.id
+            res['default_accessories'] = self.accessories
             res['default_property_account_position'] = self.property_account_position.id
             for risk_line_id in self.risk_line_ids:
                 l = risk_line_id.read(list_fields)[0]
@@ -132,6 +134,7 @@ class AnalyticHistory(models.Model):
                 om_warrantys = risk_line_id.warranty_line_ids.read(om_fields.get('warranty_line_ids'))
                 warranty_list = []
                 for om_warranty in om_warrantys:
+                    om_warranty['parent_id'] = om_warranty.get('id', False)
                     del om_warranty['id']
                     om_warranty['warranty_id'] = om_warranty.get('warranty_id')[0] if om_warranty.get('warranty_id') else False
                     om_warranty['history_risk_line_id'] = om_warranty.get('history_risk_line_id')[0] if om_warranty.get('history_risk_line_id') else False
@@ -448,18 +451,93 @@ class AnalyticHistory(models.Model):
         return res
 
     @api.multi
-    def _compare_warrantys_history(self):
-        if not self.parent_id:
+    def compare_warranty(self, recset, state='intact'):
+        if not recset:
             return False
+        to_read = ['name','warranty_id','yearly_net_amount','proratee_net_amount','invoiced']
+        vals = {}
+        if state in ('removed', 'new'):
+            logger.info('\n === compare warranty is new or removed')
+            for rec in recset:
+                war_list = []
+                warranty_ids = rec.warranty_line_ids.read(to_read)
+                for warranty in warranty_ids:
+                    del warranty['id']
+                    warranty['warranty_id'] = warranty.get('warranty_id', False)[0]
+                    warranty['state'] = state
+                    war_list.append(warranty)
+                vals[rec.id] = war_list
+        elif state in ('updated','intact'):
+            logger.info('\n === compare warranty updated or intact')
+            #1 check deleted warranty
+            for rec in recset:
+                parent_warranty = rec.parent_id.mapped('warranty_line_ids')
+                logger.info('\n=== parent_warranty = %s' % parent_warranty)
+                inh_warranty = rec.warranty_line_ids.mapped('parent_id')
+                logger.info('\n=== inh_warranty = %s' % inh_warranty)
+                removed_warranty = parent_warranty - inh_warranty
+                logger.info('\n=== removed_warranty = %s' % removed_warranty)
+                war_list = []
+                if removed_warranty:
+                    logger.info('\n=== ??? rec = %s' % rec)
+                    warranty_ids = removed_warranty.read(to_read)
+                    for warranty in warranty_ids:
+                        del warranty['id']
+                        warranty['warranty_id'] = warranty.get('warranty_id', False)[0]
+                        warranty['state'] = 'removed'
+                        war_list.append(warranty)
+                    # vals[rec.id] = war_list
+                    if vals.get(rec.id, False):
+                        vals[rec.id] += war_list
+                    else:
+                        vals[rec.id] = war_list
+            #2 check new warranty
+            for rec in recset:
+                new_warranty = rec.warranty_line_ids.filtered(lambda r: not r.parent_id)
+                war_list = []
+                if new_warranty:
+                    warranty_ids = new_warranty.read(to_read)
+                    for warranty in warranty_ids:
+                        del warranty['id']
+                        warranty['warranty_id'] = warranty.get('warranty_id', False)[0]
+                        warranty['state'] = 'new'
+                        war_list.append(warranty)
+                    if vals.get(rec.id, False):
+                        vals[rec.id] += war_list
+                    else:
+                        vals[rec.id] = war_list
+            #3 check updated (and intact) warranty
+            for rec in recset:
+                warranty_ids = rec.warranty_line_ids.filtered(lambda r: r.parent_id)
+                war_list = []
+                if warranty_ids:
+                    for warranty_id in warranty_ids:
+                        inh_warranty_vals = warranty_id.read(to_read)[0]
+                        del inh_warranty_vals['id']
+                        par_warranty_vals = warranty_id.parent_id.read(to_read)[0]
+                        del par_warranty_vals['id']
+                        if inh_warranty_vals != par_warranty_vals:
+                            logger.info('\n=== Modified warranty')
+                            inh_warranty_vals['warranty_id'] = inh_warranty_vals.get('warranty_id', False)[0]
+                            inh_warranty_vals['state'] = 'updated'
+                            war_list.append(inh_warranty_vals)
+                        else:
+                            logger.info('\n=== Intact warranty')
+                            inh_warranty_vals['warranty_id'] = inh_warranty_vals.get('warranty_id', False)[0]
+                            inh_warranty_vals['state'] = 'intact'
+                            war_list.append(inh_warranty_vals)
+                    if vals.get(rec.id, False):
+                        vals[rec.id] += war_list
+                    else:
+                        vals[rec.id] = war_list
+            #4 check intact warranty
+        return vals
+
 
     @api.multi
     def compare_trisk_hist(self):
         if not self.parent_id or not self.risk_line_ids:
             return False
-        # new_rline_list = []
-        # updated_rline_list = [] # if something is changed
-        # removed_rline_list = []
-        # ah_rl_obj = self.env['analytic_history.risk.line']
         movement = self.env['analytic_history.movement']
         logger.info('\n=== all_risk = %s' % self.risk_line_ids)
         # check wich risk is removed from the parent version first
@@ -469,10 +547,14 @@ class AnalyticHistory(models.Model):
         # logger.info('\n=== real_parent = %s' % real_parent_ids)
         removed = real_parent_ids - current_parent_ids
         logger.info('\n=== removed = %s' % removed)
+        rm_warranty = self.compare_warranty(removed, 'removed')
+        logger.info('\n=== rm_war = %s' % rm_warranty)
         # =========================================
         # check new risk added
         new_risk_ids = self.risk_line_ids.filtered(lambda r: not r.parent_id)
         logger.info('\n=== new_risk_ids = %s' % new_risk_ids)
+        new_warranty = self.compare_warranty(new_risk_ids, 'new')
+        logger.info('\n=== new_war = %s' % new_warranty)
         # =========================================
         # check updated risk (compare dict)
         upd_risk_ids = False
@@ -492,57 +574,33 @@ class AnalyticHistory(models.Model):
                 else:
                     upd_risk_ids += upd_risk
             else:
+                logger.info('\n=== Intact risk')
                 if not ntc_risk_ids:
                     ntc_risk_ids = upd_risk
                 else:
                     ntc_risk_ids += upd_risk
+        logger.info('\n=== upd_risk_ids = %s' % upd_risk_ids)
+        upd_warranty = self.compare_warranty(upd_risk_ids, 'updated')
+        logger.info('\n=== upd_warranty = %s' % upd_warranty)
+        logger.info('\n=== ntc_risk_ids = %s' % ntc_risk_ids)
+        ntc_warranty = self.compare_warranty(ntc_risk_ids, 'intact')
         vals = []
         # =========================================
         # Treatment for removed risk
-        if removed:
-            rm_vals = removed.read(['name', 'type_risk_id'])
-            for rm_val in rm_vals:
-                del rm_val['id']
-                rm_val['state'] = 'removed'
-                rm_val['type_risk_id'] = rm_val.get('type_risk_id', False)[0] if rm_val.get('type_risk_id', False) else False
-                # vals.append((0, 0, rm_val))
-                vals.append(rm_val)
+        self.get_risk_state(removed, vals, rm_warranty, 'removed')
         # =========================================
         # Treatment for new risk
-        if new_risk_ids:
-            new_vals = new_risk_ids.read(['name', 'type_risk_id'])
-            for new_val in new_vals:
-                del new_val['id']
-                new_val['state'] = 'new'
-                new_val['type_risk_id'] = new_val.get('type_risk_id', False)[0] if new_val.get('type_risk_id', False) else False
-                # vals.append((0, 0, new_val))
-                vals.append(new_val)
+        self.get_risk_state(new_risk_ids, vals, new_warranty, 'new')
         # =========================================
         # Treatment for update risk
-        if upd_risk_ids:
-            upd_vals = upd_risk_ids.read(['name', 'type_risk_id'])
-            for upd_val in upd_vals:
-                del upd_val['id']
-                upd_val['state'] = 'updated'
-                upd_val['type_risk_id'] = upd_val.get('type_risk_id', False)[0] if upd_val.get('type_risk_id', False) else False
-                # vals.append((0, 0, upd_val))
-                vals.append(upd_val)
+        self.get_risk_state(upd_risk_ids, vals, upd_warranty, 'updated')
         # =========================================
         # Treatment for intact risk
-        if ntc_risk_ids:
-            ntc_vals = ntc_risk_ids.read(['name', 'type_risk_id'])
-            for ntc_val in ntc_vals:
-                del ntc_val['id']
-                ntc_val['state'] = 'intact'
-                ntc_val['type_risk_id'] = ntc_val.get('type_risk_id', False)[0] if ntc_val.get('type_risk_id', False) else False
-                # vals.append((0, 0, ntc_val))
-                vals.append(ntc_val)
+        self.get_risk_state(ntc_risk_ids, vals, ntc_warranty, 'intact')
         logger.info('\n=== vals = %s' % vals)
         # =========================================
-        # ctx = self._context.copy()
-        # logger.info('\n=== ctx = %s' % ctx)
         mvt = {
-            'name': 'Test',
+            'name': self.parent_id.name + ' -> ' + self.name,
             # 'movement_line_ids': vals,
         }
         mvt_id = movement.create(mvt)
@@ -570,25 +628,33 @@ class AnalyticHistory(models.Model):
             # 'context': ctx
         }
         return res
-        # for rl_id in self.risk_line_ids:
-        #     if rl_id.parent_id:
-        #         # we have to compare the risk
-        #         logger.info('compare risk')
-        #     else:
-        #         logger.info('New risk')
-        #     # search if exist in parent_version
-        #     rline = {
-        #         'partner_id': rl_id.partner_id.id,
-        #         'type_risk_id': rl_id.type_risk_id.id,
-        #         'name': rl_id.name,
-        #         'history_id': self.parent_id.id,
-        #     }
-        #     domain = self._convert_dict_to_domain(rline)
-        #     ah_rl_id = ah_rl_obj.search(domain)
-        #     if not ah_rl_id:
-        #         rline.pop('history_id')
-        #         rline['id'] = rl_id.id
-        #         new_rline_list.append(rline)
+
+    @api.multi
+    def get_risk_state(self, risk_line_ids, vals, warrantys={}, state='intact'):
+        if risk_line_ids:
+            rm_vals = risk_line_ids.read(['name', 'type_risk_id'])
+            for rm_val in rm_vals:
+                # del rm_val['id']
+                rm_val['state'] = state
+                rm_val['type_risk_id'] = rm_val.get('type_risk_id', False)[0] if rm_val.get('type_risk_id', False) else False
+                # vals.append((0, 0, rm_val))
+                if warrantys:
+                    rm_val['state'] = self.check_riskst_from_warline_st(rm_val['state'], warrantys.get(rm_val['id']))
+                    wlists = []
+                    for wl in warrantys.get(rm_val['id']):
+                        wlists.append((0,0,wl))
+                    rm_val['movement_warranty_ids'] = wlists
+                del rm_val['id']
+                vals.append(rm_val)
+
+    @api.multi
+    def check_riskst_from_warline_st(self, risk_state, warranty_vals=[]):
+        if not warranty_vals or risk_state in ('removed', 'new', 'updated'):
+            return risk_state
+        for warranty in warranty_vals:
+            if warranty.get('state') in ('updated','removed','new'):
+                risk_state = 'updated'
+        return risk_state
 
     @api.multi
     def _compare_type_risk_history(self):
