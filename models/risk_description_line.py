@@ -12,5 +12,6 @@ class RiskDescriptionLine(models.Model):
     code = fields.Char(string='Code')
     value = fields.Char(string='Value')
     history_risk_line_id = fields.Many2one(comodel_name='analytic_history.risk.line', string='Risk line')
+    parent_id = fields.Many2one(comodel_name='risk.description.line', string='Parent')
 
     _order = 'code asc'
