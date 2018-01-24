@@ -41,3 +41,12 @@ class MovementWarrantyLine(models.TransientModel):
     proratee_net_amount = fields.Float(string='Proratee Net', digits_compute=dp.get_precision('Account'), help='Proratee net amount')
     invoiced = fields.Boolean(string='Invoiced', help='This field is checked if this warranty is invoiced allready')
     state = fields.Selection(selection=[('new', 'New'),('intact', 'Intact'),('updated','Updated'),('removed','Removed')], string='state')
+
+
+class MovementDescriptionLine(models.TransientModel):
+    _name = 'movement.description.line'
+    _description = 'Difference in description for each risk'
+
+    name = fields.Char(string='Name')
+    code = fields.Char(string='Code')
+    value = fields.Char(string='Values')
