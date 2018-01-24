@@ -101,7 +101,7 @@ class AnalyticHistory(models.Model):
         list_fields = ['name', 'type_risk_id', 'risk_warranty_tmpl_id', 'partner_id']
         om_fields = {
             'warranty_line_ids': ['name', 'warranty_id', 'history_risk_line_id', 'yearly_net_amount', 'proratee_net_amount', 'parent_id'],
-            'risk_description_ids': ['name', 'code', 'value']
+            'risk_description_ids': ['name', 'code', 'value', 'parent_id']
         }
         new_risk_line = []
         # TODO
@@ -144,6 +144,7 @@ class AnalyticHistory(models.Model):
                 om_descs = risk_line_id.risk_description_ids.read(om_fields.get('risk_description_ids'))
                 description_list = []
                 for om_desc in om_descs:
+                    om_desc['parent_id'] = om_desc.get('id', False)
                     del om_desc['id']
                     description_list.append((0, 0, om_desc))
                 l['risk_description_ids'] = description_list
@@ -449,6 +450,21 @@ class AnalyticHistory(models.Model):
                     'comment': self.comment,
                 }
         return res
+
+    @api.multi
+    def compare_description(self, recset, state='intact'):
+        """
+        Description can't be removed just updated
+        so, for description comparison we just have
+        two states (updated or intact)
+        :param:: state: status of risk type
+        :param:: recset: analytic_history.risk.line
+        """
+        if not recset:
+            return False
+        to_read = ['name','code','value']
+        vals = {}
+        return {}
 
     @api.multi
     def compare_warranty(self, recset, state='intact'):
