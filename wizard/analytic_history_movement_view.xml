@@ -39,6 +39,16 @@
                                                 </tree>
                                             </field>
                                         </page>
+                                        <page string="Descriptions">
+                                            <field name="movement_desc_ids" readonly="1">
+                                                <tree string="Descriptions" colors="red:state=='removed';green:state=='new';blue:state=='updated'" create="0" delete="0">
+                                                    <field name="code"/>
+                                                    <field name="name"/>
+                                                    <field name="value"/>
+                                                    <field name="state"/>
+                                                </tree>
+                                            </field>
+                                        </page>
                                     </notebook>
                                 </form>
                             </field>
