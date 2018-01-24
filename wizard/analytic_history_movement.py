@@ -20,6 +20,7 @@ class AnalyticHistoryMovementLine(models.TransientModel):
     movement_id = fields.Many2one(comodel_name='analytic_history.movement', string='Movement')
     state = fields.Selection(selection=[('new', 'New'),('intact', 'Intact'),('updated','Updated'),('removed','Removed')], string='state')
     movement_warranty_ids = fields.One2many(comodel_name='movement.warranty.line', inverse_name='movement_line_id', string='Warranty')
+    movement_desc_ids = fields.One2many(comodel_name='movement.description.line', inverse_name='movement_line_id', string='Descriptions')
 
 
 class MovementWarrantyLine(models.TransientModel):
@@ -50,3 +51,6 @@ class MovementDescriptionLine(models.TransientModel):
     name = fields.Char(string='Name')
     code = fields.Char(string='Code')
     value = fields.Char(string='Values')
+    movement_line_id = fields.Many2one(
+        comodel_name='analytic_history.movement.line', string='Lines')
+    state = fields.Selection(selection=[('new', 'New'),('intact', 'Intact'),('updated','Updated'),('removed','Removed')], string='state')
