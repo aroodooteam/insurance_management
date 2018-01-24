@@ -463,8 +463,44 @@ class AnalyticHistory(models.Model):
         if not recset:
             return False
         to_read = ['name','code','value']
+        # to_read = ['value']
         vals = {}
-        return {}
+        if state in ('removed', 'new'):
+            # description state = new if rec is new
+            # description state = removed if rec is removed
+            logger.info('\n === description state')
+            for rec in recset:
+                desc_list = []
+                desc_ids = rec.risk_description_ids.read(to_read)
+                for desc_id in desc_ids:
+                    del desc_id['id']
+                    desc_id['state'] = state
+                    desc_list.append(desc_id)
+                vals[rec.id] = desc_list
+        elif state in ('updated','intact'):
+            logger.info('\n >>> description case 2: updated or intact')
+            for rec in recset:
+                # description can't be removed
+                desc_list = []
+                desc_ids = rec.risk_description_ids.filtered(lambda r: r.parent_id)
+                for desc_id in desc_ids:
+                    inh_desc = desc_id.read(to_read)[0]
+                    del inh_desc['id']
+                    par_desc = desc_id.parent_id.read(to_read)[0]
+                    del par_desc['id']
+                    if inh_desc != par_desc:
+                        logger.info('updated description')
+                        inh_desc['state'] = 'updated'
+                        desc_list.append(inh_desc)
+                    else:
+                        logger.info('intact description')
+                        inh_desc['state'] = 'intact'
+                        desc_list.append(inh_desc)
+                if vals.get(rec.id, False):
+                    vals[rec.id] += desc_list
+                else:
+                    vals[rec.id] = desc_list
+        return vals
 
     @api.multi
     def compare_warranty(self, recset, state='intact'):
@@ -533,7 +569,7 @@ class AnalyticHistory(models.Model):
                         par_warranty_vals = warranty_id.parent_id.read(to_read)[0]
                         del par_warranty_vals['id']
                         if inh_warranty_vals != par_warranty_vals:
-                            logger.info('\n=== Modified warranty')
+                            logger.info('\n=== Modified warranty: may be we need to find what is the difference')
                             inh_warranty_vals['warranty_id'] = inh_warranty_vals.get('warranty_id', False)[0]
                             inh_warranty_vals['state'] = 'updated'
                             war_list.append(inh_warranty_vals)
@@ -564,12 +600,14 @@ class AnalyticHistory(models.Model):
         removed = real_parent_ids - current_parent_ids
         logger.info('\n=== removed = %s' % removed)
         rm_warranty = self.compare_warranty(removed, 'removed')
+        rm_desc= self.compare_description(removed, 'removed')
         logger.info('\n=== rm_war = %s' % rm_warranty)
         # =========================================
         # check new risk added
         new_risk_ids = self.risk_line_ids.filtered(lambda r: not r.parent_id)
         logger.info('\n=== new_risk_ids = %s' % new_risk_ids)
         new_warranty = self.compare_warranty(new_risk_ids, 'new')
+        new_desc = self.compare_description(new_risk_ids, 'new')
         logger.info('\n=== new_war = %s' % new_warranty)
         # =========================================
         # check updated risk (compare dict)
@@ -597,22 +635,24 @@ class AnalyticHistory(models.Model):
                     ntc_risk_ids += upd_risk
         logger.info('\n=== upd_risk_ids = %s' % upd_risk_ids)
         upd_warranty = self.compare_warranty(upd_risk_ids, 'updated')
+        upd_desc = self.compare_description(upd_risk_ids, 'updated')
         logger.info('\n=== upd_warranty = %s' % upd_warranty)
         logger.info('\n=== ntc_risk_ids = %s' % ntc_risk_ids)
         ntc_warranty = self.compare_warranty(ntc_risk_ids, 'intact')
+        ntc_desc = self.compare_description(ntc_risk_ids, 'intact')
         vals = []
         # =========================================
         # Treatment for removed risk
-        self.get_risk_state(removed, vals, rm_warranty, 'removed')
+        self.get_risk_state(removed, vals, rm_warranty, rm_desc, 'removed')
         # =========================================
         # Treatment for new risk
-        self.get_risk_state(new_risk_ids, vals, new_warranty, 'new')
+        self.get_risk_state(new_risk_ids, vals, new_warranty, new_desc, 'new')
         # =========================================
         # Treatment for update risk
-        self.get_risk_state(upd_risk_ids, vals, upd_warranty, 'updated')
+        self.get_risk_state(upd_risk_ids, vals, upd_warranty, upd_desc, 'updated')
         # =========================================
         # Treatment for intact risk
-        self.get_risk_state(ntc_risk_ids, vals, ntc_warranty, 'intact')
+        self.get_risk_state(ntc_risk_ids, vals, ntc_warranty, ntc_desc, 'intact')
         logger.info('\n=== vals = %s' % vals)
         # =========================================
         mvt = {
@@ -646,7 +686,7 @@ class AnalyticHistory(models.Model):
         return res
 
     @api.multi
-    def get_risk_state(self, risk_line_ids, vals, warrantys={}, state='intact'):
+    def get_risk_state(self, risk_line_ids, vals, warrantys={}, descriptions={}, state='intact'):
         if risk_line_ids:
             rm_vals = risk_line_ids.read(['name', 'type_risk_id'])
             for rm_val in rm_vals:
@@ -660,6 +700,12 @@ class AnalyticHistory(models.Model):
                     for wl in warrantys.get(rm_val['id']):
                         wlists.append((0,0,wl))
                     rm_val['movement_warranty_ids'] = wlists
+                if descriptions:
+                    rm_val['state'] = self.check_riskst_from_warline_st(rm_val['state'], descriptions.get(rm_val['id']))
+                    dlists = []
+                    for dl in descriptions.get(rm_val['id']):
+                        dlists.append((0,0,dl))
+                    rm_val['movement_desc_ids'] = dlists
                 del rm_val['id']
                 vals.append(rm_val)
 
