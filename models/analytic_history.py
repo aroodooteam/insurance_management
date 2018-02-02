@@ -753,3 +753,21 @@ class AnalyticHistory(models.Model):
                 logger.info('''Can't convert dict as domain''')
             res.append((k, '=', vals[k]))
         return res
+
+    @api.multi
+    def compute_ristourne(self):
+        """
+        En cas d'avenant:
+            - si une garantie ou un risque est retiré du contrat alors une partie
+            de la prime payé par le client doit être remboursé
+            - si une garantie ou un risque est ajouté au contrat alors on recalcule
+            la valeur de la prime en plus qui doit être payé par le client.
+        """
+        return True
+
+    @api.multi
+    def unlink(self):
+        for rec in self:
+            if rec.invoice_id:
+                raise exceptions.Warning(_('Can\'t delete version allready invoiced'))
+        return super(AnalyticHistory, self).unlink()
