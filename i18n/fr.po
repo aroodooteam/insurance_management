@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-29 07:36+0000\n"
-"PO-Revision-Date: 2017-11-29 07:36+0000\n"
+"POT-Creation-Date: 2018-02-02 07:57+0000\n"
+"PO-Revision-Date: 2018-02-02 07:57+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,9 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/analytic_history.py:64
-#: code:addons/insurance_management/models/analytic_history.py:90
-#: code:addons/insurance_management/models/analytic_history.py:96
+#: code:addons/insurance_management/models/analytic_history.py:84
+#: code:addons/insurance_management/models/analytic_history.py:110
+#: code:addons/insurance_management/models/analytic_history.py:117
 #, python-format
 msgid "%s (copy)"
 msgstr "%s (copie)"
@@ -78,6 +78,11 @@ msgid "AP code"
 msgstr "AP code"
 
 #. module: insurance_management
+#: field:analytic.history,accessories:0
+msgid "Accessories"
+msgstr "Accessories"
+
+#. module: insurance_management
 #: field:insurance.product,amount_accessories:0
 msgid "Accessories Amount"
 msgstr "Montant Accessoires"
@@ -103,13 +108,18 @@ msgid "Account setting"
 msgstr "Configuration compte"
 
 #. module: insurance_management
+#: field:analytic.history,agency_id:0
+msgid "Agency"
+msgstr "Agence"
+
+#. module: insurance_management
 #: model:product.template,name:insurance_management.pt_amendes_et_pnalits_r0
 msgid "Amendes et pénalités"
 msgstr "Amendes et pénalités"
 
 #. module: insurance_management
 #: code:addons/insurance_management/models/aro_insurance_subscription.py:150
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:184
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:195
 #, python-format
 msgid "Amendment"
 msgstr "Avenant"
@@ -125,6 +135,7 @@ msgid "Amendment Lines"
 msgstr "Détails de l'avenant"
 
 #. module: insurance_management
+#: view:account.analytic.account:insurance_management.view_account_analytic_account_form
 #: model:ir.model,name:insurance_management.model_account_analytic_account
 msgid "Analytic Account"
 msgstr "Compte analytique"
@@ -219,6 +230,8 @@ msgstr "Base Bris De Glaces"
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_base_matriels_electroniques_r0
 #: model:product.template,name:insurance_management.pt_base_matriels_electroniques_r1
+#: model:product.template,name:insurance_management.pt_base_matriels_electroniques_r2
+#: model:product.template,name:insurance_management.pt_base_matriels_electroniques_r3
 msgid "Base Matériels Electroniques"
 msgstr "Base Matériels Electroniques"
 
@@ -237,11 +250,14 @@ msgstr "Branch Category"
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_bris_de_glaces_r4
 #: model:product.template,name:insurance_management.pt_bris_de_glaces_r5
+#: model:product.template,name:insurance_management.pt_bris_de_glaces_r6
+#: model:product.template,name:insurance_management.pt_bris_de_glaces_r7
 msgid "Bris de Glaces"
 msgstr "Bris de Glaces"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_bris_de_glaces_gemp_r1
+#: model:product.template,name:insurance_management.pt_bris_de_glaces_gemp_r2
 msgid "Bris de Glaces GEMP"
 msgstr "Bris de Glaces GEMP"
 
@@ -255,6 +271,7 @@ msgstr "Bris de glaces"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_bris_de_glaces_gemp_r0
+#: model:product.template,name:insurance_management.pt_bris_de_glaces_gemp_r3
 msgid "Bris de glaces GEMP"
 msgstr "Bris de glaces GEMP"
 
@@ -299,6 +316,11 @@ msgid "Check if it is an insurance contract"
 msgstr "Cochez si c'est une police d'assurance"
 
 #. module: insurance_management
+#: help:account.analytic.account,is_recurrent:0
+msgid "Check if it is an recurrent contract"
+msgstr "Cocher si contrat Tacite reconduction"
+
+#. module: insurance_management
 #: help:product.template,is_warranty:0
 msgid "Check if this product is an warranty"
 msgstr "Cochez si ce produit est une garantie"
@@ -318,6 +340,8 @@ msgstr "Enfant"
 #: model:product.template,name:insurance_management.pt_choc_vhic__terrestres__moteur_identifis_r1
 #: model:product.template,name:insurance_management.pt_choc_vhic__terrestres__moteur_identifis_r2
 #: model:product.template,name:insurance_management.pt_choc_vhic__terrestres__moteur_identifis_r3
+#: model:product.template,name:insurance_management.pt_choc_vhic__terrestres__moteur_identifis_r4
+#: model:product.template,name:insurance_management.pt_choc_vhic__terrestres__moteur_identifis_r5
 msgid "Choc véhic. terrestres à moteur identifiés"
 msgstr "Choc véhic. terrestres à moteur identifiés"
 
@@ -354,6 +378,7 @@ msgstr "Clauses"
 #: field:insurance.type.risk,code:0
 #: field:insurance_type_risk.clause,code:0
 #: field:insurance_type_risk.description,code:0
+#: field:movement.description.line,code:0
 #: field:reg.tax.reference,fiscal_code:0
 #: field:risk.description.line,code:0
 msgid "Code"
@@ -373,6 +398,7 @@ msgstr "Code type de risque"
 
 #. module: insurance_management
 #: field:analytic.history,comment:0
+#: field:analytic_history.risk.line,comment:0
 msgid "Comment"
 msgstr "Commentaires"
 
@@ -391,6 +417,11 @@ msgstr "Information Commission"
 #: field:product.template,commissionable:0
 msgid "Commissionable"
 msgstr "Commissionable"
+
+#. module: insurance_management
+#: view:analytic.history:insurance_management.view_analytic_history_form
+msgid "Compare"
+msgstr "Compare"
 
 #. module: insurance_management
 #: model:ir.ui.menu,name:insurance_management.menu_root_configuration_insurance
@@ -453,6 +484,8 @@ msgstr "Corps ext. Risques de Guerre"
 #: field:analytic.history,create_uid:0
 #: field:analytic.history.stage,create_uid:0
 #: field:analytic.history.wiz,create_uid:0
+#: field:analytic_history.movement,create_uid:0
+#: field:analytic_history.movement.line,create_uid:0
 #: field:analytic_history.risk.line,create_uid:0
 #: field:insurance.branch,create_uid:0
 #: field:insurance.fraction,create_uid:0
@@ -460,6 +493,8 @@ msgstr "Corps ext. Risques de Guerre"
 #: field:insurance.type.risk,create_uid:0
 #: field:insurance_type_risk.clause,create_uid:0
 #: field:insurance_type_risk.description,create_uid:0
+#: field:movement.description.line,create_uid:0
+#: field:movement.warranty.line,create_uid:0
 #: field:reg.tax.reference,create_uid:0
 #: field:res.partner.family,create_uid:0
 #: field:risk.description.line,create_uid:0
@@ -471,6 +506,8 @@ msgstr "Created by"
 #: field:analytic.history,create_date:0
 #: field:analytic.history.stage,create_date:0
 #: field:analytic.history.wiz,create_date:0
+#: field:analytic_history.movement,create_date:0
+#: field:analytic_history.movement.line,create_date:0
 #: field:analytic_history.risk.line,create_date:0
 #: field:insurance.branch,create_date:0
 #: field:insurance.fraction,create_date:0
@@ -478,6 +515,8 @@ msgstr "Created by"
 #: field:insurance.type.risk,create_date:0
 #: field:insurance_type_risk.clause,create_date:0
 #: field:insurance_type_risk.description,create_date:0
+#: field:movement.description.line,create_date:0
+#: field:movement.warranty.line,create_date:0
 #: field:reg.tax.reference,create_date:0
 #: field:res.partner.family,create_date:0
 #: field:risk.description.line,create_date:0
@@ -504,11 +543,13 @@ msgstr "Cyclones"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_cyclones__ext__inondation_r0
+#: model:product.template,name:insurance_management.pt_cyclones__ext__inondation_r1
 msgid "Cyclones - Ext. Inondation"
 msgstr "Cyclones - Ext. Inondation"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_cyclones__ext__inondation_btiment_r0
+#: model:product.template,name:insurance_management.pt_cyclones__ext__inondation_btiment_r1
 msgid "Cyclones - Ext. Inondation Bâtiment"
 msgstr "Cyclones - Ext. Inondation Bâtiment"
 
@@ -519,6 +560,7 @@ msgstr "Cyclones - Ext. Inondation Contenu"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_cyclones__ext__inondation_conscutive__un_cyclone_r0
+#: model:product.template,name:insurance_management.pt_cyclones__ext__inondation_conscutive__un_cyclone_r1
 msgid "Cyclones - Ext. Inondation consécutive à un cyclone"
 msgstr "Cyclones - Ext. Inondation consécutive à un cyclone"
 
@@ -575,12 +617,15 @@ msgstr "DDE-Privation de Jouissance Locataires"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_ddeprivation_de_jouissance_des_locataires_r0
+#: model:product.template,name:insurance_management.pt_ddeprivation_de_jouissance_des_locataires_r1
 msgid "DDE-Privation de Jouissance des Locataires"
 msgstr "DDE-Privation de Jouissance des Locataires"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_ddeprivation_de_jouissance_des_propr__r0
 #: model:product.template,name:insurance_management.pt_ddeprivation_de_jouissance_des_propr__r1
+#: model:product.template,name:insurance_management.pt_ddeprivation_de_jouissance_des_propr__r2
+#: model:product.template,name:insurance_management.pt_ddeprivation_de_jouissance_des_propr__r3
 msgid "DDE-Privation de Jouissance des Propr."
 msgstr "DDE-Privation de Jouissance des Propr."
 
@@ -644,7 +689,9 @@ msgstr "Montant Accessoires par défaut si plus d'un objet"
 
 #. module: insurance_management
 #: field:analytic_history.risk.line,name:0
+#: field:insurance.type.risk,description:0
 #: view:insurance_type_risk.clause:insurance_management.view_insurance_type_risk_clause_form
+#: field:movement.warranty.line,name:0
 #: field:risk.warranty.line,name:0
 msgid "Description"
 msgstr "Description"
@@ -656,6 +703,8 @@ msgstr "Description of insurance type of risk"
 
 #. module: insurance_management
 #: view:analytic.history:insurance_management.view_analytic_history_form
+#: view:analytic_history.movement:insurance_management.view_analytic_history_movement_form
+#: field:analytic_history.movement.line,movement_desc_ids:0
 #: model:ir.actions.act_window,name:insurance_management.act_open_insurance_type_risk_description_view
 #: model:ir.ui.menu,name:insurance_management.menu_insurance_type_risk_description
 msgid "Descriptions"
@@ -672,6 +721,16 @@ msgid "Details"
 msgstr "Details"
 
 #. module: insurance_management
+#: model:ir.model,name:insurance_management.model_movement_description_line
+msgid "Difference in description for each risk"
+msgstr "Difference in description for each risk"
+
+#. module: insurance_management
+#: model:ir.model,name:insurance_management.model_movement_warranty_line
+msgid "Difference in warranty for each risk"
+msgstr "Difference in warranty for each risk"
+
+#. module: insurance_management
 #: help:analytic.history.wiz,stage_id:0
 msgid "Different stage of the history"
 msgstr "Type Emission"
@@ -680,6 +739,8 @@ msgstr "Type Emission"
 #: field:analytic.history,display_name:0
 #: field:analytic.history.stage,display_name:0
 #: field:analytic.history.wiz,display_name:0
+#: field:analytic_history.movement,display_name:0
+#: field:analytic_history.movement.line,display_name:0
 #: field:analytic_history.risk.line,display_name:0
 #: field:insurance.branch,display_name:0
 #: field:insurance.fraction,display_name:0
@@ -687,6 +748,8 @@ msgstr "Type Emission"
 #: field:insurance.type.risk,display_name:0
 #: field:insurance_type_risk.clause,display_name:0
 #: field:insurance_type_risk.description,display_name:0
+#: field:movement.description.line,display_name:0
+#: field:movement.warranty.line,display_name:0
 #: field:reg.tax.reference,display_name:0
 #: field:res.partner.family,display_name:0
 #: field:risk.description.line,display_name:0
@@ -696,6 +759,7 @@ msgstr "Display Name"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_dom__ext__ampoules_de_projecteurs_dclairage_r0
+#: model:product.template,name:insurance_management.pt_dom__ext__ampoules_de_projecteurs_dclairage_r1
 msgid "Dom - Ext. Ampoules de projecteurs d'éclairage"
 msgstr "Dom - Ext. Ampoules de projecteurs d'éclairage"
 
@@ -792,6 +856,8 @@ msgstr "Dom - Ext. Risque Corps de Machines transport inclu"
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_domext_ampoules_de_projecteurs_dclairage_r0
 #: model:product.template,name:insurance_management.pt_domext_ampoules_de_projecteurs_dclairage_r1
+#: model:product.template,name:insurance_management.pt_domext_ampoules_de_projecteurs_dclairage_r2
+#: model:product.template,name:insurance_management.pt_domext_ampoules_de_projecteurs_dclairage_r3
 msgid "Dom-Ext Ampoules de projecteurs d’éclairage"
 msgstr "Dom-Ext Ampoules de projecteurs d’éclairage"
 
@@ -976,6 +1042,7 @@ msgstr "Dommages Matériels"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_dommages_aux_gros_ouvrages_r0
+#: model:product.template,name:insurance_management.pt_dommages_aux_gros_ouvrages_r1
 msgid "Dommages aux gros ouvrages"
 msgstr "Dommages aux gros ouvrages"
 
@@ -1033,12 +1100,15 @@ msgstr "Dommages électriques"
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_dcs_r0
 #: model:product.template,name:insurance_management.pt_dcs_r1
+#: model:product.template,name:insurance_management.pt_dcs_r10
 #: model:product.template,name:insurance_management.pt_dcs_r2
 #: model:product.template,name:insurance_management.pt_dcs_r3
 #: model:product.template,name:insurance_management.pt_dcs_r4
 #: model:product.template,name:insurance_management.pt_dcs_r5
 #: model:product.template,name:insurance_management.pt_dcs_r6
 #: model:product.template,name:insurance_management.pt_dcs_r7
+#: model:product.template,name:insurance_management.pt_dcs_r8
+#: model:product.template,name:insurance_management.pt_dcs_r9
 msgid "Décès"
 msgstr "Décès"
 
@@ -1050,6 +1120,8 @@ msgstr "Défauts d'étanchéité pour toiture, façades, …"
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_dfense_et_recours_r1
 #: model:product.template,name:insurance_management.pt_dfense_et_recours_r2
+#: model:product.template,name:insurance_management.pt_dfense_et_recours_r3
+#: model:product.template,name:insurance_management.pt_dfense_et_recours_r4
 msgid "Défense et Recours"
 msgstr "Défense et Recours"
 
@@ -1082,6 +1154,7 @@ msgstr "Dégâts des eaux"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_dgts_des_eaux_btiment_r0
+#: model:product.template,name:insurance_management.pt_dgts_des_eaux_btiment_r1
 msgid "Dégâts des eaux Bâtiment"
 msgstr "Dégâts des eaux Bâtiment"
 
@@ -1141,7 +1214,7 @@ msgstr "Evénements naturels"
 #. module: insurance_management
 #: field:analytic.history,eml:0
 msgid "Expected maximum loss"
-msgstr "Pertes maximum prévue"
+msgstr "SMP"
 
 #. module: insurance_management
 #: field:res.partner,account_charge_id:0
@@ -1325,6 +1398,7 @@ msgstr "Frais de chirurgie"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_frais_de_dblaisdmolition_aprs_sinistre_r0
+#: model:product.template,name:insurance_management.pt_frais_de_dblaisdmolition_aprs_sinistre_r1
 msgid "Frais de déblais/démolition après sinistre"
 msgstr "Frais de déblais/démolition après sinistre"
 
@@ -1346,6 +1420,9 @@ msgstr "Frais de retirement (DOM**)"
 #: model:product.template,name:insurance_management.pt_frais_de_sauvetage_r0
 #: model:product.template,name:insurance_management.pt_frais_de_sauvetage_r1
 #: model:product.template,name:insurance_management.pt_frais_de_sauvetage_r2
+#: model:product.template,name:insurance_management.pt_frais_de_sauvetage_r3
+#: model:product.template,name:insurance_management.pt_frais_de_sauvetage_r4
+#: model:product.template,name:insurance_management.pt_frais_de_sauvetage_r5
 msgid "Frais de sauvetage"
 msgstr "Frais de sauvetage"
 
@@ -1358,15 +1435,19 @@ msgstr "Frais de soins et hospitalisation remboursés à l'extérieur"
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_frais_de_traitement_r0
 #: model:product.template,name:insurance_management.pt_frais_de_traitement_r1
+#: model:product.template,name:insurance_management.pt_frais_de_traitement_r10
 #: model:product.template,name:insurance_management.pt_frais_de_traitement_r2
 #: model:product.template,name:insurance_management.pt_frais_de_traitement_r3
 #: model:product.template,name:insurance_management.pt_frais_de_traitement_r4
 #: model:product.template,name:insurance_management.pt_frais_de_traitement_r5
+#: model:product.template,name:insurance_management.pt_frais_de_traitement_r8
+#: model:product.template,name:insurance_management.pt_frais_de_traitement_r9
 msgid "Frais de traitement"
 msgstr "Frais de traitement"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_frais_et_pertes_divers_r0
+#: model:product.template,name:insurance_management.pt_frais_et_pertes_divers_r1
 msgid "Frais et pertes divers"
 msgstr "Frais et pertes divers"
 
@@ -1383,6 +1464,7 @@ msgstr "Fraude, abus de confiance, détournement..."
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_garantie_fictive_r0
+#: model:product.template,name:insurance_management.pt_garantie_fictive_r1
 msgid "GARANTIE FICTIVE"
 msgstr "GARANTIE FICTIVE"
 
@@ -1390,6 +1472,11 @@ msgstr "GARANTIE FICTIVE"
 #: model:product.template,name:insurance_management.pt_garanties_rctt_global_r0
 msgid "Garanties RCTT Global"
 msgstr "Garanties RCTT Global"
+
+#. module: insurance_management
+#: model:ir.actions.server,name:insurance_management.generate_invoice_act_server
+msgid "Generate Invoice"
+msgstr "Generate Invoice"
 
 #. module: insurance_management
 #: view:insurance.product:insurance_management.view_insurance_product_search
@@ -1441,7 +1528,6 @@ msgstr "Version"
 
 #. module: insurance_management
 #: field:account.invoice,history_id:0
-#: model:ir.actions.act_window,name:insurance_management.act_analytic_history_request
 msgid "History"
 msgstr "Version"
 
@@ -1472,17 +1558,20 @@ msgstr "Honoraires d'architectes et/ou bureau d'études"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_honoraires_dexp__cont__marchandises_excl_r0
+#: model:product.template,name:insurance_management.pt_honoraires_dexp__cont__marchandises_excl_r1
 msgid "Honoraires d'exp. Cont. Marchandises excl"
 msgstr "Honoraires d'exp. Cont. Marchandises excl"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_honoraires_dexperts_btiment_r0
 #: model:product.template,name:insurance_management.pt_honoraires_dexperts_btiment_r1
+#: model:product.template,name:insurance_management.pt_honoraires_dexperts_btiment_r2
 msgid "Honoraires d'experts Bâtiment"
 msgstr "Honoraires d'experts Bâtiment"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_honoraires_dexperts_contenu_marchandises_exclues_r0
+#: model:product.template,name:insurance_management.pt_honoraires_dexperts_contenu_marchandises_exclues_r1
 msgid "Honoraires d'experts Contenu (marchandises exclues)"
 msgstr "Honoraires d'experts Contenu (marchandises exclues)"
 
@@ -1490,6 +1579,8 @@ msgstr "Honoraires d'experts Contenu (marchandises exclues)"
 #: field:analytic.history,id:0
 #: field:analytic.history.stage,id:0
 #: field:analytic.history.wiz,id:0
+#: field:analytic_history.movement,id:0
+#: field:analytic_history.movement.line,id:0
 #: field:analytic_history.risk.line,id:0
 #: field:insurance.branch,id:0
 #: field:insurance.fraction,id:0
@@ -1497,6 +1588,8 @@ msgstr "Honoraires d'experts Contenu (marchandises exclues)"
 #: field:insurance.type.risk,id:0
 #: field:insurance_type_risk.clause,id:0
 #: field:insurance_type_risk.description,id:0
+#: field:movement.description.line,id:0
+#: field:movement.warranty.line,id:0
 #: field:reg.tax.reference,id:0
 #: field:res.partner.family,id:0
 #: field:risk.description.line,id:0
@@ -1544,11 +1637,13 @@ msgstr "Incendie (bâtiment et contenu)"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_incendie__ext__frais_de_dplacement_du_mobilier_r0
+#: model:product.template,name:insurance_management.pt_incendie__ext__frais_de_dplacement_du_mobilier_r1
 msgid "Incendie - Ext. Frais de déplacement du mobilier"
 msgstr "Incendie - Ext. Frais de déplacement du mobilier"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_incendie__ext__frais_dpl__du_mobilier_r0
+#: model:product.template,name:insurance_management.pt_incendie__ext__frais_dpl__du_mobilier_r1
 msgid "Incendie - Ext. Frais dépl. du mobilier"
 msgstr "Incendie - Ext. Frais dépl. du mobilier"
 
@@ -1581,6 +1676,7 @@ msgstr "Incendie Ext. Recours de locataire"
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_incendie_gemp_r0
 #: model:product.template,name:insurance_management.pt_incendie_gemp_r1
+#: model:product.template,name:insurance_management.pt_incendie_gemp_r2
 msgid "Incendie GEMP"
 msgstr "Incendie GEMP"
 
@@ -1633,6 +1729,9 @@ msgstr "Indemn. Contract. : Infirmité Permanente"
 #: model:product.template,name:insurance_management.pt_indemnit_journalire_r0
 #: model:product.template,name:insurance_management.pt_indemnit_journalire_r1
 #: model:product.template,name:insurance_management.pt_indemnit_journalire_r2
+#: model:product.template,name:insurance_management.pt_indemnit_journalire_r3
+#: model:product.template,name:insurance_management.pt_indemnit_journalire_r4
+#: model:product.template,name:insurance_management.pt_indemnit_journalire_r5
 msgid "Indemnité journalière"
 msgstr "Indemnité journalière"
 
@@ -1640,6 +1739,9 @@ msgstr "Indemnité journalière"
 #: model:product.template,name:insurance_management.pt_indemnit_quotidienne_r0
 #: model:product.template,name:insurance_management.pt_indemnit_quotidienne_r1
 #: model:product.template,name:insurance_management.pt_indemnit_quotidienne_r2
+#: model:product.template,name:insurance_management.pt_indemnit_quotidienne_r3
+#: model:product.template,name:insurance_management.pt_indemnit_quotidienne_r4
+#: model:product.template,name:insurance_management.pt_indemnit_quotidienne_r5
 msgid "Indemnité quotidienne"
 msgstr "Indemnité quotidienne"
 
@@ -1667,10 +1769,13 @@ msgstr "Infirmité Permanente"
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_infirmit_permanente_r0
 #: model:product.template,name:insurance_management.pt_infirmit_permanente_r1
+#: model:product.template,name:insurance_management.pt_infirmit_permanente_r10
 #: model:product.template,name:insurance_management.pt_infirmit_permanente_r2
 #: model:product.template,name:insurance_management.pt_infirmit_permanente_r3
 #: model:product.template,name:insurance_management.pt_infirmit_permanente_r4
 #: model:product.template,name:insurance_management.pt_infirmit_permanente_r5
+#: model:product.template,name:insurance_management.pt_infirmit_permanente_r8
+#: model:product.template,name:insurance_management.pt_infirmit_permanente_r9
 msgid "Infirmité permanente"
 msgstr "Infirmité permanente"
 
@@ -1702,6 +1807,11 @@ msgstr "Branche"
 #: field:product.template,ins_product_id:0
 msgid "Insurance Product"
 msgstr "Produit d'assurance"
+
+#. module: insurance_management
+#: model:res.groups,name:insurance_management.group_insurance_sale_user
+msgid "Insurance User"
+msgstr "Insurance User"
 
 #. module: insurance_management
 #: view:insurance.branch:insurance_management.view_insurance_branch_form
@@ -1754,6 +1864,11 @@ msgid "Insurance product"
 msgstr "Produit d'assurance "
 
 #. module: insurance_management
+#: model:ir.module.category,name:insurance_management.categ_insurance_sale
+msgid "Insurance sale"
+msgstr "Insurance sale"
+
+#. module: insurance_management
 #: model:ir.model,name:insurance_management.model_insurance_type_risk
 msgid "Insurance type of risk"
 msgstr "Type de risque"
@@ -1770,13 +1885,20 @@ msgid "Insured"
 msgstr "Assuré"
 
 #. module: insurance_management
+#: selection:analytic_history.movement.line,state:0
+#: selection:movement.description.line,state:0
+#: selection:movement.warranty.line,state:0
+msgid "Intact"
+msgstr "Intact"
+
+#. module: insurance_management
 #: field:account.analytic.account,ins_product_id:0
 msgid "Inusrance Product"
 msgstr "Produit assusrance"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/analytic_history.py:239
-#: code:addons/insurance_management/models/analytic_history.py:337
+#: code:addons/insurance_management/models/analytic_history.py:300
+#: code:addons/insurance_management/models/analytic_history.py:423
 #: field:analytic.history,invoice_id:0
 #: model:ir.model,name:insurance_management.model_account_invoice
 #, python-format
@@ -1785,6 +1907,8 @@ msgstr "Facture"
 
 #. module: insurance_management
 #: field:account.analytic.account,warranty_invoiced:0
+#: field:movement.warranty.line,invoiced:0
+#: field:risk.warranty.line,invoiced:0
 msgid "Invoiced"
 msgstr "Facturé"
 
@@ -1817,6 +1941,8 @@ msgstr "Item"
 #: field:analytic.history,__last_update:0
 #: field:analytic.history.stage,__last_update:0
 #: field:analytic.history.wiz,__last_update:0
+#: field:analytic_history.movement,__last_update:0
+#: field:analytic_history.movement.line,__last_update:0
 #: field:analytic_history.risk.line,__last_update:0
 #: field:insurance.branch,__last_update:0
 #: field:insurance.fraction,__last_update:0
@@ -1824,6 +1950,8 @@ msgstr "Item"
 #: field:insurance.type.risk,__last_update:0
 #: field:insurance_type_risk.clause,__last_update:0
 #: field:insurance_type_risk.description,__last_update:0
+#: field:movement.description.line,__last_update:0
+#: field:movement.warranty.line,__last_update:0
 #: field:reg.tax.reference,__last_update:0
 #: field:res.partner.family,__last_update:0
 #: field:risk.description.line,__last_update:0
@@ -1835,6 +1963,8 @@ msgstr "Last Modified on"
 #: field:analytic.history,write_uid:0
 #: field:analytic.history.stage,write_uid:0
 #: field:analytic.history.wiz,write_uid:0
+#: field:analytic_history.movement,write_uid:0
+#: field:analytic_history.movement.line,write_uid:0
 #: field:analytic_history.risk.line,write_uid:0
 #: field:insurance.branch,write_uid:0
 #: field:insurance.fraction,write_uid:0
@@ -1842,6 +1972,8 @@ msgstr "Last Modified on"
 #: field:insurance.type.risk,write_uid:0
 #: field:insurance_type_risk.clause,write_uid:0
 #: field:insurance_type_risk.description,write_uid:0
+#: field:movement.description.line,write_uid:0
+#: field:movement.warranty.line,write_uid:0
 #: field:reg.tax.reference,write_uid:0
 #: field:res.partner.family,write_uid:0
 #: field:risk.description.line,write_uid:0
@@ -1853,6 +1985,8 @@ msgstr "Last Updated by"
 #: field:analytic.history,write_date:0
 #: field:analytic.history.stage,write_date:0
 #: field:analytic.history.wiz,write_date:0
+#: field:analytic_history.movement,write_date:0
+#: field:analytic_history.movement.line,write_date:0
 #: field:analytic_history.risk.line,write_date:0
 #: field:insurance.branch,write_date:0
 #: field:insurance.fraction,write_date:0
@@ -1860,6 +1994,8 @@ msgstr "Last Updated by"
 #: field:insurance.type.risk,write_date:0
 #: field:insurance_type_risk.clause,write_date:0
 #: field:insurance_type_risk.description,write_date:0
+#: field:movement.description.line,write_date:0
+#: field:movement.warranty.line,write_date:0
 #: field:reg.tax.reference,write_date:0
 #: field:res.partner.family,write_date:0
 #: field:risk.description.line,write_date:0
@@ -1868,7 +2004,7 @@ msgid "Last Updated on"
 msgstr "Last Updated on"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/account_analytic_account.py:161
+#: code:addons/insurance_management/models/account_analytic_account.py:163
 #, python-format
 msgid "Last Version"
 msgstr "Dernière Version"
@@ -1877,6 +2013,18 @@ msgstr "Dernière Version"
 #: help:insurance.product,amount_threshold:0
 msgid "Limit of amount"
 msgstr "Limite du montant"
+
+#. module: insurance_management
+#: view:analytic_history.movement:insurance_management.view_analytic_history_movement_form
+#: field:movement.description.line,movement_line_id:0
+#: field:movement.warranty.line,movement_line_id:0
+msgid "Lines"
+msgstr "Lines"
+
+#. module: insurance_management
+#: help:insurance.type.risk,description:0
+msgid "List of code of description to use, separated by comma"
+msgstr "List of code of description to use, separated by comma"
 
 #. module: insurance_management
 #: field:insurance.product,image:0
@@ -1925,6 +2073,11 @@ msgid "Maintenance"
 msgstr "Maintenance"
 
 #. module: insurance_management
+#: model:res.groups,name:insurance_management.group_insurance_sale_manager
+msgid "Manager"
+msgstr "Responsable"
+
+#. module: insurance_management
 #: model:insurance.branch,name:insurance_management.insurance_branch_maritime
 msgid "Marine Insurance"
 msgstr "Maritime"
@@ -1948,6 +2101,8 @@ msgstr "Medium-sized image"
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_mobilier_hors_du_domicile_r0
 #: model:product.template,name:insurance_management.pt_mobilier_hors_du_domicile_r1
+#: model:product.template,name:insurance_management.pt_mobilier_hors_du_domicile_r2
+#: model:product.template,name:insurance_management.pt_mobilier_hors_du_domicile_r3
 msgid "Mobilier hors du domicile"
 msgstr "Mobilier hors du domicile"
 
@@ -1962,7 +2117,21 @@ msgid "Motor"
 msgstr "Automobile"
 
 #. module: insurance_management
+#: view:analytic_history.movement:insurance_management.view_analytic_history_movement_form
+#: field:analytic_history.movement,movement_line_ids:0
+#: field:analytic_history.movement.line,movement_id:0
+#: model:ir.model,name:insurance_management.model_analytic_history_movement
+msgid "Movement"
+msgstr "Movement"
+
+#. module: insurance_management
+#: model:ir.model,name:insurance_management.model_analytic_history_movement_line
+msgid "Movement Line"
+msgstr "Movement Line"
+
+#. module: insurance_management
 #: model:product.template,name:insurance_management.pt_multirisque_dgts_des_eaux_r1
+#: model:product.template,name:insurance_management.pt_multirisque_dgts_des_eaux_r3
 msgid "Multirisque Dégâts des Eaux"
 msgstr "Multirisque Dégâts des Eaux"
 
@@ -1973,6 +2142,7 @@ msgstr "Multirisque Dégâts des Eaux Bâtiment"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_multirisque_dgts_des_eaux_r0
+#: model:product.template,name:insurance_management.pt_multirisque_dgts_des_eaux_r2
 msgid "Multirisque Dégâts des eaux"
 msgstr "Multirisque Dégâts des eaux"
 
@@ -1983,6 +2153,8 @@ msgstr "Multirisque Dégâts des eaux Contenu"
 
 #. module: insurance_management
 #: field:analytic.history.stage,name:0
+#: field:analytic_history.movement,name:0
+#: field:analytic_history.movement.line,name:0
 #: field:insurance.branch,name:0
 #: field:insurance.fraction,name:0
 #: field:insurance.product,name:0
@@ -1990,9 +2162,17 @@ msgstr "Multirisque Dégâts des eaux Contenu"
 #: field:insurance.type.risk,name:0
 #: field:insurance_type_risk.clause,name:0
 #: field:insurance_type_risk.description,name:0
+#: field:movement.description.line,name:0
 #: field:reg.tax.reference,name:0
 msgid "Name"
 msgstr "Nom"
+
+#. module: insurance_management
+#: selection:analytic_history.movement.line,state:0
+#: selection:movement.description.line,state:0
+#: selection:movement.warranty.line,state:0
+msgid "New"
+msgstr "New"
 
 #. module: insurance_management
 #: code:addons/insurance_management/models/aro_insurance_subscription.py:102
@@ -2006,7 +2186,12 @@ msgid "New version"
 msgstr "Nouvelle Version"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:29
+#: field:account.analytic.account,next_sequence:0
+msgid "Next version Sequence"
+msgstr "Next version Sequence"
+
+#. module: insurance_management
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:36
 #, python-format
 msgid "No stage selected. Please choose one before process"
 msgstr "Aucune type d'émission selectionné. Choisissez en un"
@@ -2025,6 +2210,16 @@ msgstr "Notes"
 #: view:analytic.history:insurance_management.view_analytic_history_form
 msgid "Notes..."
 msgstr "Notes..."
+
+#. module: insurance_management
+#: field:analytic.history,nb_of_days:0
+msgid "Number of days"
+msgstr "Number of days"
+
+#. module: insurance_management
+#: help:analytic.history,nb_of_days:0
+msgid "Number of days between start and end date"
+msgstr "Number of days between start and end date"
 
 #. module: insurance_management
 #: field:insurance.product,pas_ident:0
@@ -2067,11 +2262,13 @@ msgstr "PEABM-Ext Mach/équipt à usage souterrain"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_pec__ext__frais_supplmentaires_r0
+#: model:product.template,name:insurance_management.pt_pec__ext__frais_supplmentaires_r1
 msgid "PEC - Ext. Frais Supplémentaires"
 msgstr "PEC - Ext. Frais Supplémentaires"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_pec__ext__frais_supplmentaires_impts_etc_r0
+#: model:product.template,name:insurance_management.pt_pec__ext__frais_supplmentaires_impts_etc_r1
 msgid "PEC - Ext. Frais Supplémentaires (impôts, etc)"
 msgstr "PEC - Ext. Frais Supplémentaires (impôts, etc)"
 
@@ -2117,6 +2314,9 @@ msgstr "PPEF-Ext Prod ds frigo à atmosph contrôlée"
 
 #. module: insurance_management
 #: field:analytic.history,parent_id:0
+#: field:analytic_history.risk.line,parent_id:0
+#: field:risk.description.line,parent_id:0
+#: field:risk.warranty.line,parent_id:0
 msgid "Parent"
 msgstr "Parent"
 
@@ -2126,13 +2326,18 @@ msgid "Parent insured"
 msgstr "Assuré Parent"
 
 #. module: insurance_management
+#: help:analytic_history.risk.line,parent_id:0
+msgid "Parent of this analytic_history.risk.line"
+msgstr "Parent of this analytic_history.risk.line"
+
+#. module: insurance_management
 #: field:analytic_history.risk.line,partner_id:0
 #: model:ir.model,name:insurance_management.model_res_partner
 msgid "Partner"
 msgstr "Partenaire"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:218
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:229
 #, python-format
 msgid "Pending"
 msgstr "Suspension"
@@ -2277,7 +2482,7 @@ msgid "Phénomenes électriques"
 msgstr "Phénomenes électriques"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/analytic_history.py:176
+#: code:addons/insurance_management/models/analytic_history.py:207
 #, python-format
 msgid "Please contact your Administrator to set your agency"
 msgstr "SVP, contactez votre Administrateur pour définir votre agence"
@@ -2338,11 +2543,13 @@ msgid "Product insurance fraction"
 msgstr "Fraction Produit d'assurance "
 
 #. module: insurance_management
+#: field:movement.warranty.line,proratee_net_amount:0
 #: field:risk.warranty.line,proratee_net_amount:0
 msgid "Proratee Net"
 msgstr "Proratee Net"
 
 #. module: insurance_management
+#: help:movement.warranty.line,proratee_net_amount:0
 #: help:risk.warranty.line,proratee_net_amount:0
 msgid "Proratee net amount"
 msgstr "Montant Net Proratee"
@@ -2939,6 +3146,7 @@ msgstr "RCP Dommages Corporels"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_rcp_dommages_matriels_r0
+#: model:product.template,name:insurance_management.pt_rcp_dommages_matriels_r1
 msgid "RCP Dommages Matériels"
 msgstr "RCP Dommages Matériels"
 
@@ -2993,12 +3201,18 @@ msgid "Recours des voisins et tiers"
 msgstr "Recours des voisins et tiers"
 
 #. module: insurance_management
+#: field:account.analytic.account,is_recurrent:0
+msgid "Recurrent (Terme)"
+msgstr "Tacite Reconduction (TR)"
+
+#. module: insurance_management
 #: field:res.partner,ref_apporteur:0
 msgid "Reference"
 msgstr "Reference"
 
 #. module: insurance_management
 #: model:ir.model,name:insurance_management.model_reg_tax_reference
+#: field:reg.tax.reference,tax_ids:0
 msgid "Register Tax"
 msgstr "Tax d'enregistrement"
 
@@ -3016,7 +3230,7 @@ msgid "Register tax reference"
 msgstr "Référence Tax d'enregistrement"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:238
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:249
 #, python-format
 msgid "Reinstatment"
 msgstr "Remise en Vigueur"
@@ -3032,8 +3246,15 @@ msgid "Remboursement recharges d’extincteurs"
 msgstr "Remboursement recharges d’extincteurs"
 
 #. module: insurance_management
+#: selection:analytic_history.movement.line,state:0
+#: selection:movement.description.line,state:0
+#: selection:movement.warranty.line,state:0
+msgid "Removed"
+msgstr "Supprimé"
+
+#. module: insurance_management
 #: code:addons/insurance_management/models/aro_insurance_subscription.py:132
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:166
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:177
 #, python-format
 msgid "Renew"
 msgstr "Renouvellement"
@@ -3069,12 +3290,14 @@ msgid "Responsabilité Civile : dommages matériels aux tiers"
 msgstr "Responsabilité Civile : dommages matériels aux tiers"
 
 #. module: insurance_management
+#: field:analytic_history.movement.line,type_risk_id:0
 #: field:analytic_history.risk.line,type_risk_id:0
 msgid "Risk"
 msgstr "Risque"
 
 #. module: insurance_management
 #: view:analytic.history:insurance_management.view_analytic_history_form
+#: view:analytic_history.movement:insurance_management.view_analytic_history_movement_form
 msgid "Risk Line"
 msgstr "Lignes de risque"
 
@@ -3155,6 +3378,7 @@ msgstr "Risque D : Vol"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_risque_pollution_r0
+#: model:product.template,name:insurance_management.pt_risque_pollution_r1
 msgid "Risque Pollution"
 msgstr "Risque Pollution"
 
@@ -3195,6 +3419,7 @@ msgstr "Risques Locatifs Supplémentaires"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_risques_naturels_r0
+#: model:product.template,name:insurance_management.pt_risques_naturels_r1
 msgid "Risques Naturels"
 msgstr "Risques Naturels"
 
@@ -3208,6 +3433,7 @@ msgstr "Risques Ordinaires"
 #: model:product.template,name:insurance_management.pt_risques_spciaux_immeubles__contenu_r1
 #: model:product.template,name:insurance_management.pt_risques_spciaux_immeubles__contenu_r2
 #: model:product.template,name:insurance_management.pt_risques_spciaux_immeubles__contenu_r3
+#: model:product.template,name:insurance_management.pt_risques_spciaux_immeubles__contenu_r4
 msgid "Risques Spéciaux immeubles & contenu"
 msgstr "Risques Spéciaux immeubles & contenu"
 
@@ -3254,8 +3480,13 @@ msgid "Some of your note"
 msgstr "Vos notes"
 
 #. module: insurance_management
+#: field:analytic_history.risk.line,sor_ident:0
+msgid "Sor Ident"
+msgstr "Sor Ident"
+
+#. module: insurance_management
 #: code:addons/insurance_management/models/aro_insurance_subscription.py:121
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:149
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:156
 #, python-format
 msgid "Sorry, You don't have or you get more than one amendment defined as last situation.\n"
 " Fix it first before continuing"
@@ -3263,13 +3494,13 @@ msgstr "Désolé, Trop de version est déclaré comme dernière version pour ce 
 " Corrigez cela avant de procéder"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:233
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:244
 #, python-format
 msgid "Sorry, You don't have to reinstate a subscription which is not suspended"
 msgstr "Désolé, vous ne pouvez re-mettre en vigueur un contrat non suspendue"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/account_analytic_account.py:157
+#: code:addons/insurance_management/models/account_analytic_account.py:159
 #, python-format
 msgid "Sorry, there is no recent version for this contract"
 msgstr "Désolé, Aucune version récente n'est disponible pour ce contrat"
@@ -3324,6 +3555,9 @@ msgstr "Détails du contrat (Contenu des types de risques)"
 #: model:product.template,name:insurance_management.pt_transcorps__rapatriement_du_corps_r0
 #: model:product.template,name:insurance_management.pt_transcorps__rapatriement_du_corps_r1
 #: model:product.template,name:insurance_management.pt_transcorps__rapatriement_du_corps_r2
+#: model:product.template,name:insurance_management.pt_transcorps__rapatriement_du_corps_r3
+#: model:product.template,name:insurance_management.pt_transcorps__rapatriement_du_corps_r4
+#: model:product.template,name:insurance_management.pt_transcorps__rapatriement_du_corps_r5
 msgid "TRANSCORPS - Rapatriement du corps"
 msgstr "TRANSCORPS - Rapatriement du corps"
 
@@ -3334,7 +3568,7 @@ msgid "Template"
 msgstr "Modèle"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:202
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:213
 #, python-format
 msgid "Terminate"
 msgstr "Terminer"
@@ -3345,22 +3579,28 @@ msgid "Terrestre"
 msgstr "Terrestre"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/analytic_history.py:195
+#: code:addons/insurance_management/models/analytic_history.py:228
 #, python-format
 msgid "The expected maximum loss should be less than the capital"
 msgstr "Le montant maximum de remboursement doit être inférieur au capital"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:37
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:44
 #, python-format
 msgid "There is no history yet for this contract. You have to select <AFN> or <DEV>"
 msgstr "Aucune version n'est encore disponible pour ce contrat. Vous devez choisir <AFN> ou <DEV>"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/analytic_history.py:257
+#: code:addons/insurance_management/models/analytic_history.py:318
 #, python-format
 msgid "There is no warranty to invoice in this contract history"
 msgstr "Il n'y a aucune garantie à facturer dans ce contrat"
+
+#. module: insurance_management
+#: help:movement.warranty.line,invoiced:0
+#: help:risk.warranty.line,invoiced:0
+msgid "This field is checked if this warranty is invoiced allready"
+msgstr "This field is checked if this warranty is invoiced allready"
 
 #. module: insurance_management
 #: field:insurance.product,amount_threshold:0
@@ -3373,13 +3613,15 @@ msgid "To invoice"
 msgstr "A Facturé"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/analytic_history.py:221
+#: code:addons/insurance_management/models/analytic_history.py:254
+#: code:addons/insurance_management/models/analytic_history.py:282
 #, python-format
 msgid "Too much result found"
 msgstr "Trop de valeur trouvé"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_tous_risques_chantiermontage_r0
+#: model:product.template,name:insurance_management.pt_tous_risques_chantiermontage_r1
 msgid "Tous Risques Chantier/Montage"
 msgstr "Tous Risques Chantier/Montage"
 
@@ -3413,11 +3655,14 @@ msgstr "Transport sanitaires entre 2 pays"
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_tremblements_de_terre_r0
 #: model:product.template,name:insurance_management.pt_tremblements_de_terre_r1
+#: model:product.template,name:insurance_management.pt_tremblements_de_terre_r2
+#: model:product.template,name:insurance_management.pt_tremblements_de_terre_r3
 msgid "Tremblements de terre"
 msgstr "Tremblements de terre"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_tremblements_de_terre_btiment_r0
+#: model:product.template,name:insurance_management.pt_tremblements_de_terre_btiment_r1
 msgid "Tremblements de terre Bâtiment"
 msgstr "Tremblements de terre Bâtiment"
 
@@ -3476,7 +3721,7 @@ msgid "UA Code"
 msgstr "Code Sous Agence"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:59
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:66
 #, python-format
 msgid "Un-treated case \n"
 " [Note]"
@@ -3494,11 +3739,24 @@ msgid "Under Agency Information"
 msgstr "Information sous agence"
 
 #. module: insurance_management
+#: field:res.partner,ref_unique:0
+msgid "Unique Reference"
+msgstr "Unique Reference"
+
+#. module: insurance_management
+#: selection:analytic_history.movement.line,state:0
+#: selection:movement.description.line,state:0
+#: selection:movement.warranty.line,state:0
+msgid "Updated"
+msgstr "Updated"
+
+#. module: insurance_management
 #: help:analytic_history.risk.line,template:0
 msgid "Used as template"
 msgstr "Utiliser comme modèle"
 
 #. module: insurance_management
+#: view:account.analytic.account:insurance_management.view_account_analytic_account_form
 #: view:analytic.history.wiz:insurance_management.view_analytic_history_wiz_form
 msgid "Validate"
 msgstr "Valider"
@@ -3512,6 +3770,11 @@ msgstr "Valeur"
 #: model:ir.model,name:insurance_management.model_risk_description_line
 msgid "Value corresponding to each risk description"
 msgstr "Valeur correspondant à chaque description de risque"
+
+#. module: insurance_management
+#: field:movement.description.line,value:0
+msgid "Values"
+msgstr "Values"
 
 #. module: insurance_management
 #: field:analytic.history,ver_ident:0
@@ -3528,6 +3791,8 @@ msgstr "Vie"
 #: model:product.template,name:insurance_management.pt_vol_r0
 #: model:product.template,name:insurance_management.pt_vol_r1
 #: model:product.template,name:insurance_management.pt_vol_r2
+#: model:product.template,name:insurance_management.pt_vol_r3
+#: model:product.template,name:insurance_management.pt_vol_r4
 msgid "Vol"
 msgstr "Vol"
 
@@ -3621,9 +3886,12 @@ msgstr "Vols"
 
 #. module: insurance_management
 #: view:analytic.history:insurance_management.view_analytic_history_form
+#: view:analytic_history.movement:insurance_management.view_analytic_history_movement_form
+#: field:analytic_history.movement.line,movement_warranty_ids:0
 #: field:analytic_history.risk.line,warranty_line_ids:0
 #: model:ir.actions.act_window,name:insurance_management.act_open_aro_type_rique_warranty_view
 #: model:ir.ui.menu,name:insurance_management.menu_aro_type_rique_warranty
+#: field:movement.warranty.line,warranty_id:0
 #: view:product.template:insurance_management.view_insurance_warranty_search
 #: field:risk.warranty.line,warranty_id:0
 msgid "Warranty"
@@ -3650,23 +3918,25 @@ msgid "Wizard to control the version of contract will be created"
 msgstr "Wizard to control the version of contract will be created"
 
 #. module: insurance_management
+#: field:movement.warranty.line,yearly_net_amount:0
 #: field:risk.warranty.line,yearly_net_amount:0
 msgid "Yearly Net"
 msgstr "Prime Net Annuel"
 
 #. module: insurance_management
+#: help:movement.warranty.line,yearly_net_amount:0
 #: help:risk.warranty.line,yearly_net_amount:0
 msgid "Yearly net amount"
 msgstr "Prime Net annuel"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:133
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:140
 #, python-format
 msgid "You can't create new version for contract closed"
 msgstr "Vous ne pouvez créer un avenant pour un contrat clos"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:41
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:48
 #, python-format
 msgid "You can't have twice <AFN> in same contract \n"
 " [Note]"
@@ -3674,12 +3944,17 @@ msgstr "Impossible de créer plusieurs <AFN> dans un même contrat \n"
 " [Note]"
 
 #. module: insurance_management
-#: code:addons/insurance_management/wizard/analytic_history_wiz.py:35
+#: code:addons/insurance_management/wizard/analytic_history_wiz.py:42
 #, python-format
 msgid "You have too many last version for this contract. Please contact your Administrator.\n"
 " [Note]"
 msgstr "Vous disposez de plusieurs dernière version pour ce contrat. SVP, contactez votre Administrateur.\n"
 " [Note]"
+
+#. module: insurance_management
+#: view:insurance.type.risk:insurance_management.view_insurance_type_risk_form
+msgid "['DC001','DC002']"
+msgstr "['DC001','DC002']"
 
 #. module: insurance_management
 #: view:insurance.product:insurance_management.view_insurance_product_search
@@ -3691,6 +3966,11 @@ msgstr "branche"
 #: field:insurance.product,code:0
 msgid "code"
 msgstr "code"
+
+#. module: insurance_management
+#: view:analytic.history:insurance_management.view_analytic_history_form
+msgid "comment"
+msgstr "comment"
 
 #. module: insurance_management
 #: view:insurance.product:insurance_management.view_insurance_product_form
@@ -3713,10 +3993,17 @@ msgid "or"
 msgstr "ou"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/analytic_history.py:190
+#: field:analytic_history.movement.line,state:0
+#: field:movement.description.line,state:0
+#: field:movement.warranty.line,state:0
+msgid "state"
+msgstr "state"
+
+#. module: insurance_management
+#: code:addons/insurance_management/models/analytic_history.py:223
 #, python-format
-msgid "the effective date must be after the end date"
-msgstr "the effective date must be after the end date"
+msgid "the effective date must be less than the end date"
+msgstr "La date d'effet doit être inférieur à la date de fin"
 
 #. module: insurance_management
 #: field:res.partner.family,type:0
