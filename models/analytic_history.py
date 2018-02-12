@@ -220,7 +220,7 @@ class AnalyticHistory(models.Model):
     @api.constrains('starting_date', 'ending_date')
     def _check_startend_date(self):
         if self.starting_date >= self.ending_date:
-            raise ValidationError(_('the effective date must be after the end date'))
+            raise ValidationError(_('the effective date must be less than the end date'))
 
     @api.constrains('capital', 'eml')
     def _check_capital(self):
@@ -754,6 +754,7 @@ class AnalyticHistory(models.Model):
             res.append((k, '=', vals[k]))
         return res
 
+    # TODO
     @api.multi
     def compute_ristourne(self):
         """
@@ -767,7 +768,14 @@ class AnalyticHistory(models.Model):
 
     @api.multi
     def unlink(self):
+        # search if it's parent
+        history_list = self.search([('parent_id', 'in', self.ids)])
+        if history_list:
+            raise exceptions.Warning(_('Can\'t delete version referenced has parent'))
         for rec in self:
             if rec.invoice_id:
                 raise exceptions.Warning(_('Can\'t delete version allready invoiced'))
+            else:
+                rec.parent_id.update({'is_last_situation': True})
+                rec.analytic_id.update({'next_sequence': rec.analytic_id.next_sequence - 1})
         return super(AnalyticHistory, self).unlink()
