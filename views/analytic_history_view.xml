@@ -81,7 +81,6 @@
                                             <field name="partner_id" required="context.get('insurance_person', False)" invisible="not context.get('insurance_person', False)"/>
                                             <field name="type_risk_id" string="Risk Type"/>
                                             <field name="name" required="True"/>
-                                            <field name="sor_ident"/>
                                             <field name="parent_id" readonly="True"/>
                                             <field name="risk_warranty_tmpl_id" string="Warranty Lines Template" attrs="{'invisible': ['|', ('partner_id', '=', False), ('type_risk_id','=', False)]}"/>
                                         </group>
@@ -109,7 +108,9 @@
                                                 </field>
                                             </page>
                                         </notebook>
-                                        <field name="sor_ident" placeholder="comment"/>
+                                        <group colspan="4">
+                                            <field name="sor_ident" placeholder="comment"/>
+                                        </group>
                                     </form>
                                 </field>
                             </page>
