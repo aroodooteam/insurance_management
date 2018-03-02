@@ -62,5 +62,10 @@
             <field name="code">SNF</field>
             <field name="sequence">120</field>
         </record>
+        <record id="reduction" model="analytic.history.stage">
+            <field name="name">Reduction</field>
+            <field name="code">RED</field>
+            <field name="sequence">120</field>
+        </record>
     </data>
 </openerp>
