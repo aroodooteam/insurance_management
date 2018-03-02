@@ -37,5 +37,23 @@
             <field name="type">N</field>
             <field name="category">M</field>
         </record>
+        <record id="insurance_branch_assurance_vie__grande_branche_r0" model="insurance.branch">
+            <field name="category">V</field>
+            <field name="code">VIE_GRANDE_BRANCHE</field>
+            <field name="name">Assurance Vie - Grande branche</field>
+            <field name="type">V</field>
+        </record>
+        <record id="insurance_branch_assurance_vie__populaire_r0" model="insurance.branch">
+            <field name="category">V</field>
+            <field name="code">VIE_POPULAIRE</field>
+            <field name="name">Assurance Vie - Populaire</field>
+            <field name="type">V</field>
+        </record>
+        <record id="insurance_branch_assurance_vie__groupe_r0" model="insurance.branch">
+            <field name="category">V</field>
+            <field name="code">VIE_GROUPE</field>
+            <field name="name">Assurance Vie - Groupe</field>
+            <field name="type">V</field>
+        </record>
     </data>
 </openerp>
