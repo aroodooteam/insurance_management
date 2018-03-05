@@ -69,6 +69,7 @@ class AnalyticHistory(models.Model):
         comodel_name='account.fiscal.position', string='Fiscal Position')
     nb_of_days = fields.Integer(compute='_get_nb_of_days', string='Number of days', help='Number of days between start and end date')
     agency_id = fields.Many2one(comodel_name='base.agency', string='Agency', default=lambda self: self.env.user.agency_id)
+    force_acs = fields.Boolean(string='Force Accessories', help='Use the amount you define instead of original amoun from setting')
     accessories = fields.Float(string='Accessories')
 
     @api.multi
@@ -220,7 +221,8 @@ class AnalyticHistory(models.Model):
     @api.constrains('starting_date', 'ending_date')
     def _check_startend_date(self):
         if self.starting_date >= self.ending_date:
-            raise ValidationError(_('the effective date must be less than the end date'))
+            logger.info('the effective date must be less than the end date')
+            # raise ValidationError(_('the effective date must be less than the end date'))
 
     @api.constrains('capital', 'eml')
     def _check_capital(self):
@@ -368,9 +370,9 @@ class AnalyticHistory(models.Model):
                 accessory_line.update(compl_line)
                 # update accessory_line with register tax
                 accessory_line['invoice_line_tax_id'] += access_reg_tax
-                logger.info('acc_line T = %s' % accessory_line)
                 # update amount of accessories if accessories in history is not zero
-                if self.accessories != 0:
+                if self.force_acs:
+                    # self.accessories != 0:
                     accessory_line['price_unit'] = self.accessories
                 invoice_line.append((0, 0, accessory_line))
             # =========================================================
@@ -389,11 +391,11 @@ class AnalyticHistory(models.Model):
                 accessory_line['invoice_line_tax_id'] += access_reg_tax
                 logger.info('acc_line M = %s' % accessory_line)
                 # update amount of accessories if accessories in history is not zero
-                if self.accessories != 0:
+                if self.force_acs:
+                    # self.accessories != 0:
                     accessory_line['price_unit'] = self.accessories
                 invoice_line.append((0, 0, accessory_line))
                 logger.info('\n=== acc_line = %s' % accessory_line)
-            # logger.info('\n=== inv_line = %s' % invoice_line)
             # =========================================================
             default_account = self.env['account.account'].search([('code', '=', '410000')])
             ctx_vals = {
