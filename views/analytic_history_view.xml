@@ -51,7 +51,8 @@
                                 <field name="is_last_situation"/>
                                 <field name="capital"/>
                                 <field name="eml"/>
-                                <field name="accessories"/>
+                                <field name="force_acs" class="oe_inline"/>
+                                <field name="accessories" attrs="{'invisible': [('force_acs','=', False)]}"/>
                                 <field name="invoice_id" attrs="{'invisible': [('invoice_id','=', False)]}"/>
                             </group>
                             <group cols="6">
