@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-
         <record id="insurance_product_incendies__primes_modr_r0" model="insurance.product">
             <field name="amount_accessories">2000</field>
             <field name="code">IPM</field>
@@ -12,7 +11,6 @@
             <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual'))]"/>
             <field name="name">Incendies à primes modéré</field>
         </record>
-
         <record id="aro_assistance_auto_h1" model="insurance.product">
             <field name="code">ASSISTANCE_AUTO</field>
             <field name="amount_accessories">2000</field>
@@ -37,7 +35,6 @@
             <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual')), (4, ref('insurance_management.fraction_unique'))]"/>
             <field name="name">Globale de Banque</field>
         </record>
-
         <record id="insurance_product_monovehicule" model="insurance.product">
             <field name="code">MONOVEHICULE</field>
             <field name="amount_accessories">2000</field>
@@ -261,6 +258,195 @@
             <field name="branch_id" ref="insurance_branch_maritime"/>
             <field name="fraction_ids" eval="[(4, ref('insurance_management.fraction_annual'))]"/>
             <field name="name">Responsablilité civile acconiers transitaires commissionnaires</field>
+        </record>
+        <record id="insurance_product_groupe_deces_r0" model="insurance.product">
+            <field name="code">0091</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">GROUPE DECES</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__groupe_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_groupe_credit_r0" model="insurance.product">
+            <field name="code">0092</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">GROUPE CREDIT</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__groupe_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_retraite_complementaire_r0" model="insurance.product">
+            <field name="code">0093</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">RETRAITE COMPLEMENTAIRE</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__groupe_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_retraite_minute_r0" model="insurance.product">
+            <field name="code">0096</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">RETRAITE MINUTE</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__groupe_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_vie_entiere_revalorisable_3_r0" model="insurance.product">
+            <field name="code">2501</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">VIE ENTIERE REVALORISABLE 3%</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_assurance_mixte_revalorisable_1010_3_r0" model="insurance.product">
+            <field name="code">2504</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">ASSURANCE MIXTE REVALORISABLE 10/10 3%</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_assurance_mixte_revalorisable_10125_3_r0" model="insurance.product">
+            <field name="code">2505</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">ASSURANCE MIXTE REVALORISABLE 10/12,5 3%</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_assurance_mixte_revalorisable_1015_3_r0" model="insurance.product">
+            <field name="code">2506</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">ASSURANCE MIXTE REVALORISABLE 10/15 3%</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_capital_differe_sans_contre_assurance_3_r0" model="insurance.product">
+            <field name="code">2507</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">CAPITAL DIFFERE SANS CONTRE ASSURANCE 3%</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_capital_differe_avec_contre_assurance_3_r0" model="insurance.product">
+            <field name="code">2508</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">CAPITAL DIFFERE AVEC CONTRE ASSURANCE 3%</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_assurance_mixte_revalorisable_1010_45_r0" model="insurance.product">
+            <field name="code">3504</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">ASSURANCE MIXTE REVALORISABLE 10/10 4,5%</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_assurance_mixte_revalorisable_10125_45_r0" model="insurance.product">
+            <field name="code">3505</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">ASSURANCE MIXTE REVALORISABLE 10/12,5 4,5%</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_assurance_mixte_revalorisable_1015_45_r0" model="insurance.product">
+            <field name="code">3506</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">ASSURANCE MIXTE REVALORISABLE 10/15 4,5%</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_capital_differe_sans_contre_assurance_45_r0" model="insurance.product">
+            <field name="code">3507</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">CAPITAL DIFFERE SANS CONTRE ASSURANCE 4,5%</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_capital_differe_avec_contre_assurance_45_r0" model="insurance.product">
+            <field name="code">3508</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">CAPITAL DIFFERE AVEC CONTRE ASSURANCE 4,5%</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_capital_differe_sans_contre_assurance_6_r0" model="insurance.product">
+            <field name="code">4507</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">CAPITAL DIFFERE SANS CONTRE ASSURANCE 6%</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_capital_differe_avec_contre_assurance_6_r0" model="insurance.product">
+            <field name="code">4508</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">CAPITAL DIFFERE AVEC CONTRE ASSURANCE 6%</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_vie_entiere_non_revalorisable_r0" model="insurance.product">
+            <field name="code">8401</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">VIE ENTIERE NON REVALORISABLE</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_temporaire_simple_r0" model="insurance.product">
+            <field name="code">8502</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">TEMPORAIRE SIMPLE</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_temporaire_quinquennal_indexe_r0" model="insurance.product">
+            <field name="code">8503</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">TEMPORAIRE QUINQUENNAL INDEXE</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
+        </record>
+        <record id="insurance_product_rente_education_r0" model="insurance.product">
+            <field name="code">8509</field>
+            <field name="amount_threshold">0.0</field>
+            <field name="name">RENTE EDUCATION</field>
+            <field name="amount_accessories">0.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="pas_num_module">0</field>
+            <field name="amount_accessories_nb">0.0</field>
         </record>
     </data>
 </openerp>
