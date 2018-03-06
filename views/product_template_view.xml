@@ -33,10 +33,10 @@
                         <separator string="Type of risk" colspan="4"/>
                         <div name="Type of risk">
                             <group colspan="4">
-                                <field name="type_risk_id" attrs="{'required': [('is_warranty', '=', True)]}"/>
-                                <field name="ins_product_id" attrs="{'required': [('is_warranty', '=', True)]}"/>
-                                <field name="branch_id" attrs="{'required': [('is_warranty', '=', True)]}"/>
                                 <field name="branch_categ" attrs="{'required': [('is_warranty', '=', True)]}"/>
+                                <field name="branch_id" attrs="{'required': [('is_warranty', '=', True)]}" domain="[('category','=',branch_categ)]"/>
+                                <field name="ins_product_id" attrs="{'required': [('is_warranty', '=', True)]}" domain="[('branch_id','=',branch_id)]"/>
+                                <field name="type_risk_id" attrs="{'required': [('is_warranty', '=', True)]}" domain="[('ins_product_id','=',ins_product_id)]"/>
                             </group>
                         </div>
                         <separator string="Commission Information" colspan="4"/>
