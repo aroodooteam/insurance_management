@@ -479,5 +479,110 @@
             <field name="ins_product_id" ref="insurance_management.aro_individuelle_accident"/>
             <field name="fiscal_code">4500</field>
         </record>
+        <record id="insurance_type_risk_groupe_deces_r0" model="insurance.type.risk">
+            <field name="code">00911</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_groupe_deces_r0"/>
+            <field name="name">GROUPE DECES</field>
+        </record>
+        <record id="insurance_type_risk_groupe_credit_r0" model="insurance.type.risk">
+            <field name="code">00921</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_groupe_credit_r0"/>
+            <field name="name">GROUPE CREDIT</field>
+        </record>
+        <record id="insurance_type_risk_retraite_complementaire_r0" model="insurance.type.risk">
+            <field name="code">00931</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_retraite_complementaire_r0"/>
+            <field name="name">RETRAITE COMPLEMENTAIRE</field>
+        </record>
+        <record id="insurance_type_risk_retraite_minute_r0" model="insurance.type.risk">
+            <field name="code">00961</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_retraite_minute_r0"/>
+            <field name="name">RETRAITE MINUTE</field>
+        </record>
+        <record id="insurance_type_risk_vie_entiere_revalorisable_3_r0" model="insurance.type.risk">
+            <field name="code">25011</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_vie_entiere_revalorisable_3_r0"/>
+            <field name="name">VIE ENTIERE REVALORISABLE 3%</field>
+        </record>
+        <record id="insurance_type_risk_assurance_mixte_revalorisable_1010_3_r0" model="insurance.type.risk">
+            <field name="code">25041</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_assurance_mixte_revalorisable_1010_3_r0"/>
+            <field name="name">ASSURANCE MIXTE REVALORISABLE 10/10 3%</field>
+        </record>
+        <record id="insurance_type_risk_assurance_mixte_revalorisable_10125_3_r0" model="insurance.type.risk">
+            <field name="code">25051</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_assurance_mixte_revalorisable_10125_3_r0"/>
+            <field name="name">ASSURANCE MIXTE REVALORISABLE 10/12,5 3%</field>
+        </record>
+        <record id="insurance_type_risk_assurance_mixte_revalorisable_1015_3_r0" model="insurance.type.risk">
+            <field name="code">25061</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_assurance_mixte_revalorisable_1015_3_r0"/>
+            <field name="name">ASSURANCE MIXTE REVALORISABLE 10/15 3%</field>
+        </record>
+        <record id="insurance_type_risk_capital_differe_sans_contre_assurance_3_r0" model="insurance.type.risk">
+            <field name="code">25071</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_capital_differe_sans_contre_assurance_3_r0"/>
+            <field name="name">CAPITAL DIFFERE SANS CONTRE ASSURANCE 3%</field>
+        </record>
+        <record id="insurance_type_risk_capital_differe_avec_contre_assurance_3_r0" model="insurance.type.risk">
+            <field name="code">25081</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_capital_differe_avec_contre_assurance_3_r0"/>
+            <field name="name">CAPITAL DIFFERE AVEC CONTRE ASSURANCE 3%</field>
+        </record>
+        <record id="insurance_type_risk_assurance_mixte_revalorisable_1010_45_r0" model="insurance.type.risk">
+            <field name="code">35041</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_assurance_mixte_revalorisable_1010_45_r0"/>
+            <field name="name">ASSURANCE MIXTE REVALORISABLE 10/10 4,5%</field>
+        </record>
+        <record id="insurance_type_risk_assurance_mixte_revalorisable_10125_45_r0" model="insurance.type.risk">
+            <field name="code">35051</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_assurance_mixte_revalorisable_10125_45_r0"/>
+            <field name="name">ASSURANCE MIXTE REVALORISABLE 10/12,5 4,5%</field>
+        </record>
+        <record id="insurance_type_risk_assurance_mixte_revalorisable_1015_45_r0" model="insurance.type.risk">
+            <field name="code">35061</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_assurance_mixte_revalorisable_1015_45_r0"/>
+            <field name="name">ASSURANCE MIXTE REVALORISABLE 10/15 4,5%</field>
+        </record>
+        <record id="insurance_type_risk_capital_differe_sans_contre_assurance_45_r0" model="insurance.type.risk">
+            <field name="code">35071</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_capital_differe_sans_contre_assurance_45_r0"/>
+            <field name="name">CAPITAL DIFFERE SANS CONTRE ASSURANCE 4,5%</field>
+        </record>
+        <record id="insurance_type_risk_capital_differe_avec_contre_assurance_45_r0" model="insurance.type.risk">
+            <field name="code">35081</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_capital_differe_avec_contre_assurance_45_r0"/>
+            <field name="name">CAPITAL DIFFERE AVEC CONTRE ASSURANCE 4,5%</field>
+        </record>
+        <record id="insurance_type_risk_capital_differe_sans_contre_assurance_6_r0" model="insurance.type.risk">
+            <field name="code">45071</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_capital_differe_sans_contre_assurance_6_r0"/>
+            <field name="name">CAPITAL DIFFERE SANS CONTRE ASSURANCE 6%</field>
+        </record>
+        <record id="insurance_type_risk_capital_differe_avec_contre_assurance_6_r0" model="insurance.type.risk">
+            <field name="code">45081</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_capital_differe_avec_contre_assurance_6_r0"/>
+            <field name="name">CAPITAL DIFFERE AVEC CONTRE ASSURANCE 6%</field>
+        </record>
+        <record id="insurance_type_risk_vie_entiere_non_revalorisable_r0" model="insurance.type.risk">
+            <field name="code">84011</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_vie_entiere_non_revalorisable_r0"/>
+            <field name="name">VIE ENTIERE NON REVALORISABLE</field>
+        </record>
+        <record id="insurance_type_risk_temporaire_simple_r0" model="insurance.type.risk">
+            <field name="code">85021</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_temporaire_simple_r0"/>
+            <field name="name">TEMPORAIRE SIMPLE</field>
+        </record>
+        <record id="insurance_type_risk_temporaire_quinquennal_indexe_r0" model="insurance.type.risk">
+            <field name="code">85031</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_temporaire_quinquennal_indexe_r0"/>
+            <field name="name">TEMPORAIRE QUINQUENNAL INDEXE</field>
+        </record>
+        <record id="insurance_type_risk_rente_education_r0" model="insurance.type.risk">
+            <field name="code">85091</field>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_rente_education_r0"/>
+            <field name="name">RENTE EDUCATION</field>
+        </record>
     </data>
 </openerp>
