@@ -213,6 +213,8 @@ class AccountAnalyticAccount(models.Model):
         # logger.info('=== history_ids = %s' % history_ids)
         for history_id in history_ids:
             vals = history_id.with_context(invoice_unedit=True).generate_invoice()
+            if not vals:
+                continue
             logger.info('=== history_id.id => vals = %s' % vals)
             inv_lines = vals.get('invoice_line')
             inv_lines_buf = []
