@@ -317,17 +317,30 @@ class AnalyticHistory(models.Model):
                     warranty_ids += risk_line_id.warranty_line_ids.mapped('warranty_id')
             # Remove duplicated Warranty (group same warranty in invoice)
             if not warranty_ids:
-                raise Warning(_('There is no warranty to invoice in this contract history'))
+                if self._context.get('invoice_unedit'):
+                    return {}
+                else:
+                    raise Warning(_('There is no warranty to invoice in this contract history'))
             warranty_ids = list(set(warranty_ids.ids))
             warranty_ids = product_obj.browse(warranty_ids)
             # Get amount of warranty in current history
             warranty_line_ids_map = self.risk_line_ids.mapped('warranty_line_ids')
             logger.info('warranty_line_ids_map = %s' % warranty_line_ids_map)
+            sum_proratee = warranty_line_ids_map.mapped('proratee_net_amount')
+            logger.info('sum_proratee = %s' % sum_proratee)
+            sum_proratee = sum(sum_proratee)
+            logger.info('sum_proratee = %s' % sum_proratee)
             for wl_id in warranty_line_ids_map:
-                if wl_id.warranty_id.id in warranty_amount.keys():
-                    warranty_amount[wl_id.warranty_id.id] += wl_id.proratee_net_amount
+                if sum_proratee >= 0:
+                    if wl_id.warranty_id.id in warranty_amount.keys():
+                        warranty_amount[wl_id.warranty_id.id] += wl_id.proratee_net_amount
+                    else:
+                        warranty_amount[wl_id.warranty_id.id] = wl_id.proratee_net_amount
                 else:
-                    warranty_amount[wl_id.warranty_id.id] = wl_id.proratee_net_amount
+                    if wl_id.warranty_id.id in warranty_amount.keys():
+                        warranty_amount[wl_id.warranty_id.id] += (-1) * wl_id.proratee_net_amount
+                    else:
+                        warranty_amount[wl_id.warranty_id.id] = (-1) * wl_id.proratee_net_amount
             logger.info('wa = %s' % warranty_amount)
             invoice_line = []
             for warranty_id in warranty_ids:
@@ -357,6 +370,7 @@ class AnalyticHistory(models.Model):
             compl_line = {
                 'price_unit': self.analytic_id.ins_product_id.amount_accessories
             }
+            # if sum_proratee > 0 else (-1) * self.analytic_id.ins_product_id.amount_accessories 
             if self._context.get('insurance_categ') == 'T' or self.analytic_id.branch_id.category == 'T':
                 access_tmpl_id = self.env.ref('aro_custom_v8.product_template_accessoire_terrestre_r0')
                 access_id = product_obj.search([('product_tmpl_id', '=', access_tmpl_id.id)])
@@ -397,11 +411,13 @@ class AnalyticHistory(models.Model):
                 invoice_line.append((0, 0, accessory_line))
                 logger.info('\n=== acc_line = %s' % accessory_line)
             # =========================================================
+            # period_id = self.env['account.period'].search([('date_start','<=', self.starting_date),('date_stop','>=', self.starting_date),('special', '=', False)])
+            period_id = self.env['account.period'].search([('code','=','01/2017')])
             default_account = self.env['account.account'].search([('code', '=', '410000')])
             ctx_vals = {
                 'default_name': self.name,
                 'default_state': 'draft',
-                'default_type': 'out_invoice',
+                'default_type': 'out_invoice' if sum_proratee > 0 else 'out_refund',
                 'default_history_id': self.id,
                 'default_analytic_id': self.analytic_id.id,
                 'default_prm_datedeb': dt.strftime(dt.strptime(self.starting_date, DEFAULT_SERVER_DATE_FORMAT), DEFAULT_SERVER_DATE_FORMAT),
@@ -409,13 +425,14 @@ class AnalyticHistory(models.Model):
                 'default_date_invoice': dt.strftime(dt.now(), DEFAULT_SERVER_DATE_FORMAT),
                 'default_partner_id': self.analytic_id.partner_id.id,
                 'default_final_customer_id': self.analytic_id.partner_id.id,
-                'default_origin': self.analytic_id.name +'/'+self.name,
+                'default_origin': self.analytic_id.name or 'Undefined' +'/'+ self.name or 'Undefined',
                 'default_pol_numpol': self.analytic_id.name,
                 'default_journal_id': self._get_user_journal().id,
                 'journal_id': self._get_user_journal().id,
                 'default_account_id': self.analytic_id.partner_id.property_account_receivable.id or default_account.id,
                 'default_invoice_line': invoice_line,
                 'default_comment': self.comment,
+                'default_period_id': period_id.id,
             }
             ctx = self._context.copy()
             ctx.update(ctx_vals)
@@ -436,7 +453,7 @@ class AnalyticHistory(models.Model):
                 res = {
                     'name': self.name,
                     'state': 'draft',
-                    'type': 'out_invoice',
+                    'type': 'out_invoice' if sum_proratee > 0 else 'out_refund',
                     'history_id': self.id,
                     'analytic_id': self.analytic_id.id,
                     'prm_datedeb': dt.strftime(dt.strptime(self.starting_date, DEFAULT_SERVER_DATE_FORMAT), DEFAULT_SERVER_DATE_FORMAT),
@@ -444,12 +461,13 @@ class AnalyticHistory(models.Model):
                     'date_invoice': dt.strftime(dt.now(), DEFAULT_SERVER_DATE_FORMAT),
                     'partner_id': self.analytic_id.partner_id.id,
                     'final_customer_id': self.analytic_id.partner_id.id,
-                    'origin': self.analytic_id.name +'/'+self.name,
+                    'origin': self.analytic_id.name or 'Undefined' +'/'+ self.name or 'Undefined',
                     'pol_numpol': self.analytic_id.name,
                     'journal_id': self._get_user_journal().id,
                     'account_id': self.analytic_id.partner_id.property_account_receivable.id or default_account.id,
                     'invoice_line': invoice_line,
                     'comment': self.comment,
+                    'period_id': period_id.id,
                 }
         return res
 
