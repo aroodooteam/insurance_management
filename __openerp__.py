@@ -5,6 +5,7 @@
     "version": "0.1",
     "depends": [
         'account',
+        'account_journal_agency',
         'analytic',
         'aro_custom_v8',
         'base',
