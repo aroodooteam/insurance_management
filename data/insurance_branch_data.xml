@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data>
+    <data noupdate="1">
         <record id="insurance_branch_automobile_r0" model="insurance.branch">
-            <field name="code">AUTO</field>
+            <field name="code">AUTOMOBILE</field>
             <field name="name">Motor</field>
             <field name="type">N</field>
             <field name="category">T</field>
