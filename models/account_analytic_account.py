@@ -142,15 +142,15 @@ class AccountAnalyticAccount(models.Model):
         }
         return res
 
-    @api.multi
+    @api.one
     def get_history_count(self):
         history_obj = self.env['analytic.history']
-        for analytic in self:
-            history_count = history_obj.search_count([('analytic_id', '=', analytic.id)])
-            analytic.history_count = history_count
+        history_count = history_obj.search_count([('analytic_id', '=', self.id)])
+        self.history_count = history_count
 
     @api.multi
     def get_current_version(self):
+        self.ensure_one()
         res = {}
         history_obj = self.env['analytic.history']
         domain = [('is_last_situation', '=', True), ('analytic_id', '=', self.id)]
