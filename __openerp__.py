@@ -12,6 +12,7 @@
         'insurance_setup',
         'product',
         'sale',
+        'commission',
     ],
     "author": "Haritiana Rakotomalala <hmrakotomalala@aro.mg>",
     "category": "Tools",
