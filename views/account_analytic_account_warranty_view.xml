@@ -14,6 +14,14 @@
             domain="[('analytic_id', '=', active_id)]"/>
         -->
 
+        <record id="act_analytic_lines_request" model="ir.actions.act_window">
+            <field name="name">Analytic Lines</field>
+            <field name="res_model">analytic.analytic.line</field>
+            <field name="src_model">analytic.history</field>
+            <field name="view_type">form</field>
+            <!--<field name="view_id" ref="insurance_management.view_analytic_history_tree"/>-->
+        </record>
+
         <record id="act_analytic_history_request" model="ir.actions.act_window">
             <field name="name">History</field>
             <field name="res_model">analytic.history</field>

@@ -17,3 +17,4 @@ import risk_warranty_line
 import risk_description_line
 import account_invoice
 import register_tax_reference
+import account_analytic_lines

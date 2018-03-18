@@ -28,6 +28,8 @@
                     <header>
                         <button string="Confirm" type="object" name="confirm_quotation" attrs="{'invisible': [('stage_id','!=', %(insurance_management.devis)d)]}"/>
                         <field name="stage_id" widget="statusbar"/>
+                        <button string="Validate" type="object" name="generateAnalyticLines"/>
+                        <button string="Generate Invoice" type="object" name="generateInvoiceAnalyticLine"/>
                     </header>
                     <sheet class="oe_form_sheet_full_screen">
                         <div class="oe_left">
@@ -41,6 +43,7 @@
                         <div class="oe_right oe_button_box" name="button_box">
                             <button class="oe_stat_button" string="Invoices" icon="fa-book" type="object" name="generate_invoice" attrs="{'invisible': [('is_last_situation','=', False)]}"/>
                             <button class="oe_stat_button" string="Compare" icon="fa-book" type="object" name="compare_trisk_hist" attrs="{'invisible': [('parent_id','=', False)]}"/>
+                            <button class="oe_stat_button" string="Analytic Lines" icon="fa-book" type="object" name="getAnalyticLines"/>
                         </div>
                         <group colspan="12">
                             <group cols="6">
@@ -113,6 +116,14 @@
                                             <field name="sor_ident" placeholder="comment"/>
                                         </group>
                                     </form>
+                                </field>
+                            </page>
+                            <page name="Analytic Lines" string="Analytic Lines">
+                                <field name="analytic_line_ids">
+                                    <tree string="Analytic Lines">
+                                        <field name="product_id"/>
+                                        <field name="amount_to_invoice"/>
+                                    </tree>
                                 </field>
                             </page>
                         </notebook>
