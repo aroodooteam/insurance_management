@@ -71,11 +71,119 @@ class AnalyticHistory(models.Model):
     agency_id = fields.Many2one(comodel_name='base.agency', string='Agency', default=lambda self: self.env.user.agency_id)
     force_acs = fields.Boolean(string='Force Accessories', help='Use the amount you define instead of original amoun from setting')
     accessories = fields.Float(string='Accessories')
+    analytic_line_ids = fields.One2many(comodel_name='account.analytic.line', inverse_name='history_id', string='Analytic Lines')
+
+    @api.multi
+    def getAnalyticLines(self):
+        return {
+            'name': 'Analytic Lines',
+            'type': 'ir.actions.act_window',
+            'res_model': 'account.analytic.line',
+            'view_type': 'form',
+            'view_mode': 'tree,form',
+            'target': 'current',
+            'domain': [('id', 'in', tuple(self.analytic_line_ids.ids))]
+        }
+
+    @api.multi
+    def generateInvoiceAnalyticLine(self):
+        inv_obj = self.env['account.invoice']
+        invline_obj = self.env['account.invoice.line']
+        # warranty_ids = self.analytic_line_ids.mapped('product_id')
+        period_id = self.env['account.period'].search([('date_start','<=', self.starting_date),('date_stop','>=', self.starting_date),('special', '=', False)])
+        sum_proratee = self.analytic_line_ids.mapped('amount_to_invoice')
+        sum_proratee = sum(sum_proratee)
+        logger.info('sum_proratee = %s' % sum_proratee)
+        inv_vals = {
+            'name': self.name,
+            'state': 'draft',
+            'type': 'out_invoice' if sum_proratee > 0 else 'out_refund',
+            'history_id': self.id,
+            'analytic_id': self.analytic_id.id,
+            'prm_datedeb': dt.strftime(dt.strptime(self.starting_date, DEFAULT_SERVER_DATE_FORMAT), DEFAULT_SERVER_DATE_FORMAT),
+            'prm_datefin': dt.strftime(dt.strptime(self.ending_date, DEFAULT_SERVER_DATE_FORMAT), DEFAULT_SERVER_DATE_FORMAT),
+            'date_invoice': dt.strftime(dt.now(), DEFAULT_SERVER_DATE_FORMAT),
+            'partner_id': self.analytic_id.partner_id.id,
+            'final_customer_id': self.analytic_id.partner_id.id,
+            'origin': self.analytic_id.name or 'Undefined' +'/'+ self.name or 'Undefined',
+            'pol_numpol': self.analytic_id.name,
+            'journal_id': self._get_user_journal().id,
+            'account_id': self.analytic_id.partner_id.property_account_receivable.id,
+            'comment': self.comment,
+            'period_id': period_id.id,
+        }
+        inv = inv_obj.create(inv_vals)
+        for analytic in self.analytic_line_ids:
+            regte_id = self._get_reg_tax(analytic.product_id, self.property_account_position)
+            invline_vals = {
+                'product_id': analytic.product_id.id,
+                'name': analytic.name,
+                'account_id': analytic.general_account_id.id,
+                'account_analytic_id': analytic.account_id.id,
+                'quantity': 1,
+                'price_unit': analytic.amount_to_invoice if sum_proratee > 0 else (-1) * analytic.amount_to_invoice,
+                'invoice_line_tax_id': regte_id.ids,
+                'invoice_id': inv.id
+            }
+            invline_obj.create(invline_vals)
+        self.analytic_line_ids.write({'invoice_id': inv.id})
+        self.write({'invoice_id': inv.id})
+        inv.button_reset_taxes()
+
 
     @api.multi
     def confirm_quotation(self):
         """Confirm Quotation and move state to valid new contract"""
         self.stage_id = self.env.ref('insurance_management.affaire_nouvelle').id
+
+    @api.one
+    def generateAnalyticLines(self):
+        aal_obj = self.env['account.analytic.line']
+        warranty_obj = self.env['risk.warranty.line']
+        # get all warranty in risk_line
+        warranty_ids = self.risk_line_ids.mapped('warranty_line_ids')
+        all_vals = []
+        if self.stage_id.id == self.env.ref('insurance_management.avenant').id:
+            logger.info('TEST')
+            for warranty_id in warranty_ids:
+                new_amount = 0
+                if warranty_id.parent_id:
+                    if warranty_id.parent_id.proratee_net_amount!= warranty_id.proratee_net_amount:
+                        new_amount = warranty_id.proratee_net_amount- warranty_id.parent_id.proratee_net_amount
+                    else:
+                        continue
+                else:
+                    new_amount = warranty_id.proratee_net_amount
+                vals = {
+                    'account_id': self.analytic_id.id,
+                    'product_id': warranty_id.id,
+                    'amount': 0,
+                    'amount_to_invoice': new_amount,
+                    'name': self.name + ' - ' + warranty_id.name,
+                    'journal_id': 1,
+                    'date': dt.now(),
+                    'ref': self.stage_id.name,
+                    'general_account_id': warranty_id.warranty_id.property_account_income.id,
+                    'history_id': self.id,
+                    'unit_amount': 1,
+                }
+                aal_obj.create(vals)
+        else:
+            for warranty_id in warranty_ids:
+                vals = {
+                    'account_id': self.analytic_id.id,
+                    'product_id': warranty_id.id,
+                    'amount': 0,
+                    'amount_to_invoice': warranty_id.proratee_net_amount,
+                    'name': self.name + ' - ' + warranty_id.name,
+                    'journal_id': 1,
+                    'date': dt.now(),
+                    'ref': self.stage_id.name,
+                    'general_account_id': warranty_id.warranty_id.property_account_income.id,
+                    'history_id': self.id,
+                    'unit_amount': 1,
+                }
+                aal_obj.create(vals)
 
     # TODO
     @api.multi
