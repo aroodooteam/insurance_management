@@ -68,6 +68,10 @@ class AccountAnalyticAccount(models.Model):
     insured_id = fields.Many2one(comodel_name='res.partner', string='Insured')
     history_count = fields.Integer(
         compute='get_history_count', string='History count')
+    invoice_count = fields.Integer(
+        compute='get_invoice_count', string='History count')
+    analytic_line_count = fields.Integer(
+        compute='getAnalyticLineCount', string='Analytic Line count')
     # End of new process with account_analytic_account
 
     on_warranty = fields.Boolean(string='On Warranty')
@@ -91,6 +95,33 @@ class AccountAnalyticAccount(models.Model):
         comodel_name='account.fiscal.position', string='Fiscal Position')
     pol_ident = fields.Char(string='Police ID')
     next_sequence = fields.Integer(string='Next version Sequence')
+    risk_line_ids = fields.One2many(comodel_name='analytic_history.risk.line', inverse_name='analytic_id', string='Contract')
+    description_ids = fields.One2many(comodel_name='risk.description.line', compute='getListDescription', string='Description')
+    history_ids = fields.One2many(comodel_name='analytic.history', inverse_name='analytic_id', string='History')
+    warranty_ids = fields.One2many(comodel_name='risk.warranty.line', compute='getListWarranty', string='Warranty')
+
+    @api.one
+    @api.depends('history_ids')
+    def getListDescription(self):
+        hist_obj = self.env['analytic.history']
+        hist_ids = hist_obj.search([('analytic_id', '=', self.id),('is_last_situation','=', True)], limit=1)
+        risk_dict = []
+        for risk_id in hist_ids.risk_line_ids:
+            for description in risk_id.risk_description_ids:
+                risk_dict.append(description.id)
+        self.description_ids = risk_dict
+
+    @api.one
+    @api.depends('history_ids')
+    def getListWarranty(self):
+        hist_obj = self.env['analytic.history']
+        hist_ids = hist_obj.search([('analytic_id', '=', self.id),('is_last_situation','=', True)], limit=1)
+        warranty_list = []
+        for risk_id in hist_ids.risk_line_ids:
+            for warranty in risk_id.warranty_line_ids:
+                warranty_list.append(warranty.id)
+        self.warranty_ids = warranty_list
+
 
     @api.onchange('ins_product_id')
     def onchange_ins_product_id(self):
@@ -99,18 +130,18 @@ class AccountAnalyticAccount(models.Model):
         if fraction_ids:
             self.fraction_id = fraction_ids.ids[0]
 
-    @api.onchange('partner_id')
-    def on_change_partner_id(self):
-        res = super(AccountAnalyticAccount, self).on_change_partner_id(self.partner_id.id, self.name)
-        logger.info('=== res = %s' % res)
-        values = res.get('value', {})
-        if values.get('name'):
-            self.name = values.get('name')
-        self.pricelist_id = values.get('pricelist_id')
-        if values.get('manager_id', False):
-            self.manager_id = values.get('manager_id')
-        self.property_account_position = self.partner_id.property_account_position.id
-        self.insured_id = self.partner_id.id
+    # @api.onchange('partner_id')
+    # def on_change_partner_id(self):
+    #     res = super(AccountAnalyticAccount, self).on_change_partner_id(self.partner_id.id, self.name)
+    #     logger.info('=== res = %s' % res)
+    #     values = res.get('value', {})
+    #     if values.get('name'):
+    #         self.name = values.get('name')
+    #     self.pricelist_id = values.get('pricelist_id')
+    #     if values.get('manager_id', False):
+    #         self.manager_id = values.get('manager_id')
+    #     self.property_account_position = self.partner_id.property_account_position.id
+    #     self.insured_id = self.partner_id.id
 
     # def open_hr_expense(self, cr, uid, ids, context=None):
     @api.multi
@@ -147,6 +178,43 @@ class AccountAnalyticAccount(models.Model):
         history_obj = self.env['analytic.history']
         history_count = history_obj.search_count([('analytic_id', '=', self.id)])
         self.history_count = history_count
+
+    @api.one
+    def get_invoice_count(self):
+        inv_ids = self.history_ids.mapped('invoice_id')
+        self.invoice_count = len(inv_ids)
+
+    @api.one
+    def getAnalyticLineCount(self):
+        self.analytic_line_count = len(self.history_ids.mapped('analytic_line_ids'))
+
+    @api.multi
+    def getInvoices(self):
+        inv_ids = self.history_ids.mapped('invoice_id')
+        res = {
+            'name': 'Invoices',
+            'type': 'ir.actions.act_window',
+            'res_model': 'account.invoice',
+            'src_model': 'account.analytic.account',
+            'view_type': 'form',
+            'view_mode': 'tree,form',
+            'domain': [('id', 'in', tuple(inv_ids.ids))],
+        }
+        return res
+
+    @api.multi
+    def getAnalyticLine(self):
+        analytic_line_ids = self.history_ids.mapped('analytic_line_ids')
+        res = {
+            'name': 'Analytic Lines',
+            'type': 'ir.actions.act_window',
+            'res_model': 'account.analytic.line',
+            'src_model': 'account.analytic.account',
+            'view_type': 'form',
+            'view_mode': 'tree,form',
+            'domain': [('id', 'in', tuple(analytic_line_ids.ids))],
+        }
+        return res
 
     @api.multi
     def get_current_version(self):
