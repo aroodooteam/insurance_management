@@ -80,13 +80,22 @@
                                 <field name="currency_id" attrs="{'invisible': ['|',('type', '&lt;&gt;', 'view'), ('company_id', '&lt;&gt;', False)]}"/>
                             </group>
                             <group>
-                                <field name="type" invisible="context.get('default_type', False)"/>
+                                <!--<field name="type" invisible="context.get('default_type', False)"/>-->
+                                <field name="type"/>
                                 <field name="code" invisible="1"/>
                                 <field name="pol_ident" attrs="{'invisible': [('is_insurance', '!=', True)]}"/>
                                 <field name="parent_id" on_change="on_change_parent(parent_id)" />
                                 <field name="company_id" on_change="on_change_company(company_id)" widget="selection" groups="base.group_multi_company" attrs="{'required': [('type','&lt;&gt;','view')]}"/>
                                 <field name="date_start"/>
                                 <field name="date"/>
+                                <field name="agency_id"/>
+                                <label for="force_acs" string="Force accessories"/>
+                                <div name="force_acs">
+                                    <field name="force_acs" class="oe_inline"/>
+                                    <field name="accessories" class="oe_inline" attrs="{'invisible': [('force_acs','=', False)]}"/>
+                                </div>
+                                <field name="invoice_id" attrs="{'invisible': [('invoice_id','=', False)]}"/>
+                                <field name="commission_invoice_id" attrs="{'invisible': [('commission_invoice_id','=', False)]}"/>
                             </group>
                         </group>
                         <notebook>

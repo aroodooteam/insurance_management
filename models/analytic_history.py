@@ -27,8 +27,6 @@ class AnalyticHistory(models.Model):
             logger.info('=== delta = %s' % delta)
             rec.nb_of_days = delta.days
 
-    # def _get_user_agency(self):
-
 
     analytic_id = fields.Many2one(
         comodel_name='account.analytic.account', string='Subscription')

@@ -9,33 +9,6 @@ logger = logging.getLogger(__name__)
 class AccountAnalyticAccount(models.Model):
     _inherit = 'account.analytic.account'
 
-    # TODO
-    @api.multi
-    def _get_warranty_invoiced(self):
-        """ Compute value of field warranty_invoiced """
-        for aaa in self:
-            aaa.warranty_invoiced = 0.0
-
-    # TODO
-    @api.multi
-    def _get_warranty_to_invoice(self):
-        """ Compute value of field warranty_to_invoice """
-        for aaa in self:
-            aaa.warranty_to_invoice = 0.0
-
-    # TODO
-    @api.multi
-    def _get_remain_warranty(self):
-        """ Compute value of field remaining_warranty """
-        for aaa in self:
-            aaa.remaining_warranty = 0.0
-
-    # TODO
-    @api.multi
-    def _get_wa_invoiced(self):
-        """ Compute value of field warranty_invoiced """
-        for aaa in self:
-            aaa.warranty_invoiced = 0.0
 
     @api.multi
     def _get_last_history(self):
@@ -75,18 +48,6 @@ class AccountAnalyticAccount(models.Model):
     # End of new process with account_analytic_account
 
     on_warranty = fields.Boolean(string='On Warranty')
-    warranty_invoiced = fields.Float(
-        string='Invoiced', digits_compute=dp.get_precision('Account'),
-        compute='_get_warranty_invoiced')
-    warranty_to_invoice = fields.Float(
-        string='To invoice', digits_compute=dp.get_precision('Account'),
-        compute='_get_warranty_to_invoice')
-    remaining_warranty = fields.Float(
-        string='Remaining', digits_compute=dp.get_precision('Account'),
-        compute='_get_remain_warranty')
-    est_warranty = fields.Float(
-        string='Estimation', digits_compute=dp.get_precision('Account'))
-    wa_invoiced = fields.Float(string='Warranty Invoiced Amount', digits_compute=dp.get_precision('Account'), compute='_get_wa_invoiced')
     state = fields.Selection(selection_add=[('suspend', 'Suspend')])
     history_stage = fields.Many2one(
         comodel_name='analytic.history.stage', string='History Stage',
@@ -99,6 +60,27 @@ class AccountAnalyticAccount(models.Model):
     description_ids = fields.One2many(comodel_name='risk.description.line', compute='getListDescription', string='Description')
     history_ids = fields.One2many(comodel_name='analytic.history', inverse_name='analytic_id', string='History')
     warranty_ids = fields.One2many(comodel_name='risk.warranty.line', compute='getListWarranty', string='Warranty')
+
+    agency_id = fields.Many2one(comodel_name='base.agency', string='Agency')
+    is_last_situation = fields.Boolean(
+        string='Is the last situation', default=False)
+    capital = fields.Float(
+        string='Capital', digit_compute=dp.get_precision('account'))
+    eml = fields.Float(
+        string='Expected maximum loss',
+        digit_compute=dp.get_precision('account'))
+    parent_id = fields.Many2one(
+        comodel_name='analytic.history', string='Parent',
+        help='Inherited Amendment')
+    force_acs = fields.Boolean(string='Force Accessories', help='Use the amount you define instead of original amoun from setting')
+    accessories = fields.Float(string='Accessories')
+    invoice_id = fields.Many2one(
+        'account.invoice', string='Invoice', readonly=True)
+    commission_invoice_id = fields.Many2one(
+        comodel_name='account.invoice', string='Commission Invoice', readonly=True)
+    comment = fields.Text(string='Comment', help='Some of your note')
+    # Temporary field
+    ver_ident = fields.Char(string='Ver Ident')
 
     @api.one
     @api.depends('history_ids')
