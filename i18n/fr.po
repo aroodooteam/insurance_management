@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-02 07:57+0000\n"
-"PO-Revision-Date: 2018-02-02 07:57+0000\n"
+"POT-Creation-Date: 2018-03-21 08:28+0000\n"
+"PO-Revision-Date: 2018-03-21 08:28+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,9 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/analytic_history.py:84
-#: code:addons/insurance_management/models/analytic_history.py:110
-#: code:addons/insurance_management/models/analytic_history.py:117
+#: code:addons/insurance_management/models/analytic_history.py:191
+#: code:addons/insurance_management/models/analytic_history.py:217
+#: code:addons/insurance_management/models/analytic_history.py:224
 #, python-format
 msgid "%s (copy)"
 msgstr "%s (copie)"
@@ -55,6 +55,7 @@ msgstr "------------GARANTIES RISQUES LOCATIFS------------"
 
 #. module: insurance_management
 #: model:ir.actions.act_window,help:insurance_management.act_open_account_analytic_account_view
+#: model:ir.actions.act_window,help:insurance_management.act_open_account_analytic_main_view
 msgid "<p class=\"oe_view_nocontent_create\">\n"
 "                    Click to create a new contract.\n"
 "                </p><p>\n"
@@ -78,6 +79,7 @@ msgid "AP code"
 msgstr "AP code"
 
 #. module: insurance_management
+#: field:account.analytic.account,accessories:0
 #: field:analytic.history,accessories:0
 msgid "Accessories"
 msgstr "Accessories"
@@ -108,6 +110,7 @@ msgid "Account setting"
 msgstr "Configuration compte"
 
 #. module: insurance_management
+#: field:account.analytic.account,agency_id:0
 #: field:analytic.history,agency_id:0
 msgid "Agency"
 msgstr "Agence"
@@ -135,6 +138,11 @@ msgid "Amendment Lines"
 msgstr "Détails de l'avenant"
 
 #. module: insurance_management
+#: field:account.analytic.line,amount_to_invoice:0
+msgid "Amount to invoice"
+msgstr "Amount to invoice"
+
+#. module: insurance_management
 #: view:account.analytic.account:insurance_management.view_account_analytic_account_form
 #: model:ir.model,name:insurance_management.model_account_analytic_account
 msgid "Analytic Account"
@@ -146,6 +154,23 @@ msgstr "Compte analytique"
 #: view:analytic.history.wiz:insurance_management.view_analytic_history_wiz_form
 msgid "Analytic History"
 msgstr "Version de police"
+
+#. module: insurance_management
+#: model:ir.model,name:insurance_management.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Ligne analytique"
+
+#. module: insurance_management
+#: field:account.analytic.account,analytic_line_count:0
+msgid "Analytic Line count"
+msgstr "Analytic Line count"
+
+#. module: insurance_management
+#: view:account.analytic.account:insurance_management.view_account_analytic_account_form
+#: view:analytic.history:insurance_management.view_analytic_history_form
+#: field:analytic.history,analytic_line_ids:0
+msgid "Analytic Lines"
+msgstr "Analytic Lines"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_assistance_r0
@@ -171,6 +196,21 @@ msgstr "Assurance Corporelle"
 #: model:insurance.branch,name:insurance_management.insurance_branch_engineering
 msgid "Assurance Engineering"
 msgstr "Assurance Engineering"
+
+#. module: insurance_management
+#: model:insurance.branch,name:insurance_management.insurance_branch_assurance_vie__grande_branche_r0
+msgid "Assurance Vie - Grande branche"
+msgstr "Assurance Vie - Grande branche"
+
+#. module: insurance_management
+#: model:insurance.branch,name:insurance_management.insurance_branch_assurance_vie__groupe_r0
+msgid "Assurance Vie - Groupe"
+msgstr "Assurance Vie - Groupe"
+
+#. module: insurance_management
+#: model:insurance.branch,name:insurance_management.insurance_branch_assurance_vie__populaire_r0
+msgid "Assurance Vie - Populaire"
+msgstr "Assurance Vie - Populaire"
 
 #. module: insurance_management
 #: model:insurance.branch,name:insurance_management.insurance_branch_personnes
@@ -291,11 +331,24 @@ msgid "Brokers"
 msgstr "Apporteurs"
 
 #. module: insurance_management
+#: code:addons/insurance_management/models/analytic_history.py:903
+#, python-format
+msgid "Can't delete version allready invoiced"
+msgstr "Can't delete version allready invoiced"
+
+#. module: insurance_management
+#: code:addons/insurance_management/models/analytic_history.py:900
+#, python-format
+msgid "Can't delete version referenced has parent"
+msgstr "Can't delete version referenced has parent"
+
+#. module: insurance_management
 #: view:analytic.history.wiz:insurance_management.view_analytic_history_wiz_form
 msgid "Cancel"
 msgstr "Annuler"
 
 #. module: insurance_management
+#: field:account.analytic.account,capital:0
 #: field:analytic.history,capital:0
 msgid "Capital"
 msgstr "Capital"
@@ -397,8 +450,10 @@ msgid "Code of Risk type"
 msgstr "Code type de risque"
 
 #. module: insurance_management
+#: field:account.analytic.account,comment:0
 #: field:analytic.history,comment:0
 #: field:analytic_history.risk.line,comment:0
+#: field:risk.description.line,comment:0
 msgid "Comment"
 msgstr "Commentaires"
 
@@ -412,6 +467,11 @@ msgstr "Commentaires"
 #: view:product.template:insurance_management.view_product_product_form
 msgid "Commission Information"
 msgstr "Information Commission"
+
+#. module: insurance_management
+#: field:account.analytic.account,commission_invoice_id:0
+msgid "Commission Invoice"
+msgstr "Commission Invoice"
 
 #. module: insurance_management
 #: field:product.template,commissionable:0
@@ -439,6 +499,7 @@ msgid "Contenu des coffres-forts"
 msgstr "Contenu des coffres-forts"
 
 #. module: insurance_management
+#: field:account.analytic.account,risk_line_ids:0
 #: field:account.invoice,analytic_id:0
 msgid "Contract"
 msgstr "Police"
@@ -688,6 +749,7 @@ msgid "Default Accessories amount if more than one object"
 msgstr "Montant Accessoires par défaut si plus d'un objet"
 
 #. module: insurance_management
+#: field:account.analytic.account,description_ids:0
 #: field:analytic_history.risk.line,name:0
 #: field:insurance.type.risk,description:0
 #: view:insurance_type_risk.clause:insurance_management.view_insurance_type_risk_clause_form
@@ -702,6 +764,7 @@ msgid "Description of insurance type of risk"
 msgstr "Description of insurance type of risk"
 
 #. module: insurance_management
+#: view:account.analytic.account:insurance_management.view_account_analytic_account_form
 #: view:analytic.history:insurance_management.view_analytic_history_form
 #: view:analytic_history.movement:insurance_management.view_analytic_history_movement_form
 #: field:analytic_history.movement.line,movement_desc_ids:0
@@ -709,6 +772,11 @@ msgstr "Description of insurance type of risk"
 #: model:ir.ui.menu,name:insurance_management.menu_insurance_type_risk_description
 msgid "Descriptions"
 msgstr "Descriptions"
+
+#. module: insurance_management
+#: view:account.analytic.account:insurance_management.view_account_analytic_account_form
+msgid "Descriptions Lines"
+msgstr "Descriptions Lines"
 
 #. module: insurance_management
 #: model:product.template,name:insurance_management.pt_destruction_partielle_ou_totale_r0
@@ -1185,11 +1253,6 @@ msgid "Ending date"
 msgstr "Date de Fin"
 
 #. module: insurance_management
-#: field:account.analytic.account,est_warranty:0
-msgid "Estimation"
-msgstr "Estimation"
-
-#. module: insurance_management
 #: model:product.template,name:insurance_management.pt_evacuation_sanitaire_et_assistance__letranger_r0
 #: model:product.template,name:insurance_management.pt_evacuation_sanitaire_et_assistance__letranger_r1
 msgid "Evacuation Sanitaire et Assistance à l'Etranger"
@@ -1212,6 +1275,7 @@ msgid "Evénements naturels"
 msgstr "Evénements naturels"
 
 #. module: insurance_management
+#: field:account.analytic.account,eml:0
 #: field:analytic.history,eml:0
 msgid "Expected maximum loss"
 msgstr "SMP"
@@ -1338,6 +1402,17 @@ msgstr "Code Fiscal"
 #: view:account.analytic.account:insurance_management.view_account_analytic_account_form
 msgid "Fiscal position"
 msgstr "Position Fiscal "
+
+#. module: insurance_management
+#: field:account.analytic.account,force_acs:0
+#: field:analytic.history,force_acs:0
+msgid "Force Accessories"
+msgstr "Force Accessories"
+
+#. module: insurance_management
+#: view:account.analytic.account:insurance_management.view_account_analytic_account_form
+msgid "Force accessories"
+msgstr "Force accessories"
 
 #. module: insurance_management
 #: field:account.analytic.account,fraction_id:0
@@ -1469,11 +1544,17 @@ msgid "GARANTIE FICTIVE"
 msgstr "GARANTIE FICTIVE"
 
 #. module: insurance_management
+#: field:risk.warranty.line,gar_ident:0
+msgid "Gar Ident"
+msgstr "Gar Ident"
+
+#. module: insurance_management
 #: model:product.template,name:insurance_management.pt_garanties_rctt_global_r0
 msgid "Garanties RCTT Global"
 msgstr "Garanties RCTT Global"
 
 #. module: insurance_management
+#: view:analytic.history:insurance_management.view_analytic_history_form
 #: model:ir.actions.server,name:insurance_management.generate_invoice_act_server
 msgid "Generate Invoice"
 msgstr "Generate Invoice"
@@ -1527,6 +1608,9 @@ msgid "Histories"
 msgstr "Version"
 
 #. module: insurance_management
+#: view:account.analytic.account:insurance_management.view_account_analytic_account_form
+#: field:account.analytic.account,history_ids:0
+#: field:account.analytic.line,history_id:0
 #: field:account.invoice,history_id:0
 msgid "History"
 msgstr "Version"
@@ -1538,6 +1622,7 @@ msgstr "Status Version"
 
 #. module: insurance_management
 #: field:account.analytic.account,history_count:0
+#: field:account.analytic.account,invoice_count:0
 msgid "History count"
 msgstr "Nombre Version"
 
@@ -1785,6 +1870,7 @@ msgid "Inflammabilité"
 msgstr "Inflammabilité"
 
 #. module: insurance_management
+#: help:account.analytic.account,ver_parent_id:0
 #: help:analytic.history,parent_id:0
 msgid "Inherited Amendment"
 msgstr "Avenant parent"
@@ -1897,8 +1983,9 @@ msgid "Inusrance Product"
 msgstr "Produit assusrance"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/analytic_history.py:300
-#: code:addons/insurance_management/models/analytic_history.py:423
+#: field:account.analytic.account,invoice_id:0
+#: code:addons/insurance_management/models/analytic_history.py:408
+#: code:addons/insurance_management/models/analytic_history.py:548
 #: field:analytic.history,invoice_id:0
 #: model:ir.model,name:insurance_management.model_account_invoice
 #, python-format
@@ -1906,18 +1993,19 @@ msgid "Invoice"
 msgstr "Facture"
 
 #. module: insurance_management
-#: field:account.analytic.account,warranty_invoiced:0
 #: field:movement.warranty.line,invoiced:0
 #: field:risk.warranty.line,invoiced:0
 msgid "Invoiced"
 msgstr "Facturé"
 
 #. module: insurance_management
+#: view:account.analytic.account:insurance_management.view_account_analytic_account_form
 #: view:analytic.history:insurance_management.view_analytic_history_form
 msgid "Invoices"
 msgstr "Primes"
 
 #. module: insurance_management
+#: field:account.analytic.account,is_last_situation:0
 #: field:analytic.history,is_last_situation:0
 msgid "Is the last situation"
 msgstr "Dernière version"
@@ -2004,7 +2092,7 @@ msgid "Last Updated on"
 msgstr "Last Updated on"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/account_analytic_account.py:163
+#: code:addons/insurance_management/models/account_analytic_account.py:213
 #, python-format
 msgid "Last Version"
 msgstr "Dernière Version"
@@ -2321,6 +2409,11 @@ msgid "Parent"
 msgstr "Parent"
 
 #. module: insurance_management
+#: field:account.analytic.account,ver_parent_id:0
+msgid "Parent Version"
+msgstr "Parent Version"
+
+#. module: insurance_management
 #: field:res.partner.family,partner_id:0
 msgid "Parent insured"
 msgstr "Assuré Parent"
@@ -2482,7 +2575,7 @@ msgid "Phénomenes électriques"
 msgstr "Phénomenes électriques"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/analytic_history.py:207
+#: code:addons/insurance_management/models/analytic_history.py:314
 #, python-format
 msgid "Please contact your Administrator to set your agency"
 msgstr "SVP, contactez votre Administrateur pour définir votre agence"
@@ -2493,8 +2586,8 @@ msgid "Police ID"
 msgstr "Police ID"
 
 #. module: insurance_management
-#: model:ir.actions.act_window,name:insurance_management.act_open_account_analytic_account_view
-#: model:ir.ui.menu,name:insurance_management.menu_account_analytic_account
+#: model:ir.actions.act_window,name:insurance_management.act_open_account_analytic_main_view
+#: model:ir.ui.menu,name:insurance_management.menu_account_analytic_account_main
 msgid "Policy"
 msgstr "Police"
 
@@ -3236,11 +3329,6 @@ msgid "Reinstatment"
 msgstr "Remise en Vigueur"
 
 #. module: insurance_management
-#: field:account.analytic.account,remaining_warranty:0
-msgid "Remaining"
-msgstr "Remaining"
-
-#. module: insurance_management
 #: model:product.template,name:insurance_management.pt_remboursement_recharges_dextincteurs_r0
 msgid "Remboursement recharges d’extincteurs"
 msgstr "Remboursement recharges d’extincteurs"
@@ -3475,6 +3563,7 @@ msgid "Soins, chirurgie, prothèses dentaires"
 msgstr "Soins, chirurgie, prothèses dentaires"
 
 #. module: insurance_management
+#: help:account.analytic.account,comment:0
 #: help:analytic.history,comment:0
 msgid "Some of your note"
 msgstr "Vos notes"
@@ -3500,7 +3589,7 @@ msgid "Sorry, You don't have to reinstate a subscription which is not suspended"
 msgstr "Désolé, vous ne pouvez re-mettre en vigueur un contrat non suspendue"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/account_analytic_account.py:159
+#: code:addons/insurance_management/models/account_analytic_account.py:209
 #, python-format
 msgid "Sorry, there is no recent version for this contract"
 msgstr "Désolé, Aucune version récente n'est disponible pour ce contrat"
@@ -3579,7 +3668,7 @@ msgid "Terrestre"
 msgstr "Terrestre"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/analytic_history.py:228
+#: code:addons/insurance_management/models/analytic_history.py:336
 #, python-format
 msgid "The expected maximum loss should be less than the capital"
 msgstr "Le montant maximum de remboursement doit être inférieur au capital"
@@ -3591,7 +3680,7 @@ msgid "There is no history yet for this contract. You have to select <AFN> or <D
 msgstr "Aucune version n'est encore disponible pour ce contrat. Vous devez choisir <AFN> ou <DEV>"
 
 #. module: insurance_management
-#: code:addons/insurance_management/models/analytic_history.py:318
+#: code:addons/insurance_management/models/analytic_history.py:429
 #, python-format
 msgid "There is no warranty to invoice in this contract history"
 msgstr "Il n'y a aucune garantie à facturer dans ce contrat"
@@ -3608,13 +3697,8 @@ msgid "Threshold amount"
 msgstr "Montant seuil"
 
 #. module: insurance_management
-#: field:account.analytic.account,warranty_to_invoice:0
-msgid "To invoice"
-msgstr "A Facturé"
-
-#. module: insurance_management
-#: code:addons/insurance_management/models/analytic_history.py:254
-#: code:addons/insurance_management/models/analytic_history.py:282
+#: code:addons/insurance_management/models/analytic_history.py:362
+#: code:addons/insurance_management/models/analytic_history.py:390
 #, python-format
 msgid "Too much result found"
 msgstr "Trop de valeur trouvé"
@@ -3751,12 +3835,19 @@ msgid "Updated"
 msgstr "Updated"
 
 #. module: insurance_management
+#: help:account.analytic.account,force_acs:0
+#: help:analytic.history,force_acs:0
+msgid "Use the amount you define instead of original amoun from setting"
+msgstr "Use the amount you define instead of original amoun from setting"
+
+#. module: insurance_management
 #: help:analytic_history.risk.line,template:0
 msgid "Used as template"
 msgstr "Utiliser comme modèle"
 
 #. module: insurance_management
 #: view:account.analytic.account:insurance_management.view_account_analytic_account_form
+#: view:analytic.history:insurance_management.view_analytic_history_form
 #: view:analytic.history.wiz:insurance_management.view_analytic_history_wiz_form
 msgid "Validate"
 msgstr "Valider"
@@ -3777,9 +3868,16 @@ msgid "Values"
 msgstr "Values"
 
 #. module: insurance_management
+#: field:account.analytic.account,ver_ident:0
 #: field:analytic.history,ver_ident:0
 msgid "Ver Ident"
 msgstr "Ver Ident"
+
+#. module: insurance_management
+#: model:ir.actions.act_window,name:insurance_management.act_open_account_analytic_account_view
+#: model:ir.ui.menu,name:insurance_management.menu_account_analytic_account
+msgid "Version"
+msgstr "Version"
 
 #. module: insurance_management
 #: selection:insurance.branch,category:0
@@ -3885,6 +3983,8 @@ msgid "Vols"
 msgstr "Vols"
 
 #. module: insurance_management
+#: view:account.analytic.account:insurance_management.view_account_analytic_account_form
+#: field:account.analytic.account,warranty_ids:0
 #: view:analytic.history:insurance_management.view_analytic_history_form
 #: view:analytic_history.movement:insurance_management.view_analytic_history_movement_form
 #: field:analytic_history.movement.line,movement_warranty_ids:0
@@ -3896,11 +3996,6 @@ msgstr "Vols"
 #: field:risk.warranty.line,warranty_id:0
 msgid "Warranty"
 msgstr "Garantie"
-
-#. module: insurance_management
-#: field:account.analytic.account,wa_invoiced:0
-msgid "Warranty Invoiced Amount"
-msgstr "Garantie Facturé"
 
 #. module: insurance_management
 #: view:insurance.product:insurance_management.view_insurance_product_form
@@ -3998,12 +4093,6 @@ msgstr "ou"
 #: field:movement.warranty.line,state:0
 msgid "state"
 msgstr "state"
-
-#. module: insurance_management
-#: code:addons/insurance_management/models/analytic_history.py:223
-#, python-format
-msgid "the effective date must be less than the end date"
-msgstr "La date d'effet doit être inférieur à la date de fin"
 
 #. module: insurance_management
 #: field:res.partner.family,type:0
