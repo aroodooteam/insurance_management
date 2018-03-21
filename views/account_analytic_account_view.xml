@@ -59,8 +59,10 @@
                             <div name="insurance">
                                 <field name="is_insurance"/>
                                 <label for="is_insurance"/>
-                                <field name="is_recurrent"/>
-                                <label for="is_recurrent"/>
+                                <field name="is_recurrent" attrs="{'invisible': [('type', '!=', 'view')]}"/>
+                                <label for="is_recurrent" attrs="{'invisible': [('type', '!=', 'view')]}"/>
+                                <field name="is_last_situation" attrs="{'invisible': [('type', '=', 'view')]}"/>
+                                <label for="is_last_situation" attrs="{'invisible': [('type', '=', 'view')]}"/>
                             </div>
                         </div>
 
@@ -77,11 +79,13 @@
                                 <field name="fraction_ids" placeholder="Insurance fractions" invisible="1"/>
                                 <field name="fraction_id" widget="selection" attrs="{'invisible': [('is_insurance', '!=', True)], 'readonly': [('history_stage', 'not in', (False, %(insurance_management.devis)d))]}"/>
                                 <field name="history_stage" options="{'no_open': True}" attrs="{'invisible': [('is_insurance', '!=', True)]}"/>
-                                <field name="currency_id" attrs="{'invisible': ['|',('type', '&lt;&gt;', 'view'), ('company_id', '&lt;&gt;', False)]}"/>
+                                <!--<field name="currency_id" attrs="{'invisible': ['|',('type', '&lt;&gt;', 'view'), ('company_id', '&lt;&gt;', False)]}"/>-->
+                                <field name="currency_id"/>
                             </group>
                             <group>
                                 <!--<field name="type" invisible="context.get('default_type', False)"/>-->
                                 <field name="type"/>
+                                <field name="ver_parent_id" attrs="{'invisible': [('ver_parent_id','=', False)]}"/>
                                 <field name="code" invisible="1"/>
                                 <field name="pol_ident" attrs="{'invisible': [('is_insurance', '!=', True)]}"/>
                                 <field name="parent_id" on_change="on_change_parent(parent_id)" />
@@ -89,13 +93,15 @@
                                 <field name="date_start"/>
                                 <field name="date"/>
                                 <field name="agency_id"/>
-                                <label for="force_acs" string="Force accessories"/>
-                                <div name="force_acs">
+                                <label for="force_acs" string="Force accessories" attrs="{'invisible': [('type', '=', 'view')]}"/>
+                                <div name="force_acs" attrs="{'invisible': [('type', '=', 'view')]}">
                                     <field name="force_acs" class="oe_inline"/>
                                     <field name="accessories" class="oe_inline" attrs="{'invisible': [('force_acs','=', False)]}"/>
                                 </div>
-                                <field name="invoice_id" attrs="{'invisible': [('invoice_id','=', False)]}"/>
-                                <field name="commission_invoice_id" attrs="{'invisible': [('commission_invoice_id','=', False)]}"/>
+                                <field name="capital" attrs="{'invisible': [('type', '=', 'view')]}"/>
+                                <field name="eml" attrs="{'invisible': [('type', '=', 'view')]}"/>
+                                <field name="invoice_id" attrs="{'invisible': ['|',('invoice_id','=', False),('type', '=', 'view')]}"/>
+                                <field name="commission_invoice_id" attrs="{'invisible': ['|',('commission_invoice_id','=', False),('type', '=', 'view')]}"/>
                             </group>
                         </group>
                         <notebook>
@@ -154,8 +160,9 @@
             </field>
         </record>
 
+        <!--open list of version-->
         <record id="act_open_account_analytic_account_view" model="ir.actions.act_window">
-            <field name="name">Policy</field>
+            <field name="name">Version</field>
             <field name="res_model">account.analytic.account</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -185,6 +192,39 @@
             parent="insurance_management.menu_root_operation_insurance"
             sequence="20"
             action="act_open_account_analytic_account_view"/>
+
+        <!--open list of analytic view-->
+        <record id="act_open_account_analytic_main_view" model="ir.actions.act_window">
+            <field name="name">Policy</field>
+            <field name="res_model">account.analytic.account</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"default_is_insurance":1, 'default_type':'view', 'search_default_open':1, 'search_default_pending':1, 'default_manager_id':uid, 'default_state': 'draft'}</field>
+            <field name="domain">[('type','=','view'),('is_insurance','=', True)]</field>
+            <field name="search_view_id" ref="account.view_account_analytic_account_search"/>
+            <field name="view_id" ref="insurance_management.view_account_analytic_account_form"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new contract.
+                </p><p>
+                    Use contracts to follow tasks, issues, timesheets or invoicing based on
+                    work done, expenses and/or sales orders. Odoo will automatically manage
+                    the alerts for the renewal of the contracts to the right salesperson.
+                </p>
+            </field>
+        </record>
+
+        <record id="action_acc_analytic_tree_main_view1" model="ir.actions.act_window.view">
+            <field name="sequence" eval="0"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="account.view_account_analytic_account_list"/>
+            <field name="act_window_id" ref="insurance_management.act_open_account_analytic_main_view"/>
+        </record>
+
+        <menuitem id="menu_account_analytic_account_main"
+            parent="insurance_management.menu_root_operation_insurance"
+            sequence="20"
+            action="act_open_account_analytic_main_view"/>
 
         <record id="generate_invoice_act_server" model="ir.actions.server">
             <field name="name">Generate Invoice</field>
