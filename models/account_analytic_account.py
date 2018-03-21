@@ -69,8 +69,8 @@ class AccountAnalyticAccount(models.Model):
     eml = fields.Float(
         string='Expected maximum loss',
         digit_compute=dp.get_precision('account'))
-    parent_id = fields.Many2one(
-        comodel_name='analytic.history', string='Parent',
+    ver_parent_id = fields.Many2one(
+        comodel_name='account.analytic.account', string='Parent Version',
         help='Inherited Amendment')
     force_acs = fields.Boolean(string='Force Accessories', help='Use the amount you define instead of original amoun from setting')
     accessories = fields.Float(string='Accessories')
