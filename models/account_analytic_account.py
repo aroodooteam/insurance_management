@@ -2,6 +2,8 @@
 
 from openerp import api, exceptions, fields, models, _
 from openerp.addons.decimal_precision import decimal_precision as dp
+from datetime import datetime as dt
+from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 import logging
 logger = logging.getLogger(__name__)
 
@@ -9,6 +11,16 @@ logger = logging.getLogger(__name__)
 class AccountAnalyticAccount(models.Model):
     _inherit = 'account.analytic.account'
 
+    @api.depends('date_start', 'date')
+    @api.multi
+    def _get_nb_of_days(self):
+        for rec in self:
+            if not rec.date_start or not rec.date:
+                return False
+            date_end = dt.strptime(rec.date, '%Y-%m-%d')
+            date_start= dt.strptime(rec.date_start, '%Y-%m-%d')
+            delta = date_end - date_start
+            rec.nb_of_days = delta.days
 
     @api.multi
     def _get_last_history(self):
@@ -79,6 +91,7 @@ class AccountAnalyticAccount(models.Model):
     commission_invoice_id = fields.Many2one(
         comodel_name='account.invoice', string='Commission Invoice', readonly=True)
     comment = fields.Text(string='Comment', help='Some of your note')
+    nb_of_days = fields.Integer(compute='_get_nb_of_days', string='Number of days', help='Number of days between start and end date')
     # Temporary field
     ver_ident = fields.Char(string='Ver Ident')
 
@@ -160,6 +173,8 @@ class AccountAnalyticAccount(models.Model):
         history_obj = self.env['analytic.history']
         history_count = history_obj.search_count([('analytic_id', '=', self.id)])
         self.history_count = history_count
+        # part 2
+        self.history_count = self.search_count([('parent_id', '=', self.id)])
 
     @api.one
     def get_invoice_count(self):
@@ -230,7 +245,7 @@ class AccountAnalyticAccount(models.Model):
         self.write({'state': 'close'})
 
     @api.multi
-    def open_history_list(self):
+    def open_history_list_old(self):
         ctx = self._context.copy()
         res = {
             'name': 'History',
@@ -243,6 +258,32 @@ class AccountAnalyticAccount(models.Model):
             # 'view_id': self.env.ref('insurance_management.view_analytic_history_tree').id,
             'domain': [('analytic_id', '=', self.ids[0])],
             'flags': {'form': {'action_buttons': True, 'options': {'mode': 'edit'}}},
+        }
+        if self.branch_id.code == 'ASSPERS':
+            ctx.update({'insurance_person': True})
+            res['context'] = ctx
+        return res
+
+    @api.multi
+    def open_history_list(self):
+        ctx = self._context.copy()
+        tree_id = self.env.ref('account.view_account_analytic_account_list').id
+        form_id = self.env.ref('insurance_management.view_account_analytic_account_form').id
+        res = {
+            'name': 'History',
+            'type': 'ir.actions.act_window',
+            'res_model': 'account.analytic.account',
+            'src_model': 'account.analytic.account',
+            'nodestroy': True,
+            'context': ctx,
+            'view_type': 'form',
+            'view_mode': 'tree,form',
+            'views': [(tree_id, 'tree'),(form_id, 'form')],
+            'domain': [('parent_id', '=', self.ids[0])],
+            'flags': {
+                'form': {'action_buttons': True, 'options': {'mode': 'edit'}},
+                'tree': {'action_buttons': False, 'create': False, 'options': {}}
+            },
         }
         if self.branch_id.code == 'ASSPERS':
             ctx.update({'insurance_person': True})
