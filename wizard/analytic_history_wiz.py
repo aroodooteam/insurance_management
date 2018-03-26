@@ -10,13 +10,13 @@ from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 
 
-
 class AnalyticHistoryWiz(models.TransientModel):
     _name = 'analytic.history.wiz'
     _description = 'Wizard to control the version of contract will be created'
 
     stage_id = fields.Many2one(comodel_name='analytic.history.stage', string='Stage', help='Different stage of the history')
 
+    @api.multi
     @api.multi
     def to_validate(self):
         logger.info('\n=== ctx_to_validate = %s'% str(self._context))
@@ -90,43 +90,6 @@ class AnalyticHistoryWiz(models.TransientModel):
         #     'target': 'current',
         #     'context': ctx
         # }
-
-    # @api.multi
-    # def renew_analytic_account(self, history_ids=False):
-    #     """
-    #     Renew the insurance policy
-    #     """
-    #     res = {}
-    #     ctx = self._context.copy()
-    #     ctx['default_analytic_id'] = ctx.get('active_id')
-    #     ctx['version_type'] = 'renew'
-    #     ctx['default'] = True
-    #     history_obj = self.env['analytic.history']
-    #     if not history_ids:
-    #         history_ids = history_obj.search([('analytic_id', '=', self._context.get('active_id')), ('is_last_situation', '=', True)])
-    #     if not history_ids or len(history_ids) > 1:
-    #         raise exceptions.Warning(_('Sorry, You don\'t have or you get more than one amendment defined as last situation.\n Fix it first before continuing'))
-    #     else:
-    #         copy_vals = history_ids.with_context(ctx)._get_all_value()
-    #         ctx.update(parent_history=history_ids.id)
-    #         copy_vals.update(default_is_last_situation=True)
-    #         copy_vals.update(default_stage_id=self.env.ref('insurance_management.renouvellement').id)
-    #         copy_vals.update(default_parent_id=history_ids.id)
-    #         ctx.update(copy_vals)
-    #         view_id = self.env.ref('insurance_management.view_analytic_history_form').id
-    #         res.update({
-    #             'type': 'ir.actions.act_window',
-    #             'name': _('Renew'),
-    #             'res_model': 'analytic.history',
-    #             'view_type': 'form',
-    #             'view_mode': 'form',
-    #             'view_id': [view_id],
-    #             # 'res_id': new_amendment.id,
-    #             'context': ctx,
-    #             'target': 'current',
-    #             'flags': {'form': {'action_buttons': True, 'options': {'mode': 'edit'}}},
-    #         })
-    #     return res
 
     @api.multi
     def renew_analytic_account(self, history_ids=False):
