@@ -59,7 +59,7 @@ class AccountAnalyticAccount(models.Model):
     # End of new process with account_analytic_account
 
     on_warranty = fields.Boolean(string='On Warranty')
-    state = fields.Selection(selection_add=[('suspend', 'Suspend')])
+    state = fields.Selection(selection_add=[('suspend', 'Suspend'),('amendment', 'Amendment')])
     history_stage = fields.Many2one(
         comodel_name='analytic.history.stage', string='History Stage',
         help='Stage of last history', compute='_get_last_history')
@@ -91,14 +91,16 @@ class AccountAnalyticAccount(models.Model):
         comodel_name='account.invoice', string='Commission Invoice', readonly=True)
     comment = fields.Text(string='Comment', help='Some of your note')
     nb_of_days = fields.Integer(compute='_get_nb_of_days', string='Number of days', help='Number of days between start and end date')
+    stage_id = fields.Many2one(
+        comodel_name='analytic.history.stage', string='Emission type')
+    # default=lambda self: self.env.ref('insurance_management.devis').id)
     # Temporary field
     ver_ident = fields.Char(string='Ver Ident')
 
     @api.one
     @api.depends('history_ids')
     def getListDescription(self):
-        hist_obj = self.env['analytic.history']
-        hist_ids = hist_obj.search([('analytic_id', '=', self.id),('is_last_situation','=', True)], limit=1)
+        hist_ids = self.search([('parent_id', '=', self.id),('is_last_situation','=', True)], limit=1)
         risk_dict = []
         for risk_id in hist_ids.risk_line_ids:
             for description in risk_id.risk_description_ids:
@@ -108,8 +110,7 @@ class AccountAnalyticAccount(models.Model):
     @api.one
     @api.depends('history_ids')
     def getListWarranty(self):
-        hist_obj = self.env['analytic.history']
-        hist_ids = hist_obj.search([('analytic_id', '=', self.id),('is_last_situation','=', True)], limit=1)
+        hist_ids = self.search([('parent_id', '=', self.id),('is_last_situation','=', True)], limit=1)
         warranty_list = []
         for risk_id in hist_ids.risk_line_ids:
             for warranty in risk_id.warranty_line_ids:
@@ -332,3 +333,52 @@ class AccountAnalyticAccount(models.Model):
         res = super(AccountAnalyticAccount, self).on_change_parent(self.parent_id.id)
         logger.info('res_onchange = %s' % res)
         return res
+
+    @api.one
+    def generateAnalyticLines(self):
+        aal_obj = self.env['account.analytic.line']
+        warranty_obj = self.env['risk.warranty.line']
+        # get all warranty in risk_line
+        warranty_ids = self.risk_line_ids.mapped('warranty_line_ids')
+        all_vals = []
+        if self.stage_id.id == self.env.ref('insurance_management.avenant').id:
+            logger.info('TEST')
+            for warranty_id in warranty_ids:
+                new_amount = 0
+                if warranty_id.parent_id:
+                    if warranty_id.parent_id.proratee_net_amount!= warranty_id.proratee_net_amount:
+                        new_amount = warranty_id.proratee_net_amount- warranty_id.parent_id.proratee_net_amount
+                    else:
+                        continue
+                else:
+                    new_amount = warranty_id.proratee_net_amount
+                vals = {
+                    'account_id': self.analytic_id.id,
+                    'product_id': warranty_id.id,
+                    'amount': 0,
+                    'amount_to_invoice': new_amount,
+                    'name': self.name + ' - ' + warranty_id.name,
+                    'journal_id': 1,
+                    'date': dt.now(),
+                    'ref': self.stage_id.name,
+                    'general_account_id': warranty_id.warranty_id.property_account_income.id,
+                    'history_id': self.id,
+                    'unit_amount': 1,
+                }
+                aal_obj.create(vals)
+        else:
+            for warranty_id in warranty_ids:
+                vals = {
+                    'account_id': self.analytic_id.id,
+                    'product_id': warranty_id.id,
+                    'amount': 0,
+                    'amount_to_invoice': warranty_id.proratee_net_amount,
+                    'name': self.name + ' - ' + warranty_id.name,
+                    'journal_id': 1,
+                    'date': dt.now(),
+                    'ref': self.stage_id.name,
+                    'general_account_id': warranty_id.warranty_id.property_account_income.id,
+                    'history_id': self.id,
+                    'unit_amount': 1,
+                }
+                aal_obj.create(vals)
