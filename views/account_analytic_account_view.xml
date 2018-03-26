@@ -22,7 +22,7 @@
         <record id="view_account_analytic_account_form" model="ir.ui.view">
             <field name="name">Insurance contract form</field>
             <field name="model">account.analytic.account</field>
-            <field name="priority" eval="32"/>
+            <field name="priority" eval="8"/>
             <field name="inherit_id" eval="False"/>
             <field name="arch" type="xml">
                 <form string="Analytic Account">
@@ -38,7 +38,8 @@
                                 name="open_analytic_history_wiz"
                                 class="oe_stat_button"
                                 string="New version" type="object"
-                                icon="fa-file-o"/>
+                                icon="fa-file-o"
+                                attrs="{'invisible':[('type','!=','view')]}"/>
                             <button name="open_history_list" class="oe_stat_button" type="object" icon="fa-list-alt" attrs="{'invisible': [('history_count','=', 0)]}">
                                 <field name="history_count" widget="statinfo" string="Histories"/>
                             </button>
@@ -88,7 +89,8 @@
                                 <field name="ver_parent_id" attrs="{'invisible': [('ver_parent_id','=', False)]}"/>
                                 <field name="code" invisible="1"/>
                                 <field name="pol_ident" attrs="{'invisible': [('is_insurance', '!=', True)]}"/>
-                                <field name="parent_id" on_change="on_change_parent(parent_id)" attrs="{'invisible': [('type', '=', 'view')]}"/>
+                                <!--<field name="parent_id" on_change="on_change_parent(parent_id)" attrs="{'invisible': [('type', '=', 'view')]}"/>-->
+                                <field name="parent_id" attrs="{'invisible': [('type', '=', 'view')]}"/>
                                 <field name="company_id" on_change="on_change_company(company_id)" widget="selection" groups="base.group_multi_company" attrs="{'required': [('type','&lt;&gt;','view')]}"/>
                                 <field name="date_start"/>
                                 <field name="date"/>
@@ -209,6 +211,29 @@
                         <field name="message_ids" widget="mail_thread"/>
                     </div>
                 </form>
+            </field>
+        </record>
+
+        <record id="view_account_analytic_account_policy_tree" model="ir.ui.view">
+            <field name="name">account.analytic.account.tree</field>
+            <field name="model">account.analytic.account</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <tree toolbar="1" create="false" colors="red:state=='pending';grey:state in ('cancelled','close');blue:type=='view'" string="Analytic Accounts">
+                    <field name="complete_name"/>
+                    <field name="partner_id"/>
+                    <field name="code"/>
+                    <field name="date_start"/>
+                    <field name="date"/>
+                    <field name="user_id" invisible="1"/>
+                    <field name="manager_id"/>
+                    <field name="parent_id" invisible="1"/>
+                    <field name="state" invisible="1"/>
+                    <field name="type" invisible="1"/>
+                    <field name="template_id" invisible="1"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
             </field>
         </record>
 
