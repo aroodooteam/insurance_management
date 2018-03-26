@@ -11,16 +11,15 @@ logger = logging.getLogger(__name__)
 class AccountAnalyticAccount(models.Model):
     _inherit = 'account.analytic.account'
 
-    @api.depends('date_start', 'date')
     @api.multi
+    @api.depends('date_start', 'date')
     def _get_nb_of_days(self):
         for rec in self:
-            if not rec.date_start or not rec.date:
-                return False
-            date_end = dt.strptime(rec.date, '%Y-%m-%d')
-            date_start= dt.strptime(rec.date_start, '%Y-%m-%d')
-            delta = date_end - date_start
-            rec.nb_of_days = delta.days
+            if rec.date_start and rec.date:
+                date_end = dt.strptime(rec.date, '%Y-%m-%d')
+                date_start= dt.strptime(rec.date_start, '%Y-%m-%d')
+                delta = date_end - date_start
+                rec.nb_of_days = delta.days
 
     @api.multi
     def _get_last_history(self):
@@ -267,7 +266,7 @@ class AccountAnalyticAccount(models.Model):
     @api.multi
     def open_history_list(self):
         ctx = self._context.copy()
-        tree_id = self.env.ref('account.view_account_analytic_account_list').id
+        tree_id = self.env.ref('insurance_management.view_account_analytic_account_policy_tree').id
         form_id = self.env.ref('insurance_management.view_account_analytic_account_form').id
         res = {
             'name': 'History',
@@ -324,3 +323,12 @@ class AccountAnalyticAccount(models.Model):
     @api.multi
     def open_policy(self):
         self.write({'state': 'open'})
+
+    @api.multi
+    @api.onchange('parent_id')
+    def on_change_parent(self):
+        # res = super(AccountAnalyticAccount, self).on_change_parent(self._cr, self._uid, self, self.ids[0], self.parent_id.id)
+        logger.info('res_onchange_par = %s' % self.parent_id)
+        res = super(AccountAnalyticAccount, self).on_change_parent(self.parent_id.id)
+        logger.info('res_onchange = %s' % res)
+        return res
