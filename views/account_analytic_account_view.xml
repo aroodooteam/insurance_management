@@ -28,6 +28,9 @@
                 <form string="Analytic Account">
                     <header>
                         <button string="Validate" icon="gtk-ok" states="draft" type="object" name="open_policy"/>
+                        <button string="Confirm" icon="gtk-ok" type="object"
+                            name="generateAnalyticLines"
+                            attrs="{'invisible': [('type','!=','contract')]}"/>
                         <field name="state" readonly="1" widget="statusbar"
                             statusbar_visible="draft,open,pending,suspend,close,cancelled"
                             statusbar_colors='{"pending":"red", "template":"blue"}'
