@@ -215,14 +215,14 @@ class AnalyticHistoryWiz(models.TransientModel):
         if history_ids and history_ids.stage_id != status_id:
             raise exceptions.Warning(_('Sorry, You don\'t have to reinstate a subscription which is not suspended'))
         else:
-            history_obj = self.env['analytic.history']
+            history_obj = self.env['account.analytic.account']
             res = self.with_context(version_type='reinstatement').renew_analytic_account()
             ctx = res.get('context', {})
             res.update(name=_('Reinstatment'))
-            history_id = ctx.get('default_parent_id', False)
+            history_id = ctx.get('default_ver_parent_id', False)
             history_id = history_obj.browse(history_id)
-            ctx.update(default_starting_date=history_id.starting_date)
-            ctx.update(default_ending_date=history_id.ending_date)
+            ctx.update(default_date_start=history_id.date_start)
+            ctx.update(default_date=history_id.date)
             ctx.update(default_stage_id=self.env.ref('insurance_management.remise_en_vigueur').id)
             res.update(context=ctx)
             return res
