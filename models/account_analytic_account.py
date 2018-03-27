@@ -385,3 +385,64 @@ class AccountAnalyticAccount(models.Model):
                 }
                 logger.info('aal_vals = %s' % vals)
                 aal_obj.create(vals)
+
+    # TODO
+    @api.multi
+    def _get_all_value(self):
+        self.ensure_one()
+        res = {}
+        list_fields = ['name', 'type_risk_id', 'risk_warranty_tmpl_id', 'partner_id']
+        om_fields = {
+            'warranty_line_ids': ['name', 'warranty_id', 'history_risk_line_id', 'yearly_net_amount', 'proratee_net_amount', 'parent_id'],
+            'risk_description_ids': ['name', 'code', 'value', 'parent_id']
+        }
+        new_risk_line = []
+        # TODO
+        # content of <if> should be implemented
+        if not self._context.get('default', False):
+            res['name'] = _('%s (copy)') % self.name or ''
+            res['capital'] = self.capital
+            res['eml'] = self.eml
+            res['accessories'] = self.accessories
+            for risk_line_id in self.risk_line_ids:
+                new_risk_line.append(risk_line_id.read(list_fields))
+        else:
+            res['default_name'] = _('%s (copy)') % self.name or ''
+            res['default_capital'] = self.capital
+            res['default_eml'] = self.eml
+            res['default_agency_id'] = self.agency_id.id
+            res['default_accessories'] = self.accessories
+            res['default_property_account_position'] = self.property_account_position.id
+            for risk_line_id in self.risk_line_ids:
+                l = risk_line_id.read(list_fields)[0]
+                # get standard fields
+                l['type_risk_id'] = l.get('type_risk_id', False)[0]
+                l['partner_id'] = l.get('partner_id', False)[0] if l.get('partner_id', False) else False
+                l['risk_warranty_tmpl_id'] = l.get('risk_warranty_tmpl_id', False)
+                l['risk_warranty_tmpl_id'] = l.get('risk_warranty_tmpl_id')[0] if l.get('risk_warranty_tmpl_id', False) else False
+                l['parent_id'] = l.get('id', False)
+                del l['id']
+                # get o2m fields value
+                logger.info('wlids = %s' % risk_line_id.warranty_line_ids)
+                om_warrantys = risk_line_id.warranty_line_ids.read(om_fields.get('warranty_line_ids'))
+                warranty_list = []
+                for om_warranty in om_warrantys:
+                    om_warranty['parent_id'] = om_warranty.get('id', False)
+                    del om_warranty['id']
+                    om_warranty['warranty_id'] = om_warranty.get('warranty_id')[0] if om_warranty.get('warranty_id') else False
+                    om_warranty['history_risk_line_id'] = om_warranty.get('history_risk_line_id')[0] if om_warranty.get('history_risk_line_id') else False
+                    warranty_list.append((0, 0, om_warranty))
+                l['warranty_line_ids'] = warranty_list
+                # =====================================
+                om_descs = risk_line_id.risk_description_ids.read(om_fields.get('risk_description_ids'))
+                description_list = []
+                for om_desc in om_descs:
+                    om_desc['parent_id'] = om_desc.get('id', False)
+                    del om_desc['id']
+                    description_list.append((0, 0, om_desc))
+                l['risk_description_ids'] = description_list
+                # =====================================
+                l = (0, 0, l)
+                new_risk_line.append(l)
+            res['default_risk_line_ids'] = new_risk_line
+        return res
