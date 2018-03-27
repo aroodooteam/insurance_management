@@ -161,16 +161,16 @@ class AnalyticHistoryWiz(models.TransientModel):
     @api.multi
     def update_contract(self):
         """ Update contract: Avenant """
-        history_obj = self.env['analytic.history']
+        history_obj = self.env['account.analytic.account']
         res = self.renew_analytic_account()
         ctx = res.get('context', {})
         res.update(name=_('Amendment'))
         ctx.update(version_type='amendment')
-        logger.info('\n === parent_id = %s' % ctx.get('default_parent_id', False))
-        history_id = ctx.get('default_parent_id', False)
+        logger.info('\n === parent_id = %s' % ctx.get('default_ver_parent_id', False))
+        history_id = ctx.get('default_ver_parent_id', False)
         history_id = history_obj.browse(history_id)
-        ctx.update(default_starting_date=history_id.starting_date)
-        ctx.update(default_ending_date=history_id.ending_date)
+        ctx.update(default_date_start=history_id.date_start)
+        ctx.update(default_date=history_id.date)
         ctx.update(default_stage_id=self.env.ref('insurance_management.avenant').id)
         res.update(context=ctx)
         return res
