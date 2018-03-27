@@ -179,14 +179,14 @@ class AnalyticHistoryWiz(models.TransientModel):
     @api.multi
     def cancel_analytic_account(self, history_ids=False):
         res = False
-        history_obj = self.env['analytic.history']
+        history_obj = self.env['account.analytic.account']
         res = self.with_context(version_type='terminate').renew_analytic_account(history_ids)
         ctx = res.get('context', {})
         res.update(name=_('Terminate'))
-        history_id = ctx.get('default_parent_id', False)
+        history_id = ctx.get('default_ver_parent_id', False)
         history_id = history_obj.browse(history_id)
-        ctx.update(default_starting_date=history_id.starting_date)
-        ctx.update(default_ending_date=history_id.ending_date)
+        ctx.update(default_starting_date=history_id.date_start)
+        ctx.update(default_date=history_id.date)
         ctx.update(default_stage_id=self.env.ref('insurance_management.resiliation').id)
         res.update(context=ctx)
         return res
