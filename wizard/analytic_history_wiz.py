@@ -24,25 +24,32 @@ class AnalyticHistoryWiz(models.TransientModel):
         analytic_obj = self.env['account.analytic.account']
         analytic_id = analytic_obj.browse(ctx.get('active_id'))
         seq_obj = self.env['ir.sequence'] # .with_context(number_next_actual=1).next_by_code('analytic.history')
-        seq_id = seq_obj.search([('code', '=', 'analytic.history')])
+        seq_id = seq_obj.search([('code', '=', 'account.analytic.account.policy')])
         seq = analytic_id.name + '-%%0%sd' % seq_id.padding % analytic_id.next_sequence
         logger.info('seq = %s' % seq)
         ctx.update(default_name=seq)
+        ctx['default_type'] = 'contract'
         ctx['default_stage_id'] = self.stage_id.id
         ctx['default_is_last_situation'] = True
-        ctx['default_analytic_id'] = ctx.get('active_id')
+        ctx['default_parent_id'] = ctx.get('active_id')
         ctx['default_property_account_position'] = ctx.get('property_account_position')
         if not self.stage_id:
             raise exceptions.Warning(_('No stage selected. Please choose one before process'))
         logger.info('stage_id = %s' % self.stage_id)
-        history_obj = self.env['analytic.history']
-        history_ids = history_obj.search([('analytic_id', '=', self._context.get('active_id')), ('is_last_situation', '=', True)])
+        history_ids = analytic_obj.search([('parent_id', '=', self._context.get('active_id')), ('is_last_situation', '=', True)])
         logger.info('=== history_ids = %s' % history_ids)
         if history_ids and len(history_ids) > 1:
             raise exceptions.Warning(_('You have too many last version for this contract. Please contact your Administrator.\n [Note]'))
         if not history_ids and self.stage_id.code not in ('AFN', 'DEV'):
             raise  exceptions.Warning(_('There is no history yet for this contract. You have to select <AFN> or <DEV>'))
         elif history_ids:
+            ctx['default_partner_id'] = history_ids.partner_id.id
+            ctx['default_insured_id'] = history_ids.insured_id.id
+            ctx['default_branch_id'] = history_ids.branch_id.id
+            ctx['default_ins_product_id'] = history_ids.ins_product_id.id
+            ctx['default_fraction_id'] = history_ids.fraction_id.id
+            ctx['default_force_acs'] = history_ids.force_acs
+            ctx['default_accessories'] = history_ids.accessories
             if self.stage_id.code in ('DEV', 'AFN'):
                 logger.info('You can\'t have twice <AFN> in same contract')
                 raise exceptions.Warning(_('You can\'t have twice <AFN> in same contract \n [Note]'))
@@ -95,7 +102,7 @@ class AnalyticHistoryWiz(models.TransientModel):
     def renew_analytic_account(self, history_ids=False):
         # resilie = self.env.ref('insurance_management.status_resilie').id
         # devis = self.env.ref('insurance_management.status_devis').id
-        history_obj = self.env['analytic.history']
+        # history_obj = self.env['analytic.history']
         analytic_obj = self.env['account.analytic.account']
         analytic_id = analytic_obj.browse(self._context.get('active'))
         # if self.stage_id.id == resilie:
@@ -106,39 +113,41 @@ class AnalyticHistoryWiz(models.TransientModel):
         #     raise exceptions.Warning(_('You can\'t renew unvalidated contract'))
         res = {}
         ctx = self._context.copy()
-        ctx['default_analytic_id'] = self._context.get('active_id')
+        ctx['default_parent_id'] = self._context.get('active_id')
+        ctx['default_type'] = 'contract'
         if not ctx.get('version_type', False):
             ctx['version_type'] = 'renew'
         # logger.info('\n === ctx version = %s' % ctx['version_type'])
         ctx['default'] = True
         # logger.info('\n === ctx = %s' % self.ending_date)
         if not history_ids:
-            history_obj = self.env['analytic.history']
-            history_ids = history_obj.search([('analytic_id', '=', self._context.get('active_id')), ('is_last_situation', '=', True)])
+            # history_obj = self.env['analytic.history']
+            history_ids = analytic_obj.search([('parent_id', '=', self._context.get('active_id')), ('is_last_situation', '=', True)])
         if not history_ids or len(history_ids) > 1:
             raise exceptions.Warning(_('Sorry, You don\'t have or you get more than one amendment defined as last situation.\n Fix it first before continuing'))
         else:
-            logger.info('\n === ending_date = %s' % history_ids.ending_date)
+            logger.info('\n === ending_date = %s' % history_ids.date)
             copy_vals = history_ids.with_context(ctx)._get_all_value()
             # get default_name in ctx
             if 'default_name' in ctx:
                 copy_vals.pop('default_name')
             # end of ctx get name
-            ctx.update(parent_history=history_ids.id)
+            # ctx.update(parent_history=history_ids.id)
+            # ctx.update(ver_parent_id=history_ids.id)
             copy_vals.update(default_is_last_situation=True)
             copy_vals.update(default_stage_id=self.env.ref('insurance_management.renouvellement').id)
-            copy_vals.update(default_parent_id=history_ids.id)
-            new_date = self.get_end_date(history_ids.ending_date)
-            copy_vals.update(default_starting_date=new_date.get('start_date'))
-            copy_vals.update(default_ending_date=new_date.get('end_date'))
+            copy_vals.update(default_ver_parent_id=history_ids.id)
+            new_date = self.get_end_date(history_ids.date)
+            copy_vals.update(default_date_start=new_date.get('start_date'))
+            copy_vals.update(default_date=new_date.get('end_date'))
             # logger.info('\n === copy_vals = %s' % copy_vals)
             # copy_vals.update(default_ending_date=self.get_end_date(self))
             ctx.update(copy_vals)
-            view_id = self.env.ref('insurance_management.view_analytic_history_form').id
+            view_id = self.env.ref('insurance_management.view_account_analytic_account_form').id
             res.update({
                 'type': 'ir.actions.act_window',
                 'name': _('Renew'),
-                'res_model': 'analytic.history',
+                'res_model': 'account.analytic.account',
                 'view_type': 'form',
                 'view_mode': 'form',
                 'view_id': [view_id],
