@@ -13,5 +13,17 @@
       <field name="number_next_actual">1</field>
       <field name="active" eval="True"/>
     </record>
+    <record id="irseq_analytic_account_policy_r0" model="ir.sequence">
+      <field name="code">account.analytic.account.policy</field>
+      <field name="name">Policy</field>
+      <field name="number_next">1</field>
+      <field name="implementation">no_gap</field>
+      <field name="company_id" ref="base.main_company"/>
+      <field name="padding">4</field>
+      <field name="number_increment">1</field>
+      <!-- one2many field 'fiscal_ids' managed on the account.sequence.fiscalyear side -->
+      <field name="number_next_actual">1</field>
+      <field name="active" eval="True"/>
+    </record>
   </data>
 </openerp>

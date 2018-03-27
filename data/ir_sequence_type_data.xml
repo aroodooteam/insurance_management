@@ -5,5 +5,9 @@
       <field name="code">analytic.history</field>
       <field name="name">Policy</field>
     </record>
+    <record id="ir_sequence_type_analytic_policy_r0" model="ir.sequence.type">
+      <field name="code">account.analytic.account.policy</field>
+      <field name="name">Policy Analytic</field>
+    </record>
   </data>
 </openerp>
