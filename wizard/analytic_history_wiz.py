@@ -33,6 +33,11 @@ class AnalyticHistoryWiz(models.TransientModel):
         ctx['default_is_last_situation'] = True
         ctx['default_parent_id'] = ctx.get('active_id')
         ctx['default_property_account_position'] = ctx.get('property_account_position')
+        ctx['default_partner_id'] = analytic_id.partner_id.id
+        ctx['default_insured_id'] = analytic_id.insured_id.id
+        ctx['default_branch_id'] = analytic_id.branch_id.id
+        ctx['default_ins_product_id'] = analytic_id.ins_product_id.id
+        ctx['default_fraction_id'] = analytic_id.fraction_id.id
         if not self.stage_id:
             raise exceptions.Warning(_('No stage selected. Please choose one before process'))
         logger.info('stage_id = %s' % self.stage_id)
@@ -43,6 +48,7 @@ class AnalyticHistoryWiz(models.TransientModel):
         if not history_ids and self.stage_id.code not in ('AFN', 'DEV'):
             raise  exceptions.Warning(_('There is no history yet for this contract. You have to select <AFN> or <DEV>'))
         elif history_ids:
+            ctx['parent_history'] = history_ids.id
             ctx['default_partner_id'] = history_ids.partner_id.id
             ctx['default_insured_id'] = history_ids.insured_id.id
             ctx['default_branch_id'] = history_ids.branch_id.id
@@ -72,14 +78,15 @@ class AnalyticHistoryWiz(models.TransientModel):
                 logger.info('Un-treated case')
                 raise exceptions.Warning(_('Un-treated case \n [Note]'))
         elif not history_ids and self.stage_id.code in ('AFN', 'DEV'):
-            logger.info('Create AFN or DEV contract')
+            logger.info('Create AFN or DEV contract = %s' % ctx)
+            view_id = self.env.ref('insurance_management.view_account_analytic_account_form').id
             return {
                 'name': 'History',
                 'type': 'ir.actions.act_window',
-                'res_model': 'analytic.history',
+                'res_model': 'account.analytic.account',
                 'view_type': 'form',
                 'view_mode': 'form',
-                'view_id': self.env.ref('insurance_management.view_analytic_history_form').id,
+                'view_id': [view_id],
                 'target': 'current',
                 'context': ctx
             }
