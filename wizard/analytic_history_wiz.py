@@ -31,6 +31,7 @@ class AnalyticHistoryWiz(models.TransientModel):
         ctx['default_type'] = 'contract'
         ctx['default_stage_id'] = self.stage_id.id
         ctx['default_is_last_situation'] = True
+        ctx['default_analytic_id'] = ctx.get('active_id')
         ctx['default_parent_id'] = ctx.get('active_id')
         ctx['default_property_account_position'] = ctx.get('property_account_position')
         ctx['default_partner_id'] = analytic_id.partner_id.id
