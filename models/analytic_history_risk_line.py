@@ -30,8 +30,9 @@ class AnalyticHistoryRiskLine(models.Model):
 
     name = fields.Char(string='Description')
     template = fields.Boolean(string='Template', help='Used as template')
-    analytic_id = fields.Many2one(comodel_name='account.analytic.account', string='Subscription')
-    history_id = fields.Many2one(comodel_name='analytic.history', string='Amendment Line')
+    # history_id = fields.Many2one(comodel_name='analytic.history', string='Amendment Line')
+    history_id = fields.Many2one(comodel_name='account.analytic.account', string='Amendment Line') # version
+    analytic_id = fields.Many2one(comodel_name='account.analytic.account', string='Subscription') # contract
     ins_product_id = fields.Many2one(comodel_name='insurance.product', string='Insurance Product', related='analytic_id.ins_product_id')
     type_risk_id = fields.Many2one(comodel_name='insurance.type.risk', string='Risk', domain="[('ins_product_id', '=', ins_product_id)]")
     warranty_line_ids = fields.One2many(comodel_name='risk.warranty.line', inverse_name='history_risk_line_id', string='Warranty')
@@ -58,7 +59,7 @@ class AnalyticHistoryRiskLine(models.Model):
 
     @api.onchange('history_id')
     def onchange_amendment_line(self):
-        self.analytic_id = self.history_id.analytic_id.id
+        self.analytic_id = self.history_id.parent_id.id
 
     # TODO
     @api.multi
