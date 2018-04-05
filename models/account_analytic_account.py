@@ -291,6 +291,36 @@ class AccountAnalyticAccount(models.Model):
         return res
 
     @api.multi
+    def _get_user_journal(self):
+        """
+        insurance_type: ['V', 'N']
+        """
+        logger.info('=== ctx = %s' % self._context)
+        user_obj = self.env['res.users']
+        journal_obj = self.env['account.journal']
+        insurance_type = self._context.get('insurance_type', False)
+        if not insurance_type:
+            insurance_type = self.parent_id.branch_id.type
+        logger.info('\n === insurance_type = %s' % insurance_type)
+        user = self._uid
+        user_id = user_obj.browse(user)
+        # logger.info('\n === user_id = %s' % user_id)
+        agency_id = user_id.agency_id
+        if not agency_id and not self.agency_id:
+            raise Warning(_('Please contact your Administrator to set your agency'))
+        else:
+            agency_id = self.agency_id
+
+        domain = [('type', '=', 'sale'), ('agency_id', '=', agency_id.id)]
+        if insurance_type == 'N':
+            journal_code = 'PN%s' % agency_id.code
+            domain.append(('code', '=', journal_code))
+        logger.info('\n === domain = %s' % domain)
+        journal_id = journal_obj.search(domain)
+        logger.info('=== journal_id = %s => %s' % (journal_id, journal_id.name))
+        return journal_id
+
+    @api.multi
     def generate_invoice_for_each_version(self):
         """
         Generate invoice for each version doesn't have invoice yet
@@ -334,6 +364,37 @@ class AccountAnalyticAccount(models.Model):
         logger.info('res_onchange = %s' % res)
         return res
 
+    @api.multi
+    def GetAccessAmount(self):
+        vals = {
+            'amount_to_invoice': self.parent_id.ins_product_id.amount_accessories,
+            'product_id': False,
+            'account_id': self.id,
+            'amount': 0,
+            # 'name': self.name + ' - ' + warranty_id.name,
+            'journal_id': self._get_user_journal().analytic_journal_id.id,
+            'date': dt.now(),
+            'ref': self.stage_id.name,
+            # 'general_account_id': warranty_id.warranty_id.property_account_income.id,
+            'hist_id': self.id,
+            'unit_amount': 1,
+        }
+        product_obj = self.env['product.product']
+        access_tmpl_id = False
+        if self.force_acs:
+            vals['amount_to_invoice'] = self.accessories
+        if self.parent_id.branch_id.category == 'T':
+            access_tmpl_id = self.env.ref('aro_custom_v8.product_template_accessoire_terrestre_r0')
+        elif self.parent_id.branch_id.category == 'M':
+            access_tmpl_id = self.env.ref('aro_custom_v8.product_template_accessoire_maritime_r0')
+        elif self.parent_id.branch_id.category == 'V':
+            access_tmpl_id = self.env.ref('aro_custom_v8.product_template_accessoire_vie_r0')
+        product_id = product_obj.search([('product_tmpl_id', '=', access_tmpl_id.id)], limit=1)
+        vals['product_id'] = product_id.id
+        vals['name'] = self.name + ' - ' + product_id.name
+        vals['general_account_id'] = product_id.property_account_income.id
+        return vals
+
     @api.one
     def generateAnalyticLines(self):
         aal_obj = self.env['account.analytic.line']
@@ -358,7 +419,7 @@ class AccountAnalyticAccount(models.Model):
                     'amount': 0,
                     'amount_to_invoice': new_amount,
                     'name': self.name + ' - ' + warranty_id.name,
-                    'journal_id': 1,
+                    'journal_id': self._get_user_journal().analytic_journal_id.id,
                     'date': dt.now(),
                     'ref': self.name + ' - ' + self.stage_id.name,
                     'general_account_id': warranty_id.warranty_id.property_account_income.id,
@@ -368,6 +429,10 @@ class AccountAnalyticAccount(models.Model):
                 }
                 aal_obj.create(vals)
         else:
+            # delete all analytic_line before re-generating new
+            aal_ids = aal_obj.search([('hist_id','=',self.id)])
+            if aal_ids:
+                aal_ids.unlink()
             for warranty_id in warranty_ids:
                 vals = {
                     'account_id': self.id,
@@ -375,7 +440,7 @@ class AccountAnalyticAccount(models.Model):
                     'amount': 0,
                     'amount_to_invoice': warranty_id.proratee_net_amount,
                     'name': self.name + ' - ' + warranty_id.name,
-                    'journal_id': 1,
+                    'journal_id': self._get_user_journal().analytic_journal_id.id,
                     'date': dt.now(),
                     'ref': self.stage_id.name,
                     'general_account_id': warranty_id.warranty_id.property_account_income.id,
@@ -385,6 +450,10 @@ class AccountAnalyticAccount(models.Model):
                 }
                 logger.info('aal_vals = %s' % vals)
                 aal_obj.create(vals)
+            # analytic line for accessories
+            access_vals = self.GetAccessAmount()
+            logger.info('acc_vals = %s' % access_vals)
+            aal_obj.create(access_vals)
 
     # TODO
     @api.multi
@@ -744,9 +813,88 @@ class AccountAnalyticAccount(models.Model):
         if history_list:
             raise exceptions.Warning(_('Can\'t delete version referenced has parent'))
         for rec in self:
-            if rec.invoice_id:
-                raise exceptions.Warning(_('Can\'t delete version allready invoiced'))
-            else:
-                rec.ver_parent_id.update({'is_last_situation': True})
-                rec.parent_id.update({'next_sequence': rec.parent_id.next_sequence - 1})
+            if rec.type == 'contract':
+                if rec.invoice_id:
+                    raise exceptions.Warning(_('Can\'t delete version allready invoiced'))
+                else:
+                    logger.info('vp_id = %s' % rec.ver_parent_id)
+                    if rec.ver_parent_id:
+                        rec.ver_parent_id.update({'is_last_situation': True})
+                    if rec.parent_id:
+                        rec.parent_id.update({'next_sequence': rec.parent_id.next_sequence - 1})
         return super(AccountAnalyticAccount, self).unlink()
+
+    @api.multi
+    def _get_reg_tax(self, warranty_id, fpos_id):
+        """
+        :param:: warranty_id: product.product()
+        :param:: fpos_id: account.fiscal.position()
+        """
+        logger.info('war_id = %s' % warranty_id)
+        logger.info('fpos_id = %s' % fpos_id)
+        tax_obj = self.env['account.tax']
+        tax_ids = False
+        if not warranty_id :
+            return False
+        if not fpos_id:
+            fpos_id = self.env['account.fiscal.position'].search([('name', '=', 'Z')])
+        fiscal_code = warranty_id.fiscal_code
+        if not fiscal_code:
+            fiscal_code = '4500'
+        regtaxref_obj = self.env['reg.tax.reference']
+        domain = [('property_account_position', '=', fpos_id.id), ('fiscal_code', '=', fiscal_code)]
+        regte = regtaxref_obj.search(domain)
+        logger.info('regte = %s' % regte)
+        if not regte:
+            tax_ids = tax_obj.search([('description', '=', 'Te-0.0')])
+        elif regte and len(regte) > 1:
+            raise exceptions.Warning(_('Too much result found'))
+        else:
+            tax_ids = regte.tax_ids
+        return tax_ids
+
+    @api.multi
+    def generateInvoiceAnalyticLine(self):
+        inv_obj = self.env['account.invoice']
+        invline_obj = self.env['account.invoice.line']
+        # warranty_ids = self.analytic_line_ids.mapped('product_id')
+        period_id = self.env['account.period'].search([('date_start','<=', self.date_start),('date_stop','>=', self.date),('special', '=', False)])
+        sum_proratee = self.line_ids.mapped('amount_to_invoice')
+        sum_proratee = sum(sum_proratee)
+        logger.info('sum_proratee = %s' % sum_proratee)
+        inv_vals = {
+            'name': self.name,
+            'state': 'draft',
+            'type': 'out_invoice' if sum_proratee > 0 else 'out_refund',
+            'history_id': self.id,
+            'analytic_id': self.parent_id.id,
+            'prm_datedeb': dt.strftime(dt.strptime(self.date_start, DEFAULT_SERVER_DATE_FORMAT), DEFAULT_SERVER_DATE_FORMAT),
+            'prm_datefin': dt.strftime(dt.strptime(self.date, DEFAULT_SERVER_DATE_FORMAT), DEFAULT_SERVER_DATE_FORMAT),
+            'date_invoice': dt.strftime(dt.now(), DEFAULT_SERVER_DATE_FORMAT),
+            'partner_id': self.parent_id.partner_id.id,
+            'final_customer_id': self.parent_id.partner_id.id,
+            'origin': self.parent_id.name or 'Undefined' +'/'+ self.name or 'Undefined',
+            'pol_numpol': self.parent_id.name,
+            'journal_id': self._get_user_journal().id,
+            'account_id': self.parent_id.partner_id.property_account_receivable.id,
+            'comment': self.comment,
+            'period_id': period_id.id,
+        }
+        inv = inv_obj.create(inv_vals)
+        for analytic in self.line_ids:
+            regte_id = self._get_reg_tax(analytic.product_id, self.property_account_position)
+            logger.info('\n *-*-* regte = %s' % regte_id)
+            invline_vals = {
+                'product_id': analytic.product_id.id,
+                'name': analytic.name,
+                'account_id': analytic.general_account_id.id,
+                'account_analytic_id': analytic.account_id.id,
+                'quantity': 1,
+                'price_unit': analytic.amount_to_invoice if sum_proratee > 0 else (-1) * analytic.amount_to_invoice,
+                'invoice_line_tax_id': [(6,0,regte_id.ids)],
+                'invoice_id': inv.id
+            }
+            invline_obj.create(invline_vals)
+        self.line_ids.write({'invoice_id': inv.id})
+        self.write({'invoice_id': inv.id})
+        inv.button_reset_taxes()
