@@ -8,13 +8,15 @@ logger = logging.getLogger(__name__)
 class AccountInvoice(models.Model):
     _inherit = 'account.invoice'
 
-    history_id = fields.Many2one(comodel_name='analytic.history', string='History')
-    analytic_id = fields.Many2one(comodel_name='account.analytic.account', string='Contract', related='history_id.analytic_id')
+    # history_id = fields.Many2one(comodel_name='analytic.history', string='History')
+    # analytic_id = fields.Many2one(comodel_name='account.analytic.account', string='Contract', related='history_id.analytic_id')
+    history_id = fields.Many2one(comodel_name='account.analytic.account', string='History')
+    analytic_id = fields.Many2one(comodel_name='account.analytic.account', string='Contract', related='history_id.parent_id')
 
     @api.model
     def create(self, vals):
         logger.info('\n *-*-* ctx = %s' % self._context)
-        history_obj = self.env['analytic.history']
+        history_obj = self.env['account.analytic.account']
         res = super(AccountInvoice, self).create(vals)
         history_id = self._context.get('default_history_id', False)
         if history_id:
