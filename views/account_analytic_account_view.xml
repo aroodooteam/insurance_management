@@ -31,6 +31,7 @@
                         <button string="Confirm" icon="gtk-ok" type="object"
                             name="generateAnalyticLines"
                             attrs="{'invisible': [('type','!=','contract')]}"/>
+                        <button string="Gen Invoice" type="object" name="generateInvoiceAnalyticLine"/>
                         <field name="state" readonly="1" widget="statusbar"
                             statusbar_visible="draft,open,pending,suspend,close,cancelled"
                             statusbar_colors='{"pending":"red", "template":"blue"}'
@@ -200,6 +201,7 @@
                                 <field name="line_ids">
                                     <tree string="Lines">
                                         <field name="product_id"/>
+                                        <field name="journal_id"/>
                                         <field name="amount_to_invoice"/>
                                         <field name="date"/>
                                     </tree>
