@@ -94,6 +94,7 @@ class AccountAnalyticAccount(models.Model):
     stage_id = fields.Many2one(
         comodel_name='analytic.history.stage', string='Emission type',
     default=lambda self: self.env.ref('insurance_management.devis').id)
+    prod_line_ids = fields.One2many(comodel_name='analytic.prod.lines', inverse_name='analytic_id', string='Prod Lines', help='Record used to generate invoice')
     # Temporary field
     ver_ident = fields.Char(string='Ver Ident')
 
@@ -367,14 +368,12 @@ class AccountAnalyticAccount(models.Model):
     @api.multi
     def GetAccessAmount(self):
         vals = {
-            'amount_to_invoice': self.parent_id.ins_product_id.amount_accessories,
+            'amount': self.parent_id.ins_product_id.amount_accessories,
             'product_id': False,
-            'account_id': self.id,
-            'amount': 0,
+            'analytic_id': self.id,
             # 'name': self.name + ' - ' + warranty_id.name,
             'journal_id': self._get_user_journal().analytic_journal_id.id,
             'date': dt.now(),
-            'ref': self.stage_id.name,
             # 'general_account_id': warranty_id.warranty_id.property_account_income.id,
             'hist_id': self.id,
             'unit_amount': 1,
@@ -382,7 +381,7 @@ class AccountAnalyticAccount(models.Model):
         product_obj = self.env['product.product']
         access_tmpl_id = False
         if self.force_acs:
-            vals['amount_to_invoice'] = self.accessories
+            vals['amount'] = self.accessories
         if self.parent_id.branch_id.category == 'T':
             access_tmpl_id = self.env.ref('aro_custom_v8.product_template_accessoire_terrestre_r0')
         elif self.parent_id.branch_id.category == 'M':
@@ -392,12 +391,12 @@ class AccountAnalyticAccount(models.Model):
         product_id = product_obj.search([('product_tmpl_id', '=', access_tmpl_id.id)], limit=1)
         vals['product_id'] = product_id.id
         vals['name'] = self.name + ' - ' + product_id.name
-        vals['general_account_id'] = product_id.property_account_income.id
+        vals['account_id'] = product_id.property_account_income.id
         return vals
 
     @api.one
     def generateAnalyticLines(self):
-        aal_obj = self.env['account.analytic.line']
+        aal_obj = self.env['analytic.prod.lines']
         warranty_obj = self.env['risk.warranty.line']
         # get all warranty in risk_line
         warranty_ids = self.risk_line_ids.mapped('warranty_line_ids')
@@ -414,39 +413,31 @@ class AccountAnalyticAccount(models.Model):
                 else:
                     new_amount = warranty_id.proratee_net_amount
                 vals = {
-                    'account_id': self.id,
                     'product_id': warranty_id.id,
-                    'amount': 0,
-                    'amount_to_invoice': new_amount,
+                    'amount': new_amount,
                     'name': self.name + ' - ' + warranty_id.name,
                     'journal_id': self._get_user_journal().analytic_journal_id.id,
                     'date': dt.now(),
-                    'ref': self.name + ' - ' + self.stage_id.name,
-                    'general_account_id': warranty_id.warranty_id.property_account_income.id,
+                    # 'ref': self.name + ' - ' + self.stage_id.name,
+                    'account_id': warranty_id.warranty_id.property_account_income.id,
                     # 'history_id': self.id,
-                    'hist_id': self.id,
-                    'unit_amount': 1,
+                    'analytic_id': self.id,
                 }
                 aal_obj.create(vals)
         else:
-            # delete all analytic_line before re-generating new
-            aal_ids = aal_obj.search([('hist_id','=',self.id)])
+            # delete all analytic_prod_line before re-generating new
+            aal_ids = aal_obj.search([('analytic_id','=',self.id)])
             if aal_ids:
                 aal_ids.unlink()
             for warranty_id in warranty_ids:
                 vals = {
-                    'account_id': self.id,
                     'product_id': warranty_id.id,
-                    'amount': 0,
-                    'amount_to_invoice': warranty_id.proratee_net_amount,
+                    'amount': warranty_id.proratee_net_amount,
                     'name': self.name + ' - ' + warranty_id.name,
                     'journal_id': self._get_user_journal().analytic_journal_id.id,
                     'date': dt.now(),
-                    'ref': self.stage_id.name,
-                    'general_account_id': warranty_id.warranty_id.property_account_income.id,
-                    # 'history_id': self.id,
-                    'hist_id': self.id,
-                    'unit_amount': 1,
+                    'account_id': warranty_id.warranty_id.property_account_income.id,
+                    'analytic_id': self.id,
                 }
                 logger.info('aal_vals = %s' % vals)
                 aal_obj.create(vals)
