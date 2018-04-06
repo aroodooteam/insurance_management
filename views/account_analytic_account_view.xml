@@ -203,6 +203,18 @@
                                         <field name="product_id"/>
                                         <field name="journal_id"/>
                                         <field name="amount_to_invoice"/>
+                                        <field name="amount"/>
+                                        <field name="date"/>
+                                        <field name="currency_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Prod Lines" name="Prod Lines" attrs="{'invisible': [('type', '=', 'view')]}">
+                                <field name="prod_line_ids">
+                                    <tree string="Lines">
+                                        <field name="product_id"/>
+                                        <field name="journal_id"/>
+                                        <field name="amount"/>
                                         <field name="date"/>
                                     </tree>
                                 </field>
