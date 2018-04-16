@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="product_template_accidents_de_travail_r0" model="product.template">
+            <field name="warranty">0.0</field>
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="weight">0.0</field>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="color">0</field>
+            <field name="standard_price">0.0</field>
+            <!-- one2many field 'attribute_line_ids' managed on the product.attribute.line side -->
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">T4Accidents de travail</field>
+            <field name="property_account_income" ref="__export__.account_account_1876"/>
+            <!-- one2many field 'message_ids' managed on the mail.message side -->
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_accident_collectif_jw0"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_404"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_collectif_assure_jw0"/>
+            <!-- MISSING xml_id for field supplier_taxes_id (many2many to official_db_0803_org_julius@localhost:8012) for those ids: 2 (db: official_db_0803_org_julius@localhost:8012) -->
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">T</field>
+            <field name="seller_qty">0.0</field>
+            <field name="rental" eval="False"/>
+            <field name="seller_delay">0</field>
+            <field name="weight_net">0.0</field>
+            <field name="name">Accidents de travail</field>
+            <!-- one2many field 'product_variant_ids' managed on the product.product side -->
+            <!-- one2many field 'packaging_ids' managed on the product.packaging side -->
+            <field name="lst_price">1.0</field>
+            <!-- MISSING xml_id for field taxes_id (many2many to official_db_0803_org_julius@localhost:8012) for those ids: 2 (db: official_db_0803_org_julius@localhost:8012) -->
+            <!-- one2many field 'seller_ids' managed on the product.supplierinfo side -->
+        </record>
+    </data>
+</openerp>
