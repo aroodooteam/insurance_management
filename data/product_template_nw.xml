@@ -2,20 +2,14 @@
 <openerp>
     <data>
         <record id="product_template_accidents_de_travail_r0" model="product.template">
-            <field name="warranty">0.0</field>
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
-            <field name="weight">0.0</field>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
-            <field name="color">0</field>
             <field name="standard_price">0.0</field>
-            <!-- one2many field 'attribute_line_ids' managed on the product.attribute.line side -->
             <field name="mes_type">fixed</field>
             <field name="uom_id" ref="product.product_uom_unit"/>
             <field name="is_warranty" eval="True"/>
             <field name="default_code">T4Accidents de travail</field>
-            <field name="property_account_income" ref="__export__.account_account_1876"/>
-            <!-- one2many field 'message_ids' managed on the mail.message side -->
             <field name="uos_coeff">1.0</field>
             <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
             <field name="commissionable" eval="False"/>
@@ -26,20 +20,661 @@
             <field name="type">service</field>
             <field name="description">NOT_WARRANTY</field>
             <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_collectif_assure_jw0"/>
-            <!-- MISSING xml_id for field supplier_taxes_id (many2many to official_db_0803_org_julius@localhost:8012) for those ids: 2 (db: official_db_0803_org_julius@localhost:8012) -->
             <field name="volume">0.0</field>
             <field name="active" eval="True"/>
             <field name="branch_categ">T</field>
-            <field name="seller_qty">0.0</field>
-            <field name="rental" eval="False"/>
-            <field name="seller_delay">0</field>
-            <field name="weight_net">0.0</field>
             <field name="name">Accidents de travail</field>
-            <!-- one2many field 'product_variant_ids' managed on the product.product side -->
-            <!-- one2many field 'packaging_ids' managed on the product.packaging side -->
             <field name="lst_price">1.0</field>
-            <!-- MISSING xml_id for field taxes_id (many2many to official_db_0803_org_julius@localhost:8012) for those ids: 2 (db: official_db_0803_org_julius@localhost:8012) -->
-            <!-- one2many field 'seller_ids' managed on the product.supplierinfo side -->
+        </record>
+        <record id="product_template_accident_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">T3Accident</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_accident_individuel_jw0"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_403"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_accident_individuel_college_jw0"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">T</field>
+            <field name="name">Accident</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_afp_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">T3AFP</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_sante_individuel_jw0"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_403"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_adhsi_r0"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">T</field>
+            <field name="name">AFP</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_assistance_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">T3Assistance</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_assistance_jw0"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_403"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_adh_assistance"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">T</field>
+            <field name="name">Assistance</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_assurance_maladie_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">T3Assurance Maladie</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_personnes"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_sante_individuel_jw0"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_403"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_adhsi_r0"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">T</field>
+            <field name="name">Assurance Maladie</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_autre_grande_branche_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">V8Autre Grande Branche</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_vie_entiere_non_revalorisable_r0"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_410"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_vie_entiere_non_revalorisable_r0"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">V</field>
+            <field name="name">Autre Grande Branche</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_aviation_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">T5Aviation</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_aviation"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.aro_aviation"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_405"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_aviation_jw0"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">T</field>
+            <field name="name">Aviation</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_corps_de_navire_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">M1Corps de Navire</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_maritime"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_maritime_a3"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_398"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_corps_navire_r0"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">M</field>
+            <field name="name">Corps de Navire</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_facultes_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">M3Facultes</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_maritime"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.aro_facultes_sr0"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_400"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_facultes_r0"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">M</field>
+            <field name="name">Facultes</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_flotte_auto_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">T1Flotte Auto</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_automobile_r0"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_flottes_automobile"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_401"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_automobile_flotte_Automobile_16001"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">T</field>
+            <field name="name">Flotte Auto</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_global_dommages_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">T6Global Dommages</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_automobile_r0"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_flottes_automobile"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_406"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_automobile_flotte_Automobile_16001"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">T</field>
+            <field name="name">Global Dommages</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_groupe_deces_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">V9Groupe Deces</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__groupe_r0"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_groupe_deces_r0"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_411"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_groupe_deces_r0"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">V</field>
+            <field name="name">Groupe Deces</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_incendie_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">T2Incendie</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_incendies__primes_modr_r0"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_402"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.Incendies_a_primes moderees_h1"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">T</field>
+            <field name="name">Incendie</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_interet_avance_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">INTERAV</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__groupe_r0"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_retraite_complementaire_r0"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_intrt_sur_avance_r0"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_retraite_complementaire_r0"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">V</field>
+            <field name="name">INTERET AVANCE</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_mono_auto_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">T1Mono Auto</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_automobile_r0"/>
+            <field name="commissionable" eval="True"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_monovehicule"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_401"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_monovehicule_h1"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">T</field>
+            <field name="name">Mono Auto</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_rc_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">M2RC</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_maritime"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_maritime_a2"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_399"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.aro_rctm_sr0"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">M</field>
+            <field name="name">RC</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_rc_accident_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">T3RC Accident</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_engineering"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.aro_tous_risque_chantier_sr0"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_403"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_trcm_r0"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">T</field>
+            <field name="name">RC Accident</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_rc_decennale_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">T3RC Decennale</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_engineering"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.aro_rc_decennal_sr0"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_403"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_rc_decennal"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">T</field>
+            <field name="name">RC Decennale</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_rc_diverses_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">T3RC Diverses</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_rc_diverses_h0"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_403"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.aro_type_oc_rc_diverses_g0"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">T</field>
+            <field name="name">RC Diverses</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_rente_education_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">V8Rente Education</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_rente_education_r0"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_410"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_rente_education_r0"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">V</field>
+            <field name="name">Rente Education</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_retraite_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">V9Retraite</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__groupe_r0"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_retraite_complementaire_r0"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_411"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_retraite_complementaire_r0"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">V</field>
+            <field name="name">Retraite</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_risques_agricoles_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">T8Risques Agricoles</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_rc_diverses_h0"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_408"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.aro_type_rc_exploitants_agricoles_g0"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">T</field>
+            <field name="name">Risques Agricoles</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_risques_divers_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">T6Risques Divers</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_rc_diverses_h0"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_406"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.aro_type_oc_rc_diverses_g0"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">T</field>
+            <field name="name">Risques Divers</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_risques_financiers_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">T9Risques Financiers</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_mr_entrep"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_409"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_oc_multirisque_h1"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">T</field>
+            <field name="name">Risques Financiers</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_risques_speciaux_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">T7Risques Speciaux</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_incendies_et_risques_divers_r0"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_mrsh"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_407"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_habitation_mrsh"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">T</field>
+            <field name="name">Risques Speciaux</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_temporaire_deces_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">V8Temporaire Deces</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_assurance_vie__grande_branche_r0"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.insurance_product_temporaire_simple_r0"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_410"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_temporaire_simple_r0"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">V</field>
+            <field name="name">Temporaire Deces</field>
+            <field name="lst_price">1.0</field>
+        </record>
+        <record id="product_template_tr_chantier__montage_r0" model="product.template">
+            <field name="list_price">1.0</field>
+            <field name="sale_ok" eval="True"/>
+            <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
+            <field name="standard_price">0.0</field>
+            <field name="mes_type">fixed</field>
+            <field name="uom_id" ref="product.product_uom_unit"/>
+            <field name="is_warranty" eval="True"/>
+            <field name="default_code">T3TR Chantier / Montage</field>
+            <field name="uos_coeff">1.0</field>
+            <field name="branch_id" ref="insurance_management.insurance_branch_engineering"/>
+            <field name="commissionable" eval="False"/>
+            <field name="ins_product_id" ref="insurance_management.aro_tous_risque_chantier_sr0"/>
+            <field name="categ_id" ref="aro_custom_v8.product_category_403"/>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="uom_po_id" ref="product.product_uom_unit"/>
+            <field name="type">service</field>
+            <field name="description">NOT_WARRANTY</field>
+            <field name="type_risk_id" ref="insurance_management.insurance_type_risk_trcm_r0"/>
+            <field name="volume">0.0</field>
+            <field name="active" eval="True"/>
+            <field name="branch_categ">T</field>
+            <field name="name">TR Chantier / Montage</field>
+            <field name="lst_price">1.0</field>
         </record>
     </data>
 </openerp>
