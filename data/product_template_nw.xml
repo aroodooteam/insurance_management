@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <record id="product_template_accidents_de_travail_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_accidents_de_travail_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -26,7 +26,7 @@
             <field name="name">Accidents de travail</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_accident_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_accident_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -51,7 +51,7 @@
             <field name="name">Accident</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_afp_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_afp_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -76,7 +76,7 @@
             <field name="name">AFP</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_assistance_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_assistance_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -101,7 +101,7 @@
             <field name="name">Assistance</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_assurance_maladie_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_assurance_maladie_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -126,7 +126,7 @@
             <field name="name">Assurance Maladie</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_autre_grande_branche_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_autre_grande_branche_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -151,7 +151,7 @@
             <field name="name">Autre Grande Branche</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_aviation_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_aviation_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -176,7 +176,7 @@
             <field name="name">Aviation</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_corps_de_navire_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_corps_de_navire_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -201,7 +201,7 @@
             <field name="name">Corps de Navire</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_facultes_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_facultes_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -226,7 +226,7 @@
             <field name="name">Facultes</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_flotte_auto_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_flotte_auto_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -251,7 +251,7 @@
             <field name="name">Flotte Auto</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_global_dommages_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_global_dommages_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -276,7 +276,7 @@
             <field name="name">Global Dommages</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_groupe_deces_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_groupe_deces_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -301,7 +301,7 @@
             <field name="name">Groupe Deces</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_incendie_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_incendie_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -326,7 +326,7 @@
             <field name="name">Incendie</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_interet_avance_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_interet_avance_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -351,7 +351,7 @@
             <field name="name">INTERET AVANCE</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_mono_auto_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_mono_auto_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -376,7 +376,7 @@
             <field name="name">Mono Auto</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_rc_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_rc_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -401,7 +401,7 @@
             <field name="name">RC</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_rc_accident_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_rc_accident_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -426,7 +426,7 @@
             <field name="name">RC Accident</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_rc_decennale_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_rc_decennale_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -451,7 +451,7 @@
             <field name="name">RC Decennale</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_rc_diverses_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_rc_diverses_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -476,7 +476,7 @@
             <field name="name">RC Diverses</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_rente_education_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_rente_education_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -501,7 +501,7 @@
             <field name="name">Rente Education</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_retraite_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_retraite_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -526,7 +526,7 @@
             <field name="name">Retraite</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_risques_agricoles_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_risques_agricoles_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -551,7 +551,7 @@
             <field name="name">Risques Agricoles</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_risques_divers_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_risques_divers_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -576,7 +576,7 @@
             <field name="name">Risques Divers</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_risques_financiers_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_risques_financiers_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -601,7 +601,7 @@
             <field name="name">Risques Financiers</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_risques_speciaux_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_risques_speciaux_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -626,7 +626,7 @@
             <field name="name">Risques Speciaux</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_temporaire_deces_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_temporaire_deces_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
@@ -651,7 +651,7 @@
             <field name="name">Temporaire Deces</field>
             <field name="lst_price">1.0</field>
         </record>
-        <record id="product_template_tr_chantier__montage_r0" model="product.template">
+        <record id="aro_custom_v8.product_template_tr_chantier__montage_r0" model="product.template">
             <field name="list_price">1.0</field>
             <field name="sale_ok" eval="True"/>
             <field name="message_follower_ids" eval="[(4, ref('base.partner_root'))]"/>
