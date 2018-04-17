@@ -4,11 +4,11 @@
     "name": 'Insurance Management',
     "version": "0.1",
     "depends": [
+        'base',
         'account',
         'account_journal_agency',
         'analytic',
         'aro_custom_v8',
-        'base',
         'commission',
         'insurance_setup',
         'product',
@@ -28,6 +28,7 @@
         'data/insurance_type_risk_clause_data.xml',
         'data/analytic_history_stage_data.xml',
         'data/product_template_data.xml',
+        'data/product_template_nw.xml',
         'views/menu.xml',
         'views/product_template_view.xml',
         'views/insurance_branch_view.xml',
@@ -49,6 +50,5 @@
         'data/ir_sequence_type_data.xml',
         'data/ir_sequence_data.xml',
         'wizard/analytic_history_movement_view.xml',
-        'data/product_template_nw.xml',
     ],
 }
