@@ -375,8 +375,8 @@ class AccountAnalyticAccount(models.Model):
             'journal_id': self._get_user_journal().analytic_journal_id.id,
             'date': dt.now(),
             # 'general_account_id': warranty_id.warranty_id.property_account_income.id,
-            'hist_id': self.id,
-            'unit_amount': 1,
+            # 'hist_id': self.id,
+            # 'unit_amount': 1,
         }
         product_obj = self.env['product.product']
         access_tmpl_id = False
@@ -407,13 +407,13 @@ class AccountAnalyticAccount(models.Model):
                 new_amount = 0
                 if warranty_id.parent_id:
                     if warranty_id.parent_id.proratee_net_amount != warranty_id.proratee_net_amount:
-                        new_amount = warranty_id.proratee_net_amount- warranty_id.parent_id.proratee_net_amount
+                        new_amount = warranty_id.proratee_net_amount - warranty_id.parent_id.proratee_net_amount
                     else:
                         continue
                 else:
                     new_amount = warranty_id.proratee_net_amount
                 vals = {
-                    'product_id': warranty_id.id,
+                    'product_id': warranty_id.warranty_id.id,
                     'amount': new_amount,
                     'name': self.name + ' - ' + warranty_id.name,
                     'journal_id': self._get_user_journal().analytic_journal_id.id,
@@ -431,7 +431,7 @@ class AccountAnalyticAccount(models.Model):
                 aal_ids.unlink()
             for warranty_id in warranty_ids:
                 vals = {
-                    'product_id': warranty_id.id,
+                    'product_id': warranty_id.warranty_id.id,
                     'amount': warranty_id.proratee_net_amount,
                     'name': self.name + ' - ' + warranty_id.name,
                     'journal_id': self._get_user_journal().analytic_journal_id.id,
@@ -850,9 +850,10 @@ class AccountAnalyticAccount(models.Model):
         invline_obj = self.env['account.invoice.line']
         # warranty_ids = self.analytic_line_ids.mapped('product_id')
         period_id = self.env['account.period'].search([('date_start','<=', self.date_start),('date_stop','>=', self.date),('special', '=', False)])
-        sum_proratee = self.line_ids.mapped('amount_to_invoice')
+        sum_proratee = self.prod_line_ids.mapped('amount')
         sum_proratee = sum(sum_proratee)
         logger.info('sum_proratee = %s' % sum_proratee)
+        default_tva = self.env['account.tax'].search([('description','=','Tva-20.0')])
         inv_vals = {
             'name': self.name,
             'state': 'draft',
@@ -872,20 +873,30 @@ class AccountAnalyticAccount(models.Model):
             'period_id': period_id.id,
         }
         inv = inv_obj.create(inv_vals)
-        for analytic in self.line_ids:
+        for analytic in self.prod_line_ids:
+            taxes = []
             regte_id = self._get_reg_tax(analytic.product_id, self.property_account_position)
+            if regte_id:
+                taxes = regte_id.ids
+            if analytic.product_id.taxes_id:
+                taxes.append(analytic.product_id.taxes_id.id)
+            else:
+                taxes.append(default_tva.id)
             logger.info('\n *-*-* regte = %s' % regte_id)
             invline_vals = {
                 'product_id': analytic.product_id.id,
                 'name': analytic.name,
-                'account_id': analytic.general_account_id.id,
-                'account_analytic_id': analytic.account_id.id,
+                'account_id': analytic.account_id.id,
+                # 'account_analytic_id': analytic.account_id.id,
+                'account_analytic_id': self.id,
                 'quantity': 1,
-                'price_unit': analytic.amount_to_invoice if sum_proratee > 0 else (-1) * analytic.amount_to_invoice,
-                'invoice_line_tax_id': [(6,0,regte_id.ids)],
+                'price_unit': analytic.amount if sum_proratee > 0 else (-1) * analytic.amount,
+                # 'invoice_line_tax_id': [(6,0,regte_id.ids)],
+                'invoice_line_tax_id': [(6,0,taxes)],
                 'invoice_id': inv.id
             }
+            logger.info('invline_vals = %s' % invline_vals)
             invline_obj.create(invline_vals)
-        self.line_ids.write({'invoice_id': inv.id})
+        self.prod_line_ids.write({'invoice_id': inv.id})
         self.write({'invoice_id': inv.id})
         inv.button_reset_taxes()
