@@ -30,8 +30,9 @@
                         <button string="Validate" icon="gtk-ok" states="draft" type="object" name="open_policy"/>
                         <button string="Confirm" icon="gtk-ok" type="object"
                             name="generateAnalyticLines"
-                            attrs="{'invisible': [('type','!=','contract')]}"/>
-                        <button string="Gen Invoice" type="object" name="generateInvoiceAnalyticLine"/>
+                            attrs="{'invisible': ['|',('type','!=','contract'),('invoice_id','!=',False)]}"/>
+                        <button string="Gen Invoice" type="object" name="generateInvoiceAnalyticLine"
+                            attrs="{'invisible': ['|',('type','!=','contract'),('invoice_id','!=',False),('prod_line_ids','=', False)]}"/>
                         <field name="state" readonly="1" widget="statusbar"
                             statusbar_visible="draft,open,pending,suspend,close,cancelled"
                             statusbar_colors='{"pending":"red", "template":"blue"}'
@@ -93,10 +94,10 @@
                             </group>
                             <group>
                                 <!--<field name="type" invisible="context.get('default_type', False)"/>-->
-                                <field name="type"/>
+                                <field name="type" groups="base.group_erp_manager"/>
                                 <field name="ver_parent_id" attrs="{'invisible': [('ver_parent_id','=', False)]}"/>
                                 <field name="code" invisible="1"/>
-                                <field name="pol_ident" attrs="{'invisible': [('is_insurance', '!=', True)]}"/>
+                                <field name="pol_ident" attrs="{'invisible': [('is_insurance', '!=', True)]}" groups="base.group_erp_manager"/>
                                 <!--<field name="parent_id" on_change="on_change_parent(parent_id)" attrs="{'invisible': [('type', '=', 'view')]}"/>-->
                                 <field name="parent_id" attrs="{'invisible': [('type', '=', 'view')]}"/>
                                 <field name="company_id" on_change="on_change_company(company_id)" widget="selection" groups="base.group_multi_company" attrs="{'required': [('type','&lt;&gt;','view')]}"/>
@@ -210,7 +211,7 @@
                                 </field>
                             </page>
                             <page string="Prod Lines" name="Prod Lines" attrs="{'invisible': [('type', '=', 'view')]}">
-                                <field name="prod_line_ids">
+                                <field name="prod_line_ids" readonly="1">
                                     <tree string="Lines">
                                         <field name="product_id"/>
                                         <field name="journal_id"/>
@@ -259,11 +260,11 @@
                 <tree toolbar="1" create="false" colors="red:state=='pending';grey:state in ('cancelled','close');blue:type=='view'" string="Analytic Accounts">
                     <field name="complete_name"/>
                     <field name="partner_id"/>
-                    <field name="code"/>
+                    <field name="code" invisible="1"/>
                     <field name="date_start"/>
                     <field name="date"/>
                     <field name="user_id" invisible="1"/>
-                    <field name="manager_id"/>
+                    <field name="manager_id" invisible="1"/>
                     <field name="parent_id" invisible="1"/>
                     <field name="state" invisible="1"/>
                     <field name="type" invisible="1"/>
@@ -271,6 +272,18 @@
                     <field name="is_last_situation"/>
                     <field name="company_id" groups="base.group_multi_company"/>
                 </tree>
+            </field>
+        </record>
+
+        <record id="view_aaa_tree_inherit_r0" model="ir.ui.view">
+            <field name="name">account.analytic.account.tree.inh</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="account.view_account_analytic_account_list"/>
+            <field name="priority" eval="16"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='code']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
             </field>
         </record>
 
