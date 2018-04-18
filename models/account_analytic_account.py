@@ -436,7 +436,7 @@ class AccountAnalyticAccount(models.Model):
                     'name': self.name + ' - ' + warranty_id.name,
                     'journal_id': self._get_user_journal().analytic_journal_id.id,
                     'date': dt.now(),
-                    'account_id': warranty_id.warranty_id.property_account_income.id,
+                    'account_id': warranty_id.warranty_id.property_account_income.id or warranty_id.warranty_id.categ_id.property_account_income_categ.id,
                     'analytic_id': self.id,
                 }
                 logger.info('aal_vals = %s' % vals)
@@ -854,6 +854,7 @@ class AccountAnalyticAccount(models.Model):
         sum_proratee = sum(sum_proratee)
         logger.info('sum_proratee = %s' % sum_proratee)
         default_tva = self.env['account.tax'].search([('description','=','Tva-20.0')])
+        default_account = self.env['account.account'].search([('code', '=', '410000')])
         inv_vals = {
             'name': self.name,
             'state': 'draft',
@@ -868,10 +869,11 @@ class AccountAnalyticAccount(models.Model):
             'origin': self.parent_id.name or 'Undefined' +'/'+ self.name or 'Undefined',
             'pol_numpol': self.parent_id.name,
             'journal_id': self._get_user_journal().id,
-            'account_id': self.parent_id.partner_id.property_account_receivable.id,
+            'account_id': self.parent_id.partner_id.property_account_receivable.id or default_account.id,
             'comment': self.comment,
             'period_id': period_id.id,
         }
+        logger.info('inv_vals = %s' % inv_vals)
         inv = inv_obj.create(inv_vals)
         for analytic in self.prod_line_ids:
             taxes = []
@@ -886,7 +888,7 @@ class AccountAnalyticAccount(models.Model):
             invline_vals = {
                 'product_id': analytic.product_id.id,
                 'name': analytic.name,
-                'account_id': analytic.account_id.id,
+                'account_id': analytic.account_id.id or analytic.product_id.property_account_income.id,
                 # 'account_analytic_id': analytic.account_id.id,
                 'account_analytic_id': self.id,
                 'quantity': 1,
