@@ -30,9 +30,13 @@
                         <button string="Validate" icon="gtk-ok" states="draft" type="object" name="open_policy"/>
                         <button string="Confirm" icon="gtk-ok" type="object"
                             name="generateAnalyticLines"
-                            attrs="{'invisible': ['|',('type','!=','contract'),('invoice_id','!=',False)]}"/>
+                            attrs="{'invisible': ['|','|',('type','!=','contract'),('invoice_id','!=',False)]}"/>
+                        <button string="Make Order" icon="gtk-ok" type="object"
+                            name="generateSaleOrder"
+                            attrs="{'invisible': ['|','|',('type','!=','contract'),('invoice_id','!=',False)]}"/>
+                            <!--attrs="{'invisible': ['|','|',('type','!=','contract'),('invoice_id','!=',False),('prod_line_ids','!=', False)]}"/>-->
                         <button string="Gen Invoice" type="object" name="generateInvoiceAnalyticLine"
-                            attrs="{'invisible': ['|',('type','!=','contract'),('invoice_id','!=',False),('prod_line_ids','=', False)]}"/>
+                            attrs="{'invisible': ['|',('type','!=','contract'),('invoice_id','!=',False)]}"/>
                         <field name="state" readonly="1" widget="statusbar"
                             statusbar_visible="draft,open,pending,suspend,close,cancelled"
                             statusbar_colors='{"pending":"red", "template":"blue"}'
@@ -63,15 +67,15 @@
                         <div class="oe_title">
                         <label for="name" class="oe_edit_only"/>
                             <h1>
-                                <field name="name" class="oe_inline"/>
+                                <field name="name" class="oe_inline" attrs="{'readonly': [('invoice_id', '!=', False)]}"/>
                             </h1>
                             <div name="project"/>
-                            <div name="insurance">
-                                <field name="is_insurance"/>
+                            <div name="insurance" attrs="{'readonly': [('invoice_id', '!=', False)]}">
+                                <field name="is_insurance" attrs="{'readonly': [('invoice_id', '!=', False)]}"/>
                                 <label for="is_insurance"/>
-                                <field name="is_recurrent" attrs="{'invisible': [('type', '!=', 'view')]}"/>
+                                <field name="is_recurrent" attrs="{'invisible': [('type', '!=', 'view')], 'readonly': [('invoice_id', '!=', False)]}"/>
                                 <label for="is_recurrent" attrs="{'invisible': [('type', '!=', 'view')]}"/>
-                                <field name="is_last_situation" attrs="{'invisible': [('type', '=', 'view')]}"/>
+                                <field name="is_last_situation" attrs="{'invisible': [('type', '=', 'view')], 'readonly': [('invoice_id', '!=', False)]}"/>
                                 <label for="is_last_situation" attrs="{'invisible': [('type', '=', 'view')]}"/>
                             </div>
                         </div>
@@ -79,11 +83,12 @@
                         <group name="main">
                             <group>
                                 <!--<field name="partner_id" on_change="on_change_partner_id(partner_id, name)"/>-->
-                                <field name="partner_id" string="Subscriber" attrs="{'required': [('is_insurance', '=', True)]}"/>
+                                <field name="partner_id" string="Subscriber" attrs="{'required': [('is_insurance', '=', True)], 'readonly': [('invoice_id', '!=', False)]}"/>
                                 <field name="property_account_position" placeholder="Fiscal position"
-                                    attrs="{'invisible': [('partner_id','=', False),('is_insurance', '!=', True)], 'readonly': [('history_stage', 'not in', (False, %(insurance_management.devis)d))]}"/>
-                                <field name="insured_id" attrs="{'required': [('is_insurance', '=', True)], 'invisible': [('is_insurance', '!=', True)]}"/>
-                                <field name="manager_id" context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'account.group_account_manager']}"/>
+                                    attrs="{'invisible': [('partner_id','=', False),('is_insurance', '!=', True)], 'readonly': ['|',('history_stage', 'not in', (False, %(insurance_management.devis)d)),('invoice_id','!=', False)]}"/>
+                                <field name="insured_id" attrs="{'required': [('is_insurance', '=', True)], 'invisible': [('is_insurance', '!=', True)], 'readonly': [('invoice_id', '!=', False)]}"/>
+                                <field name="manager_id" context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'account.group_account_manager']}"
+                                     attrs="{'readonly': [('invoice_id', '!=', False)]}"/>
                                 <field name="branch_id" attrs="{'required': [('is_insurance', '=', True)], 'invisible': [('is_insurance', '!=', True)], 'readonly':[('type','=','contract')]}"/>
                                 <field name="ins_product_id" attrs="{'required': [('is_insurance', '=', True)], 'invisible': [('is_insurance', '!=', True)], 'readonly':[('type','=','contract')]}"/>
                                 <field name="fraction_ids" placeholder="Insurance fractions" invisible="1"/>
@@ -91,6 +96,7 @@
                                 <field name="history_stage" options="{'no_open': True}" attrs="{'invisible': [('is_insurance', '!=', True)]}"/>
                                 <!--<field name="currency_id" attrs="{'invisible': ['|',('type', '&lt;&gt;', 'view'), ('company_id', '&lt;&gt;', False)]}"/>-->
                                 <field name="currency_id" attrs="{'invisible': [('type', '!=', 'view')]}"/>
+                                <field name="order_id"/>
                             </group>
                             <group>
                                 <!--<field name="type" invisible="context.get('default_type', False)"/>-->
