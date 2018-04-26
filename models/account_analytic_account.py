@@ -97,6 +97,7 @@ class AccountAnalyticAccount(models.Model):
     prod_line_ids = fields.One2many(comodel_name='analytic.prod.lines', inverse_name='analytic_id', string='Prod Lines', help='Record used to generate invoice')
     # Temporary field
     ver_ident = fields.Char(string='Ver Ident')
+    order_id = fields.Many2one(comodel_name='sale.order', string='Order')
 
     @api.one
     @api.depends('child_ids')
@@ -902,3 +903,99 @@ class AccountAnalyticAccount(models.Model):
         self.prod_line_ids.write({'invoice_id': inv.id})
         self.write({'invoice_id': inv.id})
         inv.button_reset_taxes()
+
+    @api.one
+    def generateSaleOrderLine(self):
+        """
+        Return list of dict to be inserted in Sale Order Line
+        """
+        default_tva = self.env['account.tax'].search([('description','=','Tva-20.0')])
+        default_account = self.env['account.account'].search([('code', '=', '410000')])
+        warranty_ids = self.risk_line_ids.mapped('warranty_line_ids')
+        all_vals = []
+        if self.stage_id.id == self.env.ref('insurance_management.avenant').id:
+            logger.info('TEST')
+            for warranty_id in warranty_ids:
+                taxes = []
+                regte_id = self._get_reg_tax(warranty_id.warranty_id, self.property_account_position)
+                if regte_id:
+                    taxes = regte_id.ids
+                if warranty_id.warranty_id.taxes_id:
+                    taxes.append(warranty_id.warranty_id.taxes_id.id)
+                else:
+                    taxes.append(default_tva.id)
+                new_amount = 0
+                if warranty_id.parent_id:
+                    if warranty_id.parent_id.proratee_net_amount != warranty_id.proratee_net_amount:
+                        new_amount = warranty_id.proratee_net_amount - warranty_id.parent_id.proratee_net_amount
+                    else:
+                        continue
+                else:
+                    new_amount = warranty_id.proratee_net_amount
+                vals = {
+                    'product_id': warranty_id.warranty_id.id,
+                    'price_unit': new_amount,
+                    'name': self.name + ' - ' + warranty_id.name,
+                    'product_uom_qty': 1,
+                    'tax_id': [(6,0,taxes)],
+                }
+                all_vals.append(vals)
+        else:
+            for warranty_id in warranty_ids:
+                taxes = []
+                regte_id = self._get_reg_tax(warranty_id.warranty_id, self.property_account_position)
+                if regte_id:
+                    taxes = regte_id.ids
+                if warranty_id.warranty_id.taxes_id:
+                    taxes.append(warranty_id.warranty_id.taxes_id.id)
+                else:
+                    taxes.append(default_tva.id)
+                vals = {
+                    'product_id': warranty_id.warranty_id.id,
+                    'price_unit': warranty_id.proratee_net_amount,
+                    'name': self.name + ' - ' + warranty_id.name,
+                    'product_uom_qty': 1,
+                    'tax_id': [(6,0,taxes)],
+                }
+                all_vals.append(vals)
+        # analytic line for accessories
+        access_vals = self.GetAccessAmount()
+        access_vals.pop('account_id')
+        access_vals.pop('analytic_id')
+        access_vals.pop('journal_id')
+        access_vals.pop('date')
+        access_vals['price_unit'] = access_vals.pop('amount')
+        access_vals['product_uom_qty'] = 1
+        access_vals['tax_id'] = [(6,0,taxes)]
+        logger.info('acc_vals = %s' % access_vals)
+        all_vals.append(access_vals)
+        return all_vals
+
+    @api.one
+    def generateSaleOrder(self):
+        if self.order_id and self.order_id.state != 'draft':
+            raise exceptions.Warning(_('Can not delete SO validated'))
+        self.order_id.unlink()
+        so_vals = {
+            'state': 'draft',
+            'partner_id': self.partner_id.id,
+            'date_order': dt.now(),
+            'project_id': self.id,
+            'client_order_ref': '/',
+            'user_id': self._uid,
+            'origin': self.name,
+            'fiscal_position': self.property_account_position.id,
+            'final_customer_id': self.insured_id.id,
+            'agency_id': self.agency_id.id
+        }
+        so_obj = self.env['sale.order']
+        sol_obj = self.env['sale.order.line']
+        order_id = so_obj.create(so_vals)
+        self.write({'order_id': order_id.id})
+        # start fill order_line
+        so_line_vals = self.generateSaleOrderLine()
+        logger.info('so_line_vals = %s' % so_line_vals)
+        for so_line in so_line_vals[0]:
+            so_line['order_id'] = order_id.id
+            sol_obj.create(so_line)
+        return {}
