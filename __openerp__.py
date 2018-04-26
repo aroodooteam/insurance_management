@@ -50,5 +50,6 @@
         'data/ir_sequence_type_data.xml',
         'data/ir_sequence_data.xml',
         'wizard/analytic_history_movement_view.xml',
+        'views/sale_order_view.xml',
     ],
 }
