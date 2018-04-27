@@ -776,8 +776,8 @@ class AccountAnalyticAccount(models.Model):
 
     @api.model
     def create(self, vals):
-        analytic_obj = self.env['account.analytic.account']
-        analytic_id = analytic_obj.browse(self._context.get('default_parent_id'))
+        # analytic_obj = self.env['account.analytic.account']
+        analytic_id = self.browse(self._context.get('default_parent_id'))
         logger.info('create a_id = %s' % analytic_id)
         logger.info('create version_type = %s' % self._context.get('version_type'))
         # increment next_sequence in analytic_account
