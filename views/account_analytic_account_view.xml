@@ -111,6 +111,7 @@
                                 <field name="date"/>
                                 <field name="nb_of_days"/>
                                 <field name="agency_id"/>
+                                <field name="next_sequence"/>
                                 <label for="force_acs" string="Force accessories" attrs="{'invisible': [('type', '=', 'view')]}"/>
                                 <div name="force_acs" attrs="{'invisible': [('type', '=', 'view')]}">
                                     <field name="force_acs" class="oe_inline"/>
