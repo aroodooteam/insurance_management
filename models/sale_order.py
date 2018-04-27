@@ -19,8 +19,10 @@ class SaleOrder(models.Model):
         acc_obj = self.pool['account.account']
         acc_id = acc_obj.search(cr, uid, [('code','=','411100')], context)
         logger.info('acc_id = %s' % acc_id)
-        res['journal_id'] = order._get_user_journal()[0]
-        res['journal_id'] = res.get('journal_id').id
+        new_journal = order._get_user_journal()[0]
+        if new_journal:
+            new_journal = new_journal.id
+            res['journal_id'] = new_journal
         if order.project_id:
             res['history_id'] = order.project_id.id
             res['analytic_id'] = order.project_id.parent_id.id
