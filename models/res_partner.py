@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, api, fields, exceptions
+import logging
+logger = logging.getLogger(__name__)
 
 
 class ResPartner(models.Model):
@@ -19,3 +21,14 @@ class ResPartner(models.Model):
     account_charge_vie_id = fields.Many2one('account.account', string='Expense Account Life')
     account_charge_id = fields.Many2one('account.account', string='Expense Account')
     ref_unique = fields.Char(string='Unique Reference')
+
+    @api.multi
+    def name_get(self):
+        res = super(ResPartner, self).name_get()
+        result = []
+        for rec in res:
+            partner = self.browse(rec[0])
+            ref = partner.ref or ''
+            name = '[' + ref + '] ' + partner.name
+            result.append((rec[0], name))
+        return result
