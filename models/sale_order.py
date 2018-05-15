@@ -19,7 +19,9 @@ class SaleOrder(models.Model):
         acc_obj = self.pool['account.account']
         acc_id = acc_obj.search(cr, uid, [('code','=','411100')], context)
         logger.info('acc_id = %s' % acc_id)
-        new_journal = order._get_user_journal()[0]
+        if order.amount_total < 0:
+            res['type'] = 'out_refund'
+        new_journal = order._get_user_journal(res['type'])[0]
         if new_journal:
             new_journal = new_journal.id
             res['journal_id'] = new_journal
@@ -37,9 +39,14 @@ class SaleOrder(models.Model):
         return res
 
     @api.one
-    def _get_user_journal(self):
+    def _get_user_journal(self, invoice_type='out_invoice'):
         journal_obj = self.env['account.journal']
         user_obj = self.env['res.users']
+        domain = [('type', '=', 'sale')]
+        jrn_type = 'P'
+        if invoice_type == 'out_refund':
+            jrn_type = 'V'
+            domain = [('type', '=', 'sale_refund')]
         insurance_type = self.project_id.branch_id.type
         user = self._uid
         user_id = user_obj.browse(user)
@@ -48,12 +55,12 @@ class SaleOrder(models.Model):
             raise Warning(_('Please contact your Administrator to set your agency'))
         else:
             agency_id = self.agency_id
-        domain = [('type', '=', 'sale'), ('agency_id', '=', agency_id.id)]
+        domain.append(('agency_id', '=', agency_id.id))
         if insurance_type == 'N':
-            journal_code = 'PN%s' % agency_id.code
+            journal_code = '%sN%s' % (jrn_type,agency_id.code)
             domain.append(('code', '=', journal_code))
         else:
-            journal_code = 'PV%s' % agency_id.code
+            journal_code = '%sV%s' % (jrn_type,agency_id.code)
             domain.append(('code', '=', journal_code))
         journal_id = journal_obj.search(domain)
         logger.info('=== journal_id = %s => %s' % (journal_id, journal_id.name))
