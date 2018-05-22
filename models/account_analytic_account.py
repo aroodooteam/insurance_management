@@ -127,18 +127,19 @@ class AccountAnalyticAccount(models.Model):
         if fraction_ids:
             self.fraction_id = fraction_ids.ids[0]
 
-    # @api.onchange('partner_id')
-    # def on_change_partner_id(self):
-    #     res = super(AccountAnalyticAccount, self).on_change_partner_id(self.partner_id.id, self.name)
-    #     logger.info('=== res = %s' % res)
-    #     values = res.get('value', {})
-    #     if values.get('name'):
-    #         self.name = values.get('name')
-    #     self.pricelist_id = values.get('pricelist_id')
-    #     if values.get('manager_id', False):
-    #         self.manager_id = values.get('manager_id')
-    #     self.property_account_position = self.partner_id.property_account_position.id
-    #     self.insured_id = self.partner_id.id
+    # TODO
+    @api.onchange('partner_id')
+    def on_change_partner_id(self):
+        res = super(AccountAnalyticAccount, self).on_change_partner_id(self.partner_id.id, self.name)
+        logger.info('=== res = %s' % res)
+        values = res.get('value', {})
+        if values.get('name'):
+            self.name = values.get('name')
+        self.pricelist_id = values.get('pricelist_id')
+        if values.get('manager_id', False):
+            self.manager_id = values.get('manager_id')
+        self.property_account_position = self.partner_id.property_account_position.id
+        self.insured_id = self.partner_id.id
 
     # def open_hr_expense(self, cr, uid, ids, context=None):
     @api.multi

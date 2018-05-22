@@ -13,3 +13,4 @@ class AnalyticProdLines(models.Model):
     journal_id = fields.Many2one(comodel_name='account.analytic.journal', string='Analytic Journal')
     analytic_id = fields.Many2one(comodel_name='account.analytic.account', string='Analytic', help='Version')
     account_id = fields.Many2one(comodel_name='account.account', string='Account')
+    invoice_id = fields.Many2one(comodel_name='account.invoice', string='Invoice')
